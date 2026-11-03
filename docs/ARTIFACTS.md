@@ -26,7 +26,7 @@ The stored records concern model experiments, not individual image subjects. Ima
 - `nb201_v1/evaluate*.py`: classical replication adapters; these require collected acquisition snapshots, not just the committed prediction panels.
 - `nb201_v1/launch.py`, `full.py`, `cifar100.py`, `imagenet16.py`, `qwen_launch.py`, `qwen_imagenet16.py`: historical cluster-specific acquisition/bundle builders. Some require immutable earlier pilot bundles and framework sources that are not included. Do not interpret their presence as a ready deployment.
 - `evidence/reproduce_*_tables.py`: historical archive readers. Their original input archives and reference logs are not redistributed in this initial upload; do not run their defaults expecting a complete archive.
-- `evidence/two-experiments-final-v1/analyze.py`: historical archive-based producer; needs its original `two-experiments-inputs-v1.zip`. The committed standardized predictions support the independent read-only descriptive check without that archive.
+- `evidence/two-experiments-final-v1/analyze.py`: historical archive-based producer; its original input is now included as `evidence/two-experiments-inputs-v1.zip`. The producer was not rerun as part of that archive upload; the existing read-only verifier uses standardized predictions without overwriting results.
 - `paper_figures/layer_cost_pareto/plot_pareto.py` and `figures/methodology_v4/make_diagrams.py`: plotting/diagram source. Copied as-is; final manuscript diagram refinements are not implied by this snapshot.
 
 ## Still to add or review

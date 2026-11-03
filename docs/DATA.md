@@ -29,3 +29,15 @@ python -m zipfile -e data.zip data/initial-four-condition
 ```
 
 The `data/` extraction destination is ignored by Git. Existing source and dataset terms continue to apply; no blanket relicensing of embedded architecture/transformation code is implied.
+
+## Grouped-split prompts and follow-up experiment inputs
+
+[evidence/two-experiments-inputs-v1.zip](../evidence/two-experiments-inputs-v1.zip) is the separate, unchanged grouped-split evidence archive.
+
+- SHA-256: `e3629395b79631261ea11675a41c46d5ddc6a2b5b76c87015dab955d2249bd1e`.
+- Size: 2,282,797 bytes; 230 payload files plus `manifest.json`. All payload hashes were checked against that manifest.
+- Includes train/validation/test prompts under `files/zcp-off-toggle-refit7-v1/prompts/{3acc-no-layer,3acc-taylor}/`, with **978/58/115 records** in each condition and no cross-partition architecture-ID overlap. Final predictor refits combine training and validation into 1,036 records.
+- Also contains classical eight-feature and epoch-1 Taylor experiment evidence, reference predictions, scripts, contracts, logs and training metadata. It is not a complete archive of all feature conditions or GPU model checkpoints.
+- Historical host paths remain as provenance. The three `training_args.bin` files are serialized training metadata, not weights; do not unpickle binary files from untrusted sources. Publication verification did not deserialize them.
+
+The original `data.zip` above remains the **initial split**. These two archives must not be treated as interchangeable preparations.

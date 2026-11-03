@@ -50,6 +50,8 @@ See [artifact coverage](docs/ARTIFACTS.md) for scope and external inputs. Existi
 
 The author-supplied [data.zip](data.zip) contains the 1,151-record snapshots and prepared prompts for the **initial 1,082/47/22 split**, not the later grouped evaluation. See [data contents and checksum](docs/DATA.md) before use. The original archive is preserved unchanged.
 
+The separate [grouped-split experiment archive](evidence/two-experiments-inputs-v1.zip) includes the **978/58/115** no-layer and Taylor prompt partitions, plus classical and checkpoint-ablation evidence. Its original manifest and all 230 payload hashes are preserved and verified; see the data note for scope.
+
 ## Quick start: verify committed predictions
 
 Python 3.11 or newer is recommended. From a shell:
