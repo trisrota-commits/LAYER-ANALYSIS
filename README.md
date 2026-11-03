@@ -46,6 +46,10 @@ evidence/
 
 See [artifact coverage](docs/ARTIFACTS.md) for scope and external inputs. Existing relative paths are retained where analysis scripts depend on them. No private meeting transcripts, chat summaries, administrative documents, credentials, model weights or image datasets are included.
 
+## Predictor snapshot data
+
+The author-supplied [data.zip](data.zip) contains the 1,151-record snapshots and prepared prompts for the **initial 1,082/47/22 split**, not the later grouped evaluation. See [data contents and checksum](docs/DATA.md) before use. The original archive is preserved unchanged.
+
 ## Quick start: verify committed predictions
 
 Python 3.11 or newer is recommended. From a shell:
