@@ -31,7 +31,7 @@ The stored records concern model experiments, not individual image subjects. Ima
 
 ## Still to add or review
 
-1. `LayerAnalysis.py` and the authoritative external integration files, as explicitly deferred.
+1. The authoritative external integration files. `LayerAnalysis.py` is now included at the repository root as a byte-identical copy of the author-supplied file (SHA-256 `d2c28a5c34149206a32a3b26d04c4a06f2ea287a13a22a53db783c4e710d52fa`). This identifies the supplied source, not the extraction revision of every historical record. Syntax and copy integrity were checked; runtime behavior was not retested for this upload.
 2. Remaining off-laptop predictor/training source, with its actual revision and dependency environment.
 3. A reviewed, portable full-table evidence bundle for the remaining main-feature, combination, LODO/LOFO, initialization-proxy and timing results. Local archives exist but contain mixed historical payloads; they were not blindly uploaded.
 4. Canonical input manifests and any distributable acquisition snapshots needed for full refitting, after release-scope and licensing review.

@@ -4,7 +4,7 @@ Analysis code and selected numerical artifacts accompanying Trisrota Bose's mast
 
 The study asks whether internal network measurements improve prediction of later accuracy beyond early accuracy observations. Seven layer statistics are examined; the selected compact representation adds one layer-averaged activation-based Taylor value at each of epochs 1–3. The evaluation separates statistical association, incremental predictive value, measurement cost, and generalization.
 
-**This is an initial, partial research-artifact release.** The numerical checks below run from committed prediction files without a GPU. `LayerAnalysis.py`, the complete predictor-training integration, and remaining off-laptop files will be added later. This repository is not yet a self-contained rerun of all candidate training or every thesis table.
+**This is an initial, partial research-artifact release.** The numerical checks below run from committed prediction files without a GPU. `LayerAnalysis.py` is now included at the repository root from the author-supplied file; its upload was syntax-checked, not runtime-tested. It requires PyTorch, with optional WeightWatcher and openpyxl functionality. The complete predictor-training integration and remaining off-laptop files will be added later. This repository is not yet a self-contained rerun of all candidate training or every thesis table.
 
 ## Main evidence
 
