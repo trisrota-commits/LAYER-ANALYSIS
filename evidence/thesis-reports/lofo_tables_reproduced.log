@@ -1,0 +1,1155 @@
+LOFO TABLES: INDEPENDENT PREDICTION RECOMPUTATION
+archive=C:\Users\trisr\Desktop\thesis\evidence\holdout-reproduction-inputs-728444c5.zip
+archive_sha256=311fc68d41b988163b12a2af359280eea6433bd98a27ef7a274dbdf77e47cb69
+reference=C:\Users\trisr\Desktop\thesis\evidence\overleaf-logs-only-20261015-100424\experiment_logs\paired_holdout_tables.log
+reference_sha256=d0103094add082d23fcc5cd351debaadb9d571742aade0dfb931aacab09a8e29
+script_sha256=453c3ec0a17938b3721340582b6e5df859bc6275d3a3442e2368174680b6fd5c
+Python=3.11.15 NumPy=2.4.6 SciPy=1.17.1
+Seeds=42,43,44,45,46,47; all five metrics computed separately per seed then averaged.
+Descriptive CI=mean +/- scipy.stats.t.ppf(.975,5)*sample_std(ddof=1)/sqrt(6); unclipped.
+Bootstrap=10000; numpy.random.default_rng(0) reset each fold; PCG64; first-appearance architecture groups;
+rng.integers(0,group_count,size=group_count), concatenate every row of each sampled group in draw order.
+No seed resampling. Record-weighted metrics within each seed. Positive favors TaylorOFF: baseline-candidate errors, candidate-baseline correlations/R2.
+A draw is invalid per metric if ANY of six seed differences is nonfinite. CI=np.quantile(valid,[.025,.975],method=linear).
+CSV run_id is empty: ordered prompt architecture_id establishes grouping; CSV index/dataset/target alignment is checked, not an independent CSV architecture identifier.
+LIMITATION: original42-44 directories are the supplied seed cohort; absent seed receipts/training arguments cannot independently prove their fitting seeds.
+LIMITATION: source hashes recorded by historical contracts for files absent from archive cannot be revalidated. No training or inference executed.
+manifest_files_verified=677 manifest_sha256=36b77d68f7a42b5958a99504d3e89fbe3516fee98618f4259bef87be6523126b
+Historical pinned hashes verified when archived=19; unavailable unique files=53
+UNAVAILABLE_PINNED_SOURCE generalization-lodo-mnist-trainonly-v1.yaml
+UNAVAILABLE_PINNED_SOURCE nn-gpt/ab/gpt/act/acc_predictor/__init__.py
+UNAVAILABLE_PINNED_SOURCE nn-gpt/ab/gpt/act/acc_predictor/__main__.py
+UNAVAILABLE_PINNED_SOURCE nn-gpt/ab/gpt/act/acc_predictor/common.py
+UNAVAILABLE_PINNED_SOURCE nn-gpt/ab/gpt/act/acc_predictor/config.py
+UNAVAILABLE_PINNED_SOURCE nn-gpt/ab/gpt/act/acc_predictor/dataset.py
+UNAVAILABLE_PINNED_SOURCE nn-gpt/ab/gpt/act/acc_predictor/eval.py
+UNAVAILABLE_PINNED_SOURCE nn-gpt/ab/gpt/act/acc_predictor/features.py
+UNAVAILABLE_PINNED_SOURCE nn-gpt/ab/gpt/act/acc_predictor/infer.py
+UNAVAILABLE_PINNED_SOURCE nn-gpt/ab/gpt/act/acc_predictor/model.py
+UNAVAILABLE_PINNED_SOURCE nn-gpt/ab/gpt/act/acc_predictor/preprocess.py
+UNAVAILABLE_PINNED_SOURCE nn-gpt/ab/gpt/act/acc_predictor/train.py
+UNAVAILABLE_PINNED_SOURCE out/acc_predict_rebuilt_probe/llm_finetuning_data.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_cnn_3acc_trainonly_v1/layer/proxy_norm_provenance.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_cnn_3acc_trainonly_v1/layer/proxy_norm_stats.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_cnn_3acc_trainonly_v1/layer/train_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_cnn_3acc_trainonly_v1/layer/val_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_cnn_3acc_trainonly_v1/no_layer/proxy_norm_provenance.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_cnn_3acc_trainonly_v1/no_layer/proxy_norm_stats.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_cnn_3acc_trainonly_v1/no_layer/train_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_cnn_3acc_trainonly_v1/no_layer/val_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_detector_3acc_trainonly_v1/layer/proxy_norm_provenance.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_detector_3acc_trainonly_v1/layer/proxy_norm_stats.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_detector_3acc_trainonly_v1/layer/train_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_detector_3acc_trainonly_v1/layer/val_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_detector_3acc_trainonly_v1/no_layer/proxy_norm_provenance.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_detector_3acc_trainonly_v1/no_layer/proxy_norm_stats.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_detector_3acc_trainonly_v1/no_layer/train_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_detector_3acc_trainonly_v1/no_layer/val_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_other_3acc_trainonly_v1/layer/proxy_norm_provenance.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_other_3acc_trainonly_v1/layer/proxy_norm_stats.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_other_3acc_trainonly_v1/layer/train_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_other_3acc_trainonly_v1/layer/val_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_other_3acc_trainonly_v1/no_layer/proxy_norm_provenance.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_other_3acc_trainonly_v1/no_layer/proxy_norm_stats.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_other_3acc_trainonly_v1/no_layer/train_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_other_3acc_trainonly_v1/no_layer/val_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_segmentation_3acc_trainonly_v1/layer/proxy_norm_provenance.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_segmentation_3acc_trainonly_v1/layer/proxy_norm_stats.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_segmentation_3acc_trainonly_v1/layer/train_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_segmentation_3acc_trainonly_v1/layer/val_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_segmentation_3acc_trainonly_v1/no_layer/proxy_norm_provenance.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_segmentation_3acc_trainonly_v1/no_layer/proxy_norm_stats.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_segmentation_3acc_trainonly_v1/no_layer/train_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_segmentation_3acc_trainonly_v1/no_layer/val_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_transformer_3acc_trainonly_v1/layer/proxy_norm_provenance.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_transformer_3acc_trainonly_v1/layer/proxy_norm_stats.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_transformer_3acc_trainonly_v1/layer/train_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_transformer_3acc_trainonly_v1/layer/val_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_transformer_3acc_trainonly_v1/no_layer/proxy_norm_provenance.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_transformer_3acc_trainonly_v1/no_layer/proxy_norm_stats.json
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_transformer_3acc_trainonly_v1/no_layer/train_llm_dataset.jsonl
+UNAVAILABLE_PINNED_SOURCE out/generalization_prompts/lofo_transformer_3acc_trainonly_v1/no_layer/val_llm_dataset.jsonl
+FOLD cnn records=1023 groups=576 split_counts={"test": 1023, "train": 99, "validation": 17}
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s42/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s42/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s43/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s43/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s44/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/cnn-layer-s45/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/cnn-layer-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/cnn-layer-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/cnn-layer-s46/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/cnn-layer-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/cnn-layer-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/cnn-layer-s47/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/cnn-layer-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/cnn-layer-s47/test_predictions.csv
+PER_SEED cnn layerON s42 RMSE=12.9238673663434 MAE=7.73076246334311 Pearson=0.889034059408418 Spearman=0.89563224057787 R2=0.76409559432206
+PER_SEED cnn layerON s43 RMSE=12.7963710604497 MAE=7.72784946236559 Pearson=0.884503749889583 Spearman=0.890961104373378 R2=0.768727115548979
+PER_SEED cnn layerON s44 RMSE=13.3366926034613 MAE=7.80051808406647 Pearson=0.883018460967379 Spearman=0.890415894290006 R2=0.748783969164825
+PER_SEED cnn layerON s45 RMSE=12.3527077263264 MAE=7.62180840664712 Pearson=0.893910964032214 Spearman=0.900821797709639 R2=0.784486044120838
+PER_SEED cnn layerON s46 RMSE=14.2974061726212 MAE=8.61562072336266 Pearson=0.895815390472176 Spearman=0.903692853789545 R2=0.711287506661703
+PER_SEED cnn layerON s47 RMSE=14.1785094665849 MAE=8.26712609970675 Pearson=0.876034217667682 Spearman=0.881267542933397 R2=0.716069385716858
+DESCRIPTIVE cnn layerON RMSE=13.3142590660[12.4933877318,14.1351304002] MAE=7.9606142066[7.5486751012,8.3725533120] Pearson=0.8870528071[0.8793136123,0.8947920018] Spearman=0.8937985723[0.8853103923,0.9022867523] R2=0.7489082693[0.7178373559,0.7799791826]
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s42/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s42/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s43/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s43/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s44/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/cnn-no-layer-s45/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/cnn-no-layer-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/cnn-no-layer-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/cnn-no-layer-s46/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/cnn-no-layer-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/cnn-no-layer-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/cnn-no-layer-s47/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/cnn-no-layer-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/cnn-no-layer-s47/test_predictions.csv
+PER_SEED cnn no-layerON s42 RMSE=12.5031929841784 MAE=7.99765395894428 Pearson=0.912529419127249 Spearman=0.910100498679705 R2=0.779203118098795
+PER_SEED cnn no-layerON s43 RMSE=14.6725933395538 MAE=9.27734115347019 Pearson=0.898833304970609 Spearman=0.901468001775019 R2=0.695936122845422
+PER_SEED cnn no-layerON s44 RMSE=13.9162129508516 MAE=8.68450635386119 Pearson=0.893631119146231 Spearman=0.894742711261211 R2=0.726477410894677
+PER_SEED cnn no-layerON s45 RMSE=12.6517456710111 MAE=7.8917008797654 Pearson=0.896551876263341 Spearman=0.889490182977714 R2=0.773925294863229
+PER_SEED cnn no-layerON s46 RMSE=13.268301096165 MAE=8.262238514174 Pearson=0.902671689175671 Spearman=0.898381410010449 R2=0.751353870220605
+PER_SEED cnn no-layerON s47 RMSE=16.8886579904814 MAE=11.3253567937439 Pearson=0.867804003528375 Spearman=0.878243089315991 R2=0.597151872841558
+DESCRIPTIVE cnn no-layerON RMSE=13.9834506720[12.2657256433,15.7011757008] MAE=8.9064662757[7.5536656805,10.2592668708] Pearson=0.8953369020[0.8796019947,0.9110718094] Spearman=0.8954043157[0.8839897402,0.9068188911] R2=0.7206746150[0.6493346462,0.7920145837]
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s42/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s42/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s43/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s43/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s44/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s45/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s46/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s47/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/cnn-taylor-s47/test_predictions.csv
+PER_SEED cnn TaylorOFF s42 RMSE=14.2979668317902 MAE=9.31628543499511 Pearson=0.893966139475435 Spearman=0.890258319550131 R2=0.711264863046714
+PER_SEED cnn TaylorOFF s43 RMSE=13.9397289747871 MAE=8.74685239491691 Pearson=0.891086491920381 Spearman=0.885575539080051 R2=0.725552216891927
+PER_SEED cnn TaylorOFF s44 RMSE=12.316393969444 MAE=7.57111436950147 Pearson=0.901434614317841 Spearman=0.904611145431875 R2=0.785751291901021
+PER_SEED cnn TaylorOFF s45 RMSE=13.199044335055 MAE=8.11633431085044 Pearson=0.904345531576603 Spearman=0.904675063636438 R2=0.753942820022482
+PER_SEED cnn TaylorOFF s46 RMSE=14.0783642543515 MAE=8.64456500488759 Pearson=0.900373801926692 Spearman=0.896759158276997 R2=0.720066120858367
+PER_SEED cnn TaylorOFF s47 RMSE=15.0452852225915 MAE=9.59933528836754 Pearson=0.889859100049469 Spearman=0.89247030191933 R2=0.680293167521856
+DESCRIPTIVE cnn TaylorOFF RMSE=13.8127972647[12.8219867295,14.8036077998] MAE=8.6657478006[7.8801572141,9.4513383871] Pearson=0.8968442799[0.8905472109,0.9031413489] Spearman=0.8957249213[0.8875470509,0.9039027917] R2=0.7294784134[0.6912925892,0.7676642375]
+BOOTSTRAP cnn RMSE delta=0.170653407370 CI=[-0.195951424992,0.597889355646] valid=10000/10000 reference=(0.170653, -0.195951, 0.597889, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP cnn MAE delta=0.240718475073 CI=[0.019545192444,0.467158881594] valid=10000/10000 reference=(0.240718, 0.019545, 0.467159, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP cnn Pearson delta=0.001507377842 CI=[-0.005510428848,0.010125985285] valid=10000/10000 reference=(0.001507, -0.00551, 0.010126, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP cnn Spearman delta=0.000320605646 CI=[-0.005883007075,0.006890700201] valid=10000/10000 reference=(0.000321, -0.005883, 0.006891, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP cnn R2 delta=0.008803798413 CI=[-0.006061163495,0.026089763633] valid=10000/10000 reference=(0.008804, -0.006061, 0.02609, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+FOLD detector records=4 groups=4 split_counts={"test": 4, "train": 965, "validation": 170}
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s42/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s42/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s43/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s43/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s44/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/detector-layer-s45/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/detector-layer-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/detector-layer-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/detector-layer-s46/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/detector-layer-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/detector-layer-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/detector-layer-s47/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/detector-layer-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/detector-layer-s47/test_predictions.csv
+PER_SEED detector layerON s42 RMSE=6.03455466459622 MAE=5.49 Pearson=0.747288904925837 Spearman=0.4 R2=0.529067847838409
+PER_SEED detector layerON s43 RMSE=5.33164374278702 MAE=4.4325 Pearson=0.941984048292534 Spearman=0.8 R2=0.632387614088095
+PER_SEED detector layerON s44 RMSE=5.39913187466282 MAE=4.3475 Pearson=0.911180983711129 Spearman=0.8 R2=0.62302221235793
+PER_SEED detector layerON s45 RMSE=5.81340906869627 MAE=4.4075 Pearson=0.786750492684147 Spearman=0.8 R2=0.562951475576946
+PER_SEED detector layerON s46 RMSE=6.28118420363549 MAE=5.4925 Pearson=0.7421740522182 Spearman=0.6 R2=0.489787669227189
+PER_SEED detector layerON s47 RMSE=5.82012242139287 MAE=4.9875 Pearson=0.940084481671266 Spearman=0.8 R2=0.561941481272712
+DESCRIPTIVE detector layerON RMSE=5.7800076626[5.3973466683,6.1626686570] MAE=4.8595833333[4.2918434613,5.4273232054] Pearson=0.8449104939[0.7438803296,0.9459406583] Spearman=0.7000000000[0.5243958299,0.8756041701] R2=0.5665263834[0.5093244319,0.6237283349]
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s42/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s42/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s43/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s43/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s44/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/detector-no-layer-s45/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/detector-no-layer-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/detector-no-layer-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/detector-no-layer-s46/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/detector-no-layer-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/detector-no-layer-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/detector-no-layer-s47/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/detector-no-layer-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/detector-no-layer-s47/test_predictions.csv
+PER_SEED detector no-layerON s42 RMSE=5.44377855905253 MAE=4.5075 Pearson=0.916685882036042 Spearman=0.8 R2=0.616761799519525
+PER_SEED detector no-layerON s43 RMSE=3.15433828242946 MAE=2.37 Pearson=0.971943521170269 Spearman=1 R2=0.871327889526538
+PER_SEED detector no-layerON s44 RMSE=3.43110040657513 MAE=2.615 Pearson=0.950797413803808 Spearman=0.8 R2=0.847757907210329
+PER_SEED detector no-layerON s45 RMSE=26.6074768627166 MAE=14.9175 Pearson=0.141464544930397 Spearman=0.316227766016838 R2=-8.15535686155585
+PER_SEED detector no-layerON s46 RMSE=5.49814968875894 MAE=4.635 Pearson=0.812830684948671 Spearman=0.6 R2=0.609068190538141
+PER_SEED detector no-layerON s47 RMSE=6.29794013944242 MAE=5.175 Pearson=0.906747515438675 Spearman=0.8 R2=0.487061913151967
+DESCRIPTIVE detector no-layerON RMSE=8.4054639898[-1.0429262739,17.8538542536] MAE=5.7033333333[0.8169673654,10.5896993013] Pearson=0.7834115937[0.4484138586,1.1184093288] Spearman=0.7193712943[0.4732435558,0.9654990329] R2=-0.7872298603[-4.5785244923,3.0040647718]
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s42/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s42/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s43/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s43/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s44/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s45/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s46/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s47/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/detector-taylor-s47/test_predictions.csv
+PER_SEED detector TaylorOFF s42 RMSE=32.6706225070781 MAE=19.2325 Pearson=0.00767373116670543 Spearman=0.2 R2=-12.8032931019474
+PER_SEED detector TaylorOFF s43 RMSE=30.4379150895721 MAE=17.2325 Pearson=0.0747030340767464 Spearman=0.2 R2=-10.981127590424
+PER_SEED detector TaylorOFF s44 RMSE=5.81214676346013 MAE=5.055 Pearson=0.843059948478732 Spearman=0.6 R2=0.563141253636032
+PER_SEED detector TaylorOFF s45 RMSE=5.31683646541813 MAE=4.315 Pearson=0.935632671424059 Spearman=0.8 R2=0.634426677492961
+PER_SEED detector TaylorOFF s46 RMSE=6.24751550618324 MAE=5.035 Pearson=0.886113706361538 Spearman=0.8 R2=0.495242737695604
+PER_SEED detector TaylorOFF s47 RMSE=4.67384477705454 MAE=3.1225 Pearson=0.925977111434615 Spearman=0.8 R2=0.717501295429234
+DESCRIPTIVE detector TaylorOFF RMSE=14.1931468515[0.0503530174,28.3359406856] MAE=8.9987500000[1.4274288147,16.5700711853] Pearson=0.6121933672[0.1462286270,1.0781581073] Spearman=0.5666666667[0.2577211795,0.8756121539] R2=-3.5623514547[-10.3609951534,3.2362922440]
+BOOTSTRAP detector RMSE delta=-5.787682861632 CI=[-11.025786498813,0.625170518060] valid=10000/10000 reference=(-5.787683, -11.025786, 0.625171, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP detector MAE delta=-3.295416666667 CI=[-10.203333333333,0.769583333333] valid=10000/10000 reference=(-3.295417, -10.203333, 0.769583, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP detector Pearson delta=-0.171218226564 CI=[-0.333333333333,0.000000000000] valid=9283/10000 reference=(-0.171218, -0.333333, 0.0, 9283) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP detector Spearman delta=-0.152704627669 CI=[-0.363917236512,0.000000000000] valid=9283/10000 reference=(-0.152705, -0.363917, 0.0, 9283) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP detector R2 delta=-2.775121594418 CI=[-227.097222222216,0.034446655060] valid=9838/10000 reference=(-2.775122, -227.097222, 0.034447, 9838) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+FOLD segmentation records=26 groups=11 split_counts={"test": 26, "train": 946, "validation": 167}
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s42/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s42/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s43/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s43/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s44/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/segmentation-layer-s45/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/segmentation-layer-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/segmentation-layer-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/segmentation-layer-s46/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/segmentation-layer-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/segmentation-layer-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/segmentation-layer-s47/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/segmentation-layer-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/segmentation-layer-s47/test_predictions.csv
+PER_SEED segmentation layerON s42 RMSE=15.5301998600246 MAE=10.3953846153846 Pearson=0.930728055459833 Spearman=0.957428634270046 R2=0.715308162920403
+PER_SEED segmentation layerON s43 RMSE=23.6031382365859 MAE=14.1703846153846 Pearson=0.740621645332336 Spearman=0.786935750535205 R2=0.342402088514703
+PER_SEED segmentation layerON s44 RMSE=23.5631328725454 MAE=13.86 Pearson=0.749157728246898 Spearman=0.734987437438787 R2=0.344629347373992
+PER_SEED segmentation layerON s45 RMSE=17.1341774959155 MAE=11.2246153846154 Pearson=0.931653001796966 Spearman=0.952462436001976 R2=0.653464725875231
+PER_SEED segmentation layerON s46 RMSE=25.8596055654374 MAE=15.0361538461538 Pearson=0.597606065325192 Spearman=0.616042496001713 R2=0.21065889731854
+PER_SEED segmentation layerON s47 RMSE=23.972899121877 MAE=14.6346153846154 Pearson=0.72918866138765 Spearman=0.72117704189188 R2=0.321637173412891
+DESCRIPTIVE segmentation layerON RMSE=21.6105255254[17.1972344467,26.0238166041] MAE=13.2201923077[11.1976167654,15.2427678500] Pearson=0.7798258596[0.6437478926,0.9159038266] Spearman=0.7948389660[0.6522396359,0.9374382962] R2=0.4313500659[0.2182650810,0.6444350508]
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s42/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s42/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s43/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s43/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s44/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/segmentation-no-layer-s45/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/segmentation-no-layer-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/segmentation-no-layer-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/segmentation-no-layer-s46/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/segmentation-no-layer-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/segmentation-no-layer-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/segmentation-no-layer-s47/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/segmentation-no-layer-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/segmentation-no-layer-s47/test_predictions.csv
+PER_SEED segmentation no-layerON s42 RMSE=21.5128475031156 MAE=14.1653846153846 Pearson=0.754454509096935 Spearman=0.824213454493631 R2=0.45371821135134
+PER_SEED segmentation no-layerON s43 RMSE=15.5625381062246 MAE=11.5438461538462 Pearson=0.915486823294802 Spearman=0.939124541925108 R2=0.714121311496013
+PER_SEED segmentation no-layerON s44 RMSE=16.550437712083 MAE=12.3180769230769 Pearson=0.915697611608359 Spearman=0.938601115507329 R2=0.676674547829021
+PER_SEED segmentation no-layerON s45 RMSE=16.7313735699871 MAE=12.4353846153846 Pearson=0.911564928655446 Spearman=0.921183121686966 R2=0.669566464294488
+PER_SEED segmentation no-layerON s46 RMSE=19.2986429375428 MAE=13.0211538461538 Pearson=0.891491060107376 Spearman=0.930757408029666 R2=0.560383011219548
+PER_SEED segmentation no-layerON s47 RMSE=18.6258482512052 MAE=13.1746153846154 Pearson=0.91120592448271 Spearman=0.931258604392596 R2=0.590500810940912
+DESCRIPTIVE segmentation no-layerON RMSE=18.0469480134[15.7450259850,20.3488700417] MAE=12.7764102564[11.8385530791,13.7142674338] Pearson=0.8833168095[0.8163968801,0.9502367389] Spearman=0.9141897077[0.8674264677,0.9609529477] R2=0.6108273929[0.5100631419,0.7115916438]
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s42/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s42/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s43/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s43/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s44/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s45/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s46/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s47/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/segmentation-taylor-s47/test_predictions.csv
+PER_SEED segmentation TaylorOFF s42 RMSE=16.1919631061453 MAE=11.0161538461538 Pearson=0.936154856161294 Spearman=0.944254501185442 R2=0.690529015450318
+PER_SEED segmentation TaylorOFF s43 RMSE=17.6459301256692 MAE=12.255 Pearson=0.917490998278032 Spearman=0.929389652837852 R2=0.632455409070526
+PER_SEED segmentation TaylorOFF s44 RMSE=23.352219462958 MAE=13.4246153846154 Pearson=0.755217618099918 Spearman=0.765389921641803 R2=0.356309273611461
+PER_SEED segmentation TaylorOFF s45 RMSE=21.1997333074662 MAE=14.8384615384615 Pearson=0.887938284482225 Spearman=0.906447870296801 R2=0.469504480261909
+PER_SEED segmentation TaylorOFF s46 RMSE=15.9371806453675 MAE=10.7065384615385 Pearson=0.925153068669551 Spearman=0.947854347927345 R2=0.700191517630068
+PER_SEED segmentation TaylorOFF s47 RMSE=24.4456841400874 MAE=14.5957692307692 Pearson=0.75087597382604 Spearman=0.746922068304602 R2=0.294616466356019
+DESCRIPTIVE segmentation TaylorOFF RMSE=19.7954517979[15.9043489582,23.6865546377] MAE=12.8060897436[10.9505315625,14.6616479247] Pearson=0.8621384666[0.7718745440,0.9524023892] Spearman=0.8733763937[0.7766759770,0.9700768104] R2=0.5239343604[0.3396129110,0.7082558098]
+BOOTSTRAP segmentation RMSE delta=-1.748503784589 CI=[-7.887908687594,2.425765828582] valid=10000/10000 reference=(-1.748504, -7.887909, 2.425766, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP segmentation MAE delta=-0.029679487179 CI=[-3.340708333333,1.688024691358] valid=10000/10000 reference=(-0.029679, -3.340708, 1.688025, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP segmentation Pearson delta=-0.021178342955 CI=[-0.185847419432,0.058090905203] valid=10000/10000 reference=(-0.021178, -0.185847, 0.058091, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP segmentation Spearman delta=-0.040813313974 CI=[-0.231887145916,0.039051924557] valid=10000/10000 reference=(-0.040813, -0.231887, 0.039052, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP segmentation R2 delta=-0.086893032459 CI=[-0.407130314167,0.098496570044] valid=10000/10000 reference=(-0.086893, -0.40713, 0.098497, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+FOLD other records=47 groups=22 split_counts={"test": 47, "train": 928, "validation": 164}
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s42/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s42/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s43/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s43/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s44/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/other-layer-s45/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/other-layer-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/other-layer-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/other-layer-s46/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/other-layer-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/other-layer-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/other-layer-s47/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/other-layer-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/other-layer-s47/test_predictions.csv
+PER_SEED other layerON s42 RMSE=9.30817348447166 MAE=5.6068085106383 Pearson=0.957349074205901 Spearman=0.965363716412713 R2=0.909384273952913
+PER_SEED other layerON s43 RMSE=9.36567397127245 MAE=6.03170212765957 Pearson=0.955025068830299 Spearman=0.972183694759005 R2=0.908261273413803
+PER_SEED other layerON s44 RMSE=10.8932743255605 MAE=6.45106382978723 Pearson=0.943131948559753 Spearman=0.95686365853235 R2=0.875894360224735
+PER_SEED other layerON s45 RMSE=10.2172123233089 MAE=6.27851063829787 Pearson=0.947122058197521 Spearman=0.958510433006992 R2=0.890820909149801
+PER_SEED other layerON s46 RMSE=8.5490082789287 MAE=5.39382978723404 Pearson=0.964263600979973 Spearman=0.963369861092648 R2=0.923562563812497
+PER_SEED other layerON s47 RMSE=9.12172377792987 MAE=5.71723404255319 Pearson=0.962583948118937 Spearman=0.969230827590026 R2=0.912978118229184
+DESCRIPTIVE other layerON RMSE=9.5758443602[8.6948918374,10.4567968831] MAE=5.9131914894[5.4833541463,6.3430288324] Pearson=0.9549126165[0.9461109084,0.9637143246] Spearman=0.9642536986[0.9580050561,0.9705023410] R2=0.9034835831[0.8854744317,0.9214927345]
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s42/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s42/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s43/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s43/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s44/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/other-no-layer-s45/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/other-no-layer-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/other-no-layer-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/other-no-layer-s46/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/other-no-layer-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/other-no-layer-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/other-no-layer-s47/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/other-no-layer-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/other-no-layer-s47/test_predictions.csv
+PER_SEED other no-layerON s42 RMSE=8.59825712176107 MAE=5.36723404255319 Pearson=0.964784111201938 Spearman=0.956675252822832 R2=0.92267935064143
+PER_SEED other no-layerON s43 RMSE=9.53043099201799 MAE=6.02808510638298 Pearson=0.955926562713981 Spearman=0.962502533326224 R2=0.905005224958202
+PER_SEED other no-layerON s44 RMSE=8.84446539283785 MAE=5.23382978723404 Pearson=0.963369691062978 Spearman=0.959430966763596 R2=0.918187849163895
+PER_SEED other no-layerON s45 RMSE=9.16033435699347 MAE=5.65212765957447 Pearson=0.960268744168225 Spearman=0.959611440771478 R2=0.912239863840911
+PER_SEED other no-layerON s46 RMSE=9.05950177109236 MAE=5.93 Pearson=0.957365444528488 Spearman=0.961367225434681 R2=0.914161273670207
+PER_SEED other no-layerON s47 RMSE=8.97875305278961 MAE=5.61936170212766 Pearson=0.963697350451334 Spearman=0.956770700068531 R2=0.915684641542098
+DESCRIPTIVE other no-layerON RMSE=9.0286237812[8.6995195378,9.3577280247] MAE=5.6384397163[5.3151031726,5.9617762601] Pearson=0.9609019840[0.9570708257,0.9647331424] Spearman=0.9593930199[0.9569149946,0.9618710451] R2=0.9146597006[0.9084135559,0.9209058453]
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s42/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s42/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s43/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s43/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s44/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s45/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s46/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s47/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/other-taylor-s47/test_predictions.csv
+PER_SEED other TaylorOFF s42 RMSE=8.96173912168316 MAE=5.78234042553191 Pearson=0.961384617508307 Spearman=0.964582078486344 R2=0.916003878864563
+PER_SEED other TaylorOFF s43 RMSE=13.0360140266159 MAE=6.89297872340425 Pearson=0.912694835563719 Spearman=0.88915231310442 R2=0.822268553828468
+PER_SEED other TaylorOFF s44 RMSE=9.20307094907005 MAE=6.11148936170213 Pearson=0.957818311029819 Spearman=0.964845332633349 R2=0.91141908199186
+PER_SEED other TaylorOFF s45 RMSE=13.1925971343377 MAE=7.13212765957447 Pearson=0.912032959483969 Spearman=0.898673065623717 R2=0.817973240599634
+PER_SEED other TaylorOFF s46 RMSE=8.84055901314468 MAE=5.71432978723404 Pearson=0.964054979176628 Spearman=0.965479363458705 R2=0.918260101975834
+PER_SEED other TaylorOFF s47 RMSE=8.63453050381297 MAE=5.49425531914894 Pearson=0.966527242448285 Spearman=0.966085533557421 R2=0.922025590825736
+DESCRIPTIVE other TaylorOFF RMSE=10.3114184581[8.0242235792,12.5986133370] MAE=6.1879202128[5.4816834413,6.8941569842] Pearson=0.9457521575[0.9184412764,0.9730630387] Spearman=0.9414696145[0.9026783327,0.9802608963] R2=0.8846584080[0.8320536047,0.9372632113]
+BOOTSTRAP other RMSE delta=-1.282794676862 CI=[-3.318652035387,0.164545619860] valid=10000/10000 reference=(-1.282795, -3.318652, 0.164546, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP other MAE delta=-0.549480496454 CI=[-1.233661585366,0.113773986185] valid=10000/10000 reference=(-0.54948, -1.233662, 0.113774, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP other Pearson delta=-0.015149826486 CI=[-0.045520419516,0.001382594039] valid=10000/10000 reference=(-0.01515, -0.04552, 0.001383, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP other Spearman delta=-0.017923405387 CI=[-0.064536282771,0.015301081155] valid=10000/10000 reference=(-0.017923, -0.064536, 0.015301, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP other R2 delta=-0.030001292622 CI=[-0.105400830134,0.003869858324] valid=10000/10000 reference=(-0.030001, -0.105401, 0.00387, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+FOLD transformer records=39 groups=26 split_counts={"test": 39, "train": 935, "validation": 165}
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s42/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s42/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s43/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s43/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s44/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/transformer-layer-s45/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/transformer-layer-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/transformer-layer-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/transformer-layer-s46/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/transformer-layer-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/transformer-layer-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/transformer-layer-s47/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/transformer-layer-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/transformer-layer-s47/test_predictions.csv
+PER_SEED transformer layerON s42 RMSE=14.6073779215707 MAE=8.47923076923077 Pearson=0.862015547653496 Spearman=0.881757458850937 R2=0.717838266169006
+PER_SEED transformer layerON s43 RMSE=9.71837725190047 MAE=6.52666666666667 Pearson=0.943660511611331 Spearman=0.919105033790409 R2=0.875106138987056
+PER_SEED transformer layerON s44 RMSE=9.53627218463731 MAE=6.47897435897436 Pearson=0.956718707876095 Spearman=0.947139361915004 R2=0.879742862833803
+PER_SEED transformer layerON s45 RMSE=9.70371684009898 MAE=6.88230769230769 Pearson=0.942232682332708 Spearman=0.919408769756632 R2=0.875482665712787
+PER_SEED transformer layerON s46 RMSE=10.307210072914 MAE=6.50974358974359 Pearson=0.943155988920811 Spearman=0.940938492615082 R2=0.859513096729776
+PER_SEED transformer layerON s47 RMSE=11.4224290155546 MAE=6.74846153846154 Pearson=0.933712314107964 Spearman=0.925708502024291 R2=0.827467657023244
+DESCRIPTIVE transformer layerON RMSE=10.8825638811[8.8339193817,12.9312083805] MAE=6.9375641026[6.1276987958,7.7474294093] Pearson=0.9302492921[0.8943269656,0.9661716186] Spearman=0.9223429365[0.8982366949,0.9464491781] R2=0.8391917812[0.7736069297,0.9047766328]
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s42/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s42/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s43/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s43/test_predictions.csv
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s44/seed_verified.json
+RECEIPT_UNAVAILABLE out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/transformer-no-layer-s45/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/transformer-no-layer-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/transformer-no-layer-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/transformer-no-layer-s46/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/transformer-no-layer-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/transformer-no-layer-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-original-seeds45-47-v1/results/transformer-no-layer-s47/seed_verified.json
+RECEIPT_UNAVAILABLE lofo-original-seeds45-47-v1/results/transformer-no-layer-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-original-seeds45-47-v1/results/transformer-no-layer-s47/test_predictions.csv
+PER_SEED transformer no-layerON s42 RMSE=9.505919882921 MAE=6.05076923076923 Pearson=0.942194195254991 Spearman=0.921830776298504 R2=0.880507159836397
+PER_SEED transformer no-layerON s43 RMSE=12.9136779007019 MAE=7.44820512820513 Pearson=0.885007277239927 Spearman=0.86440250022183 R2=0.77947720715181
+PER_SEED transformer no-layerON s44 RMSE=8.43763273399869 MAE=5.78102564102564 Pearson=0.955421051145799 Spearman=0.925132907384407 R2=0.905855528858263
+PER_SEED transformer no-layerON s45 RMSE=15.0363320677379 MAE=7.84153846153846 Pearson=0.846505371652109 Spearman=0.857723932680624 R2=0.701023260805059
+PER_SEED transformer no-layerON s46 RMSE=16.6220237744678 MAE=9.16076923076923 Pearson=0.809590245125045 Spearman=0.829157201956478 R2=0.634639676872547
+PER_SEED transformer no-layerON s47 RMSE=9.46713762822717 MAE=5.96641025641026 Pearson=0.944330477713472 Spearman=0.938792028753397 R2=0.881480184753381
+DESCRIPTIVE transformer no-layerON RMSE=11.9971206647[8.4618007426,15.5324405867] MAE=7.0414529915[5.6316945955,8.4512113874] Pearson=0.8971747697[0.8341570141,0.9601925253] Spearman=0.8895065579[0.8425144675,0.9364986483] R2=0.7971638364[0.6804552975,0.9138723753]
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s42/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s42/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s42/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s43/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s43/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s43/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s44/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s44/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s44/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s45/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s45/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s45/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s46/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s46/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s46/test_predictions.csv
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s47/seed_verified.json
+RECEIPT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s47/run_complete.json
+RUN_ALIGNMENT_VERIFIED lofo-taylor-off-v1/results/transformer-taylor-s47/test_predictions.csv
+PER_SEED transformer TaylorOFF s42 RMSE=15.3673513391048 MAE=8.24410256410256 Pearson=0.837292197823426 Spearman=0.84408225013336 R2=0.687714639594546
+PER_SEED transformer TaylorOFF s43 RMSE=10.4820655138144 MAE=6.63897435897436 Pearson=0.93258199131246 Spearman=0.926145309340398 R2=0.854706119207086
+PER_SEED transformer TaylorOFF s44 RMSE=13.5552396908695 MAE=7.10461538461539 Pearson=0.874248040247426 Spearman=0.86946399747105 R2=0.757021421365519
+PER_SEED transformer TaylorOFF s45 RMSE=12.6747202467484 MAE=6.67538461538461 Pearson=0.889466628851248 Spearman=0.867844318351299 R2=0.787562907261698
+PER_SEED transformer TaylorOFF s46 RMSE=10.3854997534161 MAE=6.20564102564103 Pearson=0.93804762433736 Spearman=0.924533087542566 R2=0.857370820481123
+PER_SEED transformer TaylorOFF s47 RMSE=16.1016917410276 MAE=8.78923076923077 Pearson=0.833753349336028 Spearman=0.833426137056602 R2=0.657155962864761
+DESCRIPTIVE transformer TaylorOFF RMSE=13.0944280475[10.5774863339,15.6113697611] MAE=7.2763247863[6.2093350437,8.3433145290] Pearson=0.8842316387[0.8370365144,0.9314267629] Spearman=0.8775825166[0.8361450949,0.9190199384] R2=0.7669219785[0.6794548097,0.8543891472]
+BOOTSTRAP transformer RMSE delta=-1.097307382821 CI=[-3.071421790941,0.765850378302] valid=10000/10000 reference=(-1.097307, -3.071422, 0.76585, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP transformer MAE delta=-0.234871794872 CI=[-1.472318286126,0.651368012422] valid=10000/10000 reference=(-0.234872, -1.472318, 0.651368, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP transformer Pearson delta=-0.012943131037 CI=[-0.057143012479,0.013104073742] valid=10000/10000 reference=(-0.012943, -0.057143, 0.013104, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP transformer Spearman delta=-0.011924041233 CI=[-0.044678608336,0.013631614692] valid=10000/10000 reference=(-0.011924, -0.044679, 0.013632, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+BOOTSTRAP transformer R2 delta=-0.030241857917 CI=[-0.114211451813,0.020426531572] valid=10000/10000 reference=(-0.030242, -0.114211, 0.020427, 10000) comparison=MATCH fields_match=[np.True_, np.True_, np.True_, True]
+COMPARISON rows=25 matches=25 mismatches=0 tolerance=half-unit-at-six-decimals; counts exact
+SOURCE_HASHES: every manifest entry verified before analysis; original artifacts remain unchanged.
+SOURCE_SHA256 37d4e20b8c69da4e404dc220dac9bdaa64e8b08c1353d96d236d0652127bd9af lodo-cifar10-recovery-v1/recover.py
+SOURCE_SHA256 752e09a258dd3210b93a61e39d86bb4d29eee78a8b6ebf51ad0f4a0e55cdc6ef lodo-cifar10-recovery-v1/recovery_contract.json
+SOURCE_SHA256 795a45d08e3dbbbeeefba9687758005a1230c35c28ed5617526746a7ed2cd174 lodo-cifar10-recovery-v1/results/cifar-10-no-layer-s46/recovery_provenance.json
+SOURCE_SHA256 e2056e6e86af9758dd89d60ad44e02027c0d6978f400065874af5ef6e7b7a244 lodo-cifar10-recovery-v1/results/cifar-10-no-layer-s46/run_complete.json
+SOURCE_SHA256 3ad7b36966d93b9deb85925d774bac462bcf9cefd246c0b3484719444d3c5d94 lodo-cifar10-recovery-v1/results/cifar-10-no-layer-s46/seed_verified.json
+SOURCE_SHA256 b04c07a07989094923d69cfb5d9da9d88eb4634e8310ba63d97ce12bf8d705f2 lodo-cifar10-recovery-v1/results/cifar-10-no-layer-s46/test_metrics.log
+SOURCE_SHA256 7d08fbd979f1fe4d2dcb66ac8d44a5a34a13948ad77c247e4c97746d7dc81580 lodo-cifar10-recovery-v1/results/cifar-10-no-layer-s46/test_predictions.csv
+SOURCE_SHA256 337b6934a76ae8febf69d19e718c24e60bc0d6cce8360ee85bdd8e2910a0f872 lodo-places-recovery-v1/recover.py
+SOURCE_SHA256 54d1d7174dfc0b35ba84ecf564d624a4505ef448f94158cb313abeec4d3c1b3b lodo-places-recovery-v1/recovery_contract.json
+SOURCE_SHA256 7436c794f9459ccb571db9fe7d767db47b48b9cf4f6f1c1a87b3365597fbc1a9 lodo-places-recovery-v1/results/places365-no-layer-s42/recovery_provenance.json
+SOURCE_SHA256 f0f429f9b9996efdddf64c5ccaa65172d47488852b79abd2ae944ff96718d81a lodo-places-recovery-v1/results/places365-no-layer-s42/run_complete.json
+SOURCE_SHA256 04299801905761238577256aeb48b81e8130329f90675e9767206338045bc31e lodo-places-recovery-v1/results/places365-no-layer-s42/seed_verified.json
+SOURCE_SHA256 8caed6fd342971c16e198039932383618052cd9185a9f0db1f2c84b6d05e4d69 lodo-places-recovery-v1/results/places365-no-layer-s42/test_metrics.log
+SOURCE_SHA256 cee483eec1b4c2215ccda93468235b794e3bb78b73ec438d38fc2f03d6361e93 lodo-places-recovery-v1/results/places365-no-layer-s42/test_predictions.csv
+SOURCE_SHA256 162e6d5f3df188860fd9d662e80ee5ef047546f786c00f8650461a05b83da3f7 lodo-places-recovery-v1/results/places365-no-layer-s43/recovery_provenance.json
+SOURCE_SHA256 0e7d78ad31b1309fedadeeb3333927aa8d09169baeab17a4a7bfabf62ea3c431 lodo-places-recovery-v1/results/places365-no-layer-s43/run_complete.json
+SOURCE_SHA256 879f2dc792304ccb40ac529803654b136b7521450d534fb7672158328ccd2c45 lodo-places-recovery-v1/results/places365-no-layer-s43/seed_verified.json
+SOURCE_SHA256 202d3b0f6daa698950673cc21b800c755db41c0ca424ebb8c7f373f448252558 lodo-places-recovery-v1/results/places365-no-layer-s43/test_metrics.log
+SOURCE_SHA256 98d0b5e8c5f55de00ddcf8b7781149f24d5dcde2303117f21d1052acd9070d64 lodo-places-recovery-v1/results/places365-no-layer-s43/test_predictions.csv
+SOURCE_SHA256 fe3f1acf56c8b394c869f18f141512db4179dbcf2d720dc6aaf805f72069a04f lodo-places-recovery-v1/results/places365-no-layer-s44/recovery_provenance.json
+SOURCE_SHA256 01d8505225e14f1d1df29825f4b1d67917456b19ce6124ad077f6e96151f8765 lodo-places-recovery-v1/results/places365-no-layer-s44/run_complete.json
+SOURCE_SHA256 45771e1cf826824e944430b3a1739b0749a908d6646e89675532bbfd8cadf08b lodo-places-recovery-v1/results/places365-no-layer-s44/seed_verified.json
+SOURCE_SHA256 ec0e4988c18b32d1707075c4b723620f05c69a8437e347d6fedcff91c4fcd4b3 lodo-places-recovery-v1/results/places365-no-layer-s44/test_metrics.log
+SOURCE_SHA256 78511ecde94a5c19fc9d27a80a248f5277da95f71220912d88e01c8bb36e0b73 lodo-places-recovery-v1/results/places365-no-layer-s44/test_predictions.csv
+SOURCE_SHA256 e584f76f16d724c20b6f22497c6bcd2602714fc45fbbc3b45f68503c03e0b330 lodo-places-recovery-v1/results/places365-no-layer-s45/recovery_provenance.json
+SOURCE_SHA256 fe9857bc8ef34eddb33da7783849ccc991da6421a0edc15e4b86a7a1de6a72d5 lodo-places-recovery-v1/results/places365-no-layer-s45/run_complete.json
+SOURCE_SHA256 7f2fad5926e80df7ef96e098efe0c90f18e23bfafb6916c520a73714a9727f7a lodo-places-recovery-v1/results/places365-no-layer-s45/seed_verified.json
+SOURCE_SHA256 0ee5415b7d00c86429aefd29a69503266fa89177dfc8fba607fe5ef9fc38cd86 lodo-places-recovery-v1/results/places365-no-layer-s45/test_metrics.log
+SOURCE_SHA256 2292e33c05e4d54e1db0bf00fd101882cbdd751b8dfa59be208d0b3e372814e5 lodo-places-recovery-v1/results/places365-no-layer-s45/test_predictions.csv
+SOURCE_SHA256 b42465c491a62cc5f9c1898df612a3459b86f67d8fcaf54f74b9ed45120857ef lodo-places-recovery-v1/results/places365-no-layer-s46/recovery_provenance.json
+SOURCE_SHA256 31e985dba6a7eda7aaca4845ca3fb58489df11dee7160c13dc2844ba2337593b lodo-places-recovery-v1/results/places365-no-layer-s46/run_complete.json
+SOURCE_SHA256 3ad7b36966d93b9deb85925d774bac462bcf9cefd246c0b3484719444d3c5d94 lodo-places-recovery-v1/results/places365-no-layer-s46/seed_verified.json
+SOURCE_SHA256 48555a7c266e5117809d849f365105ada2d8990411937bc2f13615c0eff978e2 lodo-places-recovery-v1/results/places365-no-layer-s46/test_metrics.log
+SOURCE_SHA256 c683629986574dcc68b70180d47d61c72b4a202c44c252555a7c0dddad572c3c lodo-places-recovery-v1/results/places365-no-layer-s46/test_predictions.csv
+SOURCE_SHA256 cae7f721495618b8d3c9b4e26feb3f0075e97fa64ffb628d112590a240367a6e lodo-places-recovery-v1/results/places365-no-layer-s47/recovery_provenance.json
+SOURCE_SHA256 dde36fc161e69611b284e78bb8820544a73de513e0e1081447eb34194926f1c3 lodo-places-recovery-v1/results/places365-no-layer-s47/run_complete.json
+SOURCE_SHA256 11f7534a062555d6435d5e181edc97cfdfa36580b7f7e837d8d73bd38074f912 lodo-places-recovery-v1/results/places365-no-layer-s47/seed_verified.json
+SOURCE_SHA256 d9ef0756b92aebbcb25d6ff572b123925d02db7c655601e52395acb4dbfead1d lodo-places-recovery-v1/results/places365-no-layer-s47/test_metrics.log
+SOURCE_SHA256 69933620f4eeca58f48aef5a4a0e7e8264d5060f2caafd4cf4d430adcb5aa5ad lodo-places-recovery-v1/results/places365-no-layer-s47/test_predictions.csv
+SOURCE_SHA256 70a7fb21a58774b77341a6d7d1e2c5cda35146a7696377a0a576364bd731cdfc lodo-places-recovery-v1/results/places365-taylor-s42/recovery_provenance.json
+SOURCE_SHA256 94df4efa6764fc5486fb1cf0f46dc3712f7081d0e87bb5215f868a07f1e79a16 lodo-places-recovery-v1/results/places365-taylor-s42/run_complete.json
+SOURCE_SHA256 cb7f5e25955fb78c0212fafda7a0ec206d1ca8df4510526f2406cd4bc1224b67 lodo-places-recovery-v1/results/places365-taylor-s42/seed_verified.json
+SOURCE_SHA256 f906b5f64d472d95c132a255e87d4b7580bd567c4ccc818ac27a69d55d4b1ee9 lodo-places-recovery-v1/results/places365-taylor-s42/test_metrics.log
+SOURCE_SHA256 7409f338533a503ae68c84f902707ce0ec725cbc8d26f48ee7f730880cd90b1b lodo-places-recovery-v1/results/places365-taylor-s42/test_predictions.csv
+SOURCE_SHA256 ba3e1076f02b3f354a9bc0bc4a592401ce9d49cb7f34bd3aa8b12538c96a18a9 lodo-places-recovery-v1/results/places365-taylor-s43/recovery_provenance.json
+SOURCE_SHA256 f551c4cbd56ed83d2a41b0f2aa37f4d4ae48e559409ebfb904c002a26dc996ba lodo-places-recovery-v1/results/places365-taylor-s43/run_complete.json
+SOURCE_SHA256 5dc7af19ed6f2ad2c9bc88649b08c20f976a177cf8d94c9a56f6986a777bc95c lodo-places-recovery-v1/results/places365-taylor-s43/seed_verified.json
+SOURCE_SHA256 189645dc103e9369318978fe50ca5197b42d7757191b40887a8b1978dbb553db lodo-places-recovery-v1/results/places365-taylor-s43/test_metrics.log
+SOURCE_SHA256 c1aab441dab58e6b56cc8bf9227254ba93a887a5fa3ab4180e2d387e423b07b3 lodo-places-recovery-v1/results/places365-taylor-s43/test_predictions.csv
+SOURCE_SHA256 8e0151c682e6c7789472025746a73d48a1624d5a960e4efbfc80e4970d100056 lodo-places-recovery-v1/results/places365-taylor-s44/recovery_provenance.json
+SOURCE_SHA256 90ab0628559d2dec837560b0b6ad686eddc47cb343f605b36ca4fcd76a7845cb lodo-places-recovery-v1/results/places365-taylor-s44/run_complete.json
+SOURCE_SHA256 b30c7b9ac5457d8f016dcd70fdac639fd0d13bbcea8148cb92beb6e0cd6dc953 lodo-places-recovery-v1/results/places365-taylor-s44/seed_verified.json
+SOURCE_SHA256 783f9be772f1305184acf9217578a0b60aa639167a8d6149a0e5bd2b9efc7f2f lodo-places-recovery-v1/results/places365-taylor-s44/test_metrics.log
+SOURCE_SHA256 761c0f7d2302dd37d4681280f50b29311da0d66c46d690ab09b07bb1c5fdc80b lodo-places-recovery-v1/results/places365-taylor-s44/test_predictions.csv
+SOURCE_SHA256 d982969152fd313d6047ec468198d36d9c07a8ba5fa5f7a50643bb830ffde1ed lodo-places-recovery-v1/results/places365-taylor-s45/recovery_provenance.json
+SOURCE_SHA256 ce1a3cd241c114b6b712e02fb39f9d4ea0e313666f8874066fd028d8827d6ea0 lodo-places-recovery-v1/results/places365-taylor-s45/run_complete.json
+SOURCE_SHA256 eee487f7419dd27c1c324627ad3d50acd5c919e7b70df42ebb133fb7abc3df37 lodo-places-recovery-v1/results/places365-taylor-s45/seed_verified.json
+SOURCE_SHA256 4d26aa4cdf9ec5c9d2d3774d899daff2321b762673146e100a9727c427c359d6 lodo-places-recovery-v1/results/places365-taylor-s45/test_metrics.log
+SOURCE_SHA256 8b7c00e84245776caea721d3ba184a278f2683f280ec5a8826dc6cb20a9ab398 lodo-places-recovery-v1/results/places365-taylor-s45/test_predictions.csv
+SOURCE_SHA256 e1e52d43dead89007567f3be865ab9fcdddc279ef5778adac5de996969452809 lodo-places-recovery-v1/results/places365-taylor-s46/recovery_provenance.json
+SOURCE_SHA256 459e704e29480cdc39e9298d48a5a7ef1a6c993fd93a2545b6cf90b5b6313bda lodo-places-recovery-v1/results/places365-taylor-s46/run_complete.json
+SOURCE_SHA256 84a09d40c004d37ecaf47f6817893aee6ae9541287b9dfd74e22ec35759e2a84 lodo-places-recovery-v1/results/places365-taylor-s46/seed_verified.json
+SOURCE_SHA256 ac8c9ba6f0e0c8813103af3001295da40dd8f096c9f572e20db6c60f90f6f86b lodo-places-recovery-v1/results/places365-taylor-s46/test_metrics.log
+SOURCE_SHA256 53b4b13b7a5fa01937f960d1a2f67cc711be4d83bc5de45c753a1c1fc8104760 lodo-places-recovery-v1/results/places365-taylor-s46/test_predictions.csv
+SOURCE_SHA256 7751baefb9e3c7e5ed453b5eee7e986f0c37ea3d42e646e19374595204fe49cc lodo-places-recovery-v1/results/places365-taylor-s47/recovery_provenance.json
+SOURCE_SHA256 9582d0ce7f9ce879be6cb6ce7d3bf5812c1edb41b469b099b6fac9838f59e251 lodo-places-recovery-v1/results/places365-taylor-s47/run_complete.json
+SOURCE_SHA256 24b4ed5ba4930061bc8d03c6a27e0c495a087b964ffab60e0d3198773e48a878 lodo-places-recovery-v1/results/places365-taylor-s47/seed_verified.json
+SOURCE_SHA256 da48d64b62f09656b68160288eb8f89266a58691880432ad1f36f06d43346712 lodo-places-recovery-v1/results/places365-taylor-s47/test_metrics.log
+SOURCE_SHA256 754c47c84450b3090f6eaf0d981d0b711e9adcf337c9faceb821deaa5cfef72a lodo-places-recovery-v1/results/places365-taylor-s47/test_predictions.csv
+SOURCE_SHA256 e62b23d339db272934bc51446f7d90bf3b7f8f0e47e6929bd1aad7f887bf36d3 lodo-taylor-nolayer-off-v1/plan.json
+SOURCE_SHA256 18707e916e0434e450b122a52c165545fa8489503b9565acea09a4120fe9b8bb lodo-taylor-nolayer-off-v1/preparation_verified.json
+SOURCE_SHA256 0f5cd5c7a310c1ef1ea1ab4963c5686d123106de34407ffb5c5a0d37d093c47a lodo-taylor-nolayer-off-v1/prompts/cifar-100/no-layer/test_llm_dataset.jsonl
+SOURCE_SHA256 efa6b7c1604fea600bd1f278e004b5b35ef7b0ae0c2636bcc5ef5aa4560a6687 lodo-taylor-nolayer-off-v1/prompts/cifar-100/taylor/test_llm_dataset.jsonl
+SOURCE_SHA256 6f91d2bd197130beeda65d1173005accccdb455a620270e20c6fe9dce643a60c lodo-taylor-nolayer-off-v1/prompts/imagenette/no-layer/test_llm_dataset.jsonl
+SOURCE_SHA256 38d387282a51afdfa3b2d7331968ac75a6ad3d345c833ee9d1e0c236e2bb2edc lodo-taylor-nolayer-off-v1/prompts/imagenette/taylor/test_llm_dataset.jsonl
+SOURCE_SHA256 e21e745e64e0bb5434eb1766197e29c8e1c3d1c7de0d7dab5727f336febe0606 lodo-taylor-nolayer-off-v1/prompts/svhn/no-layer/test_llm_dataset.jsonl
+SOURCE_SHA256 1dbeb94641ba90d1d5d46d4c7c9806cb7031fc749502ffa4a24b507b2e3555a9 lodo-taylor-nolayer-off-v1/prompts/svhn/taylor/test_llm_dataset.jsonl
+SOURCE_SHA256 cebfaa76449c98a80e0cc1f07bf775210903fd51560df34aa4e86d8352f18b83 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s42/run_complete.json
+SOURCE_SHA256 04299801905761238577256aeb48b81e8130329f90675e9767206338045bc31e lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s42/seed_verified.json
+SOURCE_SHA256 071f6cf0d44941729099577d969bdedea34af383874b9c8c89d5b20186d70749 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s42/test_metrics.log
+SOURCE_SHA256 09eb8a39dd256784f222fb7cbbebaa53d0cc274f6344682f1d7e850f4083b4f1 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s42/test_predictions.csv
+SOURCE_SHA256 114e6dbab582fc92424a49fb40eed107f1bdfa769412ea47e93008bcc1920b0c lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s43/run_complete.json
+SOURCE_SHA256 879f2dc792304ccb40ac529803654b136b7521450d534fb7672158328ccd2c45 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s43/seed_verified.json
+SOURCE_SHA256 6f07b14edadd817c32987f972142837bdb1b906ee3a05f9e055cf589b989fc3d lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s43/test_metrics.log
+SOURCE_SHA256 f11fb4d134e8255272166d0db3201ac6b0e1360374b212604d06f49742ade121 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s43/test_predictions.csv
+SOURCE_SHA256 93ac54563d80d24f58d95e9be5fdb056867bbdbd21e206c9d39bcf62637c7e9c lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s44/run_complete.json
+SOURCE_SHA256 45771e1cf826824e944430b3a1739b0749a908d6646e89675532bbfd8cadf08b lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s44/seed_verified.json
+SOURCE_SHA256 b2ae8fc89c5b34064a0f7f05c80d8a336639a521286170ada648660cccacdf16 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s44/test_metrics.log
+SOURCE_SHA256 c1f93f765269b5601135ecc2b1f51d83e28bed9bde06973cb50664cbd5437950 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s44/test_predictions.csv
+SOURCE_SHA256 17dc131c4a88f6caad2c0a45b370100a2b6e5f6128e0549b8b053591d2211f3d lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s45/run_complete.json
+SOURCE_SHA256 7f2fad5926e80df7ef96e098efe0c90f18e23bfafb6916c520a73714a9727f7a lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s45/seed_verified.json
+SOURCE_SHA256 53e4c8d317ac30ad18a220e757530dd1bd63572f36d4e20c344f6357dd3de1e5 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s45/test_metrics.log
+SOURCE_SHA256 dc169113b7eb32d0436fd3c18d44bc7c776839f3c457af4cdf83d40f86942e46 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s45/test_predictions.csv
+SOURCE_SHA256 46c9d2ca25607ad7cce3c939f5e86b018b0c4a63d556dfba123bd9eba91104d0 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s46/run_complete.json
+SOURCE_SHA256 3ad7b36966d93b9deb85925d774bac462bcf9cefd246c0b3484719444d3c5d94 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s46/seed_verified.json
+SOURCE_SHA256 d096e04cdc2913012d658f2f11642bc4d48f24ce26f06c2a6a7a4adbf043e25e lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s46/test_metrics.log
+SOURCE_SHA256 90a5388f59634add460def1a1cbd0bab1a6ed32b2f14c470da9e82b68ad57167 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s46/test_predictions.csv
+SOURCE_SHA256 cf12c0c7fcc73503f54a97e6a0f7761595ea414fe38dd002fc8b1a2958f25ff5 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s47/run_complete.json
+SOURCE_SHA256 11f7534a062555d6435d5e181edc97cfdfa36580b7f7e837d8d73bd38074f912 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s47/seed_verified.json
+SOURCE_SHA256 142af008c29671f152955da91ded77e424f41dd25709087789705d086a98f2ac lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s47/test_metrics.log
+SOURCE_SHA256 987b9af584f65802faa8926d100e3726a74167b9bb24e2c08cbec5f564cacb48 lodo-taylor-nolayer-off-v1/results/cifar-100-no-layer-s47/test_predictions.csv
+SOURCE_SHA256 49be3cec36450c965ad5f0babdc1b40a52910f6e92c155444063f30400491850 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s42/run_complete.json
+SOURCE_SHA256 cb7f5e25955fb78c0212fafda7a0ec206d1ca8df4510526f2406cd4bc1224b67 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s42/seed_verified.json
+SOURCE_SHA256 356ccd72c4beaeb251fc38745a677b0687d830cc84a41a9bea2140d47e93b670 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s42/test_metrics.log
+SOURCE_SHA256 7da50b194c85408aca826fac149d0d5aa5a0857720d7b22e1c30c2ae20825dec lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s42/test_predictions.csv
+SOURCE_SHA256 58089fca00431f090f923acd7a77ece1a96604f5dcc39b6a3187f92d62f15190 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s43/run_complete.json
+SOURCE_SHA256 5dc7af19ed6f2ad2c9bc88649b08c20f976a177cf8d94c9a56f6986a777bc95c lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s43/seed_verified.json
+SOURCE_SHA256 447a8efaaa3987c4f40916a5599b04da6f695e58a087db6bedc3a0e1d6d2404c lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s43/test_metrics.log
+SOURCE_SHA256 afb9be014ac5fe956f3659ed5ed790b30aeb9870cb384307665b208904fdb4db lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s43/test_predictions.csv
+SOURCE_SHA256 207ffcaa5e780cee9d867d8d3efb5429873a32a5bbeb648af2bbb9edd0986c54 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s44/run_complete.json
+SOURCE_SHA256 b30c7b9ac5457d8f016dcd70fdac639fd0d13bbcea8148cb92beb6e0cd6dc953 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s44/seed_verified.json
+SOURCE_SHA256 a995db1fb580ff185cfb5188928fbba0febf30d10e00b307247b308aeb39cbec lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s44/test_metrics.log
+SOURCE_SHA256 0c0dca2c4cf4603c5b67ddf979d1d985073f6d16e3f21b13b002b98f1c87753a lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s44/test_predictions.csv
+SOURCE_SHA256 6ed7cbfab25387975c99cf58d730a51bf89d88897c0c2cb03ca0747e26fc5ae5 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s45/run_complete.json
+SOURCE_SHA256 eee487f7419dd27c1c324627ad3d50acd5c919e7b70df42ebb133fb7abc3df37 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s45/seed_verified.json
+SOURCE_SHA256 61323fa2afa3c22d81cc8bf8a107abfd941681fa1f0495f9a42342005a275172 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s45/test_metrics.log
+SOURCE_SHA256 91600b93d6502b81b2b61bd470c96e1c99b250150b9ff3cee53f74293e4b23a7 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s45/test_predictions.csv
+SOURCE_SHA256 a46a2a5ebc5e3ba19e1e9e3754d9fccfedf3f6b8b2db73ab3ef68ca6d9317192 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s46/run_complete.json
+SOURCE_SHA256 84a09d40c004d37ecaf47f6817893aee6ae9541287b9dfd74e22ec35759e2a84 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s46/seed_verified.json
+SOURCE_SHA256 0dbbe6eb178935da04d097232ddb08f8d6a07f79baa7e58f1aceb8b922434203 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s46/test_metrics.log
+SOURCE_SHA256 2d43f6d38f88c417e55e687d87fad0a8f73404116a5d3e3a1dca852ac83088fc lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s46/test_predictions.csv
+SOURCE_SHA256 62660949ffa4a073885e0cebed70bf0f45631140ab49f0152a15dd2c16981744 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s47/run_complete.json
+SOURCE_SHA256 24b4ed5ba4930061bc8d03c6a27e0c495a087b964ffab60e0d3198773e48a878 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s47/seed_verified.json
+SOURCE_SHA256 858a8b98356d0a5c5b6c7a5863bc39e20391fa6111d27a3ecfcc6ab97a917467 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s47/test_metrics.log
+SOURCE_SHA256 6c0b2bdd516ae21d65ca2542148f474817d47951f4e82dca0da5238e1754ff71 lodo-taylor-nolayer-off-v1/results/cifar-100-taylor-s47/test_predictions.csv
+SOURCE_SHA256 5ad5a77ba54d9566a87943804090d452e1dd7da8ff20ca65536f0af4cc9aaa22 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s42/run_complete.json
+SOURCE_SHA256 04299801905761238577256aeb48b81e8130329f90675e9767206338045bc31e lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s42/seed_verified.json
+SOURCE_SHA256 6c11112a07373a88ab92a757bcbbe1e6347e337577e00836e1a9b4fdab2fce69 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s42/test_metrics.log
+SOURCE_SHA256 2e0bc6e201d73ecf70e882056440aaf73c7706270c6b25d046deacf3056441b8 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s42/test_predictions.csv
+SOURCE_SHA256 d561b5a00d8cee8f19e07c1815d576de51323867d012a346b00bfdd084132d6b lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s43/run_complete.json
+SOURCE_SHA256 879f2dc792304ccb40ac529803654b136b7521450d534fb7672158328ccd2c45 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s43/seed_verified.json
+SOURCE_SHA256 c7619268ffe721fe384ecbd440bc6ebcdb4b57a0148ccfede393673e55add4b6 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s43/test_metrics.log
+SOURCE_SHA256 a552600af26e499401cbd82845166882eb818e26ee7e895778af747a08b191b0 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s43/test_predictions.csv
+SOURCE_SHA256 d07b928cb4b4c8bdd1c6819537343eb94f09169b2cf2f7f627ce2be9c2843e38 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s44/run_complete.json
+SOURCE_SHA256 45771e1cf826824e944430b3a1739b0749a908d6646e89675532bbfd8cadf08b lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s44/seed_verified.json
+SOURCE_SHA256 cbb1f8c7b3f4c3f344ff81be4a3ea3ab4f1104680b555678cef2a728ea0d390d lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s44/test_metrics.log
+SOURCE_SHA256 1c9f217631ac68b759a01f8261f6a812dd4a8a4d69777781f2a8ba42b807e291 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s44/test_predictions.csv
+SOURCE_SHA256 9b9487bf0f6b17a554d1684669c92388f9ef1b856e366012bb7baf743eb98d64 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s45/run_complete.json
+SOURCE_SHA256 7f2fad5926e80df7ef96e098efe0c90f18e23bfafb6916c520a73714a9727f7a lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s45/seed_verified.json
+SOURCE_SHA256 14fb62a7bef35bce80750d4f3c9c40a721e1de0688dcd03d4dbb332927b048f4 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s45/test_metrics.log
+SOURCE_SHA256 98171f412c998f4a8aef1f7ce1ee718d3be64ec6dc898c7756d035d13b32f178 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s45/test_predictions.csv
+SOURCE_SHA256 9a93f9fd1bc8286ab31de491c48752ed518da7865615af2fd93b05f22d0ad8c3 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s46/run_complete.json
+SOURCE_SHA256 3ad7b36966d93b9deb85925d774bac462bcf9cefd246c0b3484719444d3c5d94 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s46/seed_verified.json
+SOURCE_SHA256 df640001d770ff2c864c2674eb84111580172ab736140b4b3467b8351c149a8c lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s46/test_metrics.log
+SOURCE_SHA256 62471c01db1d77d1654a57f5f1031a202125c9e443c91771d8c4c4cafe5de18a lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s46/test_predictions.csv
+SOURCE_SHA256 699022263e14f9f0cec64152161de97194e6562683d5fb7d1d42efc4b354d315 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s47/run_complete.json
+SOURCE_SHA256 11f7534a062555d6435d5e181edc97cfdfa36580b7f7e837d8d73bd38074f912 lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s47/seed_verified.json
+SOURCE_SHA256 8b040ef7bb8725d9c961001e0d1c6e9dfc958344be91c45ae64296d0ed09c66f lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s47/test_metrics.log
+SOURCE_SHA256 ec01d9ed2e69ddd161beedb892226b5f4e221fed75125b308464e70e486a541b lodo-taylor-nolayer-off-v1/results/imagenette-no-layer-s47/test_predictions.csv
+SOURCE_SHA256 26303f4d6da541ee57de9e1aa932dc8a302518a4c3c918001098406571db9714 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s42/run_complete.json
+SOURCE_SHA256 cb7f5e25955fb78c0212fafda7a0ec206d1ca8df4510526f2406cd4bc1224b67 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s42/seed_verified.json
+SOURCE_SHA256 0ab8e22e6270aae5a80178d472df9a881defb63ef19919021c70ded7ee05e096 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s42/test_metrics.log
+SOURCE_SHA256 0d0775780cb68ec05426e7cc696e41e3919de7988b1b6a0033b51c4bac08d80f lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s42/test_predictions.csv
+SOURCE_SHA256 91994c9a993499f2d3081d1775a61eec9e643f00bccd8fdbac7bdc371da7c345 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s43/run_complete.json
+SOURCE_SHA256 5dc7af19ed6f2ad2c9bc88649b08c20f976a177cf8d94c9a56f6986a777bc95c lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s43/seed_verified.json
+SOURCE_SHA256 e1487faa8420f05c688aa25aec45e038d2651fea15cd6819d9d93a01bbcd9895 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s43/test_metrics.log
+SOURCE_SHA256 6e583570ce17c87b1d77a94e7880049fe38dbe166129204dc316367e559f822f lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s43/test_predictions.csv
+SOURCE_SHA256 aeb099b58156c563234a7bd62e88ee525e5acdbdba3c9c91b0706bd195436ed5 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s44/run_complete.json
+SOURCE_SHA256 b30c7b9ac5457d8f016dcd70fdac639fd0d13bbcea8148cb92beb6e0cd6dc953 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s44/seed_verified.json
+SOURCE_SHA256 3d21313e961d418c85e7846c6fc9e81a83f0d7bec4a12d7fb6494ab19fa18b68 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s44/test_metrics.log
+SOURCE_SHA256 f112da952d201e4cd45a1001079de8596f7166aa5ffde4e364cd859acd0c2d6a lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s44/test_predictions.csv
+SOURCE_SHA256 c537f56e6be82652b07d2b94c625524f25ce2a5f30ef4c64f63e455c6d075093 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s45/run_complete.json
+SOURCE_SHA256 eee487f7419dd27c1c324627ad3d50acd5c919e7b70df42ebb133fb7abc3df37 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s45/seed_verified.json
+SOURCE_SHA256 204aab34bcbba55c793dd235e30825e3b5b962985ab4ffcc3e039323efa53c97 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s45/test_metrics.log
+SOURCE_SHA256 20e4eca6406e466a5c04453f11b95a2109b459f0512527c753375645a2562bf5 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s45/test_predictions.csv
+SOURCE_SHA256 e7ea0d51d2e7b1c65c454ecf70d1212b8a6f38f03ce5a306a8e607060e718ec7 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s46/run_complete.json
+SOURCE_SHA256 84a09d40c004d37ecaf47f6817893aee6ae9541287b9dfd74e22ec35759e2a84 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s46/seed_verified.json
+SOURCE_SHA256 c7816c466aafd4718341f17ca5c1d0c9a60fffae51480668589020d96895d865 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s46/test_metrics.log
+SOURCE_SHA256 17511833af1a61e540b61976106100779eef047991a184cff5f538acab2c5e35 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s46/test_predictions.csv
+SOURCE_SHA256 8065a78f81dcf0628dd7a6c8cce70aef7c536bbe145c79b0993df60e06eed49b lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s47/run_complete.json
+SOURCE_SHA256 24b4ed5ba4930061bc8d03c6a27e0c495a087b964ffab60e0d3198773e48a878 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s47/seed_verified.json
+SOURCE_SHA256 9c6531ada81103c78cb169ed0b5ad3b3044fd8a407db02e25628b9e68094501a lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s47/test_metrics.log
+SOURCE_SHA256 f48b2ab0490f7959ed24cb311cf732298c712cb1806bba699ee56fa1d4ad9531 lodo-taylor-nolayer-off-v1/results/imagenette-taylor-s47/test_predictions.csv
+SOURCE_SHA256 96f03961edfd8563eb87dccf407c9175dd971959b68918fa0ef9b05e418e95c2 lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s42/run_complete.json
+SOURCE_SHA256 04299801905761238577256aeb48b81e8130329f90675e9767206338045bc31e lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s42/seed_verified.json
+SOURCE_SHA256 9488eb3e70bd683fd8df161559bf55e9582ced0206934c29ddd4964a69903715 lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s42/test_metrics.log
+SOURCE_SHA256 34d1ca226daed38f468e09b9308c043ee6b27886ea57b1ed799b95af6ef9e42e lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s42/test_predictions.csv
+SOURCE_SHA256 32bf597a73e463b8c4d3a112463ab8e6323790babb5d323421e556275e1663d2 lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s43/run_complete.json
+SOURCE_SHA256 879f2dc792304ccb40ac529803654b136b7521450d534fb7672158328ccd2c45 lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s43/seed_verified.json
+SOURCE_SHA256 98d70d81de04a3ec970443ef7b1ddd48083c0e541d7692ce44ec30aa720b0417 lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s43/test_metrics.log
+SOURCE_SHA256 3d41ced3209fff9bb212b60100988cab9500adead2b76f0723d8c988058a436c lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s43/test_predictions.csv
+SOURCE_SHA256 02b8e6e7e654c246c60697b435d4dce15923bac3153e5e0f4faa528ee6c0158c lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s44/run_complete.json
+SOURCE_SHA256 45771e1cf826824e944430b3a1739b0749a908d6646e89675532bbfd8cadf08b lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s44/seed_verified.json
+SOURCE_SHA256 34349712e03184041d85e60478547d6f17f7d40e5a423e94b65809fc0f889099 lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s44/test_metrics.log
+SOURCE_SHA256 5ed8db7aa7f99fb46b3e57f566567f418dbf634848b0fde09bd938a39af28ad7 lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s44/test_predictions.csv
+SOURCE_SHA256 222b5f95bd4120285856cf43ebe64ae24620577f05bac9d3c7ad26a9486fe830 lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s45/run_complete.json
+SOURCE_SHA256 7f2fad5926e80df7ef96e098efe0c90f18e23bfafb6916c520a73714a9727f7a lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s45/seed_verified.json
+SOURCE_SHA256 079b8ebaac0179ae4691555d262e31b8838735e6c063e7c5d2528ccaa8cda17f lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s45/test_metrics.log
+SOURCE_SHA256 e9fd3ee462a3144da76b6f05e86a6b60454adb947b569920906f685c92bc65ff lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s45/test_predictions.csv
+SOURCE_SHA256 3ebc1badd1488c78b2336b808f51becbe9300365b8a2d4d24e339c8fb5da7cd1 lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s46/run_complete.json
+SOURCE_SHA256 3ad7b36966d93b9deb85925d774bac462bcf9cefd246c0b3484719444d3c5d94 lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s46/seed_verified.json
+SOURCE_SHA256 2cc919bf8038b0b5472fa1688a587afd744a6373291bf3bbd4d266d97492468f lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s46/test_metrics.log
+SOURCE_SHA256 6ab9847008b9db18fcf0fea5baccaf94a7f60117db5c3dbbe4a3e212980caef4 lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s46/test_predictions.csv
+SOURCE_SHA256 2111b4fb640f26020ff3f5c5f0ae94ad5d98b3654c62a824e7d56ced14855a65 lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s47/run_complete.json
+SOURCE_SHA256 11f7534a062555d6435d5e181edc97cfdfa36580b7f7e837d8d73bd38074f912 lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s47/seed_verified.json
+SOURCE_SHA256 95b99fc81459009c484deb26bfc88ee9130ce49dfb119050f0cc2d29c511ab1d lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s47/test_metrics.log
+SOURCE_SHA256 d76e887952b9ef30c271679fa41c060f4b4aab745619ff91f6d64d60a0347409 lodo-taylor-nolayer-off-v1/results/svhn-no-layer-s47/test_predictions.csv
+SOURCE_SHA256 663915c5aae859115d764fff66f53cc29e9efe121c7b706996d6f638beba08a7 lodo-taylor-nolayer-off-v1/results/svhn-taylor-s42/run_complete.json
+SOURCE_SHA256 cb7f5e25955fb78c0212fafda7a0ec206d1ca8df4510526f2406cd4bc1224b67 lodo-taylor-nolayer-off-v1/results/svhn-taylor-s42/seed_verified.json
+SOURCE_SHA256 bad7b584491994ba35276093e11677799a63c9d4214da9bac604c07ed6629b37 lodo-taylor-nolayer-off-v1/results/svhn-taylor-s42/test_metrics.log
+SOURCE_SHA256 e7df1718f235cccfb0a23a580e36fe1f038fac3ab4e1ddc66e4190933838dc48 lodo-taylor-nolayer-off-v1/results/svhn-taylor-s42/test_predictions.csv
+SOURCE_SHA256 2de64432d7e07e69df30bbec49b31158aaeec0c32c0ef9ee5dda21247957e00f lodo-taylor-nolayer-off-v1/results/svhn-taylor-s43/run_complete.json
+SOURCE_SHA256 5dc7af19ed6f2ad2c9bc88649b08c20f976a177cf8d94c9a56f6986a777bc95c lodo-taylor-nolayer-off-v1/results/svhn-taylor-s43/seed_verified.json
+SOURCE_SHA256 253e15eb578d746f602fe6df79fdfd4a269d755d9e8b9eb24897115ede23ab92 lodo-taylor-nolayer-off-v1/results/svhn-taylor-s43/test_metrics.log
+SOURCE_SHA256 3553510e08520944dff08fa112d3a85c42d95895924baa1a6b5cfd24c5872bc9 lodo-taylor-nolayer-off-v1/results/svhn-taylor-s43/test_predictions.csv
+SOURCE_SHA256 684257d952d7f149c342db289a24278c8b32da1373b056de5d5ae210ab8f6adf lodo-taylor-nolayer-off-v1/results/svhn-taylor-s44/run_complete.json
+SOURCE_SHA256 b30c7b9ac5457d8f016dcd70fdac639fd0d13bbcea8148cb92beb6e0cd6dc953 lodo-taylor-nolayer-off-v1/results/svhn-taylor-s44/seed_verified.json
+SOURCE_SHA256 078d5cd4f4848e6a7f5812df37f64f4414b0a9d0f38301f391e10dc3c61b01e8 lodo-taylor-nolayer-off-v1/results/svhn-taylor-s44/test_metrics.log
+SOURCE_SHA256 8c276a2328ab2c8023b9791cc20f7b46aa886e4cd5ffb9f21a91f9d6d30a9fdb lodo-taylor-nolayer-off-v1/results/svhn-taylor-s44/test_predictions.csv
+SOURCE_SHA256 263ea5179a28a472b1de632c89a002d80face839890790be947159bd7af993ee lodo-taylor-nolayer-off-v1/results/svhn-taylor-s45/run_complete.json
+SOURCE_SHA256 eee487f7419dd27c1c324627ad3d50acd5c919e7b70df42ebb133fb7abc3df37 lodo-taylor-nolayer-off-v1/results/svhn-taylor-s45/seed_verified.json
+SOURCE_SHA256 4c06dad435f6846cf120da83593a68ab0293bcdbd2364669f872d900d20fba48 lodo-taylor-nolayer-off-v1/results/svhn-taylor-s45/test_metrics.log
+SOURCE_SHA256 9b8b822e7d221cb7a30519ac52254d47b1933950317f7cfa58f6701d43cf08dc lodo-taylor-nolayer-off-v1/results/svhn-taylor-s45/test_predictions.csv
+SOURCE_SHA256 5969454f7a9246d1f118905580a56f75434911bfbc3b934bc6eb5f95e288ccfa lodo-taylor-nolayer-off-v1/results/svhn-taylor-s46/run_complete.json
+SOURCE_SHA256 84a09d40c004d37ecaf47f6817893aee6ae9541287b9dfd74e22ec35759e2a84 lodo-taylor-nolayer-off-v1/results/svhn-taylor-s46/seed_verified.json
+SOURCE_SHA256 11e43c4b51e3bc40cd872aa9832cf5d4aba7af9ec51eebaa98911d052328a6eb lodo-taylor-nolayer-off-v1/results/svhn-taylor-s46/test_metrics.log
+SOURCE_SHA256 6eaa561622fe0655c857506a8cbb558131b901435089c15c5b3593d9264a6f51 lodo-taylor-nolayer-off-v1/results/svhn-taylor-s46/test_predictions.csv
+SOURCE_SHA256 4b5cae37a8605fcafa3f7afc09727c18128dcfc8ca6b9bbad19f4f1b463df29b lodo-taylor-nolayer-off-v1/results/svhn-taylor-s47/run_complete.json
+SOURCE_SHA256 24b4ed5ba4930061bc8d03c6a27e0c495a087b964ffab60e0d3198773e48a878 lodo-taylor-nolayer-off-v1/results/svhn-taylor-s47/seed_verified.json
+SOURCE_SHA256 66a3b73e229f0d02055a2b9832aae1424f1697cb1d997d227e12fcce344e9994 lodo-taylor-nolayer-off-v1/results/svhn-taylor-s47/test_metrics.log
+SOURCE_SHA256 39fcc94ee8b16efaf83e0672199eb3204541e832a23a4239612f07f077200c6e lodo-taylor-nolayer-off-v1/results/svhn-taylor-s47/test_predictions.csv
+SOURCE_SHA256 4468b21e17bbda33afab0034bd1d2a20de08775c98d3b9c44f73436e51e19641 lodo-taylor-nolayer-off-v1/run_registry.json
+SOURCE_SHA256 897aef1e4b114b5a8431d7c91c8d51da895d4b52ce0b484e509e43bbba184ef3 lodo-taylor-nolayer-off-v1/worker.py
+SOURCE_SHA256 4474da1ef8606f19174d25eb4d8e88397d55ce244c39ad915dda7767bbd3e1cb lodo-taylor-rest-off-v1/plan.json
+SOURCE_SHA256 173b50831875b1e9a79170912d9ee8f26044f2a25d6ffffb76112cedf87b5043 lodo-taylor-rest-off-v1/preparation_verified.json
+SOURCE_SHA256 2f3030d5acab4f423710405f2e09b83b5af4b033435b212c14efcc193e8021eb lodo-taylor-rest-off-v1/prompts/celeba-gender/no-layer/test_llm_dataset.jsonl
+SOURCE_SHA256 1370d5af33a700ce0410b03153afbaa540d98c5c94ff3a1eeac67f24b7b43e42 lodo-taylor-rest-off-v1/prompts/celeba-gender/taylor/test_llm_dataset.jsonl
+SOURCE_SHA256 393822fde830fc9e61bda8293ff3703202cdbca6a1706fb9ef1e90e039950923 lodo-taylor-rest-off-v1/prompts/cifar-10/no-layer/test_llm_dataset.jsonl
+SOURCE_SHA256 9047d14255aa89492f9b76b68dc555370ba9bbdb57a9ad3f8f7cb6eec6f3fe0e lodo-taylor-rest-off-v1/prompts/cifar-10/taylor/test_llm_dataset.jsonl
+SOURCE_SHA256 f102c6fb7c861f192f9d203b2b2c4faf2d5236fb2d286dd54e1ef4045528feaa lodo-taylor-rest-off-v1/prompts/mnist/no-layer/test_llm_dataset.jsonl
+SOURCE_SHA256 a80c68355912b0ede05bf689d9605376aaddf8ab339ea2833c87af8b118f5ffc lodo-taylor-rest-off-v1/prompts/mnist/taylor/test_llm_dataset.jsonl
+SOURCE_SHA256 305cc0e11a980b7a8fbad412699b61f522fd2e77e14e51f416b69df7365e1bf3 lodo-taylor-rest-off-v1/prompts/places365/no-layer/test_llm_dataset.jsonl
+SOURCE_SHA256 5d68a14a120b41c60cb12d34219e2df019493734b694a804c8c2ea62995f7b51 lodo-taylor-rest-off-v1/prompts/places365/taylor/test_llm_dataset.jsonl
+SOURCE_SHA256 e4d54145be370b25fc6773cd8b4191e4a9fc25002aee0bcfe3df326c405279d7 lodo-taylor-rest-off-v1/recovery/mnist-no-layer-s45-eval-v1/run_complete.json
+SOURCE_SHA256 8b262e7c218471ef4b87e7bb3fb595a97190f60f77fb0d3c1abfbab66656ac7c lodo-taylor-rest-off-v1/recovery/mnist-no-layer-s45-eval-v1/seed_verified.json
+SOURCE_SHA256 79a8ec22c19a8edc6c1b06963ed23addc6094743e2bb7131e53ee0bb8d9e4939 lodo-taylor-rest-off-v1/recovery/mnist-no-layer-s45-eval-v1/test_metrics.log
+SOURCE_SHA256 c183a027b3805ddf06a0e2318ae6307c64990965b598fe091db58f16426a5b40 lodo-taylor-rest-off-v1/recovery/mnist-no-layer-s45-eval-v1/test_predictions.csv
+SOURCE_SHA256 4b39869355768296beb7bd1a6ddcae14aebece9068d7443ef1397903586a964e lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s42/run_complete.json
+SOURCE_SHA256 04299801905761238577256aeb48b81e8130329f90675e9767206338045bc31e lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s42/seed_verified.json
+SOURCE_SHA256 ea8473c749bcd41bc88717685b61d6439f856ad6d1257c99198fdf3fd105f57a lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s42/test_metrics.log
+SOURCE_SHA256 c3d6a6c84be3dff1a9e3624f667386c12831d961d650098e070952631ad8c06d lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s42/test_predictions.csv
+SOURCE_SHA256 92854dc4d37e8bf49b475d49d4f7ca50a9a9436f420ddb16c92e342195df3139 lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s43/run_complete.json
+SOURCE_SHA256 879f2dc792304ccb40ac529803654b136b7521450d534fb7672158328ccd2c45 lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s43/seed_verified.json
+SOURCE_SHA256 dedbc171efa99ef02792f75d0b7f2827e28ad173832a848ecf5faffe9708bc2c lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s43/test_metrics.log
+SOURCE_SHA256 7803f55de46906ddbf9252c113f7d54468c5daded661dff2fa35670e1b877d2f lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s43/test_predictions.csv
+SOURCE_SHA256 e585645fa901cee31c9df0eb2db6f58dda1ce7ca19554dda715d58359f339067 lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s44/run_complete.json
+SOURCE_SHA256 45771e1cf826824e944430b3a1739b0749a908d6646e89675532bbfd8cadf08b lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s44/seed_verified.json
+SOURCE_SHA256 7fc6052a4a05944613dacf9b3821fbba13542fdb194a828ceb21a3ba96e732ac lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s44/test_metrics.log
+SOURCE_SHA256 f5e35b196703f0de8fe910d23c0c6eb501300229cbba8d1297eb83c794d6b0be lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s44/test_predictions.csv
+SOURCE_SHA256 5b11567f0ba45b8998558f077e30cd9ce3b92414bfb10bf7e5b1395e591ae1e0 lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s45/run_complete.json
+SOURCE_SHA256 7f2fad5926e80df7ef96e098efe0c90f18e23bfafb6916c520a73714a9727f7a lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s45/seed_verified.json
+SOURCE_SHA256 64636d3ed8489448d53a0fd9fd6c27239c98dfbb2898a479eba9ee280f0a459e lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s45/test_metrics.log
+SOURCE_SHA256 b06155f6504e42c6b2bb52111b8eea12bc62933343e6c951c234c83a75fc9d6f lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s45/test_predictions.csv
+SOURCE_SHA256 6f5586edba2ca80138081c693c70d6d87742a9ca074b65e8410560230c8aa73f lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s46/run_complete.json
+SOURCE_SHA256 3ad7b36966d93b9deb85925d774bac462bcf9cefd246c0b3484719444d3c5d94 lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s46/seed_verified.json
+SOURCE_SHA256 5e667dbe1bc5b2dc61d87ddadb0cac6da69a212fcae29befd757236720a23b6d lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s46/test_metrics.log
+SOURCE_SHA256 c3d247628c1f9c1093e249f562897b67e0a5070de4f45c09bad3d2038855c222 lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s46/test_predictions.csv
+SOURCE_SHA256 0762431c469ce7bd739370df40f5312c5b80c9a924f16b30bb9472003bfe4d8c lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s47/run_complete.json
+SOURCE_SHA256 11f7534a062555d6435d5e181edc97cfdfa36580b7f7e837d8d73bd38074f912 lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s47/seed_verified.json
+SOURCE_SHA256 33f2987232952959b3c1007e86740784968bfd151a96bfd906106a2651bfd06f lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s47/test_metrics.log
+SOURCE_SHA256 74171c4cb808e22a390bc455038714428d3bb47839eb18ccb3886994935c9283 lodo-taylor-rest-off-v1/results/celeba-gender-no-layer-s47/test_predictions.csv
+SOURCE_SHA256 38c1ad0f96f55adb80bf1ede424d875a0ab91c340d520eea15a98c770e028da0 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s42/run_complete.json
+SOURCE_SHA256 cb7f5e25955fb78c0212fafda7a0ec206d1ca8df4510526f2406cd4bc1224b67 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s42/seed_verified.json
+SOURCE_SHA256 40ca5f7bb78344aba66f328407f89a184a108e71343207d841a482b2ef6eb1ed lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s42/test_metrics.log
+SOURCE_SHA256 c39c925ea340c1398b0e41bb575e9b1b8f7631baf62d9c26cb23e18273a9f9d7 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s42/test_predictions.csv
+SOURCE_SHA256 351a481bb62770bfd41e5ad275d3a22956dc69ec38367077ad42477ede9bc5e7 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s43/run_complete.json
+SOURCE_SHA256 5dc7af19ed6f2ad2c9bc88649b08c20f976a177cf8d94c9a56f6986a777bc95c lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s43/seed_verified.json
+SOURCE_SHA256 68a4bf0d4bf8da55f2cef2d7286e5f0ea736d348a3957e177bd1a1a7d87e0f28 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s43/test_metrics.log
+SOURCE_SHA256 e587f10d62682c5be2bb1ed745e81fd11161c2e473bf7dc84b9d1cb06bba2c87 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s43/test_predictions.csv
+SOURCE_SHA256 c10d59b24a26745a26d88c6f675c69d2cb43e9af2aded2c2e0b56374a9618702 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s44/run_complete.json
+SOURCE_SHA256 b30c7b9ac5457d8f016dcd70fdac639fd0d13bbcea8148cb92beb6e0cd6dc953 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s44/seed_verified.json
+SOURCE_SHA256 0c26450e9593c2dac9a31312a1e56d4b0faad36973a12e512977439d728eddf6 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s44/test_metrics.log
+SOURCE_SHA256 7f10d821423ea740cf1fee50544e9d42d656974bc5ab29eef0641cc25bfc880a lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s44/test_predictions.csv
+SOURCE_SHA256 9fbe9f5a4521b0d0002f9927dce5dd2319fbd130230670a7ff3ca0682a1aa0e9 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s45/run_complete.json
+SOURCE_SHA256 eee487f7419dd27c1c324627ad3d50acd5c919e7b70df42ebb133fb7abc3df37 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s45/seed_verified.json
+SOURCE_SHA256 f109da0254ba466f7e8fff45b957c53b2a9ae0d9eaad69dde3f890e14863aa51 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s45/test_metrics.log
+SOURCE_SHA256 abe124ed167811158f40466615d90d7283eef3e1df69ff6a7abccea9eba1e674 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s45/test_predictions.csv
+SOURCE_SHA256 773b3c42895326a6f0dd4c98a357d090c31db23a7aa3f43ebf06e1eba9b858c4 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s46/run_complete.json
+SOURCE_SHA256 84a09d40c004d37ecaf47f6817893aee6ae9541287b9dfd74e22ec35759e2a84 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s46/seed_verified.json
+SOURCE_SHA256 1e7efff9aa9bb52c27be8649a0d1616d87de8c8ff3596ac735fbe04877850979 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s46/test_metrics.log
+SOURCE_SHA256 650e93b483403fa59888ae62d39896eba35cc9ff9ff0ee3da778a8a2df4e1980 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s46/test_predictions.csv
+SOURCE_SHA256 58c5c0b82f1e3e05e3f985276e7b1879542c0877aba7856366d9dff0ade869ae lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s47/run_complete.json
+SOURCE_SHA256 24b4ed5ba4930061bc8d03c6a27e0c495a087b964ffab60e0d3198773e48a878 lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s47/seed_verified.json
+SOURCE_SHA256 15ee0f8181c74d7efb33e53a2de956f21c41e0807b4b0c566d79c03df27c54da lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s47/test_metrics.log
+SOURCE_SHA256 380a0f134838123d81b38412c1d3066fa16d3cdd13f30f9f8407f482dd80840e lodo-taylor-rest-off-v1/results/celeba-gender-taylor-s47/test_predictions.csv
+SOURCE_SHA256 cc891a1d087fac45e172696b20d72f87fcc25c8b7fcbdf8618b7c27454658385 lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s42/run_complete.json
+SOURCE_SHA256 04299801905761238577256aeb48b81e8130329f90675e9767206338045bc31e lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s42/seed_verified.json
+SOURCE_SHA256 6d1c5b8f8653286ec2b1aa1295d0180eccd924d6432864c7e51fc79937325849 lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s42/test_metrics.log
+SOURCE_SHA256 5526159e62a699c8cb7c94c07d555e62f5d6aaa84d277188a61e0fa77e795441 lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s42/test_predictions.csv
+SOURCE_SHA256 ad7d3e89d9e20eedf2e4a351448a9a31c9447192a897748f2b81a2f7533f0e7c lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s43/run_complete.json
+SOURCE_SHA256 879f2dc792304ccb40ac529803654b136b7521450d534fb7672158328ccd2c45 lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s43/seed_verified.json
+SOURCE_SHA256 00e6a3811627c44fd76e3c4c04bb2fd251b6adeedf8cb16e1d392c93a4e468ce lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s43/test_metrics.log
+SOURCE_SHA256 be63dc888b9dcf3871de7c7aabe2b991c89295e1ab4cfadaced268be9577aba2 lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s43/test_predictions.csv
+SOURCE_SHA256 68e9f835e55ed0e4bd385d53990d054aa92f18c90499b52cbc5830f9dc21dcd9 lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s44/run_complete.json
+SOURCE_SHA256 45771e1cf826824e944430b3a1739b0749a908d6646e89675532bbfd8cadf08b lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s44/seed_verified.json
+SOURCE_SHA256 90b3c16be7d970c1277dd69ca557556923841f9399d8efea34338d45b6e28ca9 lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s44/test_metrics.log
+SOURCE_SHA256 c9781cb69dac49cef52290e25e24aa7eabab70992b819a0f03394d63bf3c6565 lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s44/test_predictions.csv
+SOURCE_SHA256 4c50974c0c512b3c97c5a2240974be5bd24f6886010db7cd494b8c271037877c lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s45/run_complete.json
+SOURCE_SHA256 7f2fad5926e80df7ef96e098efe0c90f18e23bfafb6916c520a73714a9727f7a lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s45/seed_verified.json
+SOURCE_SHA256 a0c865df894aa75872eac097c8e5e259dbc740b8cd2e36d25cc2cca6da94c7a9 lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s45/test_metrics.log
+SOURCE_SHA256 69964d1ab4eb824496a3f4bb5f02a5ac5510912479176fa28e52b6575629b81a lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s45/test_predictions.csv
+SOURCE_SHA256 f70d1b4f5aabdf76df6cf9b21e82fc99a9dc1d9da7290a7cdd980fd047e7d98c lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s47/run_complete.json
+SOURCE_SHA256 11f7534a062555d6435d5e181edc97cfdfa36580b7f7e837d8d73bd38074f912 lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s47/seed_verified.json
+SOURCE_SHA256 399b98c7aacc822ed9cc143eb6b38672b2e4a271d237d10cda58e52ba3fb0454 lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s47/test_metrics.log
+SOURCE_SHA256 afb71ca670f92c51821faa4862c186bd38d14f26544486cbcf0f59b5bdc0a7a9 lodo-taylor-rest-off-v1/results/cifar-10-no-layer-s47/test_predictions.csv
+SOURCE_SHA256 92a97c27674c5a3dab7de7a5b058f83edf8e44057a58c3e20d8b4afd44b3eef3 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s42/run_complete.json
+SOURCE_SHA256 cb7f5e25955fb78c0212fafda7a0ec206d1ca8df4510526f2406cd4bc1224b67 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s42/seed_verified.json
+SOURCE_SHA256 9497faf87874e83b1c73ee5ea0a669093e54d6578109183d0c7f767b3796296d lodo-taylor-rest-off-v1/results/cifar-10-taylor-s42/test_metrics.log
+SOURCE_SHA256 3a2277f495cb0f7d25887e155b6ff4dacec1f49a4715cae6060721112bc48f94 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s42/test_predictions.csv
+SOURCE_SHA256 aef07218ada3d7cb4d77cf38e74f7d36cbe5f98b4228b5c9a157d67c9455edf3 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s43/run_complete.json
+SOURCE_SHA256 5dc7af19ed6f2ad2c9bc88649b08c20f976a177cf8d94c9a56f6986a777bc95c lodo-taylor-rest-off-v1/results/cifar-10-taylor-s43/seed_verified.json
+SOURCE_SHA256 e79c31888f1e31e8fff2c6f4195bcce3c0c9f90d78fe8b6453509e1ceb3b2bce lodo-taylor-rest-off-v1/results/cifar-10-taylor-s43/test_metrics.log
+SOURCE_SHA256 24bd3545b683a52d122a6f549522ba9ec2be7405606e7702b35f8218492ac6a3 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s43/test_predictions.csv
+SOURCE_SHA256 4cc9486fee019494285d6503372f26d77125fcee9cbb591e08481c69003b551a lodo-taylor-rest-off-v1/results/cifar-10-taylor-s44/run_complete.json
+SOURCE_SHA256 b30c7b9ac5457d8f016dcd70fdac639fd0d13bbcea8148cb92beb6e0cd6dc953 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s44/seed_verified.json
+SOURCE_SHA256 9866e279bf5b47a167ce187d4ae65a93269280b1c67b2ae0a2a07f2482cc953d lodo-taylor-rest-off-v1/results/cifar-10-taylor-s44/test_metrics.log
+SOURCE_SHA256 3ed2a7dfbd759d0b929fac64f1f8a0a0e39797538c154a8a759eb4cd0f47d68e lodo-taylor-rest-off-v1/results/cifar-10-taylor-s44/test_predictions.csv
+SOURCE_SHA256 5d1c495e5477e43726a8ebaaf5c5f47b5cbfcf86d2f5f9179fb4d400e72b88ef lodo-taylor-rest-off-v1/results/cifar-10-taylor-s45/run_complete.json
+SOURCE_SHA256 eee487f7419dd27c1c324627ad3d50acd5c919e7b70df42ebb133fb7abc3df37 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s45/seed_verified.json
+SOURCE_SHA256 b52aaebdda6031547a6e06bf917bd299efed975cdd6c31ccacd7c7e5e719d646 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s45/test_metrics.log
+SOURCE_SHA256 295e15997d471dbb21d846801ca9bb1731abcf350ce70e8d7b02881139508e01 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s45/test_predictions.csv
+SOURCE_SHA256 6196ce8c356b2ff3ddca3660d6c14806e216bf9b5f9540e3cebb96d59a9c2864 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s46/run_complete.json
+SOURCE_SHA256 84a09d40c004d37ecaf47f6817893aee6ae9541287b9dfd74e22ec35759e2a84 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s46/seed_verified.json
+SOURCE_SHA256 8dbd39fdbbc855ff56e41e8518c6d05b043db9dce63a2d7f8cf8e0022c3bead6 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s46/test_metrics.log
+SOURCE_SHA256 967a371e0f30db8e2f6b7552a1cfaadcf9bf30d2bc6eb66cec0555a7afc138d6 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s46/test_predictions.csv
+SOURCE_SHA256 f5c5547e56cc6cfa3d107737a036184fc560dae666f5049071947e0ef41185c2 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s47/run_complete.json
+SOURCE_SHA256 24b4ed5ba4930061bc8d03c6a27e0c495a087b964ffab60e0d3198773e48a878 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s47/seed_verified.json
+SOURCE_SHA256 f1cbe8d1a19b2feb08ca47a90378c77a2475a9ac3f3ea144cf40c6bb3a5e3a88 lodo-taylor-rest-off-v1/results/cifar-10-taylor-s47/test_metrics.log
+SOURCE_SHA256 187faa5a361e3f6bd3afbf017b97134c041dafa9db91651376c8454f5b54bfbd lodo-taylor-rest-off-v1/results/cifar-10-taylor-s47/test_predictions.csv
+SOURCE_SHA256 f37e617e3ceebfeabc3d9bab2bf95cb436dd6fe1d7070a0ce483f8ed165a9d68 lodo-taylor-rest-off-v1/results/mnist-no-layer-s42/run_complete.json
+SOURCE_SHA256 04299801905761238577256aeb48b81e8130329f90675e9767206338045bc31e lodo-taylor-rest-off-v1/results/mnist-no-layer-s42/seed_verified.json
+SOURCE_SHA256 4165b7562f17b0902276cfa59dd72a6702b1ec91e666a07f6e2edbf4522d510b lodo-taylor-rest-off-v1/results/mnist-no-layer-s42/test_metrics.log
+SOURCE_SHA256 c9469ddac26a6767c7ca707e22e1bef86734c19b4b8e3fb401b92f2c80da7432 lodo-taylor-rest-off-v1/results/mnist-no-layer-s42/test_predictions.csv
+SOURCE_SHA256 9e103d405ec8c58352d023c96c4c39c7d26e4797800af90050a20059c8f58fe4 lodo-taylor-rest-off-v1/results/mnist-no-layer-s43/run_complete.json
+SOURCE_SHA256 879f2dc792304ccb40ac529803654b136b7521450d534fb7672158328ccd2c45 lodo-taylor-rest-off-v1/results/mnist-no-layer-s43/seed_verified.json
+SOURCE_SHA256 6f0373ab60ede7bb0c71909cd123fbc09b9e823f89e9b49157ccdcb8c190e292 lodo-taylor-rest-off-v1/results/mnist-no-layer-s43/test_metrics.log
+SOURCE_SHA256 b6b2025cc5da85a01768c2360905af010cd75df292dc8707cb00c2db54008049 lodo-taylor-rest-off-v1/results/mnist-no-layer-s43/test_predictions.csv
+SOURCE_SHA256 d7ccca2aff51c8e64bca5558740d543cdb16b025d2b9f879e8cd1b2ab9015b9b lodo-taylor-rest-off-v1/results/mnist-no-layer-s44/run_complete.json
+SOURCE_SHA256 45771e1cf826824e944430b3a1739b0749a908d6646e89675532bbfd8cadf08b lodo-taylor-rest-off-v1/results/mnist-no-layer-s44/seed_verified.json
+SOURCE_SHA256 f8e3ef04865479368932b4cf5d0c700bb4b823f6e76b403dccbf88193a688983 lodo-taylor-rest-off-v1/results/mnist-no-layer-s44/test_metrics.log
+SOURCE_SHA256 c8b71bfce7792de82deb004d0b2753de3e6083de8af2336a784389c0f8449df9 lodo-taylor-rest-off-v1/results/mnist-no-layer-s44/test_predictions.csv
+SOURCE_SHA256 d841e569b62a34b04751145013386824de48aae0b8d9b188d44235fad158e212 lodo-taylor-rest-off-v1/results/mnist-no-layer-s46/run_complete.json
+SOURCE_SHA256 3ad7b36966d93b9deb85925d774bac462bcf9cefd246c0b3484719444d3c5d94 lodo-taylor-rest-off-v1/results/mnist-no-layer-s46/seed_verified.json
+SOURCE_SHA256 31eeba461b996e44d3095a47d81a290262ab59a944904f911758650d93cc2090 lodo-taylor-rest-off-v1/results/mnist-no-layer-s46/test_metrics.log
+SOURCE_SHA256 55d80ac56832513ddaed2dc2107afb14f5f9090b2fee4852777457c3e8af933e lodo-taylor-rest-off-v1/results/mnist-no-layer-s46/test_predictions.csv
+SOURCE_SHA256 07f1e301966c8dcf67607e8f8bd393c438ce81219ebf9c0c898187454a56a31f lodo-taylor-rest-off-v1/results/mnist-no-layer-s47/run_complete.json
+SOURCE_SHA256 11f7534a062555d6435d5e181edc97cfdfa36580b7f7e837d8d73bd38074f912 lodo-taylor-rest-off-v1/results/mnist-no-layer-s47/seed_verified.json
+SOURCE_SHA256 21637e9eeef04b491a40ba58d87dc4f616644858bcfac11e7cf6bb2561db3767 lodo-taylor-rest-off-v1/results/mnist-no-layer-s47/test_metrics.log
+SOURCE_SHA256 1bdda700387feae6f3390e2d8aac790aee58d48205ab6975a0bbd2b5f8a74db9 lodo-taylor-rest-off-v1/results/mnist-no-layer-s47/test_predictions.csv
+SOURCE_SHA256 e90e88f4d134f09fbf89c1f68dcb6ac63851cedbdbb8dbd9d45c5c85a467888e lodo-taylor-rest-off-v1/results/mnist-taylor-s42/run_complete.json
+SOURCE_SHA256 cb7f5e25955fb78c0212fafda7a0ec206d1ca8df4510526f2406cd4bc1224b67 lodo-taylor-rest-off-v1/results/mnist-taylor-s42/seed_verified.json
+SOURCE_SHA256 b612d3427583b6156620bd68ca03cf5bf1514a9eb35b0e9d688b7ff3d4e34e67 lodo-taylor-rest-off-v1/results/mnist-taylor-s42/test_metrics.log
+SOURCE_SHA256 f4d82123820938d42c436ce3faae57f778fe89245743b54235c8f91141479754 lodo-taylor-rest-off-v1/results/mnist-taylor-s42/test_predictions.csv
+SOURCE_SHA256 71938934261d0cb2aeb7975cf8054109dcafe4b3831f73d7bc9a4c12b1d30272 lodo-taylor-rest-off-v1/results/mnist-taylor-s43/run_complete.json
+SOURCE_SHA256 5dc7af19ed6f2ad2c9bc88649b08c20f976a177cf8d94c9a56f6986a777bc95c lodo-taylor-rest-off-v1/results/mnist-taylor-s43/seed_verified.json
+SOURCE_SHA256 55587143be3b1925c359fc67da64dd6161c87c7aaf0b44939e60a4b3872d682c lodo-taylor-rest-off-v1/results/mnist-taylor-s43/test_metrics.log
+SOURCE_SHA256 8f6fa8782d1b6a46cb6c0f6eeb6f1d120edb6b65a20b1580dc0a530abdb48d93 lodo-taylor-rest-off-v1/results/mnist-taylor-s43/test_predictions.csv
+SOURCE_SHA256 7e43352b178146de9c8a16eb52edd1891e73b398a24d6c8c75b06d7ab66b4f95 lodo-taylor-rest-off-v1/results/mnist-taylor-s44/run_complete.json
+SOURCE_SHA256 b30c7b9ac5457d8f016dcd70fdac639fd0d13bbcea8148cb92beb6e0cd6dc953 lodo-taylor-rest-off-v1/results/mnist-taylor-s44/seed_verified.json
+SOURCE_SHA256 6a7795fb7ddec31c034100e5f685aff5e144752daf4c74952c97fd38ea28e772 lodo-taylor-rest-off-v1/results/mnist-taylor-s44/test_metrics.log
+SOURCE_SHA256 c7256af506bd3a08f51b9fcf08df8118d78ce2b29a8e95c9a479f1bd5094db0e lodo-taylor-rest-off-v1/results/mnist-taylor-s44/test_predictions.csv
+SOURCE_SHA256 b9dc79ebe99cdad656b50ccdafa09eb5e75d19b4eeeb0e80cd594b8fa182253b lodo-taylor-rest-off-v1/results/mnist-taylor-s45/run_complete.json
+SOURCE_SHA256 eee487f7419dd27c1c324627ad3d50acd5c919e7b70df42ebb133fb7abc3df37 lodo-taylor-rest-off-v1/results/mnist-taylor-s45/seed_verified.json
+SOURCE_SHA256 b14862c087f171f8f8e8dbbf4b5ffb11498e1d212d4289586046a88ddacc5bdc lodo-taylor-rest-off-v1/results/mnist-taylor-s45/test_metrics.log
+SOURCE_SHA256 7c102f37d7f8c3235458c42b85cb4502ee0df51bb0d6fa266e259241b041aa4d lodo-taylor-rest-off-v1/results/mnist-taylor-s45/test_predictions.csv
+SOURCE_SHA256 7a0720d1000dd6ad9f111f1aa2a01dc6ef53b4f42aa9288168c5ca491b056bcd lodo-taylor-rest-off-v1/results/mnist-taylor-s46/run_complete.json
+SOURCE_SHA256 84a09d40c004d37ecaf47f6817893aee6ae9541287b9dfd74e22ec35759e2a84 lodo-taylor-rest-off-v1/results/mnist-taylor-s46/seed_verified.json
+SOURCE_SHA256 b41dee7325127e16700427c62ad70a0527e6b31f91176d9af62a749e35de8fe3 lodo-taylor-rest-off-v1/results/mnist-taylor-s46/test_metrics.log
+SOURCE_SHA256 5882ce895a155978cd4039c258364c4363799b5d7b4897c4a818632bce2576d0 lodo-taylor-rest-off-v1/results/mnist-taylor-s46/test_predictions.csv
+SOURCE_SHA256 a5026c72047dcc628768c2e647084e97ba8bf46b7d944f194376f283bf80a4d6 lodo-taylor-rest-off-v1/results/mnist-taylor-s47/run_complete.json
+SOURCE_SHA256 24b4ed5ba4930061bc8d03c6a27e0c495a087b964ffab60e0d3198773e48a878 lodo-taylor-rest-off-v1/results/mnist-taylor-s47/seed_verified.json
+SOURCE_SHA256 fada3ebb247b76c939f18c2646e1fd4fdb206cd6d6aa258d80acf27ce9d4cdc6 lodo-taylor-rest-off-v1/results/mnist-taylor-s47/test_metrics.log
+SOURCE_SHA256 ee0ece77c6e82c8ce7a4ae55375829cb4dd408c5324cbae32c6a30943bed2d77 lodo-taylor-rest-off-v1/results/mnist-taylor-s47/test_predictions.csv
+SOURCE_SHA256 897aef1e4b114b5a8431d7c91c8d51da895d4b52ce0b484e509e43bbba184ef3 lodo-taylor-rest-off-v1/worker.py
+SOURCE_SHA256 aaacc04087dbef61015035872cf06709b28e086e3c93b061092f720f10492862 lofo-original-seeds45-47-v1/contract.json
+SOURCE_SHA256 daed6de79570deec1f560854b3fc12488698462ea50aeb32d3b776d023742321 lofo-original-seeds45-47-v1/results/cnn-layer-s45/seed_verified.json
+SOURCE_SHA256 098aff3ead1e1b01b8cd3b2da62632c9c1fad461d40a1b287c5b188d6b6124e5 lofo-original-seeds45-47-v1/results/cnn-layer-s45/test_metrics.log
+SOURCE_SHA256 309816f01e8dd82dafe0234f60ef85f42e3ebbee5918836992ba708345848865 lofo-original-seeds45-47-v1/results/cnn-layer-s45/test_predictions.csv
+SOURCE_SHA256 76e3eb457143ae20b9ce8848a6abba30526b65e135eda24dc42243bc2ff0c422 lofo-original-seeds45-47-v1/results/cnn-layer-s46/seed_verified.json
+SOURCE_SHA256 1fa1d6f1a78cb34e911294fb7f0cb0f5d0c69eee96f95ac553ff033b25e70f9a lofo-original-seeds45-47-v1/results/cnn-layer-s46/test_metrics.log
+SOURCE_SHA256 cef2d199c391b7c98d2edb57381ce2b517b705bab301a03ea726b3b3403a0226 lofo-original-seeds45-47-v1/results/cnn-layer-s46/test_predictions.csv
+SOURCE_SHA256 d1c29395226b584fc449f1f7b989c0139c5a3cdbc60cb37a0d8f2fbc11e96004 lofo-original-seeds45-47-v1/results/cnn-layer-s47/seed_verified.json
+SOURCE_SHA256 aa3d227bb611023bc6a6223f127c55bcbbfcd6184d1a19f763300efd0c3bc9cb lofo-original-seeds45-47-v1/results/cnn-layer-s47/test_metrics.log
+SOURCE_SHA256 d414660d44d6db2f32af5954b7f7db61f6cf23e482e7d76a0c03a7eb21a10a86 lofo-original-seeds45-47-v1/results/cnn-layer-s47/test_predictions.csv
+SOURCE_SHA256 daed6de79570deec1f560854b3fc12488698462ea50aeb32d3b776d023742321 lofo-original-seeds45-47-v1/results/cnn-no-layer-s45/seed_verified.json
+SOURCE_SHA256 47c5757c9689be39e096deabbe3a19bef602d042e80c87548b0c341c475c5769 lofo-original-seeds45-47-v1/results/cnn-no-layer-s45/test_metrics.log
+SOURCE_SHA256 0299dc6032398d20a1acc7b3dd2dc70c82ccf47aa3df008e71f955e693bcfc85 lofo-original-seeds45-47-v1/results/cnn-no-layer-s45/test_predictions.csv
+SOURCE_SHA256 76e3eb457143ae20b9ce8848a6abba30526b65e135eda24dc42243bc2ff0c422 lofo-original-seeds45-47-v1/results/cnn-no-layer-s46/seed_verified.json
+SOURCE_SHA256 6d5f436d950a9423e06974c0dfed0f493d051cef50edec37ff855a01125ea64d lofo-original-seeds45-47-v1/results/cnn-no-layer-s46/test_metrics.log
+SOURCE_SHA256 989d9d9a765fd6a47f64d4051715101834eab7c939e11639202f5f3ca13d7c50 lofo-original-seeds45-47-v1/results/cnn-no-layer-s46/test_predictions.csv
+SOURCE_SHA256 d1c29395226b584fc449f1f7b989c0139c5a3cdbc60cb37a0d8f2fbc11e96004 lofo-original-seeds45-47-v1/results/cnn-no-layer-s47/seed_verified.json
+SOURCE_SHA256 3f29adf6c69ecba6779f04b167fc09a1559d16e80f317d6a01c3dea89a0d4eaa lofo-original-seeds45-47-v1/results/cnn-no-layer-s47/test_metrics.log
+SOURCE_SHA256 4d0f8a00294089966e28d28e060548852a0ab581be497b8c16638f5fc3e38c05 lofo-original-seeds45-47-v1/results/cnn-no-layer-s47/test_predictions.csv
+SOURCE_SHA256 d35547d81bd110dec5d99820f8a827656a82d46cd2e8623e09e6c218bcaf41b6 lofo-original-seeds45-47-v1/results/detector-layer-s45/seed_verified.json
+SOURCE_SHA256 13ff10f0cd90555b74f2e3fbadc11dd18e4ffffa2573ae3454005418940371c7 lofo-original-seeds45-47-v1/results/detector-layer-s45/test_metrics.log
+SOURCE_SHA256 d0746e37961151cd422883708da9c1c84185ad4ee39904317fdb2c378706420d lofo-original-seeds45-47-v1/results/detector-layer-s45/test_predictions.csv
+SOURCE_SHA256 35db22feb30e07e31e1d069a0f7e19b1d654b6009addde86c44e8db735dff70f lofo-original-seeds45-47-v1/results/detector-layer-s46/seed_verified.json
+SOURCE_SHA256 50b44905c028ddd2eeaff06bd6b8183f661b2e0922a7e7a73bf8ca74719c0fba lofo-original-seeds45-47-v1/results/detector-layer-s46/test_metrics.log
+SOURCE_SHA256 826824cca646b539eaddc25a3608c5a28f773d6270d192c01ac89346ffc2f7c2 lofo-original-seeds45-47-v1/results/detector-layer-s46/test_predictions.csv
+SOURCE_SHA256 5df8f416a100c24b403462b0746e244e151cdfc0ed791f8bed2b5cfb171a550f lofo-original-seeds45-47-v1/results/detector-layer-s47/seed_verified.json
+SOURCE_SHA256 b834f2b88dfcc43f742eba060e15d0334efe36120dd3e90e1687dab2ec74a977 lofo-original-seeds45-47-v1/results/detector-layer-s47/test_metrics.log
+SOURCE_SHA256 f5ea78384e86357a4966dfa3f0800e99c739cb49ba08e1edeeb11137918c2e27 lofo-original-seeds45-47-v1/results/detector-layer-s47/test_predictions.csv
+SOURCE_SHA256 d35547d81bd110dec5d99820f8a827656a82d46cd2e8623e09e6c218bcaf41b6 lofo-original-seeds45-47-v1/results/detector-no-layer-s45/seed_verified.json
+SOURCE_SHA256 964232c90ce1c6ea4574aba63084caa45da40f60b33042bbaf757b7b7d6dd662 lofo-original-seeds45-47-v1/results/detector-no-layer-s45/test_metrics.log
+SOURCE_SHA256 a0148736370b6e85b6f5e9c322406050f06a26fe637f779813296ed2242d1a05 lofo-original-seeds45-47-v1/results/detector-no-layer-s45/test_predictions.csv
+SOURCE_SHA256 35db22feb30e07e31e1d069a0f7e19b1d654b6009addde86c44e8db735dff70f lofo-original-seeds45-47-v1/results/detector-no-layer-s46/seed_verified.json
+SOURCE_SHA256 28dc31651ca453b4554f01c61f97729ee769d4418411b91b4e7b4719250a56ef lofo-original-seeds45-47-v1/results/detector-no-layer-s46/test_metrics.log
+SOURCE_SHA256 813b802ca869b999a3ec58aeb43ee2f1e8b738cf0988f1c4c3bac341f94c8bd7 lofo-original-seeds45-47-v1/results/detector-no-layer-s46/test_predictions.csv
+SOURCE_SHA256 5df8f416a100c24b403462b0746e244e151cdfc0ed791f8bed2b5cfb171a550f lofo-original-seeds45-47-v1/results/detector-no-layer-s47/seed_verified.json
+SOURCE_SHA256 1777d8008c0a96a8dce6f3fc70d5174eba569dbe105de7453f7b1d3e02a7603c lofo-original-seeds45-47-v1/results/detector-no-layer-s47/test_metrics.log
+SOURCE_SHA256 542dd3fd695c8829c3b4aeb45c0c22d6608f1a598b224c9602858bc9db1c4960 lofo-original-seeds45-47-v1/results/detector-no-layer-s47/test_predictions.csv
+SOURCE_SHA256 f34c0ae06633b2c7f14ff37263cbd2bacffb8131e5950cf9bd2ca896663f178d lofo-original-seeds45-47-v1/results/other-layer-s45/seed_verified.json
+SOURCE_SHA256 1d1e6e6126550edcc210c8d1c916a980eace59fe83c31970dd5a106c00de5ceb lofo-original-seeds45-47-v1/results/other-layer-s45/test_metrics.log
+SOURCE_SHA256 def2f08437cbb8175d29e96da155d877faa2612c966f75b80c5784e937cbd328 lofo-original-seeds45-47-v1/results/other-layer-s45/test_predictions.csv
+SOURCE_SHA256 8c901ae30457b2a1eefe42446360dcdfae3eb3c4c93ee910728c2879ca24bacb lofo-original-seeds45-47-v1/results/other-layer-s46/seed_verified.json
+SOURCE_SHA256 9e4df0a30b80aaa6175b6d6133b222746776703ede19e07eb5d632ad8488221d lofo-original-seeds45-47-v1/results/other-layer-s46/test_metrics.log
+SOURCE_SHA256 9f185ec3730e75fa637ddc76816843f5eeabc7bd9b6031eba7ec02737b06990d lofo-original-seeds45-47-v1/results/other-layer-s46/test_predictions.csv
+SOURCE_SHA256 f29fa2f1e6370d27770261f622069a97077b293d7967a48b566e5e4f1d0282da lofo-original-seeds45-47-v1/results/other-layer-s47/seed_verified.json
+SOURCE_SHA256 ed59a2c3f3fca139625755080cfc81d7eaee9ecf53cf79b45bfda4665ccb7e2a lofo-original-seeds45-47-v1/results/other-layer-s47/test_metrics.log
+SOURCE_SHA256 4b0673dd36116a35bb908063b12a0f1f22f8beb4e8038237da5f6af5977f1617 lofo-original-seeds45-47-v1/results/other-layer-s47/test_predictions.csv
+SOURCE_SHA256 f34c0ae06633b2c7f14ff37263cbd2bacffb8131e5950cf9bd2ca896663f178d lofo-original-seeds45-47-v1/results/other-no-layer-s45/seed_verified.json
+SOURCE_SHA256 8a328bd6b59d3f00a9d286bd1800e3869ce364119919b993c6fe30998e76619f lofo-original-seeds45-47-v1/results/other-no-layer-s45/test_metrics.log
+SOURCE_SHA256 47fba127163a96ad9a7b8ac4f2d5700a8da9c5a9db7a8ed0b018aa7ad72acfbd lofo-original-seeds45-47-v1/results/other-no-layer-s45/test_predictions.csv
+SOURCE_SHA256 8c901ae30457b2a1eefe42446360dcdfae3eb3c4c93ee910728c2879ca24bacb lofo-original-seeds45-47-v1/results/other-no-layer-s46/seed_verified.json
+SOURCE_SHA256 c7dfbcf5d223bedcbdb085c37b30ef7b200ea6a439ffaec4ae6d88ad6937dbe6 lofo-original-seeds45-47-v1/results/other-no-layer-s46/test_metrics.log
+SOURCE_SHA256 dc2a2a15008e60c3ee314c94e081a52f9867ee7ae2478a421a087e39e9527820 lofo-original-seeds45-47-v1/results/other-no-layer-s46/test_predictions.csv
+SOURCE_SHA256 f29fa2f1e6370d27770261f622069a97077b293d7967a48b566e5e4f1d0282da lofo-original-seeds45-47-v1/results/other-no-layer-s47/seed_verified.json
+SOURCE_SHA256 0695f218f4674727d8f192fe6dfa71c354232ea6aec729fc5f3886249c9aa29c lofo-original-seeds45-47-v1/results/other-no-layer-s47/test_metrics.log
+SOURCE_SHA256 10575a698bd86d858ae66f934d215102bfa01264974c035f0efbb9923b1c2d80 lofo-original-seeds45-47-v1/results/other-no-layer-s47/test_predictions.csv
+SOURCE_SHA256 82fcc1689fd3e1c38078f0eed9d2079be11bba7f1083427c32fc8084ef16a80c lofo-original-seeds45-47-v1/results/segmentation-layer-s45/seed_verified.json
+SOURCE_SHA256 114041b84b5c5edf5aa6d4c57f6e7f4eebc67a497d519bdfccca543452fc1a89 lofo-original-seeds45-47-v1/results/segmentation-layer-s45/test_metrics.log
+SOURCE_SHA256 4c7de1b950469332d9c70dcddbca8706bf35194d6b073116157bd52c3656bc0b lofo-original-seeds45-47-v1/results/segmentation-layer-s45/test_predictions.csv
+SOURCE_SHA256 f642c0bfb447953eedc47a91f9f5ad89d45d0237a1e278291b8861def4c1e2c1 lofo-original-seeds45-47-v1/results/segmentation-layer-s46/seed_verified.json
+SOURCE_SHA256 13f14b02efcb8b47f8bdacbcb75a337202837faf00a5a2cad491a79b2d0766f2 lofo-original-seeds45-47-v1/results/segmentation-layer-s46/test_metrics.log
+SOURCE_SHA256 0d3a04b007452f30018781a09ae4bf161a10f54c72b0584be4a6fc0fcd00d9ca lofo-original-seeds45-47-v1/results/segmentation-layer-s46/test_predictions.csv
+SOURCE_SHA256 85d57e5e83dac85994790d5e2986952ef084c3c4419bc4a7cedc89e054b28525 lofo-original-seeds45-47-v1/results/segmentation-layer-s47/seed_verified.json
+SOURCE_SHA256 aa0406972b0eb37a46622d0f25ea0eb0cec967a72759ad88bd9c7903ea5334f8 lofo-original-seeds45-47-v1/results/segmentation-layer-s47/test_metrics.log
+SOURCE_SHA256 a49e31cf7d27416d54d01462352350ac649fafbb34f3de952d6743427e430da0 lofo-original-seeds45-47-v1/results/segmentation-layer-s47/test_predictions.csv
+SOURCE_SHA256 82fcc1689fd3e1c38078f0eed9d2079be11bba7f1083427c32fc8084ef16a80c lofo-original-seeds45-47-v1/results/segmentation-no-layer-s45/seed_verified.json
+SOURCE_SHA256 64e3b913e37b24c361b5541ced3a2422ea3a3b2ed4b951839b5e1e21e996b201 lofo-original-seeds45-47-v1/results/segmentation-no-layer-s45/test_metrics.log
+SOURCE_SHA256 bd04481e9de1ae8f917f7d2dd464cc8d1990a449c086a140a5ba07db23b5d278 lofo-original-seeds45-47-v1/results/segmentation-no-layer-s45/test_predictions.csv
+SOURCE_SHA256 f642c0bfb447953eedc47a91f9f5ad89d45d0237a1e278291b8861def4c1e2c1 lofo-original-seeds45-47-v1/results/segmentation-no-layer-s46/seed_verified.json
+SOURCE_SHA256 718f77420fcb516b3359fc43acb7868e82ff6153ff223daf426528dcf62db988 lofo-original-seeds45-47-v1/results/segmentation-no-layer-s46/test_metrics.log
+SOURCE_SHA256 9f5f9523bfbc6e0a75ca9d9d4cf5727e1ebb9dafe7a0b74b6e08ffa2f0445426 lofo-original-seeds45-47-v1/results/segmentation-no-layer-s46/test_predictions.csv
+SOURCE_SHA256 85d57e5e83dac85994790d5e2986952ef084c3c4419bc4a7cedc89e054b28525 lofo-original-seeds45-47-v1/results/segmentation-no-layer-s47/seed_verified.json
+SOURCE_SHA256 1f94cc85c7a44091eba45045ef84568faafa33a9c32ecf251f26500c89fcc42d lofo-original-seeds45-47-v1/results/segmentation-no-layer-s47/test_metrics.log
+SOURCE_SHA256 98aa4c609f5f04860483c59adaf6aedf62675f2c3aab297af99d8bfd21958686 lofo-original-seeds45-47-v1/results/segmentation-no-layer-s47/test_predictions.csv
+SOURCE_SHA256 12922823a70d8997e3ce69f433c3355c3be6295923d0a2ffa2963a8c1c849fc2 lofo-original-seeds45-47-v1/results/transformer-layer-s45/seed_verified.json
+SOURCE_SHA256 1b9ae88e830428fa404f0f1d3fa940a2b5e777ae5b883928cfef19d470ca3fd9 lofo-original-seeds45-47-v1/results/transformer-layer-s45/test_metrics.log
+SOURCE_SHA256 b224509b5e089178882be367594820f976eab38693aabd22b1a799ff5babca2d lofo-original-seeds45-47-v1/results/transformer-layer-s45/test_predictions.csv
+SOURCE_SHA256 717e0b6efc7e67f70e84a5a616c88ea38e7b3ceee25eeb37ba93e945541d89de lofo-original-seeds45-47-v1/results/transformer-layer-s46/seed_verified.json
+SOURCE_SHA256 762fa77ad3cb2d498ee6da53cb4e2bfa22240491a3adbb73d20bb764fa6a52b4 lofo-original-seeds45-47-v1/results/transformer-layer-s46/test_metrics.log
+SOURCE_SHA256 bd29262e7f6480b01d91ff9cea9629ed91cbda540c602ea27cf0c2653345038b lofo-original-seeds45-47-v1/results/transformer-layer-s46/test_predictions.csv
+SOURCE_SHA256 044a9c85e3d47a66862336cbe140ac839d684d4e43ac65472ea90d4c52efb9e5 lofo-original-seeds45-47-v1/results/transformer-layer-s47/seed_verified.json
+SOURCE_SHA256 feac17ae4a01053737b5715a8332861f1fe81a8c8cc437838ec00c3bc1ac6d4b lofo-original-seeds45-47-v1/results/transformer-layer-s47/test_metrics.log
+SOURCE_SHA256 2c4ada447bb4a8fee8c78712b402ced0b5d381aa52ab227dfad388f34a803133 lofo-original-seeds45-47-v1/results/transformer-layer-s47/test_predictions.csv
+SOURCE_SHA256 12922823a70d8997e3ce69f433c3355c3be6295923d0a2ffa2963a8c1c849fc2 lofo-original-seeds45-47-v1/results/transformer-no-layer-s45/seed_verified.json
+SOURCE_SHA256 3670312d6b0aa59044d7e5ac91ed095b9a05e03391402c6ff344727156b8f8c3 lofo-original-seeds45-47-v1/results/transformer-no-layer-s45/test_metrics.log
+SOURCE_SHA256 a4683cd6d07fad026c61fa61f922488ba40d93a9d7c294756b4683497714727c lofo-original-seeds45-47-v1/results/transformer-no-layer-s45/test_predictions.csv
+SOURCE_SHA256 717e0b6efc7e67f70e84a5a616c88ea38e7b3ceee25eeb37ba93e945541d89de lofo-original-seeds45-47-v1/results/transformer-no-layer-s46/seed_verified.json
+SOURCE_SHA256 763f138bfe224a3d879af08d941295e21ec745d25728e13a607a3c693fdf657b lofo-original-seeds45-47-v1/results/transformer-no-layer-s46/test_metrics.log
+SOURCE_SHA256 80a69efd0c5391fd7b3a25140a4a4292655ac64b6285b758bf220fb7c72c85dd lofo-original-seeds45-47-v1/results/transformer-no-layer-s46/test_predictions.csv
+SOURCE_SHA256 044a9c85e3d47a66862336cbe140ac839d684d4e43ac65472ea90d4c52efb9e5 lofo-original-seeds45-47-v1/results/transformer-no-layer-s47/seed_verified.json
+SOURCE_SHA256 a8f8825ba2c0b00374c030d1113df8bd97b354044c69bf67043a5759a04fd076 lofo-original-seeds45-47-v1/results/transformer-no-layer-s47/test_metrics.log
+SOURCE_SHA256 c97d8fa6e5ffe75baf510c8f35fe90d5be2793f1c8b836983b64a4b45c31077b lofo-original-seeds45-47-v1/results/transformer-no-layer-s47/test_predictions.csv
+SOURCE_SHA256 cef5a892189a9c2ebca4839c9b585edd58c3155cff2787f13490e4ae8b36fe69 lofo-taylor-off-v1/plan.json
+SOURCE_SHA256 41b8021a804e361762fddcf60397b6b6706524ae3b63ee83764333e2ab0a7264 lofo-taylor-off-v1/preparation_verified.json
+SOURCE_SHA256 a5365b5a941e254ea5bdaa5c974b61dcb0a98c6162f3912ce23e4bee12d6414e lofo-taylor-off-v1/prompts/cnn/taylor/test_llm_dataset.jsonl
+SOURCE_SHA256 f273033d8b27613ea605e2e999be453ea951102610ecc7f55f9b8e722cfc070e lofo-taylor-off-v1/prompts/detector/taylor/test_llm_dataset.jsonl
+SOURCE_SHA256 e09df009acfe40bffa06c84756afa8c6bce53dfebb5238f19ecb45de051bd16d lofo-taylor-off-v1/prompts/other/taylor/test_llm_dataset.jsonl
+SOURCE_SHA256 867d4cfb94edc6f0f27b6c4b02b6a537f23f40ed3d3cdea91c52ec502daf8bba lofo-taylor-off-v1/prompts/segmentation/taylor/test_llm_dataset.jsonl
+SOURCE_SHA256 53789d3664aea0064e87b9e098729ffb615172aeb977356238f40cf3e23c0e40 lofo-taylor-off-v1/prompts/transformer/taylor/test_llm_dataset.jsonl
+SOURCE_SHA256 3faa88785da91da69207e007c80ab92b1d03cbc4f4ee785ae2fa879f5579ef07 lofo-taylor-off-v1/results/cnn-taylor-s42/run_complete.json
+SOURCE_SHA256 cb7f5e25955fb78c0212fafda7a0ec206d1ca8df4510526f2406cd4bc1224b67 lofo-taylor-off-v1/results/cnn-taylor-s42/seed_verified.json
+SOURCE_SHA256 11f8c0da36b86d75efe4f33586396f00ebd6902b0bf728a3ce0bc995ea43a09d lofo-taylor-off-v1/results/cnn-taylor-s42/test_metrics.log
+SOURCE_SHA256 d37af10ebc61f9f53ec27c4aa71105668ce182048b4746e065666e9e187c3aa1 lofo-taylor-off-v1/results/cnn-taylor-s42/test_predictions.csv
+SOURCE_SHA256 3796891603f1b4d1881e2fde5154bc3feed4dda7227428a3c61db49a0080a5ae lofo-taylor-off-v1/results/cnn-taylor-s43/run_complete.json
+SOURCE_SHA256 5dc7af19ed6f2ad2c9bc88649b08c20f976a177cf8d94c9a56f6986a777bc95c lofo-taylor-off-v1/results/cnn-taylor-s43/seed_verified.json
+SOURCE_SHA256 1e8dcb49214888fc9a13b6a4446cde0718ba96dfef47c3da85a0ac78138f368a lofo-taylor-off-v1/results/cnn-taylor-s43/test_metrics.log
+SOURCE_SHA256 71ce468a4a5b9d8be8e7d9eda0c2a6ec44d95ae4ff3d12a6a55e6274950c96ac lofo-taylor-off-v1/results/cnn-taylor-s43/test_predictions.csv
+SOURCE_SHA256 a7d95bdef2a97b608bd4cabb9cf3cb045279bf4dc217a806d0f414b17a2730fa lofo-taylor-off-v1/results/cnn-taylor-s44/run_complete.json
+SOURCE_SHA256 b30c7b9ac5457d8f016dcd70fdac639fd0d13bbcea8148cb92beb6e0cd6dc953 lofo-taylor-off-v1/results/cnn-taylor-s44/seed_verified.json
+SOURCE_SHA256 1832adad725f3434bb8396d5dcb5189a9f2d8f7d9aa978db73b516eb0b0a1fff lofo-taylor-off-v1/results/cnn-taylor-s44/test_metrics.log
+SOURCE_SHA256 2b86418a3fe6912d225f8827fae4f802acfba7257147d3dc4960e8b5da6e7027 lofo-taylor-off-v1/results/cnn-taylor-s44/test_predictions.csv
+SOURCE_SHA256 cde1790d69c64b9a5535cdf353b1a39a95cdaea005d2b85755168dc9509e765d lofo-taylor-off-v1/results/cnn-taylor-s45/run_complete.json
+SOURCE_SHA256 eee487f7419dd27c1c324627ad3d50acd5c919e7b70df42ebb133fb7abc3df37 lofo-taylor-off-v1/results/cnn-taylor-s45/seed_verified.json
+SOURCE_SHA256 9c5dfe700f68957992458ffdb8854bfba0eeddb55244123686438c60ab8abb36 lofo-taylor-off-v1/results/cnn-taylor-s45/test_metrics.log
+SOURCE_SHA256 a742c87bedcfdd78f14f48e269267d08e3f6f8338b533561f0183ed30b0f847f lofo-taylor-off-v1/results/cnn-taylor-s45/test_predictions.csv
+SOURCE_SHA256 83057280b20019aa26f2138753602798987a16b6a8385f0bb2e75bf26979f080 lofo-taylor-off-v1/results/cnn-taylor-s46/run_complete.json
+SOURCE_SHA256 84a09d40c004d37ecaf47f6817893aee6ae9541287b9dfd74e22ec35759e2a84 lofo-taylor-off-v1/results/cnn-taylor-s46/seed_verified.json
+SOURCE_SHA256 8c27a6d9379e934052e40ce1746c857d7ca0852503482a986d41ef878a78bcac lofo-taylor-off-v1/results/cnn-taylor-s46/test_metrics.log
+SOURCE_SHA256 c14aa6c0af600364ff9716a10c71dc20ab495228f1bd1e132a0778362384c160 lofo-taylor-off-v1/results/cnn-taylor-s46/test_predictions.csv
+SOURCE_SHA256 8adbf03983bd195ef3fe966d44e147551f4786a18abe6471e79c3df647ded3c8 lofo-taylor-off-v1/results/cnn-taylor-s47/run_complete.json
+SOURCE_SHA256 24b4ed5ba4930061bc8d03c6a27e0c495a087b964ffab60e0d3198773e48a878 lofo-taylor-off-v1/results/cnn-taylor-s47/seed_verified.json
+SOURCE_SHA256 98b319b9b901fde37caf93205c8ead94c79b1ba603344c3981503069cedac0fe lofo-taylor-off-v1/results/cnn-taylor-s47/test_metrics.log
+SOURCE_SHA256 5ebe25c06faff6be5128772f38fd1129ee7a3e042e484b379a730d589e87880e lofo-taylor-off-v1/results/cnn-taylor-s47/test_predictions.csv
+SOURCE_SHA256 f1f7040a02ce98fb3f5a97d57a5dd59b0a8eb0a0c96ea3f8c18c9227412b68e8 lofo-taylor-off-v1/results/detector-taylor-s42/run_complete.json
+SOURCE_SHA256 cb7f5e25955fb78c0212fafda7a0ec206d1ca8df4510526f2406cd4bc1224b67 lofo-taylor-off-v1/results/detector-taylor-s42/seed_verified.json
+SOURCE_SHA256 6827e84609e8dbe8eb6000e623f36b05e3f6f676fef1f55cd615370d859674e8 lofo-taylor-off-v1/results/detector-taylor-s42/test_metrics.log
+SOURCE_SHA256 66bbda50d4582b1bb24b742abea560b67a2faf81459ae6a957956c44dda55e8f lofo-taylor-off-v1/results/detector-taylor-s42/test_predictions.csv
+SOURCE_SHA256 1286ac517e8f5a0bc79978da9ece8f464e58515033ef03e628946b98df5169ca lofo-taylor-off-v1/results/detector-taylor-s43/run_complete.json
+SOURCE_SHA256 5dc7af19ed6f2ad2c9bc88649b08c20f976a177cf8d94c9a56f6986a777bc95c lofo-taylor-off-v1/results/detector-taylor-s43/seed_verified.json
+SOURCE_SHA256 55b0d6f9e42b2bdf179142ab60f3557570d7bb8e22c1b6cfeb1f523d143c4d9b lofo-taylor-off-v1/results/detector-taylor-s43/test_metrics.log
+SOURCE_SHA256 5787f66b89bd5d532398cd5cedc26d347995d7f762942479971574d691183c6e lofo-taylor-off-v1/results/detector-taylor-s43/test_predictions.csv
+SOURCE_SHA256 52b8e42ac662bd18b5bf8e5bb84290b8f29a4e08edc8a436f2f303bef92c5b9c lofo-taylor-off-v1/results/detector-taylor-s44/run_complete.json
+SOURCE_SHA256 b30c7b9ac5457d8f016dcd70fdac639fd0d13bbcea8148cb92beb6e0cd6dc953 lofo-taylor-off-v1/results/detector-taylor-s44/seed_verified.json
+SOURCE_SHA256 39bd769b94e4eace8ad58273b41f879ccd7a27b8c07b805695db16f7683f5d08 lofo-taylor-off-v1/results/detector-taylor-s44/test_metrics.log
+SOURCE_SHA256 fcef2a3ff3e90268ded89107911c2154dc84319dab5e109be26918faf0d6fc65 lofo-taylor-off-v1/results/detector-taylor-s44/test_predictions.csv
+SOURCE_SHA256 e8d92bf5296be2788422821e19e80984aff14e6e15d5dd1eaf042e2743d95294 lofo-taylor-off-v1/results/detector-taylor-s45/run_complete.json
+SOURCE_SHA256 eee487f7419dd27c1c324627ad3d50acd5c919e7b70df42ebb133fb7abc3df37 lofo-taylor-off-v1/results/detector-taylor-s45/seed_verified.json
+SOURCE_SHA256 097333cca88a4f6f1abba0eaa1e7531025e7f824dd3066aeb5e59ee235179250 lofo-taylor-off-v1/results/detector-taylor-s45/test_metrics.log
+SOURCE_SHA256 93d5a58792c1dbf014ea136a1b82ccea5c48a5875e0ac4f8d4044439c666828d lofo-taylor-off-v1/results/detector-taylor-s45/test_predictions.csv
+SOURCE_SHA256 2b57669f549ff17c6eaab640fbd09d92a502ef5fc6990b3c78b6a796aa81ce38 lofo-taylor-off-v1/results/detector-taylor-s46/run_complete.json
+SOURCE_SHA256 84a09d40c004d37ecaf47f6817893aee6ae9541287b9dfd74e22ec35759e2a84 lofo-taylor-off-v1/results/detector-taylor-s46/seed_verified.json
+SOURCE_SHA256 d792a3cf6184d77fe2e8c40c165b2b2a4152bef5c9b1d94263de05ab19d11256 lofo-taylor-off-v1/results/detector-taylor-s46/test_metrics.log
+SOURCE_SHA256 c71f4581d31cca9c51193ad451473fd1d498b4d9ea643fc07a2f6d83f79a980d lofo-taylor-off-v1/results/detector-taylor-s46/test_predictions.csv
+SOURCE_SHA256 8ee9050149787cb1b887960a9eb1c17a6cd6552e477329717dbde5268fb75e06 lofo-taylor-off-v1/results/detector-taylor-s47/run_complete.json
+SOURCE_SHA256 24b4ed5ba4930061bc8d03c6a27e0c495a087b964ffab60e0d3198773e48a878 lofo-taylor-off-v1/results/detector-taylor-s47/seed_verified.json
+SOURCE_SHA256 1df7e7799242fd3c21ee2314023e73114d6ce747cb8232a73d048a9bc72dce37 lofo-taylor-off-v1/results/detector-taylor-s47/test_metrics.log
+SOURCE_SHA256 c82775dcb8acee35df70d77bdd3087f40020cf7f8edf37110879f44e771f7394 lofo-taylor-off-v1/results/detector-taylor-s47/test_predictions.csv
+SOURCE_SHA256 e9e77f6c8592e30d9183da35305a8d6a50a144f0a941f0fc245707c8059fb1f4 lofo-taylor-off-v1/results/other-taylor-s42/run_complete.json
+SOURCE_SHA256 cb7f5e25955fb78c0212fafda7a0ec206d1ca8df4510526f2406cd4bc1224b67 lofo-taylor-off-v1/results/other-taylor-s42/seed_verified.json
+SOURCE_SHA256 5fdee04b43adde21bb6ab57d4da94b6a29979219878b1f383cfd72019ffc8028 lofo-taylor-off-v1/results/other-taylor-s42/test_metrics.log
+SOURCE_SHA256 890f58ea5ce9559bef5872f3f81d4aeb209964ed2829374f3df9ba08c42eacf9 lofo-taylor-off-v1/results/other-taylor-s42/test_predictions.csv
+SOURCE_SHA256 3e28472011e029f5223d63950c3b84f81b7309ed01cdde888343c428fff251b4 lofo-taylor-off-v1/results/other-taylor-s43/run_complete.json
+SOURCE_SHA256 5dc7af19ed6f2ad2c9bc88649b08c20f976a177cf8d94c9a56f6986a777bc95c lofo-taylor-off-v1/results/other-taylor-s43/seed_verified.json
+SOURCE_SHA256 411a2c6baf7385d2a5ad88547eb32359f0075757bebd7d3f219baa22223545ad lofo-taylor-off-v1/results/other-taylor-s43/test_metrics.log
+SOURCE_SHA256 e680cc8ece48e29c3d3a113b1e20fbd066521f28219de30736d93bf80d2f312e lofo-taylor-off-v1/results/other-taylor-s43/test_predictions.csv
+SOURCE_SHA256 3942f8286222fc431fe188481c5b2bb52a063981ff38c5ecbd67480f7e488f70 lofo-taylor-off-v1/results/other-taylor-s44/run_complete.json
+SOURCE_SHA256 b30c7b9ac5457d8f016dcd70fdac639fd0d13bbcea8148cb92beb6e0cd6dc953 lofo-taylor-off-v1/results/other-taylor-s44/seed_verified.json
+SOURCE_SHA256 7bc1afc8b2fc8edc2dfc2c146903a2cdf9a5344bfd24cf2229d662c6b1e4518e lofo-taylor-off-v1/results/other-taylor-s44/test_metrics.log
+SOURCE_SHA256 5323ec33a62695a4b305e0c021fed2c7d1d894698cb2be6c2fdee29b8203ae90 lofo-taylor-off-v1/results/other-taylor-s44/test_predictions.csv
+SOURCE_SHA256 21869407fe243faeaddbc5d47fa92fa72c6dd99622a4dc58c75a82a3544f17b8 lofo-taylor-off-v1/results/other-taylor-s45/run_complete.json
+SOURCE_SHA256 eee487f7419dd27c1c324627ad3d50acd5c919e7b70df42ebb133fb7abc3df37 lofo-taylor-off-v1/results/other-taylor-s45/seed_verified.json
+SOURCE_SHA256 587a758b44415df6534a8907517805a2453f037b384d27733233575e705d98bc lofo-taylor-off-v1/results/other-taylor-s45/test_metrics.log
+SOURCE_SHA256 d7350f67146e1316ef9999b0b7d151dad93d76b8efecb2cfd675d86c7315a775 lofo-taylor-off-v1/results/other-taylor-s45/test_predictions.csv
+SOURCE_SHA256 3e9f5731a6644404ee1817f45d090002f9448e3b2a7ead53d852f17854d28b45 lofo-taylor-off-v1/results/other-taylor-s46/run_complete.json
+SOURCE_SHA256 84a09d40c004d37ecaf47f6817893aee6ae9541287b9dfd74e22ec35759e2a84 lofo-taylor-off-v1/results/other-taylor-s46/seed_verified.json
+SOURCE_SHA256 46e9c954d1c64050eeb66797bacc0c5b39db66bae54a066ab378525041128dab lofo-taylor-off-v1/results/other-taylor-s46/test_metrics.log
+SOURCE_SHA256 b5c41843adc5a5485f33aae08898def4c5f23b5417a2e664d7be4637e2c2b133 lofo-taylor-off-v1/results/other-taylor-s46/test_predictions.csv
+SOURCE_SHA256 a80ffd344ce81367d8efb1010664d08d925e9fa2a4cdc71da103d0993cfb2cbb lofo-taylor-off-v1/results/other-taylor-s47/run_complete.json
+SOURCE_SHA256 24b4ed5ba4930061bc8d03c6a27e0c495a087b964ffab60e0d3198773e48a878 lofo-taylor-off-v1/results/other-taylor-s47/seed_verified.json
+SOURCE_SHA256 164cd4b785457542431b4bbca50306000433028cd3cff2af69d089388c502029 lofo-taylor-off-v1/results/other-taylor-s47/test_metrics.log
+SOURCE_SHA256 2acbe8100a0db47b7314f967f7151c367a5de8c669ea42678121ec58f4a6debd lofo-taylor-off-v1/results/other-taylor-s47/test_predictions.csv
+SOURCE_SHA256 91797d48fff7effb32743acbc1cfc741884377507dd0f6169eaa12fc17859a48 lofo-taylor-off-v1/results/segmentation-taylor-s42/run_complete.json
+SOURCE_SHA256 cb7f5e25955fb78c0212fafda7a0ec206d1ca8df4510526f2406cd4bc1224b67 lofo-taylor-off-v1/results/segmentation-taylor-s42/seed_verified.json
+SOURCE_SHA256 c057ac6b4c4b7ada3f6839d6ca98fe081c7456fa47e1b7cb174ba2f044b980b1 lofo-taylor-off-v1/results/segmentation-taylor-s42/test_metrics.log
+SOURCE_SHA256 83d139de59418221384bb95ca46002afd3950a7ebb643e47aa135232976ac092 lofo-taylor-off-v1/results/segmentation-taylor-s42/test_predictions.csv
+SOURCE_SHA256 0c487b4773c94dfb6b803c12d599610322a3da3b47be85324ab1f89fe4dc7d49 lofo-taylor-off-v1/results/segmentation-taylor-s43/run_complete.json
+SOURCE_SHA256 5dc7af19ed6f2ad2c9bc88649b08c20f976a177cf8d94c9a56f6986a777bc95c lofo-taylor-off-v1/results/segmentation-taylor-s43/seed_verified.json
+SOURCE_SHA256 a38b3d020e5d0f274c2625ce663ef705833f53624edcf7a7700a77e1b0e67c07 lofo-taylor-off-v1/results/segmentation-taylor-s43/test_metrics.log
+SOURCE_SHA256 ea830ff82fbe887338606faec955d2d61bbb9749497423db1b6be9e474678ef1 lofo-taylor-off-v1/results/segmentation-taylor-s43/test_predictions.csv
+SOURCE_SHA256 42b1b22d4afa452b9807859c45ed9124327dc3b079e081f7466d5f0d48878027 lofo-taylor-off-v1/results/segmentation-taylor-s44/run_complete.json
+SOURCE_SHA256 b30c7b9ac5457d8f016dcd70fdac639fd0d13bbcea8148cb92beb6e0cd6dc953 lofo-taylor-off-v1/results/segmentation-taylor-s44/seed_verified.json
+SOURCE_SHA256 c4f98e56f27e9116434a3ed8bad18aaa8f6b3b2e1e09d39214839d31f89ba99e lofo-taylor-off-v1/results/segmentation-taylor-s44/test_metrics.log
+SOURCE_SHA256 dc540487bbf395945aee6f256297af1956772b355b13b1d44e32642e2041ea6b lofo-taylor-off-v1/results/segmentation-taylor-s44/test_predictions.csv
+SOURCE_SHA256 061ee224b33408f670abc54073c4f80c9ab61183bbc2767a36f0142216acdd45 lofo-taylor-off-v1/results/segmentation-taylor-s45/run_complete.json
+SOURCE_SHA256 eee487f7419dd27c1c324627ad3d50acd5c919e7b70df42ebb133fb7abc3df37 lofo-taylor-off-v1/results/segmentation-taylor-s45/seed_verified.json
+SOURCE_SHA256 c48dc634d16644ebb42a63cf330c9ced4397b212ba012fe68ebf8db8587a88b7 lofo-taylor-off-v1/results/segmentation-taylor-s45/test_metrics.log
+SOURCE_SHA256 08aab0d59bce791ca19e786c5e93cc581ede3067e4bdf3494849b3231a97dee7 lofo-taylor-off-v1/results/segmentation-taylor-s45/test_predictions.csv
+SOURCE_SHA256 a1d3d4a590fbb9dbbd9493999748fdeb26bad6e722b10012ed23b24c16ef900c lofo-taylor-off-v1/results/segmentation-taylor-s46/run_complete.json
+SOURCE_SHA256 84a09d40c004d37ecaf47f6817893aee6ae9541287b9dfd74e22ec35759e2a84 lofo-taylor-off-v1/results/segmentation-taylor-s46/seed_verified.json
+SOURCE_SHA256 5c9e4cf35b89335f9241bb0dffe5aba143afe493e13b2ada79f442348fd96ecb lofo-taylor-off-v1/results/segmentation-taylor-s46/test_metrics.log
+SOURCE_SHA256 703392746292914bcc1923070a1d0758ee78825143b6ad4ca0aa56b34670d632 lofo-taylor-off-v1/results/segmentation-taylor-s46/test_predictions.csv
+SOURCE_SHA256 84884aa435fddbcbf17ca12e80a5b884ee1f05edefd348ea4d818c94d00ca057 lofo-taylor-off-v1/results/segmentation-taylor-s47/run_complete.json
+SOURCE_SHA256 24b4ed5ba4930061bc8d03c6a27e0c495a087b964ffab60e0d3198773e48a878 lofo-taylor-off-v1/results/segmentation-taylor-s47/seed_verified.json
+SOURCE_SHA256 86698154f9ef82c74d4e0c1f9ff8798bda9272351579638604bca23cd9d50707 lofo-taylor-off-v1/results/segmentation-taylor-s47/test_metrics.log
+SOURCE_SHA256 58092707cbed92c15909189f49ce3d55210b485dd4403f6439e522ae280a79de lofo-taylor-off-v1/results/segmentation-taylor-s47/test_predictions.csv
+SOURCE_SHA256 3b33358c07d1e359cbc309891022e15e18c6c1fd6df90e3ce03fd7904376e34a lofo-taylor-off-v1/results/transformer-taylor-s42/run_complete.json
+SOURCE_SHA256 cb7f5e25955fb78c0212fafda7a0ec206d1ca8df4510526f2406cd4bc1224b67 lofo-taylor-off-v1/results/transformer-taylor-s42/seed_verified.json
+SOURCE_SHA256 f7db4907fa71d7291f54a37016effdbb4ebf0444504a4e5a5ceb4d5b1a336a1d lofo-taylor-off-v1/results/transformer-taylor-s42/test_metrics.log
+SOURCE_SHA256 0e4fcd4ca16ece27b9cc61677f7e19c81328921d18651c16ddf914904e931da9 lofo-taylor-off-v1/results/transformer-taylor-s42/test_predictions.csv
+SOURCE_SHA256 b609ffcd9700fe4deffae1c13008112184ea5bf7436437acfbc1d6f14f57c0d6 lofo-taylor-off-v1/results/transformer-taylor-s43/run_complete.json
+SOURCE_SHA256 5dc7af19ed6f2ad2c9bc88649b08c20f976a177cf8d94c9a56f6986a777bc95c lofo-taylor-off-v1/results/transformer-taylor-s43/seed_verified.json
+SOURCE_SHA256 aa8e13d3d2f748d5d9467c9376f86920144a6efce0e3d102a85de1f5ffe2da81 lofo-taylor-off-v1/results/transformer-taylor-s43/test_metrics.log
+SOURCE_SHA256 161c216d46fd509851c1507f000bb372be24016640dedcd31b58679e4148831e lofo-taylor-off-v1/results/transformer-taylor-s43/test_predictions.csv
+SOURCE_SHA256 4bc287d3697b5c7bc1ecdbbe58b6ed3b25ed2ce7ef924f055b7240b300e54435 lofo-taylor-off-v1/results/transformer-taylor-s44/run_complete.json
+SOURCE_SHA256 b30c7b9ac5457d8f016dcd70fdac639fd0d13bbcea8148cb92beb6e0cd6dc953 lofo-taylor-off-v1/results/transformer-taylor-s44/seed_verified.json
+SOURCE_SHA256 096ce98615c1d9719910edcef90b99601bc9881dc4ffb0123dc4b4d1ccc18554 lofo-taylor-off-v1/results/transformer-taylor-s44/test_metrics.log
+SOURCE_SHA256 b6e32598bd7f86ae0b4f7c86eb035bd1ac63eaaf596e7cde810f22aaf807af97 lofo-taylor-off-v1/results/transformer-taylor-s44/test_predictions.csv
+SOURCE_SHA256 31cc7a3859d245318f6dd4146256591ee79edda3589f663d8f420ff030fabd61 lofo-taylor-off-v1/results/transformer-taylor-s45/run_complete.json
+SOURCE_SHA256 eee487f7419dd27c1c324627ad3d50acd5c919e7b70df42ebb133fb7abc3df37 lofo-taylor-off-v1/results/transformer-taylor-s45/seed_verified.json
+SOURCE_SHA256 29845c754cd294d80bcc72ba993303687a9a4cc22489d0b1818ddb2d5932fb2b lofo-taylor-off-v1/results/transformer-taylor-s45/test_metrics.log
+SOURCE_SHA256 9bb3bd2794ddd0bdbbe42fbc00251367d49a3af4c93faa46767093129ba1b4ce lofo-taylor-off-v1/results/transformer-taylor-s45/test_predictions.csv
+SOURCE_SHA256 410aaaf5f46306b2e0d42e2dae2147e5b8a5d1ba3876466c4b8dc238bbf32605 lofo-taylor-off-v1/results/transformer-taylor-s46/run_complete.json
+SOURCE_SHA256 84a09d40c004d37ecaf47f6817893aee6ae9541287b9dfd74e22ec35759e2a84 lofo-taylor-off-v1/results/transformer-taylor-s46/seed_verified.json
+SOURCE_SHA256 e7d0a0c31349a503a651e92d0f9e67dc931700d33165b772ed31794db104b827 lofo-taylor-off-v1/results/transformer-taylor-s46/test_metrics.log
+SOURCE_SHA256 f76184a78afb3639367ee2f112f2999e3e6144a66c488bd7aab7c72b759b6788 lofo-taylor-off-v1/results/transformer-taylor-s46/test_predictions.csv
+SOURCE_SHA256 ebf232b41c125f0cd2b395cefe83f65b4119d868aba601f3c64d33f5e577b290 lofo-taylor-off-v1/results/transformer-taylor-s47/run_complete.json
+SOURCE_SHA256 24b4ed5ba4930061bc8d03c6a27e0c495a087b964ffab60e0d3198773e48a878 lofo-taylor-off-v1/results/transformer-taylor-s47/seed_verified.json
+SOURCE_SHA256 5754bbcd378db5a92349963bbae82aefd754b0e9ddab9a04abcf4feb21d65c49 lofo-taylor-off-v1/results/transformer-taylor-s47/test_metrics.log
+SOURCE_SHA256 e724694187522ebefa7086b3bb2804aae41624eb94f2ce8cca016480f66611bc lofo-taylor-off-v1/results/transformer-taylor-s47/test_predictions.csv
+SOURCE_SHA256 990fb44e24cff8f519ea7bbe611b5420085b0213bbde99cd229aea8fb8dc4b5c lofo-taylor-off-v1/run_registry.json
+SOURCE_SHA256 42fab2aa697526a132e2ce817975c40d8f37a2091095510ca1a12d9aa7205c90 lofo-taylor-off-v1/worker.py
+SOURCE_SHA256 1d2fe700269ab7f191aa0a0635d73723ddd312197e7adcba6ecdf639bb4f6bd3 out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s42/test_metrics.log
+SOURCE_SHA256 916cdb74a5688a17f73b622073da1549d598f47d4414451956db8c7080e40f7c out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s42/test_predictions.csv
+SOURCE_SHA256 9d7a93ad85dd78cd3e6e74eb611ab2c23936f8e14fb0586883f35f760d588d3f out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s43/test_metrics.log
+SOURCE_SHA256 af7e9ddb27c97376885038de8c38806ccaf403355ca7ce5b2e0388b951c4ebf1 out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s43/test_predictions.csv
+SOURCE_SHA256 23511507838e94583ea778103feda595d7d663d99bd0a2db04cd020449b47d0f out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s44/test_metrics.log
+SOURCE_SHA256 2a87db2198bf826707d6a13c049278a152dd90ac22045b6fddfdadb94d9d002a out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/layer-s44/test_predictions.csv
+SOURCE_SHA256 0e38a35a30edb6b6c596a613b8a752f3799b2ccb15b7a9957dd62697a2a9aa76 out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s42/test_metrics.log
+SOURCE_SHA256 bc34639ebad79102518fe47ce3bb699417204568f8c9b0589a6171c5018ef167 out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s42/test_predictions.csv
+SOURCE_SHA256 f6ba8a753fc1b0595d170d0cc4230eea7cd810f41c2741ce5c72af166dc7304b out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s43/test_metrics.log
+SOURCE_SHA256 1a41a57144da7c869124d2afa4e54666c241ffd404db9efe566345f7ad5c6dfc out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s43/test_predictions.csv
+SOURCE_SHA256 579db7bcc23d1d2aa418721cefb309d14c4ba8d5194c26470a57d4c927426e4d out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s44/test_metrics.log
+SOURCE_SHA256 01647b6a67014265a8917a25b25de7fb91dbf64080715ed5731d05038313296d out/accuracy_predictor_generalization_lofo_v1/lofo_cnn_3acc/no-layer-s44/test_predictions.csv
+SOURCE_SHA256 8665cbc7d62d24c719d469cf8f8466b40332e61d8e7935c3a60cddc0c912a86f out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s42/test_metrics.log
+SOURCE_SHA256 2a43c1c988ab7f05145d10e42336e84c1bbdc105220e5c72713949bb4aff9847 out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s42/test_predictions.csv
+SOURCE_SHA256 3e52a8b0bbcedaa77278565d0e19e71a8bdfe0492d0ac236d36d074357b8b215 out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s43/test_metrics.log
+SOURCE_SHA256 316d7c8657b22bcf88402448271f26e7bf89e9e43406f46abc67ef0134049780 out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s43/test_predictions.csv
+SOURCE_SHA256 7c90aa3d3244d9246fb6eb93ce3c5270226ffdbde99ada8cb1f84b5271d34dbb out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s44/test_metrics.log
+SOURCE_SHA256 f37a1efd54e93f59a2e59e7f70c6c587a48f3f9258d4c8d2f04540c20e7efe9c out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/layer-s44/test_predictions.csv
+SOURCE_SHA256 2fd5e9e0711a5dc9fd67fb30a15d0c6c319b724f81c738f17c8f35d5b9fc9515 out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s42/test_metrics.log
+SOURCE_SHA256 f2a2d50572769b0e6de55aa98d3ac54ecbae7a4c7160848671ce752ea5bf503a out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s42/test_predictions.csv
+SOURCE_SHA256 7768d54f28f75790154b4653d54c0d289b7b8797db4076574763784b5281190e out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s43/test_metrics.log
+SOURCE_SHA256 cefaddfeb7f5f3098de37a70e4bc045b09e8daceb948e5a912100f76fe7bd5e3 out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s43/test_predictions.csv
+SOURCE_SHA256 16b335cdbbcb6dab60ec8febdf4df394d87202eac7ea00871ecb4bcb94d361df out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s44/test_metrics.log
+SOURCE_SHA256 d3ba50291e93000ac69f5c3034f03d0cbbc9ea408bd25020bff6aec0ea4547f5 out/accuracy_predictor_generalization_lofo_v1/lofo_detector_3acc/no-layer-s44/test_predictions.csv
+SOURCE_SHA256 ae357698f1095b7628bc9ad971fe6a98d87a84f4839890ca62eb06096f7a9fa3 out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s42/test_metrics.log
+SOURCE_SHA256 1e772e761f2f5394a7b9d07af38216400f0f66237ecea944c729b1768a5a822d out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s42/test_predictions.csv
+SOURCE_SHA256 2bba04b85d54574a974de49dd443fcf298b8669d8da0a780704a47b455577c81 out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s43/test_metrics.log
+SOURCE_SHA256 ac5988f47f72fce6cd21b3de6f0b953be31d5ba01eea810e161148f48786db3c out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s43/test_predictions.csv
+SOURCE_SHA256 119752cba05f6637c418649c594c8f849435713a324d615719d9c7b058c337c5 out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s44/test_metrics.log
+SOURCE_SHA256 8e6039bd337d8c2399c2be895cba4c3408016a1b7edd0669e25ea49a53868358 out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/layer-s44/test_predictions.csv
+SOURCE_SHA256 a5a74072dd1ba736e7c636fe99e8214aa012e8957d5cc275df37825dff7efc5a out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s42/test_metrics.log
+SOURCE_SHA256 76fcf17e7ea97ee668fe547c3fd9b4bf239bd02aa6530547db746f4367f35a78 out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s42/test_predictions.csv
+SOURCE_SHA256 3fc18f184449b3ccf24ed4229e6e6481b1da46d8f46054323095aea90be36fbb out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s43/test_metrics.log
+SOURCE_SHA256 51d7ef13e86ae13e52037252a2eec910844a330312398f93609f88daced62eff out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s43/test_predictions.csv
+SOURCE_SHA256 2079bc806098f124e692f381d2d14df0e3fb5e09877adbeeea818d19985cc5b8 out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s44/test_metrics.log
+SOURCE_SHA256 02cc8d6beb292547626787fc9734174b5003e9a78f442a8860b5ea427b3bfc22 out/accuracy_predictor_generalization_lofo_v1/lofo_other_3acc/no-layer-s44/test_predictions.csv
+SOURCE_SHA256 6ea3771a34b8a7cbf509b537feb595dc1c2605c60ec96abb98c8dccbfbdddac6 out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s42/test_metrics.log
+SOURCE_SHA256 e9e2f15ece300f236c1ef86259495c4bc83e5975181121b9bd7db83a7525d265 out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s42/test_predictions.csv
+SOURCE_SHA256 977d7b49b835826e3385be8a5d0922972a142c002ae03f7d00473b39787f5220 out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s43/test_metrics.log
+SOURCE_SHA256 5cc35c4c9e1db658b8ca01b8ceed354e8958d76dc9f22e60c7784a1eb556c83d out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s43/test_predictions.csv
+SOURCE_SHA256 ff71f2f13493af2baa2714a48e59a34e2dc1a3de97868600f090301f6c46421e out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s44/test_metrics.log
+SOURCE_SHA256 976d0dfd38f1abad3c92e7a8b793e1e0e3cc31950e603f989b2af1bba596c3b9 out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/layer-s44/test_predictions.csv
+SOURCE_SHA256 92126dca5ee6bf090a3e544676a455c97aa3c273ceee6edd33bdc4351ce7b612 out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s42/test_metrics.log
+SOURCE_SHA256 a4ef9006ea928933dac78bf94030d26bf12a85a8a528483aaf7e3aab302421ec out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s42/test_predictions.csv
+SOURCE_SHA256 e7517b2a2b67dc4b71dd94c6396add4c71bce8d56bd96914c663f2d7dd6f9359 out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s43/test_metrics.log
+SOURCE_SHA256 509343c2e1d849b0cc15591ef090918b940d0269492c0f5161cd9af8917350f3 out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s43/test_predictions.csv
+SOURCE_SHA256 2f31e1b634173748d200828f1ada45991ac24763105e76aca648be475507a370 out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s44/test_metrics.log
+SOURCE_SHA256 a4f035226f006399e7279cf1c49cc4e27c527b612db8b7ecd4d40852ff6eae1a out/accuracy_predictor_generalization_lofo_v1/lofo_segmentation_3acc/no-layer-s44/test_predictions.csv
+SOURCE_SHA256 a92d54f7a94569df674205bb3f22268ef6ba1d64d29d1bc5319113dc8a7aea41 out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s42/test_metrics.log
+SOURCE_SHA256 f6835a1606db2a7b2f27268b9e79d8f8b1f0e662618959e29d0bd3473692bc50 out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s42/test_predictions.csv
+SOURCE_SHA256 cc59c28cf3e9081eca18878c868c5bd6e3e0313664b2af6ec7f9d1d6924d42a9 out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s43/test_metrics.log
+SOURCE_SHA256 6b36f18baea2e3179b4f1a2b3fdfeef6ffaa7f0d3e944ab3b65d346593fb1ca5 out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s43/test_predictions.csv
+SOURCE_SHA256 9b12c27eae545d7cd45030db656a48f0b91a2f46393381ddae2a4531a6b52120 out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s44/test_metrics.log
+SOURCE_SHA256 889b9682de0507a4caf97ffa023816ad28ed826c4b9df0f0e7a47d6ddf5fd152 out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/layer-s44/test_predictions.csv
+SOURCE_SHA256 31b601eef4d12ee2f375039533a7e47600c2d3178e60622fb270b405a9d271e0 out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s42/test_metrics.log
+SOURCE_SHA256 c22899aa0774f6ed35228a11c74ed314a660c2db8de3f58fe412b3126f78b624 out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s42/test_predictions.csv
+SOURCE_SHA256 78f8b43025e17e6b2e6a889f4cd0a0f5333e217ce9453f1f3461cb12d2ddd06b out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s43/test_metrics.log
+SOURCE_SHA256 fee422ffe78dacb7ad91fa3339e1929c5ec5cf1912597ade983b004c0576a2cf out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s43/test_predictions.csv
+SOURCE_SHA256 c7e88b57c98f7e1c9859e8e9a952f0c8baaf7bd5f6e75ba2b678a1e98352a78f out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s44/test_metrics.log
+SOURCE_SHA256 abfdc5114cff78fec3980f0762d69e803fd785ee38ee146a61e231f179e9c9a3 out/accuracy_predictor_generalization_lofo_v1/lofo_transformer_3acc/no-layer-s44/test_predictions.csv
+SOURCE_SHA256 819a7a89e0a7ae07a6ff4e67bc3f63bee997e56570b9923d7a7a5e98d73a81e4 out/generalization_manifests_v1/family_mapping.json
+SOURCE_SHA256 16b8c09b0c2806aa776b8646c89048feef32f1aa35716ac4e95657941028bb2c out/generalization_manifests_v1/leave_one_dataset_out/celeba-gender.json
+SOURCE_SHA256 47043022ee8120c259af2dd6672c9ba7ad855552b331c409e383679da9fa5263 out/generalization_manifests_v1/leave_one_dataset_out/cifar-10.json
+SOURCE_SHA256 ed2e65aadbbaee26df07c3de5f00a66b2272235414628e4bef0b0456f24f281e out/generalization_manifests_v1/leave_one_dataset_out/cifar-100.json
+SOURCE_SHA256 de1940299f09e946bb5931540e11fc13ebc187640484576b24694b4d6f7c6d37 out/generalization_manifests_v1/leave_one_dataset_out/imagenette.json
+SOURCE_SHA256 31da0f66c734c80cb12339af5660d2696d19d0c1595487f11fb8de8bbb3d0bdd out/generalization_manifests_v1/leave_one_dataset_out/mnist.json
+SOURCE_SHA256 812bb848a51b4603ce90bbb08969145f887e563d65e0510baeedac82b1cc177b out/generalization_manifests_v1/leave_one_dataset_out/places365.json
+SOURCE_SHA256 1e342c3059139efb0e5e01f8bc6e2cabad201b5da35a6aa129025dbd8ada873e out/generalization_manifests_v1/leave_one_dataset_out/svhn.json
+SOURCE_SHA256 6223c8a03b9c44d00331cb7886ba69c49ed14b06b2149e8ed4a3beaa7878dd70 out/generalization_manifests_v1/leave_one_family_out/cnn.json
+SOURCE_SHA256 86a5360293b617d0473a38285028140a889ec356d6f63afa0f6e31d96a120690 out/generalization_manifests_v1/leave_one_family_out/detector.json
+SOURCE_SHA256 b114cad25d5fb73652c45cb0883911dba108c93b63a400f34a786afcdf0303b9 out/generalization_manifests_v1/leave_one_family_out/other.json
+SOURCE_SHA256 e3885c0bfe6e80ad1c92f26c929bdaecb84fa7d1d5e6bdbe8c2cdd255e906a0e out/generalization_manifests_v1/leave_one_family_out/segmentation.json
+SOURCE_SHA256 fe67d0a6943e829c5b42c4da6efc8a80d6245b97b24540b23cbf4b34f635b776 out/generalization_manifests_v1/leave_one_family_out/transformer.json
+SOURCE_SHA256 e0de8cfe474b1907addd7917f22769387abba7d701482cb999a9064779b89d6c out/generalization_prompts/lofo_cnn_3acc_trainonly_v1/layer/test_llm_dataset.jsonl
+SOURCE_SHA256 fa4ecd742d0f2ee50dacdcf2b91447b860a6e1d716b7942622c95b09fc78c6a3 out/generalization_prompts/lofo_cnn_3acc_trainonly_v1/no_layer/test_llm_dataset.jsonl
+SOURCE_SHA256 8bf6868492dc8f3629fe38f58ca44bb00d5d386f6bb1818328a3ed40be6d745e out/generalization_prompts/lofo_detector_3acc_trainonly_v1/layer/test_llm_dataset.jsonl
+SOURCE_SHA256 6bc5a0e28c6d17d3db940e67896ff011a495671f75c640750bbe5084a3fa102c out/generalization_prompts/lofo_detector_3acc_trainonly_v1/no_layer/test_llm_dataset.jsonl
+SOURCE_SHA256 b7cff7d47d0a8ac19f4151cf6547bc9d230b553d9fd86bec8746fcc639330976 out/generalization_prompts/lofo_other_3acc_trainonly_v1/layer/test_llm_dataset.jsonl
+SOURCE_SHA256 6890f31bf657319515d3f34e06c6c1b7ada78df37fd8cb3ad927d8c28d36318c out/generalization_prompts/lofo_other_3acc_trainonly_v1/no_layer/test_llm_dataset.jsonl
+SOURCE_SHA256 b577e635bcfc8c4016b59ca73f9e489e591279088e2aa861c6893ce5dfec6946 out/generalization_prompts/lofo_segmentation_3acc_trainonly_v1/layer/test_llm_dataset.jsonl
+SOURCE_SHA256 991f926775f25a6b767448c14ec7a4f552045cf2ed46a55321abd78f9195b656 out/generalization_prompts/lofo_segmentation_3acc_trainonly_v1/no_layer/test_llm_dataset.jsonl
+SOURCE_SHA256 064ffc5c5f4ca21f1912ec506acd11bdba7eeeaaeb6888ff1a2f3a0e8a54f0cd out/generalization_prompts/lofo_transformer_3acc_trainonly_v1/layer/test_llm_dataset.jsonl
+SOURCE_SHA256 0a3afe4d7feda632c233a5a067eaf343f94666af03216792c52721a3e190cc56 out/generalization_prompts/lofo_transformer_3acc_trainonly_v1/no_layer/test_llm_dataset.jsonl

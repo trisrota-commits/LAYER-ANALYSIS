@@ -1,6 +1,6 @@
 # Artifact coverage and pending components
 
-This is a curated first publication from the laptop, not a dump of the thesis workspace. Only this repository is a publication destination. The original source workspace and other Git repositories remain unchanged.
+This is a curated publication from the laptop, not a dump of the thesis workspace. Only this repository is a publication destination. The original source workspace and other Git repositories remain unchanged. The subsequent evidence-package upload and table/figure mapping are documented in [THESIS_COVERAGE.md](THESIS_COVERAGE.md).
 
 ## Numerical material included
 
@@ -25,16 +25,16 @@ The stored records concern model experiments, not individual image subjects. Ima
 - `nb201_v1/primary_endpoint.py`: reusable panel-based statistical analysis. CPU-only unless optional model-training paths elsewhere are invoked.
 - `nb201_v1/evaluate*.py`: classical replication adapters; these require collected acquisition snapshots, not just the committed prediction panels.
 - `nb201_v1/launch.py`, `full.py`, `cifar100.py`, `imagenet16.py`, `qwen_launch.py`, `qwen_imagenet16.py`: historical cluster-specific acquisition/bundle builders. Some require immutable earlier pilot bundles and framework sources that are not included. Do not interpret their presence as a ready deployment.
-- `evidence/reproduce_*_tables.py`: historical archive readers. Their original input archives and reference logs are not redistributed in this initial upload; do not run their defaults expecting a complete archive.
+- `evidence/reproduce_*_tables.py`: historical archive readers. Required input archives, reference reports and copies of these scripts are now supplied together inside `evidence/overleaf-table-evidence-reproducible-20261019-v2.zip`. Extract that complete packet into a fresh directory and follow its README; uploading the ZIP does not automatically unpack dependencies beside these top-level script copies.
 - `evidence/two-experiments-final-v1/analyze.py`: historical archive-based producer; its original input is now included as `evidence/two-experiments-inputs-v1.zip`. The producer was not rerun as part of that archive upload; the existing read-only verifier uses standardized predictions without overwriting results.
-- `paper_figures/layer_cost_pareto/plot_pareto.py` and `figures/methodology_v4/make_diagrams.py`: plotting/diagram source. Copied as-is; final manuscript diagram refinements are not implied by this snapshot.
+- `paper_figures/layer_cost_pareto/plot_pareto.py` is an older three-seed plotting script, not verified source for the final six-seed thesis plot. `figures/methodology_v4/make_diagrams.py` and its PDF/PNG exports preserve the local v4 snapshot. Archived `taylor_summary.pdf` and `cost_rmse_pareto.pdf` exports are supplied separately under `figures/archived_20261102/`; final artwork equality and their exact generating source are not established.
 
 ## Still to add or review
 
 1. The authoritative external integration files. `LayerAnalysis.py` is now included at the repository root as a byte-identical copy of the author-supplied file (SHA-256 `d2c28a5c34149206a32a3b26d04c4a06f2ea287a13a22a53db783c4e710d52fa`). This identifies the supplied source, not the extraction revision of every historical record. Syntax and copy integrity were checked; runtime behavior was not retested for this upload.
-2. Remaining off-laptop predictor/training source, with its actual revision and dependency environment.
-3. A reviewed, portable full-table evidence bundle for the remaining main-feature, combination, LODO/LOFO, initialization-proxy and timing results. Local archives exist but contain mixed historical payloads; they were not blindly uploaded.
-4. Canonical input manifests and any distributable acquisition snapshots needed for full refitting, after release-scope and licensing review.
+2. A complete pinned framework/training environment and remaining integration files. The predictor's config, preprocessing, model, training, evaluation and inference modules are already archived inside `two-experiments-inputs-v1.zip`; they are not wholly missing.
+3. Exact final figure sources and the consolidated initialization-proxy common-cohort producing chain. The LEMUR and NB201 evidence packages are now published, with historical/source distinctions intact. The initialization-proxy-combination report is explicitly a transcription, not original stdout.
+4. Any additional canonical inputs needed beyond the now-published NB201 collected snapshots and archived manifests for a complete training rerun, after release-scope and licensing review. Full historical pod stdout remains unconfirmed.
 5. Finalized manuscript/citation information and agreed code/data licensing.
 
 Do not overwrite existing numerical artifacts to make a rerun fit. Write new analyses under a new `recomputed/` subdirectory and retain the original targets, identities, group assignments, and seed conventions.

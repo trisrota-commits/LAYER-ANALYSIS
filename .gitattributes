@@ -2,3 +2,5 @@
 * -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Archived CSVs include historical CR/CRLF endings; do not rewrite measurements.
 *.csv whitespace=-blank-at-eol,cr-at-eol
+# Preserve terminal progress bars and trailing spaces in historical report bytes.
+evidence/thesis-reports/*.log -whitespace

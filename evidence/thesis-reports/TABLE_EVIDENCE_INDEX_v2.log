@@ -1,0 +1,113 @@
+TABLE EVIDENCE INDEX V2 — SUPERSEDES TABLE_EVIDENCE_INDEX.log
+The missing holdout raw inputs have now been supplied and verified: holdout-reproduction-inputs-728444c5.zip, 677 hashed files.
+Fresh LODO/LOFO numerical reproductions are included; old operator-transcript exports are retained only for historical provenance and comparison. Read the reproduced reports for agreement/discrepancy checks rather than assuming exact historical RNG equivalence.
+The local ZIP contains raw numerical inputs and standalone main/LODO/LOFO numerical reproduction scripts. It does not include model weights or training datasets sufficient to rerun model fitting; no retraining is required for these statistical tables.
+Overleaf: upload consolidated .log reports only. Keep the raw archives and reproduction scripts locally; do not unpack hundreds of input files into Overleaf.
+
+Other evidence coverage is unchanged: archived experiment/report/data sources, initial matched comparison, timing/baselines, frozen dataset counts, initialization Taylor report and MIC source summaries. The MIC summary export does not itself rerun the estimator/permutation pipeline. No claim of fresh independent recomputation of every descriptive table or original model training is made.
+
+TABLE MAP
+
+tab:dataset-counts
+  Evidence: dataset_composition_evidence.log
+  Status: Fresh frozen-snapshot count; hash matches original experiment.
+
+tab:accpred-metrics-ci
+  Evidence: 22_record_matched.log; table_source_artifacts.log
+  Status: Original runs plus archived comparison.json/comparison.txt; 3 same-seed repetitions. Known initial 2acc no-layer RMSE last-digit issue retained: full precision rounds to 11.4715, manuscript 11.4716 was explicitly left unchanged.
+
+tab:main-85-5-10-results
+  Evidence: main_115_record.log; table_source_artifacts.log
+  Status: Original per-seed logs plus full-precision saved artifacts; not a new independent all-row audit.
+
+tab:baseline-proxies-85-5-10
+  Evidence: baseline.log; table_source_artifacts.log
+  Status: Archived XGBoost/SynFlow/NASWOT report exports, prediction and calibration evidence.
+
+tab:lodo-performance
+  Evidence: lodo_all_seven.log; table_source_artifacts.log
+  Status: Original all-seven-statistic/no-layer ZCP-ON LODO sources. Aliases tab:lodo-2acc-performance and tab:lodo-3acc-performance refer to the same table.
+
+tab:lofo_best_accuracy
+  Evidence: lofo_tables_reproduced.log
+  Status: Fresh original layer/no-layer six-seed descriptive results from archived prediction CSVs.
+
+tab:early-mic
+  Evidence: mic_table_summary.log; dependence_table_evidence.log
+  Status: Fresh aggregation of archived per-cell MIC values; no estimator/permutation rerun.
+
+tab:same-epoch-mic
+  Evidence: mic_table_summary.log; dependence_table_evidence.log
+  Status: Fresh aggregation of archived per-cell MIC values; archived Markdown max(2,...) prose typo flagged in summary.
+
+tab:layer-statistic-cost-performance
+  Evidence: single_features.log; table_source_artifacts.log
+  Status: 3acc/ZCP-ON individual-feature saved predictions and metrics.
+
+tab:layer-features-2acc-zcp-off
+  Evidence: single_features.log; table_source_artifacts.log
+  Status: 2acc/ZCP-OFF individual-feature saved predictions and metrics.
+
+tab:layer-features-3acc-zcp-off
+  Evidence: single_features.log; table_source_artifacts.log
+  Status: 3acc/ZCP-OFF individual-feature saved predictions and metrics.
+
+tab:layer-features-2acc-zcp-on
+  Evidence: single_features.log; table_source_artifacts.log
+  Status: 2acc/ZCP-ON individual-feature saved predictions and metrics.
+
+tab:layer-extraction-time
+  Evidence: timing.log; table_source_artifacts.log
+  Status: Archived timing report exports, measured scope and candidate cohorts.
+
+tab:taylor-round2-pairs
+  Evidence: feature_combinations.log; paired_main_tables.log; table_source_artifacts.log
+  Status: Pair condition descriptives and predictions; fresh numerical evidence in paired report.
+
+tab:taylor-paired-bootstrap-rmse
+  Evidence: paired_main_tables.log; table_source_artifacts.log
+  Status: Fresh five-metric record-paired bootstrap for pairs/triples. Despite label, all five metrics are covered.
+
+tab:taylor-zcp-on-off
+  Evidence: paired_main_tables.log; single_features.log; table_source_artifacts.log
+  Status: Taylor ON/OFF descriptive and paired evidence.
+
+tab:taylor-readmission-features
+  Evidence: paired_main_tables.log; feature_combinations.log; table_source_artifacts.log
+  Status: Gradient-flow/effective-rank addition descriptives and predictions.
+
+tab:readmission-paired-five-metrics
+  Evidence: paired_main_tables.log; table_source_artifacts.log
+  Status: Fresh five-metric paired bootstrap.
+
+tab:taylor-sensitivity-zcp-on-off
+  Evidence: paired_main_tables.log; feature_combinations.log; table_source_artifacts.log
+  Status: Taylor+sensitivity ON/OFF means and prediction sources.
+
+tab:zcp-paired-five-metrics
+  Evidence: paired_main_tables.log; table_source_artifacts.log
+  Status: Fresh five-metric paired bootstrap for Taylor and Taylor+sensitivity ON/OFF.
+
+tab:lodo-taylor-zcp-off
+  Evidence: lodo_tables_reproduced.log
+  Status: Fresh metrics from all seven folds' archived raw prediction CSVs, six seeds, descriptive means and t intervals.
+
+tab:lodo-taylor-record-bootstrap
+  Evidence: lodo_tables_reproduced.log
+  Status: Fresh seven-fold architecture-grouped bootstrap from archived prediction CSVs/test prompts. See report for numerical comparison with previously printed results.
+
+tab:lofo-taylor-zcp-off-comparison
+  Evidence: lofo_tables_reproduced.log
+  Status: Fresh Taylor/OFF versus no-layer/ON six-seed descriptive results from archived prediction CSVs.
+
+tab:lofo-taylor-grouped-bootstrap
+  Evidence: lofo_tables_reproduced.log
+  Status: Fresh five-family architecture-grouped bootstrap. See report for numerical agreement/discrepancies with previously reported intervals.
+
+tab:init-taylor-proxy-comparison
+  Evidence: initialization_taylor.log; table_source_artifacts.log
+  Status: Saved full-precision five-metric report with paired CIs, calibration, coverage and 86-record predictions.
+
+tab:per-layer-versus-averaged-taylor
+  Evidence: paired_main_tables.log; individual_layer_taylor.log; table_source_artifacts.log
+  Status: Fresh paired bootstrap using NumPy RNG and archived predictions; keep training-configuration differences explicit.

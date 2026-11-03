@@ -44,7 +44,16 @@ evidence/
  *.py                            dependence, timing, proxy and preparation scripts
 ```
 
-See [artifact coverage](docs/ARTIFACTS.md) for scope and external inputs. Existing relative paths are retained where analysis scripts depend on them. No private meeting transcripts, chat summaries, administrative documents, credentials, model weights or image datasets are included.
+See the [thesis table/figure evidence map](docs/THESIS_COVERAGE.md) and [artifact coverage](docs/ARTIFACTS.md) for scope and external inputs. Existing relative paths are retained where analysis scripts depend on them. No private meeting transcripts, chat summaries, administrative documents, credentials, model weights or image datasets are included.
+
+## Extended experiment evidence and logs
+
+- [LEMUR reproduction packet](evidence/overleaf-table-evidence-reproducible-20261019-v2.zip): main-feature, combination, held-out, per-layer, baseline, dependence and timing evidence, with nested inputs and reproduction scripts. Extract the complete packet to a new directory and follow its `README.txt`.
+- [Combined NAS-Bench-201 packet](evidence/NAS_Bench_201_all_datasets_evidence_v1.zip): collected snapshots, predictor exports, contracts, receipts, available metric logs and statistical outputs for the three datasets. Historical preparations and final results remain separately identified.
+- [Browsable report collection](evidence/thesis-reports/): original package reports plus the separately saved initialization-proxy-combination transcription. Report exports and transcriptions are labelled; these are not all original training stdout.
+- [Methodology figure exports](figures/methodology_v4/) and [archived November 2 plot PDFs](figures/archived_20261102/): preserved local assets. Exact final-thesis artwork and the final six-seed cost-plot generator are not yet certified.
+
+The added files are checksummed in `PUBLICATION_ADDITIONS.json`. Recursive archive checks and internal manifest verification passed; no new training was run. The new packets expand publication coverage but do not change the limited scope of `verify_results.py` below.
 
 ## Predictor snapshot data
 
@@ -95,7 +104,7 @@ To request mixed-model fitting, install `requirements-analysis.txt` and omit `--
 
 - The initial release preserves copied files byte-for-byte; the manifest records their SHA-256 hashes. Local edits to those files will intentionally fail the integrity check.
 - Saved `results.json` files may contain historical absolute paths and library versions as provenance. Those paths are not portable run instructions; the verifier uses repository-relative inputs.
-- `two-experiments-final-v1` preserves an earlier **20,000-draw, seed-20261025** paired analysis. Later thesis tables also use a **10,000-draw, seed-0** version. Do not silently substitute one set of intervals for the other. The default verifier checks its descriptive means, not equality between those paired-analysis versions.
+- `two-experiments-final-v1` preserves an earlier **20,000-draw, seed-20261025** paired analysis. Later thesis tables also use a **10,000-draw, seed-0** version. Do not silently substitute one set of intervals for the other. The default verifier checks its descriptive means, not equality between those paired-analysis versions. Earlier evidence packets predate later follow-ups; use the table/figure coverage map rather than assuming a historical packet reproduces every final manuscript number.
 - Historical acquisition/deployment scripts contain cluster-specific mount paths and configuration and may launch expensive jobs when executed. They are included as source, **not** a ready-to-run public cluster deployment. Do not run them blindly.
 - The original focused test files can require uncommitted snapshots or full bundles. `verify_results.py` is the supported self-contained verification entry point for this release; its passing result is not a claim that the entire historical test suite passed.
 - GPU extraction and predictor fitting additionally need the appropriate `nn-dataset` / `nn-gpt` revisions, datasets, model access and training environment. These are not installed by the CPU requirements.

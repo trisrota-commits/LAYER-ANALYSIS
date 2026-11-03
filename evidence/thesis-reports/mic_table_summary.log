@@ -1,0 +1,25 @@
+FRESH AGGREGATION OF ARCHIVED DEPENDENCE CSVs
+Tables tab:early-mic and tab:same-epoch-mic
+Not a rerun of the MIC estimator or permutation tests. The per-cell values are archived results.
+Source archive: article-dependence-source-20261014-150909.tar.gz
+IMPORTANT: archived same_epoch_mic_feature_table.md has an old B(n)=max(2,...) prose typo; report.json and current manuscript use max(4,...). Raw source export preserves that typo rather than altering evidence.
+
+SOURCE ./files/early_to_epoch50_mic.csv
+Feature | mean MIC | mean abs Spearman | significant cells
+Sensitivity | 0.230544807 | 0.443230945 | 18/21
+Effective rank | 0.169718590 | 0.312555661 | 12/21
+Taylor importance | 0.138382519 | 0.305669167 | 7/21
+WeightWatcher | 0.137704562 | 0.267075471 | 8/21
+Activation statistics | 0.117981167 | 0.127326490 | 10/21
+Gradient flow | 0.111992676 | 0.248646930 | 14/21
+CKA similarity | 0.108506887 | 0.238536952 | 13/21
+
+SOURCE ./files/same_epoch_mic.csv
+Feature | mean MIC | mean abs Spearman | significant cells
+Sensitivity | 0.354177968 | 0.633763504 | 23/28
+Gradient flow | 0.160091487 | 0.287967566 | 20/28
+Taylor importance | 0.152626441 | 0.325231490 | 21/28
+WeightWatcher | 0.145334831 | 0.229461614 | 16/28
+Effective rank | 0.128765529 | 0.219235497 | 16/28
+Activation statistics | 0.124162604 | 0.149150147 | 14/28
+CKA similarity | 0.120901385 | 0.229904836 | 15/28

@@ -1,0 +1,127 @@
+INITIALIZATION-TIME PROXY COMBINATIONS
+======================================
+Evidence type: transcription of user-supplied cluster execution output in the October 20, 2026 chat.
+This is NOT an original stdout capture and NOT a fresh independent reproduction.
+The user supplied the marker MATCHED_COMBINATION_ANALYSIS_COMPLETE.
+
+Manuscript tables:
+- tab:init-proxy-combinations
+- tab:init-proxy-combinations-paired
+
+EXECUTION AND PROTOCOL
+----------------------
+Host: b-t-bose@w0-mi
+Root: /shared/ssd/home/b-t-bose/lmur
+Interpreter: /shared/ssd/home/b-t-bose/lmur/.venv-lofo-analysis/bin/python
+Common calibration cohort: 852 training-partition records with finite Taylor, SynFlow and NASWOT scores.
+Test cohort: the same 86 retained initialization-Taylor test records, with 86 distinct architecture identities.
+Targets: common unrounded best_accuracy values from the frozen raw snapshot, for training and testing.
+Taylor and NASWOT inputs: untransformed raw scores.
+SynFlow input: signed_log1p(raw score).
+Feature standardization: common training means and population standard deviations only.
+Models: ordinary least squares with intercept; no clipping, interactions or test-based tuning.
+No candidate training, Qwen fitting, or feature extraction was performed.
+All five calibrators were newly fitted on the same common training cohort.
+These results do NOT replace the historical standalone calibrations fitted on different training populations.
+
+Checks in the executed script: frozen raw SHA256; manifest source hash and record coverage; train/validation/test architecture separation; source context and proxy parameters; retained test identities and rounded-to-unrounded target correspondence; saved Taylor test-score agreement; finite inputs/predictions; full-rank calibration designs; unchanged input hashes after analysis.
+
+MATCHED CALIBRATION RESULTS
+--------------------------
+Method | RMSE | MAE | Pearson | Spearman | R2
+Taylor | 24.846517 | 20.906125 | 0.473799 | 0.463524 | -0.182879
+SynFlow | 26.803171 | 23.239183 | 0.189232 | 0.301419 | -0.376518
+NASWOT | 24.567822 | 20.696162 | 0.191312 | 0.198707 | -0.156492
+Taylor+SynFlow | 26.612138 | 23.055368 | 0.190185 | 0.303662 | -0.356966
+Taylor+NASWOT | 24.407069 | 20.473399 | 0.199204 | 0.208179 | -0.141408
+
+PAIRED COMPARISONS
+------------------
+10,000 paired test-record draws; NumPy default_rng(0).
+The same sampled indices are applied to every model. Correlations and ranks are recomputed within each draw.
+Calibrators remain fixed; no calibration-fitting or initialization-seed resampling.
+95% percentile intervals; unadjusted for multiple comparisons.
+Positive delta favors the combination: reference minus candidate for RMSE/MAE; candidate minus reference for Pearson/Spearman/R2.
+Results are conditional on the successful-extraction cohort.
+
+Candidate: Taylor+SynFlow; reference: SynFlow
+Metric | Delta | 95% CI | Valid draws
+RMSE | 0.191034 | [0.129874, 0.250397] | 10000
+MAE | 0.183815 | [0.118906, 0.246433] | 10000
+Pearson | 0.000953 | [0.000409, 0.001564] | 10000
+Spearman | 0.002243 | [-0.001274, 0.008977] | 10000
+R2 | 0.019552 | [0.011156, 0.033259] | 10000
+
+Candidate: Taylor+SynFlow; reference: Taylor
+Metric | Delta | 95% CI | Valid draws
+RMSE | -1.765621 | [-3.587817, -0.020326] | 10000
+MAE | -2.149243 | [-3.861797, -0.485136] | 10000
+Pearson | -0.283614 | [-0.533815, -0.044378] | 10000
+Spearman | -0.159862 | [-0.406839, 0.093685] | 10000
+R2 | -0.174087 | [-0.421868, -0.001775] | 10000
+
+Candidate: Taylor+NASWOT; reference: NASWOT
+Metric | Delta | 95% CI | Valid draws
+RMSE | 0.160753 | [0.088761, 0.227071] | 10000
+MAE | 0.222763 | [0.158592, 0.284116] | 10000
+Pearson | 0.007891 | [0.003615, 0.013512] | 10000
+Spearman | 0.009472 | [-0.002165, 0.026942] | 10000
+R2 | 0.015085 | [0.007530, 0.026265] | 10000
+
+Candidate: Taylor+NASWOT; reference: Taylor
+Metric | Delta | 95% CI | Valid draws
+RMSE | 0.439447 | [0.140376, 0.743130] | 10000
+MAE | 0.432726 | [0.130618, 0.735030] | 10000
+Pearson | -0.274596 | [-0.503979, -0.070384] | 10000
+Spearman | -0.255345 | [-0.505032, 0.012445] | 10000
+R2 | 0.041472 | [0.012977, 0.077665] | 10000
+
+SOURCE HASHES REPORTED BY THE CLUSTER EXECUTION
+---------------------------------------------
+Paths relative to /shared/ssd/home/b-t-bose/lmur:
+out/acc_predict_rebuilt_probe/llm_finetuning_data.jsonl
+093375e5f94fdbf100bffd82e44638f1fe45b670e440f8adb8d03569d9a39f01
+out/generalization_manifests_85_5_10/acc_predict_grouped_85_5_10_split_manifest.json
+3140ed664a7509c460700e7e1a6122fb3351bb2a45b0f3f6f19172233d154dd8
+init-taylor-comparison-v1/records.json
+7c8cfeeac94fd08e5576c78f62a9db766e2b5f1cb6429af38705b5e9e55d75d3
+init-taylor-comparison-v1/results/scores.json
+453336fd31c9db70e13fca37009bb128591924a1940ebc907d5bbbff6d8ede91
+init-taylor-comparison-v1/results-successful-only-v1/test_predictions.csv
+d0d15ba3d4bb42b537ebf09048e9c58b3809f86e6ce1a5341e2d70b995ec04fb
+baseline-ci-85510-v1/results/proxy_values.jsonl
+f95773b9f5bd55da638ab4fe6a134be7d8ee97252930deab4d71e081abff75ae
+
+CALIBRATION PARAMETERS REPORTED BY THE EXECUTION
+-----------------------------------------------
+Feature order: Taylor, signed_log1p(SynFlow), NASWOT
+Training feature means:
+[0.009078178330391238, 32.93076920528357, 96.30190942189559]
+Training feature scales:
+[0.057739642835136745, 34.04781661931539, 12.387992980423272]
+Coefficients below are intercept followed by coefficients for standardized selected inputs:
+Taylor; columns [0]:
+[66.90041697649283, 2.0229130225745537]
+SynFlow; columns [1]:
+[66.90041697649283, 6.068110626102985]
+NASWOT; columns [2]:
+[66.90041697649283, 3.1135524916636594]
+Taylor+SynFlow; columns [0, 1]:
+[66.90041697649282, 1.4360010774611514, 5.925886127103093]
+Taylor+NASWOT; columns [0, 2]:
+[66.90041697649283, 2.289065113055927, 3.2982674874618465]
+
+INTERPRETATION
+--------------
+Adding Taylor to either proxy improves RMSE, MAE, Pearson and R2 relative to that proxy alone under the unadjusted intervals. Spearman improvements remain inconclusive.
+Taylor+SynFlow is worse than Taylor alone on RMSE, MAE, Pearson and R2 under the intervals; Spearman is inconclusive.
+Taylor+NASWOT improves RMSE, MAE and R2 versus Taylor alone, but worsens Pearson; Spearman is inconclusive.
+Taylor+NASWOT has the lowest point-estimate errors among these five calibrators; Taylor alone has the highest correlations. All R2 values remain negative.
+
+ARCHIVAL BOUNDARY
+-----------------
+This file preserves the reported metrics, all 20 paired comparisons, protocol and calibration/source metadata.
+It omits the long training/test ID lists printed in the chat. Training membership was selected in raw snapshot order by training split, classification eligibility and finite scores for all three proxies. Test order came from the retained Taylor test CSV.
+The exact executed script, raw prediction arrays, source input files and original console stream are not embedded in this log. This file alone is not a complete numerical-reproduction package.
+The original analysis wrote no files; this transcription is a later archival action.
+Existing logs and ZIPs were not updated. Placement in this local upload folder does not establish an Overleaf upload.
