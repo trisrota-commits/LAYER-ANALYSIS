@@ -1,0 +1,543 @@
+{
+  "primary": {
+    "record": {
+      "n": 258,
+      "improvement": 1.066860465116279,
+      "t": 5.078014161843714,
+      "p": 7.332475693232045e-07,
+      "ci95": [
+        0.65313542138905,
+        1.4805855088435078
+      ],
+      "status": "ok",
+      "holm_p": 1.466495138646409e-06
+    },
+    "seed": {
+      "n": 6,
+      "improvement": 1.066860465116279,
+      "t": 10.638599203704155,
+      "p": 0.00012694723162866167,
+      "ci95": [
+        0.809077266381661,
+        1.324643663850897
+      ],
+      "status": "ok",
+      "holm_p": 0.00012694723162866167
+    }
+  },
+  "counts": {
+    "all": 275,
+    "noncollapsed": 258,
+    "collapsed": 17
+  },
+  "deterministic_seed_predictions": false,
+  "seed_improvements": [
+    0.6521317829457365,
+    1.1794573643410842,
+    1.2577519379844968,
+    0.8796124031007744,
+    1.1941085271317828,
+    1.2381007751937994
+  ],
+  "robust_location": {
+    "no-layer": {
+      "median_seed_mean_absolute_error": 3.1708333333333307,
+      "trimmed20_seed_mean_absolute_error": 3.65482905982906
+    },
+    "taylor": {
+      "median_seed_mean_absolute_error": 2.7141666666666655,
+      "trimmed20_seed_mean_absolute_error": 2.892467948717949
+    }
+  },
+  "robustness": {
+    "record_bootstrap": {
+      "ci95": [
+        0.6614013242894062,
+        1.4967548449612402
+      ],
+      "p": 0.0001
+    },
+    "two_way_bootstrap": {
+      "ci95": [
+        0.6024481589147289,
+        1.563634043927649
+      ],
+      "p": 0.0001
+    },
+    "cell_signflip": {
+      "p": 9.999000099990002e-05,
+      "warning": "Independent cell flips assume exchangeability of record-seed cells despite shared records/seeds; supporting sensitivity check only",
+      "method": "two-sided Monte Carlo absolute statistic with plus-one correction"
+    },
+    "wilcoxon": {
+      "p": 0.00012928984596390607
+    },
+    "crossed_mixed_model": {
+      "status": "ok",
+      "converged": true,
+      "optimizer": "powell",
+      "improvement": 1.066860465116271,
+      "p": 5.576328402044675e-07,
+      "ci95": [
+        0.6491050769796962,
+        1.4846158532528457
+      ],
+      "warnings": [
+        "The MLE may be on the boundary of the parameter space."
+      ],
+      "attempts": [
+        {
+          "status": "unverified fit",
+          "converged": false,
+          "optimizer": "lbfgs",
+          "improvement": 1.0668604651163456,
+          "p": null,
+          "ci95": null,
+          "warnings": [
+            "Gradient optimization failed, |grad| = 21.471770",
+            "Maximum Likelihood optimization failed to converge. Check mle_retvals",
+            "MixedLM optimization failed, trying a different optimizer may help.",
+            "The Hessian matrix at the estimated parameter values is not positive definite."
+          ]
+        },
+        {
+          "status": "ok",
+          "converged": true,
+          "optimizer": "powell",
+          "improvement": 1.066860465116271,
+          "p": 5.576328402044675e-07,
+          "ci95": [
+            0.6491050769796962,
+            1.4846158532528457
+          ],
+          "warnings": [
+            "The MLE may be on the boundary of the parameter space."
+          ]
+        }
+      ],
+      "method": "REML intercept-only paired-error-difference model with crossed record/seed random intercepts; Wald normal p. L-BFGS first, Powell only after invalid convergence/Hessian; never chosen by p-value."
+    },
+    "family_bootstrap": {
+      "ci95": [
+        0.5729664233372495,
+        1.5911988516951496
+      ],
+      "p": 0.0001,
+      "groups": 43,
+      "method": "Additional NB201 operation-multiset cluster check; record-weighted mean"
+    }
+  },
+  "collapse_auc": {
+    "no-layer": {
+      "auc": 0.9163246694026448,
+      "ci95": [
+        0.8632010943912448,
+        0.9607843137254902
+      ],
+      "collapsed": 17,
+      "noncollapsed": 258,
+      "method": "Negative six-seed mean prediction; class-stratified record bootstrap, RNG seed+1",
+      "warning": null
+    },
+    "taylor": {
+      "auc": 0.9760601915184679,
+      "ci95": [
+        0.9573643410852714,
+        0.9906520747834018
+      ],
+      "collapsed": 17,
+      "noncollapsed": 258,
+      "method": "Negative six-seed mean prediction; class-stratified record bootstrap, RNG seed+1",
+      "warning": null
+    }
+  },
+  "descriptive": {
+    "all": {
+      "no-layer": {
+        "n": 275,
+        "per_seed": [
+          {
+            "seed": 42,
+            "MAE": 4.518145454545455,
+            "RMSE": 6.0945871961035305,
+            "Pearson": 0.6727685462427212,
+            "Spearman": 0.5061499607578185,
+            "R2": 0.35919532616705985
+          },
+          {
+            "seed": 43,
+            "MAE": 4.7348,
+            "RMSE": 6.805011923040787,
+            "Pearson": 0.6177110303184501,
+            "Spearman": 0.4701401584661662,
+            "R2": 0.20109551042433627
+          },
+          {
+            "seed": 44,
+            "MAE": 4.769018181818182,
+            "RMSE": 6.898917174587487,
+            "Pearson": 0.6161537039838272,
+            "Spearman": 0.5264427304853674,
+            "R2": 0.17889453458560967
+          },
+          {
+            "seed": 45,
+            "MAE": 4.433636363636364,
+            "RMSE": 6.374969376040527,
+            "Pearson": 0.6697377880162132,
+            "Spearman": 0.5020805139219979,
+            "R2": 0.2988784975633647
+          },
+          {
+            "seed": 46,
+            "MAE": 4.879200000000001,
+            "RMSE": 7.095035088644094,
+            "Pearson": 0.6477363538869915,
+            "Spearman": 0.5394339060406442,
+            "R2": 0.1315472873442668
+          },
+          {
+            "seed": 47,
+            "MAE": 4.506254545454546,
+            "RMSE": 6.669136130509912,
+            "Pearson": 0.6314148867076692,
+            "Spearman": 0.5344659144114761,
+            "R2": 0.2326804816889645
+          }
+        ],
+        "mean": {
+          "MAE": 4.640175757575758,
+          "RMSE": 6.65627614815439,
+          "Pearson": 0.6425870515259787,
+          "Spearman": 0.5131188640139118,
+          "R2": 0.233715272962267
+        }
+      },
+      "taylor": {
+        "n": 275,
+        "per_seed": [
+          {
+            "seed": 42,
+            "MAE": 3.6410909090909094,
+            "RMSE": 5.226435670529373,
+            "Pearson": 0.7688477127812235,
+            "Spearman": 0.6663870196538748,
+            "R2": 0.5287533245728125
+          },
+          {
+            "seed": 43,
+            "MAE": 3.460290909090909,
+            "RMSE": 4.733260725008615,
+            "Pearson": 0.8083006310154749,
+            "Spearman": 0.6864032596990892,
+            "R2": 0.6134924906933036
+          },
+          {
+            "seed": 44,
+            "MAE": 3.4744363636363635,
+            "RMSE": 4.768677842299306,
+            "Pearson": 0.8026877318862403,
+            "Spearman": 0.6962974707091549,
+            "R2": 0.6076866848412836
+          },
+          {
+            "seed": 45,
+            "MAE": 3.193018181818182,
+            "RMSE": 4.596320030000285,
+            "Pearson": 0.8230498035798319,
+            "Spearman": 0.7132456412610906,
+            "R2": 0.6355335131338761
+          },
+          {
+            "seed": 46,
+            "MAE": 3.610472727272727,
+            "RMSE": 4.9077195592991325,
+            "Pearson": 0.7981401149992882,
+            "Spearman": 0.6754365483447283,
+            "R2": 0.5844755754078617
+          },
+          {
+            "seed": 47,
+            "MAE": 3.0572,
+            "RMSE": 4.133431812121079,
+            "Pearson": 0.8523415929845408,
+            "Spearman": 0.7522588583797843,
+            "R2": 0.7052467271686247
+          }
+        ],
+        "mean": {
+          "MAE": 3.4060848484848485,
+          "RMSE": 4.727640939876298,
+          "Pearson": 0.8088945978744332,
+          "Spearman": 0.6983381330079537,
+          "R2": 0.612531385969627
+        }
+      }
+    },
+    "noncollapsed": {
+      "no-layer": {
+        "n": 258,
+        "per_seed": [
+          {
+            "seed": 42,
+            "MAE": 4.320852713178295,
+            "RMSE": 5.734614400775469,
+            "Pearson": 0.5179033658538861,
+            "Spearman": 0.42877882530363215,
+            "R2": -0.04141957832585397
+          },
+          {
+            "seed": 43,
+            "MAE": 4.564573643410852,
+            "RMSE": 6.480614622971564,
+            "Pearson": 0.48851961787852605,
+            "Spearman": 0.4147944483588703,
+            "R2": -0.32999402185938154
+          },
+          {
+            "seed": 44,
+            "MAE": 4.6031007751937985,
+            "RMSE": 6.585225240860651,
+            "Pearson": 0.4836099560546744,
+            "Spearman": 0.4551620373134768,
+            "R2": -0.37327832146469975
+          },
+          {
+            "seed": 45,
+            "MAE": 4.163875968992248,
+            "RMSE": 5.839691241705302,
+            "Pearson": 0.5336728055054644,
+            "Spearman": 0.418278497662081,
+            "R2": -0.07993363367102857
+          },
+          {
+            "seed": 46,
+            "MAE": 4.867790697674419,
+            "RMSE": 7.033988718132957,
+            "Pearson": 0.5370869243416396,
+            "Spearman": 0.469118890156688,
+            "R2": -0.5668254993793995
+          },
+          {
+            "seed": 47,
+            "MAE": 4.315232558139535,
+            "RMSE": 6.2985006521485944,
+            "Pearson": 0.47930308686388245,
+            "Spearman": 0.46148443762462066,
+            "R2": -0.2562950638477195
+          }
+        ],
+        "mean": {
+          "MAE": 4.472571059431524,
+          "RMSE": 6.328772479432423,
+          "Pearson": 0.5066826260830122,
+          "Spearman": 0.4412695227365615,
+          "R2": -0.27462435309134714
+        }
+      },
+      "taylor": {
+        "n": 258,
+        "per_seed": [
+          {
+            "seed": 42,
+            "MAE": 3.668720930232558,
+            "RMSE": 5.167234614945548,
+            "Pearson": 0.6182292024205535,
+            "Spearman": 0.6048845026811379,
+            "R2": 0.1544609731680865
+          },
+          {
+            "seed": 43,
+            "MAE": 3.385116279069767,
+            "RMSE": 4.542998872957148,
+            "Pearson": 0.686324050849478,
+            "Spearman": 0.630246462231197,
+            "R2": 0.34641428098800164
+          },
+          {
+            "seed": 44,
+            "MAE": 3.345348837209302,
+            "RMSE": 4.531614015049754,
+            "Pearson": 0.6789394383796661,
+            "Spearman": 0.6360572200832995,
+            "R2": 0.3496859775551048
+          },
+          {
+            "seed": 45,
+            "MAE": 3.284263565891473,
+            "RMSE": 4.704261469029145,
+            "Pearson": 0.6818795718661081,
+            "Spearman": 0.6558591955340751,
+            "R2": 0.29919014425202795
+          },
+          {
+            "seed": 46,
+            "MAE": 3.6736821705426355,
+            "RMSE": 4.99919764880155,
+            "Pearson": 0.6561385397537086,
+            "Spearman": 0.6127483090988446,
+            "R2": 0.20856015527817484
+          },
+          {
+            "seed": 47,
+            "MAE": 3.0771317829457363,
+            "RMSE": 4.13475138215686,
+            "Pearson": 0.7416759840610485,
+            "Spearman": 0.7018016220686019,
+            "R2": 0.4586026843248153
+          }
+        ],
+        "mean": {
+          "MAE": 3.405710594315245,
+          "RMSE": 4.680009667156667,
+          "Pearson": 0.6771977978884273,
+          "Spearman": 0.6402662186161927,
+          "R2": 0.3028190359277018
+        }
+      }
+    },
+    "collapsed": {
+      "no-layer": {
+        "n": 17,
+        "per_seed": [
+          {
+            "seed": 42,
+            "MAE": 7.512352941176471,
+            "RMSE": 10.088027557456414,
+            "Pearson": 0.6996237444458947,
+            "Spearman": 0.28743866136105395,
+            "R2": -2.4399788976853545
+          },
+          {
+            "seed": 43,
+            "MAE": 7.318235294117647,
+            "RMSE": 10.569582049725636,
+            "Pearson": 0.6955931304049598,
+            "Spearman": 0.2939254621520024,
+            "R2": -2.7762339070288777
+          },
+          {
+            "seed": 44,
+            "MAE": 7.287058823529413,
+            "RMSE": 10.573055654934999,
+            "Pearson": 0.6800234528337578,
+            "Spearman": 0.3862241544038377,
+            "R2": -2.778716370598378
+          },
+          {
+            "seed": 45,
+            "MAE": 8.52764705882353,
+            "RMSE": 11.826565559839276,
+            "Pearson": 0.7040444015458108,
+            "Spearman": 0.3622937709895311,
+            "R2": -3.727815779436484
+          },
+          {
+            "seed": 46,
+            "MAE": 5.05235294117647,
+            "RMSE": 7.964271319277039,
+            "Pearson": 0.7447373396697923,
+            "Spearman": 0.4392391355626552,
+            "R2": -1.144052187116547
+          },
+          {
+            "seed": 47,
+            "MAE": 7.405294117647059,
+            "RMSE": 10.836029498581002,
+            "Pearson": 0.6461411509776012,
+            "Spearman": 0.35635262306097804,
+            "R2": -2.9690230021311677
+          }
+        ],
+        "mean": {
+          "MAE": 7.183823529411765,
+          "RMSE": 10.309588606635728,
+          "Pearson": 0.6950272033129695,
+          "Spearman": 0.3542456345883431,
+          "R2": -2.639303357332801
+        }
+      },
+      "taylor": {
+        "n": 17,
+        "per_seed": [
+          {
+            "seed": 42,
+            "MAE": 3.2217647058823538,
+            "RMSE": 6.0542513016498924,
+            "Pearson": 0.745624780772748,
+            "Spearman": 0.6683647538574138,
+            "R2": -0.23897957290795935
+          },
+          {
+            "seed": 43,
+            "MAE": 4.601176470588236,
+            "RMSE": 7.013486168468154,
+            "Pearson": 0.7547736648009178,
+            "Spearman": 0.6658534013252498,
+            "R2": -0.662689477252788
+          },
+          {
+            "seed": 44,
+            "MAE": 5.433529411764706,
+            "RMSE": 7.496719674787963,
+            "Pearson": 0.7903000706139851,
+            "Spearman": 0.3709198131559485,
+            "R2": -0.8997034073302299
+          },
+          {
+            "seed": 45,
+            "MAE": 1.8082352941176474,
+            "RMSE": 2.4269782713101833,
+            "Pearson": 0.9197664641361155,
+            "Spearman": 0.5358090024358373,
+            "R2": 0.8008982694628266
+          },
+          {
+            "seed": 46,
+            "MAE": 2.651176470588236,
+            "RMSE": 3.2143108309009354,
+            "Pearson": 0.9265207864387609,
+            "Spearman": 0.6778445840296138,
+            "R2": 0.6507640027401895
+          },
+          {
+            "seed": 47,
+            "MAE": 2.754705882352942,
+            "RMSE": 4.113353433706887,
+            "Pearson": 0.8764874258309129,
+            "Spearman": 0.6757361976343444,
+            "R2": 0.4280799618890464
+          }
+        ],
+        "mean": {
+          "MAE": 3.4117647058823533,
+          "RMSE": 5.053183280137335,
+          "Pearson": 0.83557886543224,
+          "Spearman": 0.5990879587397346,
+          "R2": 0.013061629433514207
+        }
+      }
+    }
+  },
+  "protocol": {
+    "provenance": "Independent implementation from project_final_4_.pdf pages3-4,7; not the missing original script",
+    "draws": 10000,
+    "seed": 0,
+    "collapse_threshold": 20.0,
+    "primary_family": "Two two-sided paired t-tests; by seed-averaged record errors and by seed MAE; Holm within this panel",
+    "bootstrap_p": "2 min(sign probabilities), clipped to [1/B,1]; percentile CI",
+    "unspecified_choices": "Mixed model fit on differences with REML, lbfgs then Powell only on numerical failure; independent record/seed resampling; plus-one cell-flip p; class-stratified AUC bootstrap. Declared choices, not claimed identical to unavailable source.",
+    "inference_limit": "Record tests condition on trained models; seed tests condition on held-out records. Not independent replications of the same sampling uncertainty. Cell-flip assumptions are stronger. Use family-cluster sensitivity for NB201.",
+    "multiplicity": "Robustness p-values are supporting, unadjusted; per-panel Holm2 does not correct selection across datasets/models."
+  },
+  "input_sha256": {
+    "C:\\Users\\trisr\\Desktop\\thesis\\evidence\\nb201-imagenet16-primary-v1\\inputs\\panel.csv": "8915cc9bba282b3949232de6c329c511134b48f9ce0bd9f4ff50d8a8372fcf8e",
+    "C:\\Users\\trisr\\Desktop\\thesis\\evidence\\nb201-imagenet16-primary-v1\\inputs\\registry.json": "95b960c3110a09c1034894d6064c4e3898d1389a2d0596cc98b584cbabc2eb8e",
+    "C:\\Users\\trisr\\Desktop\\thesis\\nb201_v1\\primary_endpoint.py": "b8878d0cfcc7bb37905be75f6bb2b334ee002d76c1e6e361e7c55972510386ef"
+  },
+  "versions": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "statsmodels": "0.15.0"
+  }
+}

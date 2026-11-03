@@ -1,0 +1,35 @@
+# Local environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.idea/
+.vscode/
+.hermes/
+.env
+.env.*
+*.pem
+*.key
+# Local datasets, weights, databases and newly generated outputs
+/data/
+/datasets/
+/db/
+/output/
+/outputs/
+/recomputed/
+/runs/
+*.sqlite
+*.sqlite3
+*.db
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+*.zip
+*.tar.gz
+*.log
+# Personal handoffs and documents are not publication artifacts
+/summaries/
+supervisor_meeting*
+AGENTS.md

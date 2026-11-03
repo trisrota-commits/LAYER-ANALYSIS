@@ -1,0 +1,2202 @@
+[
+  {
+    "record_id": "eb4eb3e0b3564d6708a37d04f53ee915",
+    "architecture_id": 227,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 41.05,
+    "raw_target": 41.04999996439616
+  },
+  {
+    "record_id": "a84d6012c664573ae6fa71328d091dc2",
+    "architecture_id": 1469,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.52,
+    "raw_target": 38.51666659037272
+  },
+  {
+    "record_id": "de843f80334c82863d0a7e8a797d83a2",
+    "architecture_id": 2553,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.53,
+    "raw_target": 39.533333251953124
+  },
+  {
+    "record_id": "a26b17e4cdf09309c3afdb6827d3b269",
+    "architecture_id": 8004,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 45.03,
+    "raw_target": 45.03333333333333
+  },
+  {
+    "record_id": "7084598cdc951b342d3c594cebc011b2",
+    "architecture_id": 12029,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 41.28,
+    "raw_target": 41.28333337402344
+  },
+  {
+    "record_id": "84d9a3890f3b13814d6b368a6098ffd7",
+    "architecture_id": 13834,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.72,
+    "raw_target": 39.71666664632161
+  },
+  {
+    "record_id": "7322635b5210a6c8a7298e1f2c924a4e",
+    "architecture_id": 14110,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.15,
+    "raw_target": 39.149999984741214
+  },
+  {
+    "record_id": "e244ba8109bdc0319b1cd051dff5b209",
+    "architecture_id": 14794,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.27,
+    "raw_target": 37.26666659800212
+  },
+  {
+    "record_id": "ae4d26d7399b659dd42e129e0347806f",
+    "architecture_id": 9589,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 22.82,
+    "raw_target": 22.816666656494142
+  },
+  {
+    "record_id": "abc48cc9d2cb2dd3bf3d8c35809e79f2",
+    "architecture_id": 1797,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 39.82,
+    "raw_target": 39.81666659545898
+  },
+  {
+    "record_id": "3a3d1d96e5fbdf3a91f5da3a51fdee78",
+    "architecture_id": 3547,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 38.27,
+    "raw_target": 38.26666661071778
+  },
+  {
+    "record_id": "f24204df0612e27d43b22ca9721510ce",
+    "architecture_id": 8567,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 38.98,
+    "raw_target": 38.983333211263016
+  },
+  {
+    "record_id": "035ea9228d4c10ff98bc8a9eb4e754e2",
+    "architecture_id": 10424,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 39.15,
+    "raw_target": 39.14999992879232
+  },
+  {
+    "record_id": "f31935da92c1c1e43fd25cce4fb441bb",
+    "architecture_id": 10982,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 38.12,
+    "raw_target": 38.11666663106283
+  },
+  {
+    "record_id": "81801d31c1ebdb0c88130a0224a9c623",
+    "architecture_id": 11480,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 39.2,
+    "raw_target": 39.199999964396156
+  },
+  {
+    "record_id": "a64f5587f1565c6062ec6eac6391b899",
+    "architecture_id": 14037,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 27.08,
+    "raw_target": 27.08333327484131
+  },
+  {
+    "record_id": "d4ff21d3f5e951b09716ed65a2a8cb1f",
+    "architecture_id": 741,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 31.3,
+    "raw_target": 31.299999959309897
+  },
+  {
+    "record_id": "873d3f4976e01a2cac372e503fcdd2c7",
+    "architecture_id": 1844,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 36.08,
+    "raw_target": 36.083333211263025
+  },
+  {
+    "record_id": "9ac8b4590e18b2833ff64770a2c3a351",
+    "architecture_id": 1956,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 35.4,
+    "raw_target": 35.399999974568686
+  },
+  {
+    "record_id": "bc1f49511018383434784f2da44c1209",
+    "architecture_id": 2589,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.62,
+    "raw_target": 37.616666590372716
+  },
+  {
+    "record_id": "c3fca074a6c05066c5fa45ede3f312a8",
+    "architecture_id": 2593,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 29.03,
+    "raw_target": 29.03333331044515
+  },
+  {
+    "record_id": "0461789583013b2b0d818f4d0b8769ac",
+    "architecture_id": 3532,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 28.93,
+    "raw_target": 28.933333285013838
+  },
+  {
+    "record_id": "fff30d2a8191db994e101f818d42e97f",
+    "architecture_id": 4273,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 24.13,
+    "raw_target": 24.1333332824707
+  },
+  {
+    "record_id": "03a3081bd0419904b3f7b8e7746a3964",
+    "architecture_id": 5341,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 36.87,
+    "raw_target": 36.86666665140788
+  },
+  {
+    "record_id": "1998cdb6806272b42390c0ac52b1ee5a",
+    "architecture_id": 6844,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 16.32,
+    "raw_target": 16.31666664759318
+  },
+  {
+    "record_id": "f1ddf52e27b24489dafa19340b8d50cd",
+    "architecture_id": 7284,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 16.93,
+    "raw_target": 16.933333351135254
+  },
+  {
+    "record_id": "03e162e10174cf9b5072cd56bab8ac5a",
+    "architecture_id": 8385,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 33.88,
+    "raw_target": 33.88333334859212
+  },
+  {
+    "record_id": "0b1c2c43cb9f46655c016aad36d2b823",
+    "architecture_id": 8991,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 33.83,
+    "raw_target": 33.83333325958252
+  },
+  {
+    "record_id": "c8155fc2d4d68cf4239ddb107adde1a6",
+    "architecture_id": 10286,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 30.62,
+    "raw_target": 30.61666655476888
+  },
+  {
+    "record_id": "a17be6fe76ded325b1a9a1dfbcaa0991",
+    "architecture_id": 13031,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.53,
+    "raw_target": 38.53333331807454
+  },
+  {
+    "record_id": "6bdfd7cb1021f9ef4dc59e0ecaa1fa8a",
+    "architecture_id": 14780,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 17.07,
+    "raw_target": 17.06666667683919
+  },
+  {
+    "record_id": "287b67ab293bb530119e93701477cde1",
+    "architecture_id": 7028,
+    "family": "avg_pool_3x3|skip_connect|skip_connect|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 14.9,
+    "raw_target": 14.899999974568685
+  },
+  {
+    "record_id": "3c49cc4a3d1240e3452d47808b20dc75",
+    "architecture_id": 5883,
+    "family": "none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 44.13,
+    "raw_target": 44.13333326212565
+  },
+  {
+    "record_id": "5371819e332e3a6271e55ac397f8bd7b",
+    "architecture_id": 9941,
+    "family": "none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 44.32,
+    "raw_target": 44.31666666666666
+  },
+  {
+    "record_id": "b6de19f0397bc765d3263048cff858f2",
+    "architecture_id": 10370,
+    "family": "none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 44.12,
+    "raw_target": 44.11666663614909
+  },
+  {
+    "record_id": "15738c5df769a17df1118a8b8545aa81",
+    "architecture_id": 11441,
+    "family": "none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.6,
+    "raw_target": 39.59999992370605
+  },
+  {
+    "record_id": "d0ab0178a9bf709559ee6af0ddc5609b",
+    "architecture_id": 3109,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 27.62,
+    "raw_target": 27.616666664123535
+  },
+  {
+    "record_id": "80bba9d844f0a8bb76b9484bd468575c",
+    "architecture_id": 6160,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 42.15,
+    "raw_target": 42.14999997965495
+  },
+  {
+    "record_id": "a962155bf7ef6b07c15b0a78ac9c7c3b",
+    "architecture_id": 6587,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 38.22,
+    "raw_target": 38.216666549682614
+  },
+  {
+    "record_id": "4cf69cd24ac37da56bd5299c919d28d9",
+    "architecture_id": 8727,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 16.65,
+    "raw_target": 16.649999972025554
+  },
+  {
+    "record_id": "5d7c07b32e19c63250a03ff3235f69be",
+    "architecture_id": 9512,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 38.98,
+    "raw_target": 38.983333307902015
+  },
+  {
+    "record_id": "0e1162eb254d60bbb53950bc20c32d9c",
+    "architecture_id": 10557,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 37.97,
+    "raw_target": 37.966666549682614
+  },
+  {
+    "record_id": "01ab3f16b7766e6227751206503e1089",
+    "architecture_id": 10564,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 42.8,
+    "raw_target": 42.79999999491373
+  },
+  {
+    "record_id": "1fa89e828f5e0c99bdda0e99c04deb65",
+    "architecture_id": 10761,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 39.08,
+    "raw_target": 39.08333331298828
+  },
+  {
+    "record_id": "936092558bcc33f2b527758b103bc44e",
+    "architecture_id": 11131,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 39.02,
+    "raw_target": 39.01666660054525
+  },
+  {
+    "record_id": "615c1b202f5c6313b34b90bae34be4b9",
+    "architecture_id": 13191,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 38.88,
+    "raw_target": 38.88333333333333
+  },
+  {
+    "record_id": "72237ca63d703f93fe01ad135979f4a7",
+    "architecture_id": 14545,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 31.43,
+    "raw_target": 31.433333251953126
+  },
+  {
+    "record_id": "f941edc7d1fa205cfd14a8f37acfeda9",
+    "architecture_id": 1606,
+    "family": "none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 35.13,
+    "raw_target": 35.13333327992757
+  },
+  {
+    "record_id": "6fa3caf510f28db2876a0f55403e315c",
+    "architecture_id": 8362,
+    "family": "none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 33.62,
+    "raw_target": 33.61666655985515
+  },
+  {
+    "record_id": "94c75bd149cbe7ed2b9c3e92dd2fec92",
+    "architecture_id": 9240,
+    "family": "none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.42,
+    "raw_target": 37.41666661580403
+  },
+  {
+    "record_id": "1fa244d7401fcc0b37a8b88fda214789",
+    "architecture_id": 13536,
+    "family": "none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.97,
+    "raw_target": 34.966666620890294
+  },
+  {
+    "record_id": "4e78474c3b8ae1e694955414b9246e00",
+    "architecture_id": 1583,
+    "family": "nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 44.32,
+    "raw_target": 44.316666610717775
+  },
+  {
+    "record_id": "b342fe306abc69971eb17f4db9c08bfa",
+    "architecture_id": 8572,
+    "family": "nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 46.02,
+    "raw_target": 46.01666668701172
+  },
+  {
+    "record_id": "a23f784051a62cf69fa292c1c5ffe69b",
+    "architecture_id": 9927,
+    "family": "nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 43.95,
+    "raw_target": 43.94999987284342
+  },
+  {
+    "record_id": "0bf011126afbc5999224288b6dbe8d9b",
+    "architecture_id": 11737,
+    "family": "nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 44.62,
+    "raw_target": 44.61666660563151
+  },
+  {
+    "record_id": "b190d47f326d7290ae24e0edb1864df2",
+    "architecture_id": 12173,
+    "family": "nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 42.88,
+    "raw_target": 42.88333321126302
+  },
+  {
+    "record_id": "0b32ebf9bb88cfd4e1861a944da7c641",
+    "architecture_id": 14368,
+    "family": "nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 43.15,
+    "raw_target": 43.14999990336101
+  },
+  {
+    "record_id": "b87a8d1c33cb8e004c9f8e39740a165e",
+    "architecture_id": 231,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 29.53,
+    "raw_target": 29.533333244323728
+  },
+  {
+    "record_id": "02e5155b10384b9b6f8c81b928312df7",
+    "architecture_id": 6502,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 32.18,
+    "raw_target": 32.18333330790202
+  },
+  {
+    "record_id": "4f8aa6b8fa56b0313d65ff6bbbfa3c3f",
+    "architecture_id": 6712,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 31.27,
+    "raw_target": 31.26666660308838
+  },
+  {
+    "record_id": "9b99164895b7be86d668e3fc1256db20",
+    "architecture_id": 6975,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 23.77,
+    "raw_target": 23.766666641235354
+  },
+  {
+    "record_id": "f82ac6502d4036eeeacd87630f5d54d8",
+    "architecture_id": 9105,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 26.6,
+    "raw_target": 26.599999972025554
+  },
+  {
+    "record_id": "43de253b8b3f999b12a200079f5e4ae7",
+    "architecture_id": 10832,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 28.08,
+    "raw_target": 28.083333330790204
+  },
+  {
+    "record_id": "32b26e740e7a7f9f8cf8b9b3cbddcc53",
+    "architecture_id": 11127,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.32,
+    "raw_target": 34.316666656494135
+  },
+  {
+    "record_id": "221c2fc7d2c4a7349796e8c33c33dc9d",
+    "architecture_id": 335,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.85,
+    "raw_target": 39.85000003560384
+  },
+  {
+    "record_id": "ddf76dd6a10cc468d535fdf5378822c7",
+    "architecture_id": 731,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.55,
+    "raw_target": 39.55000000508626
+  },
+  {
+    "record_id": "dbf415dacef25181bdc638d8882a15c1",
+    "architecture_id": 800,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.47,
+    "raw_target": 37.466666636149085
+  },
+  {
+    "record_id": "7f0d56ab0e0c4c7eada2a8c234484a6d",
+    "architecture_id": 955,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.92,
+    "raw_target": 39.91666665140788
+  },
+  {
+    "record_id": "64b8757dab6ca3e6aa7e2588dc3be052",
+    "architecture_id": 1138,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 40.82,
+    "raw_target": 40.81666667175293
+  },
+  {
+    "record_id": "65a83c2d6a47d9bd566b93b27acc6b83",
+    "architecture_id": 1352,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 41.07,
+    "raw_target": 41.0666666208903
+  },
+  {
+    "record_id": "85dfbb86f3751afa06a787628ec3cf5a",
+    "architecture_id": 1979,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 41.12,
+    "raw_target": 41.116666600545244
+  },
+  {
+    "record_id": "8bda7107f113dc35a0cacae0fe8440c5",
+    "architecture_id": 2172,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.68,
+    "raw_target": 38.68333327229818
+  },
+  {
+    "record_id": "8baa7fe718a616ef3cb2aeaf8f495e83",
+    "architecture_id": 2529,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.03,
+    "raw_target": 38.033333216349284
+  },
+  {
+    "record_id": "eb9a0e9b8b20b3a5eb07f2216380bc17",
+    "architecture_id": 3381,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.13,
+    "raw_target": 39.13333332316081
+  },
+  {
+    "record_id": "2154fe48699f0d2666365e5174503f7b",
+    "architecture_id": 3427,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.05,
+    "raw_target": 34.04999997965495
+  },
+  {
+    "record_id": "779b7ae9601cd0a6b90fb2f4a6634965",
+    "architecture_id": 3658,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 40.58,
+    "raw_target": 40.58333323669434
+  },
+  {
+    "record_id": "26fbde691614c685466ff2ef70bf29b1",
+    "architecture_id": 3853,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.37,
+    "raw_target": 38.36666668192545
+  },
+  {
+    "record_id": "0351f7f9ae9de1f1b30691cd4d34abaa",
+    "architecture_id": 3978,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.12,
+    "raw_target": 38.11666667683919
+  },
+  {
+    "record_id": "33e7305731ab32155395a085c13f572a",
+    "architecture_id": 4121,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.0,
+    "raw_target": 38.99999996439616
+  },
+  {
+    "record_id": "1e2f6d6768471554623f56efa840f66b",
+    "architecture_id": 4365,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 43.12,
+    "raw_target": 43.11666659037272
+  },
+  {
+    "record_id": "4e755296a3a44f0385cb4b832f3578d2",
+    "architecture_id": 4595,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 42.67,
+    "raw_target": 42.666666646321616
+  },
+  {
+    "record_id": "2b1f08a6df0431c76b9b2718ad19a9ae",
+    "architecture_id": 4899,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 40.12,
+    "raw_target": 40.11666659037272
+  },
+  {
+    "record_id": "79db3a56362a46577e773f3dc6913d97",
+    "architecture_id": 6179,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.98,
+    "raw_target": 38.98333327738444
+  },
+  {
+    "record_id": "58d43a6c127bb55486e90167bb856fc3",
+    "architecture_id": 7470,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 36.57,
+    "raw_target": 36.56666655985514
+  },
+  {
+    "record_id": "a80f437aa468ac9a16474f13d23e79fd",
+    "architecture_id": 7851,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.92,
+    "raw_target": 38.91666667683919
+  },
+  {
+    "record_id": "dca0cff659ff1d1e6437a75f41bdabfd",
+    "architecture_id": 8080,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.37,
+    "raw_target": 39.366666600545244
+  },
+  {
+    "record_id": "d1e4b91477fbbcd43adbbf7adebdafc6",
+    "architecture_id": 8440,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 30.1,
+    "raw_target": 30.099999918619794
+  },
+  {
+    "record_id": "19c7e8b98d9060d858fd862c2f453e44",
+    "architecture_id": 8595,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.05,
+    "raw_target": 39.04999998982747
+  },
+  {
+    "record_id": "db2dcb566e915da641d7bbf58a629b5b",
+    "architecture_id": 8650,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.28,
+    "raw_target": 37.28333327229818
+  },
+  {
+    "record_id": "b56b91e18d483419b26f28b18c3bb69b",
+    "architecture_id": 9780,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 36.5,
+    "raw_target": 36.499999872843425
+  },
+  {
+    "record_id": "47f1e91f20d1766ca16057bfb4928a2a",
+    "architecture_id": 9996,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.85,
+    "raw_target": 37.85000004577637
+  },
+  {
+    "record_id": "c76374e5003ab2dbfee6ba424f81b1a7",
+    "architecture_id": 11587,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 42.72,
+    "raw_target": 42.71666653442382
+  },
+  {
+    "record_id": "0035de092f77ca46955ac103574caa60",
+    "architecture_id": 13357,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 35.05,
+    "raw_target": 35.04999994913737
+  },
+  {
+    "record_id": "1c2f346c7677f17bf364a40b337d675c",
+    "architecture_id": 13719,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 40.13,
+    "raw_target": 40.13333329772949
+  },
+  {
+    "record_id": "b176acff589c1eae6dedcb24883cf21a",
+    "architecture_id": 14147,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.55,
+    "raw_target": 34.54999993642171
+  },
+  {
+    "record_id": "177bd682ed6bdbc935d645238bc6c157",
+    "architecture_id": 14713,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 43.17,
+    "raw_target": 43.166666631062824
+  },
+  {
+    "record_id": "8545c434d7fcceb377c27d8d76f0f306",
+    "architecture_id": 4392,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 35.95,
+    "raw_target": 35.949999918619795
+  },
+  {
+    "record_id": "55f9ec545c6c5d8436fe20303f6217ef",
+    "architecture_id": 11751,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 35.63,
+    "raw_target": 35.63333326212565
+  },
+  {
+    "record_id": "b6e3ce93a5b36eba3faf131b7afb8768",
+    "architecture_id": 13253,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 35.15,
+    "raw_target": 35.15
+  },
+  {
+    "record_id": "28f0139c9a4de3e4e3833646dacbd434",
+    "architecture_id": 14124,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 31.07,
+    "raw_target": 31.066666664123535
+  },
+  {
+    "record_id": "b8f04c9d001ca3f4a2a2ccabc886fb61",
+    "architecture_id": 14657,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 38.9,
+    "raw_target": 38.89999989318848
+  },
+  {
+    "record_id": "e49a5cfc05b4782a8c9aeba36b2e982a",
+    "architecture_id": 983,
+    "family": "nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 41.8,
+    "raw_target": 41.79999994913737
+  },
+  {
+    "record_id": "8a9eb0635ffe2aa2cee4f83d2be3dfae",
+    "architecture_id": 9930,
+    "family": "nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 46.07,
+    "raw_target": 46.066666646321615
+  },
+  {
+    "record_id": "d8e7e9b21febfaaa3eb7c1a25545fc16",
+    "architecture_id": 4712,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 32.85,
+    "raw_target": 32.849999956766766
+  },
+  {
+    "record_id": "aac8ec86e06b362f2d87a2234f8220d6",
+    "architecture_id": 7471,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 29.08,
+    "raw_target": 29.08333326466878
+  },
+  {
+    "record_id": "b7da91a4ea0b9e1fc6758170ef6571ca",
+    "architecture_id": 8335,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 33.15,
+    "raw_target": 33.15000000508626
+  },
+  {
+    "record_id": "64abcd7e395b66c6e6191e3d42b57700",
+    "architecture_id": 8404,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 27.4,
+    "raw_target": 27.399999987284342
+  },
+  {
+    "record_id": "e699c695a2360cb40190922fd5e70d90",
+    "architecture_id": 9687,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 32.72,
+    "raw_target": 32.71666664123535
+  },
+  {
+    "record_id": "2495143f5542460b9d4196b72dc682d5",
+    "architecture_id": 10099,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 20.53,
+    "raw_target": 20.533333305358887
+  },
+  {
+    "record_id": "b54cc24ddc247592861707f215c8810f",
+    "architecture_id": 11752,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 26.85,
+    "raw_target": 26.84999994913737
+  },
+  {
+    "record_id": "d6371f36fb55adb68537c5333001c881",
+    "architecture_id": 15098,
+    "family": "avg_pool_3x3|none|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 32.23,
+    "raw_target": 32.233333307902015
+  },
+  {
+    "record_id": "6cb1f90048648191b006b5e6170ae7e5",
+    "architecture_id": 84,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 36.78,
+    "raw_target": 36.78333329264323
+  },
+  {
+    "record_id": "9ef548066baf424a073c7c8307e0f485",
+    "architecture_id": 483,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 35.22,
+    "raw_target": 35.216666676839196
+  },
+  {
+    "record_id": "b045ddaa4f838bfc2b85e8e4649e4a3b",
+    "architecture_id": 1030,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.57,
+    "raw_target": 38.56666655985514
+  },
+  {
+    "record_id": "cb5045045bc46a0fcd0bfa3667429823",
+    "architecture_id": 2072,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 21.0,
+    "raw_target": 20.999999954223632
+  },
+  {
+    "record_id": "c88c02f76ac0d6de21b27b6c653d2b9e",
+    "architecture_id": 2526,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 21.65,
+    "raw_target": 21.649999997456867
+  },
+  {
+    "record_id": "0ede21785ec7eae9e8e2040cb59edb01",
+    "architecture_id": 2535,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.2,
+    "raw_target": 39.200000025431315
+  },
+  {
+    "record_id": "89850f01a4fb18f84a110f0603b965d8",
+    "architecture_id": 2827,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.3,
+    "raw_target": 34.299999903361
+  },
+  {
+    "record_id": "62725abbea4b0e79cb22f948851b333c",
+    "architecture_id": 3576,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.93,
+    "raw_target": 38.93333322652181
+  },
+  {
+    "record_id": "f328dd30cdcf25bf4e661963ce7bf184",
+    "architecture_id": 4958,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.25,
+    "raw_target": 39.24999998982747
+  },
+  {
+    "record_id": "8359f31ffdee5d3795a344bec095fd25",
+    "architecture_id": 4995,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 42.38,
+    "raw_target": 42.38333327738444
+  },
+  {
+    "record_id": "32715874246ba4f8177acf4dd8999245",
+    "architecture_id": 5358,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 40.42,
+    "raw_target": 40.41666667175293
+  },
+  {
+    "record_id": "3cc5cc2b963658ed878663a9f77a5ded",
+    "architecture_id": 5389,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.0,
+    "raw_target": 37.00000002543132
+  },
+  {
+    "record_id": "7fde3d47e16303e825247be9048aba6c",
+    "architecture_id": 5414,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.25,
+    "raw_target": 37.24999992624919
+  },
+  {
+    "record_id": "21346d660d7628741698e73a3778ed8e",
+    "architecture_id": 5766,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.58,
+    "raw_target": 37.58333321634929
+  },
+  {
+    "record_id": "be9103734ca2688f8efaa57d8d439f84",
+    "architecture_id": 6924,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.7,
+    "raw_target": 39.699999938964844
+  },
+  {
+    "record_id": "ccfda1ca1240702713de571ca198119b",
+    "architecture_id": 7593,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.45,
+    "raw_target": 38.450000025431315
+  },
+  {
+    "record_id": "b032fb49bb5b5c5ea679cdb4efb8e64d",
+    "architecture_id": 8559,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 35.13,
+    "raw_target": 35.13333324686686
+  },
+  {
+    "record_id": "0a1e073439477aa6bdd9577eed42cf54",
+    "architecture_id": 8739,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 36.32,
+    "raw_target": 36.31666661580404
+  },
+  {
+    "record_id": "c5d12680ebf831c926ed0a316158a1f0",
+    "architecture_id": 9196,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 36.38,
+    "raw_target": 36.383333190917966
+  },
+  {
+    "record_id": "d691f0da2c515427dc6c1c0862beaa26",
+    "architecture_id": 9594,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 35.33,
+    "raw_target": 35.33333321634929
+  },
+  {
+    "record_id": "a7664849005c11bb791ae39265f28184",
+    "architecture_id": 10080,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.82,
+    "raw_target": 37.81666667683919
+  },
+  {
+    "record_id": "65eaf11b276a79a9a1a2e5e77a95418e",
+    "architecture_id": 12898,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.8,
+    "raw_target": 39.80000000508626
+  },
+  {
+    "record_id": "7dcfda6ebb39d3331b6a4642eb88aca8",
+    "architecture_id": 13238,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 33.8,
+    "raw_target": 33.79999999491373
+  },
+  {
+    "record_id": "30945395390a416d09e4f4019d5ed038",
+    "architecture_id": 13948,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.33,
+    "raw_target": 38.33333330281576
+  },
+  {
+    "record_id": "28a5d5b76d95fd6813c02dae81d074a1",
+    "architecture_id": 14529,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.85,
+    "raw_target": 37.849999944051106
+  },
+  {
+    "record_id": "8676cc71432fa5088020d6222de98e8b",
+    "architecture_id": 471,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 38.73,
+    "raw_target": 38.733333221435544
+  },
+  {
+    "record_id": "b4dd33f9d09686499e2cd5e06cd30a42",
+    "architecture_id": 2217,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 45.32,
+    "raw_target": 45.31666657511393
+  },
+  {
+    "record_id": "d6948ffc2ef1cb91ac6b59e85af786bd",
+    "architecture_id": 2419,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 39.32,
+    "raw_target": 39.31666654968262
+  },
+  {
+    "record_id": "6ba4bfb1ad82a628d1fd770fdb5a00be",
+    "architecture_id": 2856,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 41.2,
+    "raw_target": 41.19999990844727
+  },
+  {
+    "record_id": "c926856ecefc5160faea08d916489573",
+    "architecture_id": 4536,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 39.75,
+    "raw_target": 39.749999903361
+  },
+  {
+    "record_id": "b36870a3c3c6b243691a3230efd397c5",
+    "architecture_id": 6396,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 42.03,
+    "raw_target": 42.03333330790202
+  },
+  {
+    "record_id": "cd59a09ed655a49c57bd6aa5dce2e05c",
+    "architecture_id": 6891,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 44.4,
+    "raw_target": 44.39999997965495
+  },
+  {
+    "record_id": "4ec85ff556da97ea1d1b02a97b0c5b01",
+    "architecture_id": 7845,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 36.17,
+    "raw_target": 36.166666534423825
+  },
+  {
+    "record_id": "1d022982c639d638b5a286dbc5d2aeb1",
+    "architecture_id": 8457,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 40.7,
+    "raw_target": 40.70000000508627
+  },
+  {
+    "record_id": "4bfd7df5d40c3858cb97658cba4a5876",
+    "architecture_id": 11294,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 41.78,
+    "raw_target": 41.78333328247071
+  },
+  {
+    "record_id": "b1921844dda4165e52c7e163c49a2f1c",
+    "architecture_id": 15252,
+    "family": "avg_pool_3x3|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 40.35,
+    "raw_target": 40.3499998626709
+  },
+  {
+    "record_id": "3f647daca896b65db10bfe441f38e476",
+    "architecture_id": 3222,
+    "family": "avg_pool_3x3|none|none|none|none|nor_conv_1x1",
+    "dataset": "ImageNet16-120",
+    "target": 32.72,
+    "raw_target": 32.71666664632161
+  },
+  {
+    "record_id": "45477ac8dcb09d478e263f422982af6e",
+    "architecture_id": 6959,
+    "family": "avg_pool_3x3|none|none|none|none|nor_conv_1x1",
+    "dataset": "ImageNet16-120",
+    "target": 25.42,
+    "raw_target": 25.41666665140788
+  },
+  {
+    "record_id": "37e66b45aa55b89002edbcb1a8601142",
+    "architecture_id": 12308,
+    "family": "avg_pool_3x3|none|none|none|none|nor_conv_1x1",
+    "dataset": "ImageNet16-120",
+    "target": 0.83,
+    "raw_target": 0.8333333317438761
+  },
+  {
+    "record_id": "cca361aa0ffde6829cfe45c07a982315",
+    "architecture_id": 14799,
+    "family": "avg_pool_3x3|none|none|none|none|nor_conv_1x1",
+    "dataset": "ImageNet16-120",
+    "target": 16.48,
+    "raw_target": 16.483333305358887
+  },
+  {
+    "record_id": "ea90273f6b320cabab68f9759da440cf",
+    "architecture_id": 3920,
+    "family": "avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 43.63,
+    "raw_target": 43.63333322143555
+  },
+  {
+    "record_id": "1568f283fcef4e76aa28f84c0b09924c",
+    "architecture_id": 7087,
+    "family": "avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.52,
+    "raw_target": 39.516666605631514
+  },
+  {
+    "record_id": "aa819ba2a2897aac7fe0b4cdade8db7c",
+    "architecture_id": 11396,
+    "family": "avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 42.18,
+    "raw_target": 42.183333302815754
+  },
+  {
+    "record_id": "1e1f301373b24e3b8b8160231be93ddc",
+    "architecture_id": 15470,
+    "family": "avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.98,
+    "raw_target": 39.98333335367839
+  },
+  {
+    "record_id": "1bc320df042b23d50b182f406b1f61d4",
+    "architecture_id": 8318,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 27.37,
+    "raw_target": 27.366666615804036
+  },
+  {
+    "record_id": "d4a8fe88f27846923ddb8fb38a1dffda",
+    "architecture_id": 8975,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 27.67,
+    "raw_target": 27.66666665649414
+  },
+  {
+    "record_id": "05cea44056785bf0fa5e3d4ff83b953f",
+    "architecture_id": 9084,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.48,
+    "raw_target": 34.48333325195313
+  },
+  {
+    "record_id": "77692f3396bc20005975c964bd6ac327",
+    "architecture_id": 14111,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 33.95,
+    "raw_target": 33.949999977111815
+  },
+  {
+    "record_id": "770e7fb8b97f4b313e8be0b90c4c2fa5",
+    "architecture_id": 15191,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 30.85,
+    "raw_target": 30.849999977111814
+  },
+  {
+    "record_id": "beae4cce2975f095a61bca46544be31c",
+    "architecture_id": 1203,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.77,
+    "raw_target": 38.76666652933756
+  },
+  {
+    "record_id": "2349f86aef501b73d9257f5f9f498de8",
+    "architecture_id": 3274,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.73,
+    "raw_target": 39.73333325195313
+  },
+  {
+    "record_id": "dea5b8ff9f4e2fb9842ba04e08c2e95a",
+    "architecture_id": 5769,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 26.52,
+    "raw_target": 26.51666667175293
+  },
+  {
+    "record_id": "97ce15c19a0a49f946eb96f5c640b6f4",
+    "architecture_id": 5837,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.42,
+    "raw_target": 34.41666655476888
+  },
+  {
+    "record_id": "23dbcac7aade1ac45bf09485b7b5c7d5",
+    "architecture_id": 5999,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 16.58,
+    "raw_target": 16.583333342234294
+  },
+  {
+    "record_id": "51676ba32a714d93bb42b394290bc3bd",
+    "architecture_id": 7636,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.98,
+    "raw_target": 38.983333262125655
+  },
+  {
+    "record_id": "7ad593b7c2396661707822dfbec84a66",
+    "architecture_id": 8393,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 29.97,
+    "raw_target": 29.966666603088377
+  },
+  {
+    "record_id": "c1eea0a1da10f438960178718e60f187",
+    "architecture_id": 11236,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.32,
+    "raw_target": 38.316666610717775
+  },
+  {
+    "record_id": "b890e58733c2561ebff1e22642d84ea8",
+    "architecture_id": 13681,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.33,
+    "raw_target": 39.333333221435545
+  },
+  {
+    "record_id": "f64debc5b0e0f1272711cf45f2f603d2",
+    "architecture_id": 13702,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.55,
+    "raw_target": 39.54999994405111
+  },
+  {
+    "record_id": "303b602fab705ef507a576efecc20bf1",
+    "architecture_id": 7600,
+    "family": "nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 43.75,
+    "raw_target": 43.749999959309896
+  },
+  {
+    "record_id": "793f0618bd47629b1502175b9ebcc7c1",
+    "architecture_id": 13160,
+    "family": "nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 43.87,
+    "raw_target": 43.866666590372716
+  },
+  {
+    "record_id": "8bc0a2f18a551c9bbb6cf9c11bbee68d",
+    "architecture_id": 14455,
+    "family": "nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 43.4,
+    "raw_target": 43.40000002034505
+  },
+  {
+    "record_id": "fd24b855da7888ce3d038a5b5162a05a",
+    "architecture_id": 12221,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|none|nor_conv_1x1",
+    "dataset": "ImageNet16-120",
+    "target": 27.38,
+    "raw_target": 27.38333327992757
+  },
+  {
+    "record_id": "9f3a61945001b0bbe0c2d1bec8cf703f",
+    "architecture_id": 3597,
+    "family": "avg_pool_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 40.93,
+    "raw_target": 40.933333267211914
+  },
+  {
+    "record_id": "3ecd10511c2190e966fbfddf77ed6549",
+    "architecture_id": 6873,
+    "family": "avg_pool_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 40.27,
+    "raw_target": 40.266666580200194
+  },
+  {
+    "record_id": "2fbb6afd37286ea42cce37b647f1d0c8",
+    "architecture_id": 8468,
+    "family": "avg_pool_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 35.18,
+    "raw_target": 35.183333267211914
+  },
+  {
+    "record_id": "6f9e2f960bf13476363be04f5ab6ab6e",
+    "architecture_id": 15069,
+    "family": "avg_pool_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 33.2,
+    "raw_target": 33.199999964396156
+  },
+  {
+    "record_id": "d7dee0e499ac3b03f27d33dbd868d460",
+    "architecture_id": 15163,
+    "family": "avg_pool_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.18,
+    "raw_target": 37.18333325195313
+  },
+  {
+    "record_id": "34d8b80b1b96641f6c0e9dd909cb2c90",
+    "architecture_id": 1741,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.2,
+    "raw_target": 37.19999988555908
+  },
+  {
+    "record_id": "89613881cbd0b60b7a652278ad57224d",
+    "architecture_id": 9171,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 30.32,
+    "raw_target": 30.316666648864746
+  },
+  {
+    "record_id": "888ab8c6c004bf6bc8690dbd2c38a330",
+    "architecture_id": 3067,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1",
+    "dataset": "ImageNet16-120",
+    "target": 23.75,
+    "raw_target": 23.749999972025552
+  },
+  {
+    "record_id": "1daf9166378204f011e728c8e87ba776",
+    "architecture_id": 3838,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1",
+    "dataset": "ImageNet16-120",
+    "target": 35.58,
+    "raw_target": 35.58333331044515
+  },
+  {
+    "record_id": "754251d178fea977f2002d0bfe0b0a8b",
+    "architecture_id": 5135,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1",
+    "dataset": "ImageNet16-120",
+    "target": 16.58,
+    "raw_target": 16.583333333333332
+  },
+  {
+    "record_id": "ce641f4d3609a0b3343229bf44b1ed10",
+    "architecture_id": 9552,
+    "family": "avg_pool_3x3|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1",
+    "dataset": "ImageNet16-120",
+    "target": 37.6,
+    "raw_target": 37.599999969482425
+  },
+  {
+    "record_id": "936576d245b52facd41713be54a06ab5",
+    "architecture_id": 1911,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|none|none",
+    "dataset": "ImageNet16-120",
+    "target": 0.83,
+    "raw_target": 0.8333333326975505
+  },
+  {
+    "record_id": "35a15c7a7a9e3231ede7b72903f174af",
+    "architecture_id": 1279,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|nor_conv_1x1|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 32.75,
+    "raw_target": 32.749999923706056
+  },
+  {
+    "record_id": "b72d2d359d8630818813846542dbd993",
+    "architecture_id": 4316,
+    "family": "none|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 32.9,
+    "raw_target": 32.89999996948242
+  },
+  {
+    "record_id": "02cb22a0318146fc1964e2d96f7a2801",
+    "architecture_id": 4534,
+    "family": "none|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.07,
+    "raw_target": 34.06666654459635
+  },
+  {
+    "record_id": "2c1f7674d23b027d45ada964b63849d6",
+    "architecture_id": 5790,
+    "family": "none|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 33.35,
+    "raw_target": 33.350000002543126
+  },
+  {
+    "record_id": "dd5a5ce9e9516429da371ff387d69739",
+    "architecture_id": 8294,
+    "family": "none|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 33.0,
+    "raw_target": 32.99999987792968
+  },
+  {
+    "record_id": "973a4ff95cadc4a453c177f6d16e778b",
+    "architecture_id": 11701,
+    "family": "none|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.57,
+    "raw_target": 34.56666661580404
+  },
+  {
+    "record_id": "13255327e7fb7377056655e7279133a3",
+    "architecture_id": 12750,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|none",
+    "dataset": "ImageNet16-120",
+    "target": 11.58,
+    "raw_target": 11.583333333333332
+  },
+  {
+    "record_id": "b4e2b731757f2ed1c94cd9f11b568330",
+    "architecture_id": 2455,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 31.18,
+    "raw_target": 31.183333264668782
+  },
+  {
+    "record_id": "b281c2557406571af1308706f0e1e879",
+    "architecture_id": 3790,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 31.6,
+    "raw_target": 31.599999941507974
+  },
+  {
+    "record_id": "f23c9b5b504c94a1bf65912fc92452e9",
+    "architecture_id": 7498,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 32.05,
+    "raw_target": 32.04999996693929
+  },
+  {
+    "record_id": "6be6b68c8ef9028d58a9d11708b0e5cd",
+    "architecture_id": 10609,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 23.68,
+    "raw_target": 23.68333325958252
+  },
+  {
+    "record_id": "4d70305ed8d62bc80fc02b94761fc889",
+    "architecture_id": 10973,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 27.15,
+    "raw_target": 27.149999972025554
+  },
+  {
+    "record_id": "6e8120195483668a17770abea87b0abe",
+    "architecture_id": 12048,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 27.7,
+    "raw_target": 27.699999951680503
+  },
+  {
+    "record_id": "eead3905faef1b6003c881943f17416f",
+    "architecture_id": 12726,
+    "family": "avg_pool_3x3|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 40.23,
+    "raw_target": 40.23333331298828
+  },
+  {
+    "record_id": "40692d5f12f9c1af8ea4fa9ded0b5fe7",
+    "architecture_id": 5827,
+    "family": "none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 36.22,
+    "raw_target": 36.21666664123535
+  },
+  {
+    "record_id": "6916c1b29aea3fe33d2cbfccb8a1a7aa",
+    "architecture_id": 12970,
+    "family": "none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.77,
+    "raw_target": 39.76666663614909
+  },
+  {
+    "record_id": "4742d17c13e9e6c27194896047139a38",
+    "architecture_id": 4744,
+    "family": "none|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1",
+    "dataset": "ImageNet16-120",
+    "target": 21.17,
+    "raw_target": 21.166666650136314
+  },
+  {
+    "record_id": "d0887a10d57f73ef96d816f64f8efc1e",
+    "architecture_id": 4939,
+    "family": "none|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1",
+    "dataset": "ImageNet16-120",
+    "target": 28.07,
+    "raw_target": 28.066666656494142
+  },
+  {
+    "record_id": "0f4e203a2886e2dab4e07e72df5e9c68",
+    "architecture_id": 11496,
+    "family": "none|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1",
+    "dataset": "ImageNet16-120",
+    "target": 27.0,
+    "raw_target": 26.99999998219808
+  },
+  {
+    "record_id": "8466107d377cc076021cd28c999ec977",
+    "architecture_id": 13802,
+    "family": "none|none|none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1",
+    "dataset": "ImageNet16-120",
+    "target": 22.03,
+    "raw_target": 22.033333302815755
+  },
+  {
+    "record_id": "95192cfbfbc15160b0c7f726ea544299",
+    "architecture_id": 5393,
+    "family": "none|none|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.82,
+    "raw_target": 37.816666610717775
+  },
+  {
+    "record_id": "2256e345553af2a3ac383d97ce7ecf05",
+    "architecture_id": 8323,
+    "family": "none|none|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.15,
+    "raw_target": 38.149999933878576
+  },
+  {
+    "record_id": "ab41b73166b5063f41f09b5cb0c76b69",
+    "architecture_id": 8638,
+    "family": "none|none|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 29.92,
+    "raw_target": 29.916666608174644
+  },
+  {
+    "record_id": "dae3031e18f3f61834ac50a514831c97",
+    "architecture_id": 9032,
+    "family": "none|none|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.82,
+    "raw_target": 37.81666667175293
+  },
+  {
+    "record_id": "1b04fefd990aafff75d1152560f2a0f7",
+    "architecture_id": 10318,
+    "family": "none|none|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.83,
+    "raw_target": 37.83333321634929
+  },
+  {
+    "record_id": "c8bb6cb77a0921113dcb0838f2d6a6e2",
+    "architecture_id": 10374,
+    "family": "none|none|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.63,
+    "raw_target": 34.633333272298174
+  },
+  {
+    "record_id": "1393052762c5f66f913f1f0909c375cd",
+    "architecture_id": 11905,
+    "family": "none|none|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 33.1,
+    "raw_target": 33.09999993387858
+  },
+  {
+    "record_id": "e2beb359acf6f9d2f11d4d8ad80377c2",
+    "architecture_id": 15403,
+    "family": "none|none|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 33.32,
+    "raw_target": 33.31666659291585
+  },
+  {
+    "record_id": "c52438b6b3c710462759bcac2fefcb4e",
+    "architecture_id": 1131,
+    "family": "none|none|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.68,
+    "raw_target": 39.683333231608074
+  },
+  {
+    "record_id": "c11b17a5bf08f6766cdcbcf7813d8206",
+    "architecture_id": 7507,
+    "family": "none|none|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 36.65,
+    "raw_target": 36.650000020345054
+  },
+  {
+    "record_id": "2058a8b741c9fcbf384b65e8e745c874",
+    "architecture_id": 8422,
+    "family": "none|none|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.05,
+    "raw_target": 38.04999998474121
+  },
+  {
+    "record_id": "0ced2135769165ca8f50b1fb3784d09b",
+    "architecture_id": 13755,
+    "family": "none|none|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 44.0,
+    "raw_target": 43.99999992879232
+  },
+  {
+    "record_id": "626ab1f3846aeaabb79eee88dc2c6d9a",
+    "architecture_id": 13382,
+    "family": "avg_pool_3x3|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 40.02,
+    "raw_target": 40.01666661071778
+  },
+  {
+    "record_id": "9ee9205d5a745ac8118017f8e506c254",
+    "architecture_id": 252,
+    "family": "none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 43.12,
+    "raw_target": 43.11666655985515
+  },
+  {
+    "record_id": "df243277bd454cc1e3c3175836f58d2e",
+    "architecture_id": 2657,
+    "family": "none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 41.37,
+    "raw_target": 41.36666657511393
+  },
+  {
+    "record_id": "c254ab47f5070b399ce97d22c0add1c1",
+    "architecture_id": 4752,
+    "family": "none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 29.13,
+    "raw_target": 29.13333325958252
+  },
+  {
+    "record_id": "a455e3f1b2732ec48c9f373a0feff3b2",
+    "architecture_id": 5959,
+    "family": "none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 40.03,
+    "raw_target": 40.03333328755697
+  },
+  {
+    "record_id": "f17015cc9f9e80bbc1de0ac1be1cd096",
+    "architecture_id": 7749,
+    "family": "none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 42.12,
+    "raw_target": 42.116666600545244
+  },
+  {
+    "record_id": "59096e68e57c61b0910afc760140c993",
+    "architecture_id": 7955,
+    "family": "none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.02,
+    "raw_target": 39.016666615804034
+  },
+  {
+    "record_id": "5bac753232b3db9ac827e302b5713537",
+    "architecture_id": 8296,
+    "family": "none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 43.88,
+    "raw_target": 43.88333326721191
+  },
+  {
+    "record_id": "11c4bdebf3e1fb15b260f5002c8fc704",
+    "architecture_id": 10078,
+    "family": "none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.15,
+    "raw_target": 34.149999913533534
+  },
+  {
+    "record_id": "e2ff161fe09dc455cd925f9de5fa4673",
+    "architecture_id": 11717,
+    "family": "none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 41.27,
+    "raw_target": 41.26666660054525
+  },
+  {
+    "record_id": "63ac5f5fde954294774fc3237a33a04a",
+    "architecture_id": 11828,
+    "family": "none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 41.88,
+    "raw_target": 41.88333330790202
+  },
+  {
+    "record_id": "08d0f683c40eb0ce500d7e786250f038",
+    "architecture_id": 14090,
+    "family": "none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.92,
+    "raw_target": 38.9166665802002
+  },
+  {
+    "record_id": "7ceae9398055f88cfc641bca35c91f15",
+    "architecture_id": 2209,
+    "family": "none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 41.35,
+    "raw_target": 41.3499999593099
+  },
+  {
+    "record_id": "00c2ba6d7909bed8d8bf817b937bb6a6",
+    "architecture_id": 2260,
+    "family": "none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 43.33,
+    "raw_target": 43.333333318074544
+  },
+  {
+    "record_id": "83f214559636dce6e5ee943dac540537",
+    "architecture_id": 4486,
+    "family": "none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.92,
+    "raw_target": 38.916666575113936
+  },
+  {
+    "record_id": "7a917bea032d23f917a6e8a194b99aa3",
+    "architecture_id": 9207,
+    "family": "none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 41.2,
+    "raw_target": 41.20000004069011
+  },
+  {
+    "record_id": "baafed4683e61c89009f5a1fcfd662d6",
+    "architecture_id": 11927,
+    "family": "none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 41.12,
+    "raw_target": 41.11666659545898
+  },
+  {
+    "record_id": "0099f6be61dc7fd14a1485b22ee35f5b",
+    "architecture_id": 12862,
+    "family": "none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 41.2,
+    "raw_target": 41.20000000508627
+  },
+  {
+    "record_id": "aff24c3298a674d8779ec53e1b55cb95",
+    "architecture_id": 13103,
+    "family": "none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.77,
+    "raw_target": 38.766666641235346
+  },
+  {
+    "record_id": "f6d4e0b336d0ba0dff1aace0b2c8d651",
+    "architecture_id": 2350,
+    "family": "none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.5,
+    "raw_target": 34.499999959309896
+  },
+  {
+    "record_id": "4c743df55b74fd5baa029bd6facd49d2",
+    "architecture_id": 6064,
+    "family": "none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.35,
+    "raw_target": 38.3499999593099
+  },
+  {
+    "record_id": "7e0e984a2facaa6b647a157385d099d6",
+    "architecture_id": 9762,
+    "family": "none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.43,
+    "raw_target": 38.43333333587647
+  },
+  {
+    "record_id": "83a9584d2d4600ca76be92ce0cb5b61f",
+    "architecture_id": 14916,
+    "family": "none|nor_conv_1x1|nor_conv_1x1|nor_conv_1x1|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.87,
+    "raw_target": 34.866666641235355
+  },
+  {
+    "record_id": "829bd5d9ed1af69985cccc399205ba42",
+    "architecture_id": 151,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 22.93,
+    "raw_target": 22.933333285013838
+  },
+  {
+    "record_id": "10a0190e3a0003e86d9615d5c4a72ba7",
+    "architecture_id": 601,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 19.55,
+    "raw_target": 19.55
+  },
+  {
+    "record_id": "3e41223b48a4de197f37b2459f0764a6",
+    "architecture_id": 5085,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 26.02,
+    "raw_target": 26.016666643778485
+  },
+  {
+    "record_id": "1b02b513988968bcc0082389547a2f4f",
+    "architecture_id": 8815,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 21.87,
+    "raw_target": 21.86666667175293
+  },
+  {
+    "record_id": "2e9a66de117f0209c7061a9f9646c738",
+    "architecture_id": 10765,
+    "family": "avg_pool_3x3|avg_pool_3x3|nor_conv_1x1|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 23.02,
+    "raw_target": 23.01666660563151
+  },
+  {
+    "record_id": "1cb6dec505b129f2c35b3b58f5ca7e68",
+    "architecture_id": 2308,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 30.35,
+    "raw_target": 30.349999903361002
+  },
+  {
+    "record_id": "123d6c239b5fb800737f09aedacd6e3a",
+    "architecture_id": 12365,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 18.88,
+    "raw_target": 18.883333285013833
+  },
+  {
+    "record_id": "f74021c3685cc7174ed62fd6dfe60e48",
+    "architecture_id": 14101,
+    "family": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 26.83,
+    "raw_target": 26.83333332570394
+  },
+  {
+    "record_id": "d578155cd729ea56b1007a9a9f5ef9a8",
+    "architecture_id": 1288,
+    "family": "none|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.8,
+    "raw_target": 39.79999992879232
+  },
+  {
+    "record_id": "7d3a6b0f13a291de5387b4d7b24026b0",
+    "architecture_id": 3678,
+    "family": "none|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 43.4,
+    "raw_target": 43.39999990844726
+  },
+  {
+    "record_id": "04f246c58905aa81e5c949ccd219a3e2",
+    "architecture_id": 5112,
+    "family": "none|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.75,
+    "raw_target": 39.74999991353353
+  },
+  {
+    "record_id": "d5ba60e2a6558c0546d79078dbe585f2",
+    "architecture_id": 7772,
+    "family": "none|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 39.53,
+    "raw_target": 39.53333322143555
+  },
+  {
+    "record_id": "02439e3347b786d4f58b948005e05982",
+    "architecture_id": 11291,
+    "family": "none|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 38.98,
+    "raw_target": 38.983333277384446
+  },
+  {
+    "record_id": "27716a633b96298e45059be3a2dc70b5",
+    "architecture_id": 13352,
+    "family": "none|nor_conv_3x3|nor_conv_3x3|skip_connect|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 43.7,
+    "raw_target": 43.69999990844727
+  },
+  {
+    "record_id": "b4fee7c8a077d6f547de8e7a495e9309",
+    "architecture_id": 10323,
+    "family": "none|none|none|nor_conv_3x3|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 39.3,
+    "raw_target": 39.299999877929686
+  },
+  {
+    "record_id": "1adaf218742cd0289871a0fdde0f4add",
+    "architecture_id": 376,
+    "family": "none|none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 19.88,
+    "raw_target": 19.88333330535889
+  },
+  {
+    "record_id": "4a8b141ec131ce472c77d7208c255116",
+    "architecture_id": 3202,
+    "family": "none|none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 38.97,
+    "raw_target": 38.96666664123535
+  },
+  {
+    "record_id": "f02df8f98eac14de64a845e031f59afb",
+    "architecture_id": 9664,
+    "family": "none|none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 28.5,
+    "raw_target": 28.49999991607666
+  },
+  {
+    "record_id": "ad740db304f0058c4320793474f083e7",
+    "architecture_id": 11186,
+    "family": "none|none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 33.4,
+    "raw_target": 33.3999999440511
+  },
+  {
+    "record_id": "031209dfa47e276e732314a2e054ffe0",
+    "architecture_id": 12523,
+    "family": "none|none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 39.07,
+    "raw_target": 39.0666666208903
+  },
+  {
+    "record_id": "254f40c1f85de7996378773a06adec82",
+    "architecture_id": 15020,
+    "family": "none|none|none|nor_conv_1x1|nor_conv_3x3|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 31.92,
+    "raw_target": 31.91666670735677
+  },
+  {
+    "record_id": "c88f08f98cf27078bc65ad8a109e4f53",
+    "architecture_id": 1662,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.08,
+    "raw_target": 37.08333324686686
+  },
+  {
+    "record_id": "3d82705f4d2972147d605636a5b1e7e0",
+    "architecture_id": 3602,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 17.63,
+    "raw_target": 17.633333339691163
+  },
+  {
+    "record_id": "cec5d0f3191fba62e64cdcb14ce7cb1f",
+    "architecture_id": 4065,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.25,
+    "raw_target": 34.249999944051105
+  },
+  {
+    "record_id": "51ba94248039da97c67fde8d4d1f744c",
+    "architecture_id": 5511,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 36.72,
+    "raw_target": 36.7166665802002
+  },
+  {
+    "record_id": "fbdcd902cf7ea7073732a833d6d9a56d",
+    "architecture_id": 5800,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 21.52,
+    "raw_target": 21.516666628519694
+  },
+  {
+    "record_id": "058ce0ce51c3920e599d004e6c0838ee",
+    "architecture_id": 6523,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 37.4,
+    "raw_target": 37.39999996693929
+  },
+  {
+    "record_id": "b70e97548bd2aac046bb896f690b9571",
+    "architecture_id": 9139,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 34.3,
+    "raw_target": 34.299999951680505
+  },
+  {
+    "record_id": "5fb5530dfb069b971b1dca82ae3b2c1d",
+    "architecture_id": 13646,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 29.9,
+    "raw_target": 29.899999961853027
+  },
+  {
+    "record_id": "a6e7b52eabc2d5b2722f0fb6562af219",
+    "architecture_id": 14057,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 16.3,
+    "raw_target": 16.299999983469647
+  },
+  {
+    "record_id": "943e4ac0f106f435dd817c997b2a0659",
+    "architecture_id": 14461,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 36.72,
+    "raw_target": 36.71666667938233
+  },
+  {
+    "record_id": "356b0c176cff4d73fd3b0e78399d3bd9",
+    "architecture_id": 15433,
+    "family": "avg_pool_3x3|none|none|nor_conv_3x3|skip_connect|skip_connect",
+    "dataset": "ImageNet16-120",
+    "target": 36.83,
+    "raw_target": 36.83333324178059
+  },
+  {
+    "record_id": "2a941c381223bad63feba38c447a6d50",
+    "architecture_id": 4483,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|none|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 39.27,
+    "raw_target": 39.266666631062826
+  },
+  {
+    "record_id": "e48281e3449b98ddb8f3c06744ab1096",
+    "architecture_id": 10204,
+    "family": "avg_pool_3x3|avg_pool_3x3|none|none|none|nor_conv_3x3",
+    "dataset": "ImageNet16-120",
+    "target": 16.4,
+    "raw_target": 16.39999996693929
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "status": "completed",
+  "analysis": "early_to_epoch50_layer_feature_mic_pure_python",
+  "input": "/a/mm/output/layer-dcor-all-datasets/20260917T100542Z-941382f19ca3-with-places365/run_level_layer_features.csv",
+  "source_epochs": [
+    1,
+    2,
+    3
+  ],
+  "target_epoch": 50,
+  "datasets": [
+    "celeba-gender",
+    "cifar-10",
+    "cifar-100",
+    "imagenette",
+    "mnist",
+    "places365",
+    "svhn"
+  ],
+  "dataset_epoch_cells": 21,
+  "features": [
+    "Sensitivity",
+    "CKA similarity",
+    "Effective rank",
+    "Taylor importance",
+    "Gradient flow",
+    "WeightWatcher",
+    "Activation statistics"
+  ],
+  "mic_estimator": "pure_python_equipartition_grid_mic",
+  "mic_alpha": 0.6,
+  "mic_permutations": 200,
+  "permutation_p_value": "(1 + exceedances) / (1 + permutations)",
+  "fdr_method": "Benjamini-Hochberg",
+  "fdr_alpha": 0.05,
+  "status_counts": {
+    "ok": 147
+  },
+  "output_files": [
+    "early_to_epoch50_mic.csv",
+    "early_to_epoch50_mic_feature_table.md",
+    "mic_early_to_epoch50_report.json"
+  ]
+}

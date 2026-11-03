@@ -1,0 +1,692 @@
+[
+  {
+    "record_id": "0390469415accd915ddf203bedf2c52c",
+    "dataset": "mnist",
+    "target": 98.07,
+    "raw_target": 98.07000000000001
+  },
+  {
+    "record_id": "0b613edd5fb815bc92db48b6ac4258b5",
+    "dataset": "celeba-gender",
+    "target": 96.61,
+    "raw_target": 96.61356577497244
+  },
+  {
+    "record_id": "390ec28bae6fb2384ef36bfd31ef4153",
+    "dataset": "imagenette",
+    "target": 61.76,
+    "raw_target": 61.757961783439484
+  },
+  {
+    "record_id": "c054b9b2ec803292fdf0b975979f8740",
+    "dataset": "svhn",
+    "target": 19.61,
+    "raw_target": 19.614320835894283
+  },
+  {
+    "record_id": "b1c103a15f05ab8d939f0504fbe412b6",
+    "dataset": "svhn",
+    "target": 63.0,
+    "raw_target": 62.99554394591272
+  },
+  {
+    "record_id": "691c2961656b9fff2317db154fd0fbd5",
+    "dataset": "imagenette",
+    "target": 69.43,
+    "raw_target": 69.42675159235668
+  },
+  {
+    "record_id": "f2d496bd3687dcea379453597b98b645",
+    "dataset": "svhn",
+    "target": 95.97,
+    "raw_target": 95.9741856177013
+  },
+  {
+    "record_id": "80401b2969433e149b3b742fb746008b",
+    "dataset": "svhn",
+    "target": 94.54,
+    "raw_target": 94.53749231714814
+  },
+  {
+    "record_id": "6e6e4521a1b2332b17b0652f000b3683",
+    "dataset": "cifar-100",
+    "target": 44.86,
+    "raw_target": 44.86
+  },
+  {
+    "record_id": "57ff0947968c2ffb38b4498aeb41b04c",
+    "dataset": "svhn",
+    "target": 92.56,
+    "raw_target": 92.55915795943454
+  },
+  {
+    "record_id": "9c6c7d95d096438add310b2082529204",
+    "dataset": "cifar-100",
+    "target": 49.83,
+    "raw_target": 49.830000000000005
+  },
+  {
+    "record_id": "bfccb18a17f292f47345b23231f02a68",
+    "dataset": "svhn",
+    "target": 93.42,
+    "raw_target": 93.4157959434542
+  },
+  {
+    "record_id": "19d6fc4b6b11f138308b4e0c570d682b",
+    "dataset": "cifar-100",
+    "target": 42.24,
+    "raw_target": 42.24
+  },
+  {
+    "record_id": "37b2019d7339c36c4f56190b8affdf60",
+    "dataset": "svhn",
+    "target": 95.36,
+    "raw_target": 95.35571604179471
+  },
+  {
+    "record_id": "31073454430e08358e84bc720c70112e",
+    "dataset": "cifar-100",
+    "target": 53.31,
+    "raw_target": 53.31
+  },
+  {
+    "record_id": "00190b78737dd9d98b07e409ba728883",
+    "dataset": "cifar-100",
+    "target": 18.57,
+    "raw_target": 18.57
+  },
+  {
+    "record_id": "60f299cfd17a8df9d27b8e7fc41a79e8",
+    "dataset": "mnist",
+    "target": 92.68,
+    "raw_target": 92.67999999999999
+  },
+  {
+    "record_id": "f23aced3c4a5437486d8b75901b0fd9f",
+    "dataset": "svhn",
+    "target": 93.62,
+    "raw_target": 93.62323294406883
+  },
+  {
+    "record_id": "aa1791daf11007cd092f60138e151298",
+    "dataset": "svhn",
+    "target": 84.07,
+    "raw_target": 84.06576521204671
+  },
+  {
+    "record_id": "eb305f44969092f06b6716cb58020e22",
+    "dataset": "mnist",
+    "target": 99.54,
+    "raw_target": 99.53999999999999
+  },
+  {
+    "record_id": "394289bb882cd6d39f726614677ebcef",
+    "dataset": "cifar-100",
+    "target": 61.21,
+    "raw_target": 61.21
+  },
+  {
+    "record_id": "7048a0f94faaa9788071ec0d67ee386a",
+    "dataset": "cifar-100",
+    "target": 52.61,
+    "raw_target": 52.61
+  },
+  {
+    "record_id": "aa41fb8b2ebb1da36dc7a84fe5a8658a",
+    "dataset": "mnist",
+    "target": 99.35,
+    "raw_target": 99.35000000000001
+  },
+  {
+    "record_id": "474391cb9d750df0406fc08a532535a1",
+    "dataset": "cifar-100",
+    "target": 52.14,
+    "raw_target": 52.14
+  },
+  {
+    "record_id": "fc8aee1eb3f47490c8525099cdd8637c",
+    "dataset": "mnist",
+    "target": 99.65,
+    "raw_target": 99.65
+  },
+  {
+    "record_id": "07f0d267088eebe7d49d4dfca12fe87a",
+    "dataset": "cifar-100",
+    "target": 42.1,
+    "raw_target": 42.1
+  },
+  {
+    "record_id": "325ca6a6df9a386c9111cc34cdea7888",
+    "dataset": "cifar-100",
+    "target": 60.16,
+    "raw_target": 60.160000000000004
+  },
+  {
+    "record_id": "51adb8faf0094872a4c7202c9acb5b75",
+    "dataset": "mnist",
+    "target": 99.04,
+    "raw_target": 99.03999999999999
+  },
+  {
+    "record_id": "e7ad4f37f703ba7faa39318f3b39cf9c",
+    "dataset": "cifar-100",
+    "target": 51.7,
+    "raw_target": 51.7
+  },
+  {
+    "record_id": "44c00a2ee3d9c30de2dff57921e2e954",
+    "dataset": "svhn",
+    "target": 95.09,
+    "raw_target": 95.08681622618316
+  },
+  {
+    "record_id": "551801fd53e33738aea4f1b8ee85133b",
+    "dataset": "cifar-100",
+    "target": 35.95,
+    "raw_target": 35.949999999999996
+  },
+  {
+    "record_id": "07e81be07d6a93455da61d6c0cb04afc",
+    "dataset": "mnist",
+    "target": 98.55,
+    "raw_target": 98.55000000000001
+  },
+  {
+    "record_id": "acba6b63ddea205036575ba74e2ac3b9",
+    "dataset": "cifar-100",
+    "target": 51.35,
+    "raw_target": 51.349999999999994
+  },
+  {
+    "record_id": "0cea3c9f503e81d3cfb37ced746c482b",
+    "dataset": "mnist",
+    "target": 99.05,
+    "raw_target": 99.05000000000001
+  },
+  {
+    "record_id": "e76a4729790b6e765b319e33c5d2bec1",
+    "dataset": "cifar-100",
+    "target": 55.35,
+    "raw_target": 55.35
+  },
+  {
+    "record_id": "069e8775afc768e1592eb3c39cf8f91a",
+    "dataset": "cifar-100",
+    "target": 58.9,
+    "raw_target": 58.9
+  },
+  {
+    "record_id": "cd1ed4a31bb7ba32487786ebe629a55b",
+    "dataset": "cifar-100",
+    "target": 51.47,
+    "raw_target": 51.470000000000006
+  },
+  {
+    "record_id": "523726f97e33c00166a558c04b4fa714",
+    "dataset": "cifar-100",
+    "target": 53.12,
+    "raw_target": 53.12
+  },
+  {
+    "record_id": "c8de169b0e8c8b37dfabcb7fb70505ad",
+    "dataset": "cifar-100",
+    "target": 59.69,
+    "raw_target": 59.69
+  },
+  {
+    "record_id": "9ce6a0301792b22648eaf4b7328db024",
+    "dataset": "cifar-100",
+    "target": 44.57,
+    "raw_target": 44.57
+  },
+  {
+    "record_id": "0e21b546e67e3aeea6bfc15844737163",
+    "dataset": "cifar-100",
+    "target": 12.63,
+    "raw_target": 12.629999999999999
+  },
+  {
+    "record_id": "1e41c2c5aa93c6985c5768a59dc14928",
+    "dataset": "cifar-100",
+    "target": 60.26,
+    "raw_target": 60.260000000000005
+  },
+  {
+    "record_id": "37631a09a647ff4fbf1dd2e50b2328da",
+    "dataset": "cifar-100",
+    "target": 17.69,
+    "raw_target": 17.69
+  },
+  {
+    "record_id": "23de3588aa41cccf3359678292432947",
+    "dataset": "cifar-100",
+    "target": 17.1,
+    "raw_target": 17.1
+  },
+  {
+    "record_id": "485bfe9b4233e0e94a4b5441570f465e",
+    "dataset": "cifar-100",
+    "target": 34.44,
+    "raw_target": 34.44
+  },
+  {
+    "record_id": "921cf52204e666d317e19d745b82d546",
+    "dataset": "cifar-100",
+    "target": 43.33,
+    "raw_target": 43.33
+  },
+  {
+    "record_id": "94099512f6420fce5fe79f74d7affbbb",
+    "dataset": "cifar-100",
+    "target": 54.27,
+    "raw_target": 54.269999999999996
+  },
+  {
+    "record_id": "cbbdd09bbfe89978cc50d140d74685aa",
+    "dataset": "cifar-100",
+    "target": 43.06,
+    "raw_target": 43.059999999999995
+  },
+  {
+    "record_id": "16e72fc73a5db02a35274604feb97208",
+    "dataset": "cifar-100",
+    "target": 56.02,
+    "raw_target": 56.02
+  },
+  {
+    "record_id": "1c8b26bd27099ccd042354169863bd6e",
+    "dataset": "cifar-100",
+    "target": 53.0,
+    "raw_target": 53.0
+  },
+  {
+    "record_id": "d80e7c3c3e9af0b16a9162b53cee3318",
+    "dataset": "cifar-100",
+    "target": 44.92,
+    "raw_target": 44.92
+  },
+  {
+    "record_id": "1d8c89679e8c0108b445a21c9098573e",
+    "dataset": "cifar-100",
+    "target": 62.43,
+    "raw_target": 62.43
+  },
+  {
+    "record_id": "fef98586955de54bfc7e710075e9067b",
+    "dataset": "cifar-100",
+    "target": 47.76,
+    "raw_target": 47.760000000000005
+  },
+  {
+    "record_id": "ca4274d863e9673deb287c595e83263f",
+    "dataset": "cifar-100",
+    "target": 51.49,
+    "raw_target": 51.49
+  },
+  {
+    "record_id": "a2cd5f8a84b9dd406f33d71de1f6c947",
+    "dataset": "cifar-100",
+    "target": 56.31,
+    "raw_target": 56.31
+  },
+  {
+    "record_id": "b98c7a43c90832dc44bc47eb1718f887",
+    "dataset": "cifar-100",
+    "target": 40.76,
+    "raw_target": 40.760000000000005
+  },
+  {
+    "record_id": "33bd2d5c754ed39cf6c3c2295ccac758",
+    "dataset": "cifar-100",
+    "target": 16.24,
+    "raw_target": 16.24
+  },
+  {
+    "record_id": "37e83a023b4ca16ba4ed90f5aaf7efca",
+    "dataset": "cifar-100",
+    "target": 59.18,
+    "raw_target": 59.18
+  },
+  {
+    "record_id": "1de65348cf272046707e2f697315f844",
+    "dataset": "cifar-100",
+    "target": 52.87,
+    "raw_target": 52.87
+  },
+  {
+    "record_id": "e79dbd706df3759198573b36e6352ed9",
+    "dataset": "cifar-100",
+    "target": 57.23,
+    "raw_target": 57.230000000000004
+  },
+  {
+    "record_id": "11e8ce5235243cd634efee2449368358",
+    "dataset": "cifar-100",
+    "target": 44.09,
+    "raw_target": 44.09
+  },
+  {
+    "record_id": "ed24e0103bda2df1866d94c91c3bfa60",
+    "dataset": "cifar-100",
+    "target": 26.32,
+    "raw_target": 26.32
+  },
+  {
+    "record_id": "9b7ac051b559c98b46f8ab3c94578c8a",
+    "dataset": "cifar-100",
+    "target": 26.82,
+    "raw_target": 26.82
+  },
+  {
+    "record_id": "fc7a4214cc9613064e866a1ec8c2cef1",
+    "dataset": "cifar-100",
+    "target": 37.67,
+    "raw_target": 37.669999999999995
+  },
+  {
+    "record_id": "40cccbc375811217ad42f2908a9eeb48",
+    "dataset": "cifar-100",
+    "target": 56.48,
+    "raw_target": 56.48
+  },
+  {
+    "record_id": "343dec40a7843f5cb4bfeab6d4858699",
+    "dataset": "cifar-100",
+    "target": 16.56,
+    "raw_target": 16.56
+  },
+  {
+    "record_id": "0ccb8aa3d9e26c2f6c4d904c14b024d9",
+    "dataset": "cifar-100",
+    "target": 55.81,
+    "raw_target": 55.81
+  },
+  {
+    "record_id": "be0795ed63160d093bc3617fbcf3bf3a",
+    "dataset": "cifar-100",
+    "target": 46.79,
+    "raw_target": 46.79
+  },
+  {
+    "record_id": "6de0d46ebc5bad083ac89c992cae80c5",
+    "dataset": "cifar-100",
+    "target": 51.28,
+    "raw_target": 51.28
+  },
+  {
+    "record_id": "cf35e995f800dd230d1971985821a3b8",
+    "dataset": "cifar-100",
+    "target": 51.04,
+    "raw_target": 51.04
+  },
+  {
+    "record_id": "0071cc760c20434ae943e9e17a2a9dee",
+    "dataset": "cifar-100",
+    "target": 43.35,
+    "raw_target": 43.35
+  },
+  {
+    "record_id": "f7f6794a90317aa0a67a36a8499e5af4",
+    "dataset": "cifar-100",
+    "target": 57.3,
+    "raw_target": 57.3
+  },
+  {
+    "record_id": "4cce3d1b7a58d455b059085ea0c932f3",
+    "dataset": "cifar-100",
+    "target": 35.81,
+    "raw_target": 35.809999999999995
+  },
+  {
+    "record_id": "413829e4584ce1b68e2f3ae876af705d",
+    "dataset": "cifar-100",
+    "target": 57.85,
+    "raw_target": 57.85
+  },
+  {
+    "record_id": "2491892212897d47497cbab386910a2e",
+    "dataset": "cifar-100",
+    "target": 57.23,
+    "raw_target": 57.230000000000004
+  },
+  {
+    "record_id": "0b1db0becac8e371e0c0f5fad343ab12",
+    "dataset": "cifar-100",
+    "target": 49.87,
+    "raw_target": 49.87
+  },
+  {
+    "record_id": "8f19ccba51df1fdeb35ece994b290b4b",
+    "dataset": "cifar-100",
+    "target": 63.2,
+    "raw_target": 63.2
+  },
+  {
+    "record_id": "39749524571868eac3368a83ab29981e",
+    "dataset": "cifar-100",
+    "target": 31.19,
+    "raw_target": 31.19
+  },
+  {
+    "record_id": "6ca576d13b0d0be4ab9592bfdc8e2976",
+    "dataset": "cifar-100",
+    "target": 57.87,
+    "raw_target": 57.87
+  },
+  {
+    "record_id": "e7cb4efa5e744dfc8aea0d96d5888524",
+    "dataset": "cifar-100",
+    "target": 49.54,
+    "raw_target": 49.54
+  },
+  {
+    "record_id": "8cf95438028c137f6d4cc8cf4789aab7",
+    "dataset": "cifar-100",
+    "target": 58.07,
+    "raw_target": 58.07
+  },
+  {
+    "record_id": "e8b190866944e2915a643c7e649df47d",
+    "dataset": "cifar-100",
+    "target": 54.7,
+    "raw_target": 54.7
+  },
+  {
+    "record_id": "321517f371543678287c08b9728d39ac",
+    "dataset": "cifar-100",
+    "target": 55.5,
+    "raw_target": 55.50000000000001
+  },
+  {
+    "record_id": "d256c0de91cfe9d2919e8c932de98282",
+    "dataset": "cifar-100",
+    "target": 54.33,
+    "raw_target": 54.33
+  },
+  {
+    "record_id": "ff12103674386da3aaa06dae47ce9bd8",
+    "dataset": "cifar-100",
+    "target": 54.99,
+    "raw_target": 54.99000000000001
+  },
+  {
+    "record_id": "dced267b03b252a569cca72d461ce66c",
+    "dataset": "cifar-100",
+    "target": 53.4,
+    "raw_target": 53.400000000000006
+  },
+  {
+    "record_id": "7616cc664cfa5df186802e3aa46c27a6",
+    "dataset": "cifar-100",
+    "target": 46.09,
+    "raw_target": 46.089999999999996
+  },
+  {
+    "record_id": "260b5d8d7fc2f5b4223791a7fb20585c",
+    "dataset": "cifar-100",
+    "target": 44.96,
+    "raw_target": 44.96
+  },
+  {
+    "record_id": "ed14e4798958d08fded104d0f1109364",
+    "dataset": "cifar-100",
+    "target": 51.59,
+    "raw_target": 51.59
+  },
+  {
+    "record_id": "3fdd5a6b2f2c98b01fda3aa180ffd80c",
+    "dataset": "cifar-100",
+    "target": 55.69,
+    "raw_target": 55.69
+  },
+  {
+    "record_id": "7c6ef28d20c03cb9645f5d60ce97f4bc",
+    "dataset": "cifar-100",
+    "target": 46.6,
+    "raw_target": 46.6
+  },
+  {
+    "record_id": "63a0a194a49206f700edbcb5677203f4",
+    "dataset": "cifar-100",
+    "target": 12.65,
+    "raw_target": 12.65
+  },
+  {
+    "record_id": "4baa0ac71a8b320470cfa601d4e2b6ef",
+    "dataset": "cifar-100",
+    "target": 59.2,
+    "raw_target": 59.199999999999996
+  },
+  {
+    "record_id": "1ef8a12b23d8fdc3cc1fe665be6b37d1",
+    "dataset": "cifar-100",
+    "target": 55.23,
+    "raw_target": 55.230000000000004
+  },
+  {
+    "record_id": "465860a42bf80a230b944ee96f6ed2fa",
+    "dataset": "cifar-100",
+    "target": 35.35,
+    "raw_target": 35.35
+  },
+  {
+    "record_id": "bf5301406a2e83a9202f36576c538b9c",
+    "dataset": "cifar-100",
+    "target": 21.8,
+    "raw_target": 21.8
+  },
+  {
+    "record_id": "f75b25b98cf70e37ed5339e960a25de0",
+    "dataset": "cifar-100",
+    "target": 44.62,
+    "raw_target": 44.62
+  },
+  {
+    "record_id": "0a8eda3fe052e89d7bed92d55ae5a499",
+    "dataset": "mnist",
+    "target": 99.32,
+    "raw_target": 99.32
+  },
+  {
+    "record_id": "6c73df2dc417ef7314dc85d75af3e756",
+    "dataset": "mnist",
+    "target": 99.58,
+    "raw_target": 99.58
+  },
+  {
+    "record_id": "8d9ca7978970c51470cf89f655d2d744",
+    "dataset": "svhn",
+    "target": 30.19,
+    "raw_target": 30.193607867240317
+  },
+  {
+    "record_id": "9f4e1737bd2b0dde7427e83106372d69",
+    "dataset": "cifar-100",
+    "target": 71.05,
+    "raw_target": 71.05
+  },
+  {
+    "record_id": "ce65f0ab279ee4e5e48cfb530739e57f",
+    "dataset": "cifar-100",
+    "target": 53.7,
+    "raw_target": 53.7
+  },
+  {
+    "record_id": "fe141308f26393a314e36ce2ec144f90",
+    "dataset": "cifar-100",
+    "target": 52.8,
+    "raw_target": 52.800000000000004
+  },
+  {
+    "record_id": "cc5c65359e9078daba2440e5a01f80b3",
+    "dataset": "cifar-100",
+    "target": 52.89,
+    "raw_target": 52.89
+  },
+  {
+    "record_id": "b0a419b9980f37429a5aabd9c3a225ef",
+    "dataset": "cifar-100",
+    "target": 66.02,
+    "raw_target": 66.02
+  },
+  {
+    "record_id": "ff3a2c61b817ba01a9e63813c5d51a02",
+    "dataset": "svhn",
+    "target": 91.22,
+    "raw_target": 91.21850030731407
+  },
+  {
+    "record_id": "7b46b80c6b503985446fdfbeec4250cc",
+    "dataset": "cifar-100",
+    "target": 58.47,
+    "raw_target": 58.47
+  },
+  {
+    "record_id": "ba8c69a69081a7d9cf10bff4921a5118",
+    "dataset": "cifar-100",
+    "target": 44.14,
+    "raw_target": 44.14
+  },
+  {
+    "record_id": "34b8deb53498d4f1db2d58e2a8390463",
+    "dataset": "cifar-100",
+    "target": 40.2,
+    "raw_target": 40.2
+  },
+  {
+    "record_id": "b699779abffee178281791b88a8b811d",
+    "dataset": "cifar-100",
+    "target": 59.13,
+    "raw_target": 59.13
+  },
+  {
+    "record_id": "7e3c5a9dc08b20d4e23d00ae3c978a8f",
+    "dataset": "cifar-100",
+    "target": 54.0,
+    "raw_target": 54.0
+  },
+  {
+    "record_id": "8224675c9118caf8f2894104b7ebaff5",
+    "dataset": "cifar-100",
+    "target": 11.16,
+    "raw_target": 11.16
+  },
+  {
+    "record_id": "9f02ad828ef50a429b6b9324382a2245",
+    "dataset": "cifar-100",
+    "target": 40.66,
+    "raw_target": 40.660000000000004
+  },
+  {
+    "record_id": "e017a740170bde4068e6405f7ba8d1a2",
+    "dataset": "mnist",
+    "target": 96.59,
+    "raw_target": 96.59
+  },
+  {
+    "record_id": "d6a75554a80e893949ca0d28f0b708b0",
+    "dataset": "svhn",
+    "target": 73.76,
+    "raw_target": 73.75921942224954
+  }
+]

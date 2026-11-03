@@ -1,0 +1,48 @@
+# Artifact coverage and pending components
+
+This is a curated first publication from the laptop, not a dump of the thesis workspace. Only this repository is a publication destination. The original source workspace and other Git repositories remain unchanged.
+
+## Numerical material included
+
+| Material | Included inputs/outputs | Verification in this release |
+|---|---|---|
+| LEMUR selected Qwen, no-layer, epoch-1 Taylor and three classical predictors | Six seeds per condition, target registry, descriptive tables and earlier paired report | Identity/target/seed checks and all five descriptive metric means recomputed |
+| NB201 Qwen, CIFAR-10-valid and CIFAR-100 | Complete condition/seed panels, target/group registries, paired error tables and analysis results | Primary record/seed tests, Holm correction, descriptive metrics, 10,000-draw supporting bootstraps and collapse AUROC reproduced |
+| NB201 Qwen, ImageNet16-120 | Same numerical artifacts as the CIFAR comparison | Same checks; mixed-model refitting explicitly excluded |
+| NB201 classical, two CIFAR datasets | Ridge/HistGB panels, per-seed predictions, registries and adjusted comparison reports | Original hashes checked; no claim of fresh classical fitting or adjusted bootstrap reproduction in the default verifier |
+| Dependence figures and MIC summaries | Existing files under `graphs-expanded/` | Original hashes checked, not a fresh rerun from canonical per-epoch records |
+
+The stored records concern model experiments, not individual image subjects. Image datasets and model weights are not redistributed.
+
+## Source map
+
+- `analyze_all_datasets_layer_dcor_cluster.py`: canonical-JSON dependence analysis; needs the actual per-epoch source corpus.
+- `layer-mic-*.py`, `layer-dcor-*.py`: historical dependence/plotting routines; inspect CLI defaults and source-path contracts before use.
+- `benchmark_layer_costs_final.py`: candidate-training/evaluation and layer-extraction timing; requires the external training stack and datasets.
+- `init_taylor_pilot_v2.py`, `init_taylor_comparison_v1.py`: initialization-Taylor scoring/comparison workflow; external models and source inputs are required.
+- `generalization_prepare_trainonly_v2.py`: historical held-out prompt preparation, not the complete remote predictor implementation.
+- `prepare_epoch1_taylor_v1.py`, `per_layer_*.py`: checkpoint and per-layer input preparation/training/preflight source. These are not independent evidence that all needed model/data files are packaged.
+- `nb201_v1/primary_endpoint.py`: reusable panel-based statistical analysis. CPU-only unless optional model-training paths elsewhere are invoked.
+- `nb201_v1/evaluate*.py`: classical replication adapters; these require collected acquisition snapshots, not just the committed prediction panels.
+- `nb201_v1/launch.py`, `full.py`, `cifar100.py`, `imagenet16.py`, `qwen_launch.py`, `qwen_imagenet16.py`: historical cluster-specific acquisition/bundle builders. Some require immutable earlier pilot bundles and framework sources that are not included. Do not interpret their presence as a ready deployment.
+- `evidence/reproduce_*_tables.py`: historical archive readers. Their original input archives and reference logs are not redistributed in this initial upload; do not run their defaults expecting a complete archive.
+- `evidence/two-experiments-final-v1/analyze.py`: historical archive-based producer; needs its original `two-experiments-inputs-v1.zip`. The committed standardized predictions support the independent read-only descriptive check without that archive.
+- `paper_figures/layer_cost_pareto/plot_pareto.py` and `figures/methodology_v4/make_diagrams.py`: plotting/diagram source. Copied as-is; final manuscript diagram refinements are not implied by this snapshot.
+
+## Still to add or review
+
+1. `LayerAnalysis.py` and the authoritative external integration files, as explicitly deferred.
+2. Remaining off-laptop predictor/training source, with its actual revision and dependency environment.
+3. A reviewed, portable full-table evidence bundle for the remaining main-feature, combination, LODO/LOFO, initialization-proxy and timing results. Local archives exist but contain mixed historical payloads; they were not blindly uploaded.
+4. Canonical input manifests and any distributable acquisition snapshots needed for full refitting, after release-scope and licensing review.
+5. Finalized manuscript/citation information and agreed code/data licensing.
+
+Do not overwrite existing numerical artifacts to make a rerun fit. Write new analyses under a new `recomputed/` subdirectory and retain the original targets, identities, group assignments, and seed conventions.
+
+## Intentionally excluded
+
+Private notes, session summaries, meeting recordings/transcripts, registration/signature documents, the thesis PDF/LaTeX drafts, login credentials, environment secrets, database dumps, model checkpoints, downloaded image data, unrelated repositories, stale repair/cleanup helpers, and ad-hoc cluster relocation scripts.
+
+## Verification scope
+
+`python -B verify_results.py` verifies the numerical subset documented above and has a known-bad-value negative control. The hash manifest verifies unchanged copied bytes; it does not by itself establish experimental validity. The verifier does not claim full GPU reproducibility, a complete thesis-table audit, independent revalidation of literature, or a passing historical training test suite.

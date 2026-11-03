@@ -1,0 +1,45 @@
+{
+  "tier": "Classical directional comparison, NOT Qwen replication or supervisor primary_endpoint.py",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47
+  ],
+  "train": 772,
+  "validation": 53,
+  "test": 275,
+  "fit_records": 825,
+  "model_policy": "Unmodified original/panel.py classical(): RidgeCV 13 logspace alphas; HistGradientBoosting defaults. Both fit train+val. No test selection.",
+  "inputs": "acc1, acc2, acc3, acc3-acc2, acc2-acc1; Taylor arm additionally taylor epochs1-3; no static features or ZCP",
+  "target_policy": {
+    "cifar10": "peak of available-seed mean benchmark x-valid curve",
+    "cifar100": "mean epoch200 x-valid over seeds777/888"
+  },
+  "legacy_schema": "panel.csv gt_best_accuracy is a legacy column name only: CIFAR100 is final accuracy, never peak accuracy",
+  "uncertainty": "10000 percentile bootstrap draws, seed0; paired seed-averaged absolute-error differences; no seed resampling; IID records and family clusters; positive favors Taylor",
+  "multiplicity": "Bonferroni8 percentile intervals over 2 datasets x 2 models x 2 populations, separately for each resampling scheme; not supervisor Holm tests",
+  "population": "All records plus target >=20 percent per attached proposal; fixed threshold is not a universal collapse definition",
+  "versions": {
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "sklearn": "1.9.0"
+  },
+  "sources": {
+    "nb201_v1\\evaluate.py": "a0110be9ca2bdfe9ded77f298056c533be17069db3aaf5c2ce1fdefab3f9f2c3",
+    "nb201_v1\\test_evaluate.py": "67fea44f9185cba00bae546ee4a04b4e2641b91f1617aad59bbdfc421f7dab6f",
+    "nb201_v1\\original\\panel.py": "b3ab16ee8649650b097cdefb442fbfd36d8273b843d6ed7bee65e40c9ef94af8",
+    "nb201_v1\\original\\prompts.py": "62416a62c858462ffcf2c02732075f7c64f558ee79c115251ca3d9acc720e42d",
+    "evidence\\nb201-collected-v1\\cifar10\\snapshot.jsonl": "1af694a896d22b2deb2b231a0ba5038d386bfd1b6033af4a8d79c3176b5c99c8",
+    "nb201_v1\\cohort.json": "3edf6d2646eaaec31b2f4bc08f23c836ec62a6fca971fd134c3af70d83237bc0",
+    "nb201_v1\\benchmark_targets.csv": "598d30af08c9e30c035dbec50bce5826666ca5d112d809fdbd1869d8202ac84a",
+    "evidence\\nb201-collected-v1\\cifar10\\collection_complete.json": "0e43b69dffc788dde7940e6a650e4c3054a5b984ef13fd003d5d263a18e39031",
+    "evidence\\nb201-collected-v1\\cifar100\\snapshot.jsonl": "6a922c56250b289837339a45a2c9b1d968dce371af40845f621d6b69c796dda0",
+    "nb201_v1\\cifar100\\cohort.json": "783a9b9815d1fa45649fdcea07b0ed262c303c60d22cea7c51540e970a254bc1",
+    "nb201_v1\\cifar100\\targets.csv": "d347bb3044fdc97d6a92a7e7362fc3000135dbd9345a2e86a24cf7426c25ab0a",
+    "evidence\\nb201-collected-v1\\cifar100\\collection_complete.json": "3b5c78e3b3a781543cbe51b49a003f79775912efaa7ca44e16cbbd974e8d73cd"
+  }
+}
