@@ -31,7 +31,7 @@ Inventory reference: the author's `thesis_full_project-4.pdf`, containing 25 lis
 | 6.9 Eight-feature classical models | F and `evidence/two-experiments-final-v1/` | Source, input records, selections and predictions. Six labelled classical runs are not necessarily six distinct prediction vectors. |
 | 6.10 Taylor LODO | L/holdout-reproduction-inputs archive; R/lodo_tables_reproduced.log | Seven folds, six-seed numerical evidence, architecture grouping inputs and reproduction source. |
 | 6.11 Taylor LOFO | L/holdout-reproduction-inputs archive; R/lofo_tables_reproduced.log | Complete-configuration comparison; ZCP setting also changes. |
-| 6.12 Initialization proxies/common-cohort refits | L initialization-Taylor evidence; R/initialization_proxy_combinations.log; `evidence/init-proxy-combination-inputs-v1.tar.gz` | All six original inputs are now recovered and hash-verified; see `docs/INITIALIZATION_PROXY_INPUTS.md`. The producing inline command still needs recovery and numerical reproduction. The existing report remains a transcription. |
+| 6.12 Initialization proxies/common-cohort refits | L initialization-Taylor evidence; recovered code under `analysis/initialization_proxy_combinations/`; verified original input archive; fresh results under `evidence/initialization-proxy-combinations-reproduced-v1/` | Original inline code recovered. All 25 common-cohort metric values and all 20 paired comparisons reproduce the historical report at six decimals. The older report remains a transcription; fresh outputs are separate. |
 | 6.13 Timing | L/article-timing-baselines archive; R/timing.log | Actual timing records, candidate cohorts and benchmark sources, not just rounded plotting constants. |
 | 6.14 NB201 Qwen descriptive results | Standalone three-dataset panels/results and N | CPU verifier covers all five means; N adds execution receipts and available metric logs. |
 | 6.15 NB201 primary MAE | Standalone panels/registries/results, `nb201_v1/primary_endpoint.py`, N | CPU verifier reproduces primary tests and bootstrap results; mixed-model refitting is excluded from that verifier. |
@@ -59,7 +59,7 @@ Inventory reference: the author's `thesis_full_project-4.pdf`, containing 25 lis
 ## Remaining work is not another training campaign
 
 - Collect the final summary/cost figure-generating source and verify artwork revisions against the final thesis. The inline workflow LaTeX has now been recovered and exported under `figures/workflow/`.
-- Recover the exact initialization-proxy common-cohort inline command and reproduce its calculations. All six original input files have now been recovered and hash-verified; preserve the report's transcription label until a new reproduction is performed.
+- The initialization-proxy common-cohort source/input gap is closed: original code and six input files recovered, hash-verified, and numerically reproduced. This does not establish reproducibility of the earlier neural-network training/extraction stages.
 - Establish complete raw training-stdout coverage separately if required. Current packages contain metric logs, receipts, reports and some training evidence, not a guarantee of every pod's full stdout.
 - The archived predictor package is already inside F; do not list it as wholly missing. A complete pinned framework/environment and storage/database integration release is a separate task.
 - Numerical evidence availability does not certify exact historical source revisions, complete GPU-training reproducibility, or license clearance for all upstream components.

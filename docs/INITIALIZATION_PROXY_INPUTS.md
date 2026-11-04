@@ -17,6 +17,6 @@ The six source files were collected from the cluster without rerunning feature e
 
 These inputs support the historical comparison on 852 common calibration records and 86 retained test records. Membership is selected by the original analysis; the raw files are not restricted to only those records.
 
-**Remaining boundary:** the original calculation ran inline and did not save a standalone script or new prediction arrays. Recovering that exact command and reproducing the analysis remains separate work. This upload verifies input identity and preservation, not a fresh reproduction of the combination metrics or intervals. The existing report remains labelled as a transcription.
+**Source recovered and analysis reproduced:** the original inline Python body is now preserved under [analysis/initialization_proxy_combinations/](../analysis/initialization_proxy_combinations/). A separate portability wrapper changes only its input root in memory. The fresh run reproduces all 25 metric values and all 20 paired comparisons at the historical report's six-decimal precision. New predictions, bootstrap arrays and receipts are stored in `evidence/initialization-proxy-combinations-reproduced-v1/`. The historical report remains labelled as a transcription; no neural-network training or extraction was repeated.
 
 Extract only into a new directory. Keep original experiment outputs unchanged. No model weights or image datasets are included.
