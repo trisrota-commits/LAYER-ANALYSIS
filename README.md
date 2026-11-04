@@ -26,6 +26,7 @@ run_all.py                  Unified entry point
 requirements-reproduce.txt  Pinned CPU dependencies
 INPUT_MANIFEST.json         Hashes of required frozen inputs/helper source
 analysis/thesis_*.py        Reproduction adapters
+paper_runners/dependence/   Original dCor and MIC analysis runners
 nb201_v1/                   Preserved statistical helper source
 LayerAnalysis.py            Supplied statistic definitions; not executed by the runner
 data.zip                    Original snapshot and initial-split archive
@@ -43,7 +44,7 @@ The LEMUR packet is kept intact to preserve its nested manifests, required group
 - Design tables render documented protocol definitions. Outputs reproduce numerical content, not identical thesis page layout.
 - LEMUR feature selection was exploratory. NB201 predictors were fitted separately within each dataset; this is not zero-shot transfer or a claim of universal LLM superiority.
 - The initial two-accuracy/no-layer RMSE computes to `11.4715` at four decimals; the thesis prints `11.4716`. The runner preserves the computed value and reports the discrepancy.
-- Historical training frameworks, duplicate reports, standalone launchers and pre-rendered figures are intentionally absent from the current tree. They remain in earlier Git commits; the original local evidence is preserved.
+- Historical training frameworks, duplicate reports, training launchers and pre-rendered figures are intentionally absent from the current tree. The [original paper dCor/MIC runners](paper_runners/dependence/README.md) are retained separately; see their input requirements and verification boundaries. The exported-data `run_all.py` does not automatically rerun those estimators.
 - `nb201_v1/evaluate.py` is retained as source for its original paired-MAE function, extracted by the adapter without executing its training entry point. Use `run_all.py`, not historical helper entry points.
 
 ## Tests
