@@ -48,6 +48,8 @@ See the [thesis table/figure evidence map](docs/THESIS_COVERAGE.md) and [artifac
 
 ## Extended experiment evidence and logs
 
+- [Initialization-proxy common-cohort inputs](evidence/init-proxy-combination-inputs-v1.tar.gz): six recovered source files, all hash-matched to the original analysis. See [input provenance and remaining script-recovery work](docs/INITIALIZATION_PROXY_INPUTS.md).
+
 - [LEMUR reproduction packet](evidence/overleaf-table-evidence-reproducible-20261019-v2.zip): main-feature, combination, held-out, per-layer, baseline, dependence and timing evidence, with nested inputs and reproduction scripts. Extract the complete packet to a new directory and follow its `README.txt`.
 - [Combined NAS-Bench-201 packet](evidence/NAS_Bench_201_all_datasets_evidence_v1.zip): collected snapshots, predictor exports, contracts, receipts, available metric logs and statistical outputs for the three datasets. Historical preparations and final results remain separately identified.
 - [Browsable report collection](evidence/thesis-reports/): original package reports plus the separately saved initialization-proxy-combination transcription. Report exports and transcriptions are labelled; these are not all original training stdout.
