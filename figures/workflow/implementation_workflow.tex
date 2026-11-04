@@ -1,0 +1,42 @@
+% Figure body recovered from implementation.tex, lines 41--62,
+% in the author's local thesis_full_project.zip. Standalone wrapper added
+% for export; numbering and typography may differ from the thesis class.
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\setlength{\paperwidth}{17cm}
+\setlength{\paperheight}{15cm}
+\pdfpagewidth=\paperwidth
+\pdfpageheight=\paperheight
+\setlength{\hoffset}{-1in}
+\setlength{\voffset}{-1in}
+\setlength{\oddsidemargin}{1cm}
+\setlength{\topmargin}{1cm}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\textwidth}{15cm}
+\setlength{\textheight}{13cm}
+\pagestyle{empty}
+\begin{document}
+\begin{figure}[tb]
+\centering
+\small
+\begin{tabular}{c}
+\shortstack{Candidate training and checkpoint evaluation} \\
+$\downarrow$ \\
+\shortstack{Layer-statistic extraction (\texttt{LayerAnalysis.py})} \\
+$\downarrow$ \\
+\shortstack{Per-epoch JSON payloads and database persistence} \\
+$\downarrow$ \\
+\shortstack{Frozen predictor snapshot and saved split membership} \\
+$\downarrow$ \\
+\shortstack{Matched prompt conditions} \\
+$\downarrow$ \\
+\shortstack{Qwen fitting and held-out evaluation} \\
+$\downarrow$ \\
+\shortstack{Record-level predictions and statistical analysis}
+\end{tabular}
+\caption{Main extraction-to-prediction workflow. NB201 follows a
+separate acquisition path that produces its own frozen snapshot.}
+\label{fig:implementation-workflow}
+\end{figure}
+\end{document}

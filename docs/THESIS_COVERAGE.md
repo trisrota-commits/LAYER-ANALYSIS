@@ -47,7 +47,7 @@ Inventory reference: the author's `thesis_full_project-4.pdf`, containing 25 lis
 | Thesis figure | Published asset/source | Scope / remaining boundary |
 |---|---|---|
 | 4.1 Predictor inputs/target | `figures/methodology_v4/early_epoch_timeline.{pdf,png}` and `make_diagrams.py` | Existing local v4 snapshot; exact equality to final thesis artwork not established. |
-| 5.1 Extraction-to-prediction workflow | No standalone figure/source recovered | Final inline LaTeX figure source still needed. |
+| 5.1 Extraction-to-prediction workflow | `figures/workflow/implementation_workflow.{tex,pdf,png}` | Original figure body recovered from `implementation.tex` in the local thesis source ZIP; preserved in a standalone wrapper and compiled. Standalone numbering/typography differ from the thesis class. |
 | 5.2 Taylor computation | `figures/methodology_v4/taylor_calculation.{pdf,png}` and generator | Existing local v4 snapshot; final minor refinements are not implied. |
 | 5.3 Storage | `figures/methodology_v4/checkpoint_storage.{pdf,png}` and generator | Existing local v4 snapshot. |
 | 6.1 MAE improvement summary | `figures/archived_20261102/taylor_summary.pdf` | Recovered from the older local thesis source ZIP. Exact generating source and latest-PDF artwork equality remain unverified. |
@@ -58,7 +58,7 @@ Inventory reference: the author's `thesis_full_project-4.pdf`, containing 25 lis
 
 ## Remaining work is not another training campaign
 
-- Collect the final figure-generating source/inline workflow LaTeX and verify the artwork revision against the final thesis.
+- Collect the final summary/cost figure-generating source and verify artwork revisions against the final thesis. The inline workflow LaTeX has now been recovered and exported under `figures/workflow/`.
 - Consolidate the exact initialization-proxy common-cohort source and original numerical inputs/receipts where available; preserve the transcription label until then.
 - Establish complete raw training-stdout coverage separately if required. Current packages contain metric logs, receipts, reports and some training evidence, not a guarantee of every pod's full stdout.
 - The archived predictor package is already inside F; do not list it as wholly missing. A complete pinned framework/environment and storage/database integration release is a separate task.
