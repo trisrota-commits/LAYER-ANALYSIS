@@ -107,19 +107,19 @@
       "path": "table_6_14.csv",
       "rows": 6,
       "provenance": "Recomputed from saved predictions; see source manifests and fresh analysis reports",
-      "sha256": "ddaa0044cbf869bc975d357aaf6c63db330f18e6ae1453dd171e19846430c1de"
+      "sha256": "973ab6098dd9dac28ab83fbe8dccc5b850b178504b1433e1abca820952d4b095"
     },
     "6.15": {
       "path": "table_6_15.csv",
       "rows": 3,
       "provenance": "Recomputed from saved predictions; see source manifests and fresh analysis reports",
-      "sha256": "15b5c188771f7e52fc3fe85056f6dab838eb05178aa9adf686068ca15a8526ba"
+      "sha256": "6f334c947766e470d3e37f669ecd706f36f1dd7f9ea41894752a7c4cebd21e54"
     },
     "6.16": {
       "path": "table_6_16.csv",
       "rows": 4,
       "provenance": "Recomputed from saved predictions; see source manifests and fresh analysis reports",
-      "sha256": "c723e9af57559f310e6b999612fb35b07e0bab16b32941a77879525c2db2a4cb"
+      "sha256": "0fef19ae5e0a11db56ce000e9e38794d0bd5f0daa035fd003b09017cc4f15b40"
     },
     "A.1": {
       "path": "table_A_1.csv",
@@ -149,14 +149,14 @@
       "path": "table_A_5.csv",
       "rows": 2,
       "provenance": "Recomputed from saved predictions; see source manifests and fresh analysis reports",
-      "sha256": "d7f25d53df5facb857568d1bb6813af786bc369c12bcc684400ebe825bfa1b4c"
+      "sha256": "019e4bca007e2a0866f092744de818220bd31451d11c220b20eb575570bb518c"
     }
   },
   "figures": {
     "4.1": {
       "pdf": {
         "path": "figure_4_1.pdf",
-        "sha256": "9dc16cc72c33be5400b5add216f0b35d7a9707f0846ee761921174d79366900d"
+        "sha256": "ec00992e518576712d9caf31fcb6d541e9abf3803699091234f219252a62ef99"
       },
       "png": {
         "path": "figure_4_1.png",
@@ -166,7 +166,7 @@
     "5.1": {
       "pdf": {
         "path": "figure_5_1.pdf",
-        "sha256": "630d838a05519f9be3057b980888866d14ae1c60f16df54c2691b6f157b608a4"
+        "sha256": "fedbbf8061c1ec902824b4a78468264419d46f021e416f2f525959a2073713b3"
       },
       "png": {
         "path": "figure_5_1.png",
@@ -176,7 +176,7 @@
     "5.2": {
       "pdf": {
         "path": "figure_5_2.pdf",
-        "sha256": "b33b169a88725e06650f413a110c61d77adb06e8f0fa4f33efe9596206d65bc7"
+        "sha256": "c4b621ebd0754c8b5be3b4d517a3867011aa22a93302a1996e87e391279a910c"
       },
       "png": {
         "path": "figure_5_2.png",
@@ -186,7 +186,7 @@
     "5.3": {
       "pdf": {
         "path": "figure_5_3.pdf",
-        "sha256": "e51c40dccdf0843bac4284f848cdfa257c6a55b3c16330c75fef64f09487793e"
+        "sha256": "107eb2db04820fee6038cb9d3ff2f80c0a262f7081c25f42fc01f6de5162fb4a"
       },
       "png": {
         "path": "figure_5_3.png",
@@ -196,7 +196,7 @@
     "6.1": {
       "pdf": {
         "path": "figure_6_1.pdf",
-        "sha256": "ff6365a2f4f1eb09e78d1a9906da1630e09c3aab21605e37226539f70e80044b"
+        "sha256": "5ef2f99c2bae10080e5131ddd14ad4cb7cf4e97d3b19619951527eea241ba7f5"
       },
       "png": {
         "path": "figure_6_1.png",
@@ -206,7 +206,7 @@
     "6.2": {
       "pdf": {
         "path": "figure_6_2.pdf",
-        "sha256": "ea8f5f945032949551558c99ff3252a7435903d27023312bb73457879acc0c46"
+        "sha256": "dd4345fa17d1d9272e87c0d03fd22aa965afca8cb79add36892ad92f0589cadf"
       },
       "png": {
         "path": "figure_6_2.png",
@@ -216,7 +216,7 @@
     "6.3": {
       "pdf": {
         "path": "figure_6_3.pdf",
-        "sha256": "0ad125f003627a8091b11d9d51378e42af5f54c0de2ac94f0b4402d4a4753316"
+        "sha256": "085c304b84c5b58e5de0d39fefe3ffa13ab7ceea8404111686ee028728c6b829"
       },
       "png": {
         "path": "figure_6_3.png",
@@ -226,7 +226,7 @@
     "6.4": {
       "pdf": {
         "path": "figure_6_4.pdf",
-        "sha256": "1a7456bbd56009b641e663ceb4b05cb6afa67ebe5df400e010a66703cafd0d2f"
+        "sha256": "0635b9f94a33152531883eabf0d8eccdae3562ee17a57d866d342b2dc0b9e4e5"
       },
       "png": {
         "path": "figure_6_4.png",
@@ -236,7 +236,7 @@
     "6.5": {
       "pdf": {
         "path": "figure_6_5.pdf",
-        "sha256": "ae85f8351a2ece6fabffdf19d27bb2b97e44f2ff13c3a82950af2aaeeb797cec"
+        "sha256": "b63004b6c35297d84afa139c29e048e504387f6dd9c7a9924aa6816f4d24277e"
       },
       "png": {
         "path": "figure_6_5.png",
@@ -253,7 +253,7 @@
     "Known manuscript last-digit discrepancy: initial 2-accuracy/no-layer RMSE recomputes to 11.471549990344; thesis prints 11.4716. Recomputed value is retained."
   ],
   "source_sha256": {
-    "run_all.py": "3a199146c84ab6722d8a58da9c3175b62b5ae540d4d240e9f868093b94673b40",
+    "run_all.py": "4f1717eb2a5537522fd44dc511a79e09654be7b36bc04782f841ec3e16a8702a",
     "analysis/thesis_common.py": "e01113eec7fa7d2c812a4f7d842a89dfa434b8cb3731e50d6bfb7ce136285290",
     "analysis/thesis_figures.py": "0fe17564fd009d682c303ffc6af722f73fdf9387de3241b891315c680e7ea5ef",
     "analysis/thesis_lemur.py": "5ff2858cd5ebceceaedd1d6cb6df15d1c74b37f10e1d236c34a7c5a717b8fd87",
@@ -276,9 +276,15 @@
   "verification": {
     "full_command": "python -B run_all.py --out <new-directory>",
     "full_exit_code": 0,
+    "executed_from": "isolated export of minimal staged Git tree; no removed files available",
     "focused_test_command": "python -B -m unittest discover -s tests -p test_*.py -v",
-    "focused_tests_passed": 10,
-    "frozen_input_hashes_rechecked": 181,
-    "scope": "Full exported-evidence table/figure workflow, not raw dependence-estimator reruns or neural training. Tables are numerical exports, not page-layout replicas."
+    "focused_tests_passed": 11,
+    "tracked_files": 92,
+    "frozen_input_hashes_rechecked": 70,
+    "input_manifest_sha256": "a0e60027ee96d1a47253b8c5d0b17a7928ae0666b240bd3d26d84d87b3cc6f01",
+    "numeric_tables_equal_to_pre_cleanup": true,
+    "all_nine_pngs_byte_identical_to_pre_cleanup": true,
+    "comparison_ignores": "run-specific report_path fields only",
+    "scope": "Full exported-evidence workflow; no raw dependence-estimator reruns or neural training. Tables are numerical exports, not page-layout replicas."
   }
 }

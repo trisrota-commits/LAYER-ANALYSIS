@@ -43,7 +43,7 @@ Tables are exported as readable long/wide CSV, Markdown and basic LaTeX tabular 
 - **6.1:** aggregate the archived MIC cells and significance decisions separately by analysis stream. The dCor heatmap BH values are independently checked from saved analytical p-values.
 - **6.2–6.9 and A.1–A.3:** read exact archived condition/seed predictions; recompute means, seed intervals and paired-bootstrap results where the table calls for them. The direct comparison uses NumPy seed 0; historical combination/ZCP scripts preserve their Python `random.Random(0)` convention. Individual-layer comparison preserves its separate NumPy RNG.
 - **6.10–6.11 and A.4:** execute existing LODO/LOFO readers, verify receipts/prompts/architecture identities, and recompute architecture-grouped bootstrap intervals. Original inputs and reference reports travel together in the extracted packet.
-- **6.12:** recompute metrics from saved original-proxy and common-calibration predictions on their exact 86-record test cohort. The common-cohort calibrators are not refitted by this runner; their separate recovery/reproduction entry point remains available.
+- **6.12:** recompute metrics from saved original-proxy and common-calibration predictions on their exact 86-record test cohort. The common-cohort calibrators are not refitted by this runner. Their full recovery/reproduction code remains in earlier Git commits; the minimal tree retains the required predictions and provenance results.
 - **6.13:** average actual saved timing records from the 96 complete layer candidates and the separate 96 successful ZCP candidates; verify the 93-candidate intersection. No new timing benchmark is run.
 - **6.14–6.16 and A.5:** recompute NB201 metrics, primary tests and supporting analyses from panels, including the crossed statistical mixed-model sensitivity fits. Classical adjusted intervals use saved predictions, not fresh classical predictor training. Statistical mixed-model fitting is not neural-network training.
 - **All figures:** regenerate schematics from their existing source; generate the Taylor summary, dependence plots and six-seed cost/RMSE plot from the recomputed tables/exported cells.
@@ -65,3 +65,9 @@ python -B -m unittest discover -s tests -p "test_*.py" -v
 ```
 
 These are focused tests of this reproduction workflow, not the historical framework/training suite. The full `run_all.py --out ...` execution is the end-to-end check. Source archives are preserved, traversal entries are refused, and existing output paths are never overwritten.
+
+## Input integrity and minimal layout
+
+`INPUT_MANIFEST.json` checks only the frozen data and helper source actually retained for this workflow. The historical all-purpose release manifests and duplicate loose reports have been removed from the current tree. The original LEMUR packet is intentionally unchanged: its nested archives, reference reports and internal hashes are needed by the existing readers. The parser tests read those references directly from the packet instead of requiring duplicate loose logs.
+
+The cleanup changes publication layout and preflight bookkeeping, not the underlying numerical inputs or statistical algorithms. Earlier Git commits preserve the broader evidence release.

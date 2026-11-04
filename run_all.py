@@ -16,23 +16,16 @@ FIGURES = ['4.1', '5.1', '5.2', '5.3'] + [f'6.{i}' for i in range(1, 6)]
 
 
 def preflight():
-    from analysis.thesis_common import require, sha
+    from analysis.thesis_common import require, sha, safe_name
     for name in ['numpy', 'scipy', 'matplotlib', 'pandas', 'statsmodels', 'sklearn', 'pymupdf']:
         require(importlib.util.find_spec(name) is not None, 'Missing dependency: ' + name + '; install requirements-reproduce.txt')
     require(shutil.which('pdflatex') is not None, 'pdflatex is required for the recovered workflow diagram')
-    expected = {
-        'data.zip': '5438cfd6d4ca3b12e9675ecf46e64ab58509abdd6c8dcb1510486800ec25317a',
-        'evidence/overleaf-table-evidence-reproducible-20261019-v2.zip': '932b17b7e7c72507964472310bc27478e49a8528bc934266f0e1c25e1719494d',
-    }
-    manifest = json.loads((ROOT / 'LOCAL_SOURCE_MANIFEST.json').read_text())['files']
-    manifest = {name: item['sha256'] for name, item in manifest.items()}
-    expected.update(manifest)
+    manifest = json.loads((ROOT / 'INPUT_MANIFEST.json').read_text(encoding='utf-8'))
+    require(manifest.get('schema') == 1 and bool(manifest.get('files')), 'Invalid input manifest')
+    expected = manifest['files']
     for name, digest in expected.items():
+        safe_name(name)
         require((ROOT / name).is_file() and sha(ROOT / name) == digest, 'Missing/changed frozen input: ' + name)
-    receipt_root = ROOT / 'evidence/initialization-proxy-combinations-reproduced-v1'
-    for name, digest in json.loads((receipt_root / 'complete.json').read_text()).items():
-        require(sha(receipt_root / name) == digest, 'Changed initialization reproduction input: ' + name)
-        expected[(receipt_root / name).relative_to(ROOT).as_posix()] = digest
     return dict(status='ready', database_required=False, model_training=False, input_sha256=expected)
 
 
