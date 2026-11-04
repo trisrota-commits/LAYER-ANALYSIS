@@ -2,6 +2,10 @@
 
 Inventory reference: the author's `thesis_full_project-4.pdf`, containing 25 listed tables and 9 listed figures. This maps publication coverage, not a new numerical validation of every table. The thesis PDF itself is not redistributed here.
 
+## Unified exported-evidence reproduction
+
+`python -B run_all.py --out recomputed/thesis` now generates numerical exports for all 25 tables and PDF/PNG versions of all nine figures. A full run completed successfully; its source/output hashes and verification scope are recorded in [reproduction-verification.json](reproduction-verification.json). See [REPRODUCE_THESIS.md](REPRODUCE_THESIS.md) for setup, preservation behavior, RNG conventions and the known initial-RMSE last-digit discrepancy. No database or model retraining is used. Dependence figures/tables aggregate frozen per-cell estimates, and design tables render documented definitions rather than rerunning measurement. Historical package coverage below remains useful for provenance; the smaller `verify_results.py` still has its original narrower scope.
+
 ## Evidence collections
 
 - **L** — [LEMUR numerical reproduction packet](../evidence/overleaf-table-evidence-reproducible-20261019-v2.zip): original nested input archives, reproduction scripts, reference reports and a manifest. Extract the entire packet into a fresh directory and follow its `README.txt`; archive-reader defaults assume that layout.

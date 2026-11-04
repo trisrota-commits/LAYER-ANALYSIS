@@ -31,6 +31,8 @@ The stored records concern model experiments, not individual image subjects. Ima
 
 ## Still to add or review
 
+These framework/training-release items are outside the database-free saved-evidence workflow. The unified `run_all.py` does not require them; see [REPRODUCE_THESIS.md](REPRODUCE_THESIS.md).
+
 1. The authoritative external integration files. `LayerAnalysis.py` is now included at the repository root as a byte-identical copy of the author-supplied file (SHA-256 `d2c28a5c34149206a32a3b26d04c4a06f2ea287a13a22a53db783c4e710d52fa`). This identifies the supplied source, not the extraction revision of every historical record. Syntax and copy integrity were checked; runtime behavior was not retested for this upload.
 2. A complete pinned framework/training environment and remaining integration files. The predictor's config, preprocessing, model, training, evaluation and inference modules are already archived inside `two-experiments-inputs-v1.zip`; they are not wholly missing.
 3. The historical Taylor-summary generator was not located, but a clearly labelled reconstruction now produces the plot from published numerical evidence. The six-seed cost/RMSE TikZ and workflow LaTeX were recovered. See `figures/README.md`; no further source upload is needed to regenerate these newly supplied plots. The initialization-proxy common-cohort analysis is also recovered and reproduced, with fresh outputs separate from the historical transcription.

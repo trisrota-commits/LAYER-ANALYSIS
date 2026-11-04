@@ -1,0 +1,11 @@
+# CPU-only environment used for the full exported-data thesis reproduction.
+# Python 3.11; no torch, transformers, nn-dataset, nn-gpt or database required.
+numpy==2.4.6
+scipy==1.17.1
+pandas==3.1.0
+statsmodels==0.15.0
+matplotlib==3.11.2
+scikit-learn==1.9.0
+pymupdf==1.28.0
+# A TeX distribution providing pdflatex + standard article/fontenc is required
+# for the recovered workflow diagram. The remaining figures use Matplotlib.

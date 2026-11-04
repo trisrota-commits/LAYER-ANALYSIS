@@ -4,7 +4,7 @@ Analysis code and selected numerical artifacts accompanying Trisrota Bose's mast
 
 The study asks whether internal network measurements improve prediction of later accuracy beyond early accuracy observations. Seven layer statistics are examined; the selected compact representation adds one layer-averaged activation-based Taylor value at each of epochs 1–3. The evaluation separates statistical association, incremental predictive value, measurement cost, and generalization.
 
-**This is an initial, partial research-artifact release.** The numerical checks below run from committed prediction files without a GPU. `LayerAnalysis.py` is now included at the repository root from the author-supplied file; its upload was syntax-checked, not runtime-tested. It requires PyTorch, with optional WeightWatcher and openpyxl functionality. The complete predictor-training integration and remaining off-laptop files will be added later. This repository is not yet a self-contained rerun of all candidate training or every thesis table.
+**Reproduction uses exported evidence, not a database or model retraining.** `run_all.py` targets the 25 tables and nine figures listed in the final working thesis; see the explicit computation and formatting boundaries below. The repository is not a self-contained rerun of candidate training or Qwen fitting. `LayerAnalysis.py` is included as author-supplied acquisition source, but is not imported by the reproduction workflow; its upload was syntax-checked, not runtime-tested.
 
 ## Main evidence
 
@@ -24,6 +24,10 @@ Taylor's benefit is not exclusive to Qwen: the committed classical NB201 results
 ## Repository contents
 
 ```text
+run_all.py                        unified exported-evidence table/figure workflow
+analysis/thesis_*.py              adapters reusing existing statistical analyses
+requirements-reproduce.txt        pinned CPU reproduction environment
+tests/                           focused reproduction-workflow tests
 verify_results.py                 read-only, CPU verification entry point
 requirements.txt                  minimal verification dependencies
 requirements-analysis.txt         optional analysis/plotting dependencies
@@ -63,7 +67,21 @@ The author-supplied [data.zip](data.zip) contains the 1,151-record snapshots and
 
 The separate [grouped-split experiment archive](evidence/two-experiments-inputs-v1.zip) includes the **978/58/115** no-layer and Taylor prompt partitions, plus classical and checkpoint-ablation evidence. Its original manifest and all 230 payload hashes are preserved and verified; see the data note for scope.
 
-## Quick start: verify committed predictions
+## Reproduce all thesis tables and figures
+
+With Python 3.11, the pinned CPU dependencies, and `pdflatex` available:
+
+```bash
+python -m pip install -r requirements-reproduce.txt
+python -B run_all.py --check
+python -B run_all.py --out recomputed/thesis
+```
+
+The output directory must be new. The command produces CSV/Markdown/LaTeX tables, PDF/PNG figures, fresh analysis reports, provenance and a completion receipt. It performs no database access, candidate training or Qwen fitting. Dependence results are reaggregated from exported cells, design tables render protocol definitions, and statistical mixed models are refitted from saved prediction errors. Numerical content is reproduced, not exact thesis page layout. Known last-digit discrepancies are reported, not forced to match.
+
+See [full setup, coverage and boundaries](docs/REPRODUCE_THESIS.md). `--list` prints the table/figure inventory. A failed run preserves its diagnostics and does not write a successful completion receipt.
+
+## Smaller check: verify committed predictions
 
 Python 3.11 or newer is recommended. From a shell:
 
