@@ -1,0 +1,17 @@
+{
+  "status": "reconstructed plotting source; not historical code",
+  "source_sha256": {
+    "evidence/nb201-qwen-primary-v1/cifar10/analysis/results.json": "01d9e654441e4e0b6ce3c8bf07f6f844aec35fe30351ff331d0dfa30b6e85add",
+    "evidence/nb201-qwen-primary-v1/cifar100/analysis/results.json": "5cf7c536d1ba4816e12aba2d10df89bcb00e8a854b6f14cf70ebad0274801f39",
+    "evidence/nb201-imagenet16-primary-v1/analysis/results.json": "cce4079a0fb95b7a3c648a41a855ce28ca8704122b56d1cd65604d67c66feee2",
+    "evidence/two-experiments-final-v1/descriptive.csv": "71cbea163b41f700bf3d3978661dcbe4199b3770480343878e806f41c949094b"
+  },
+  "plot_source_sha256": "1d5daecccf3b34038a7ee34d20cd0052b430b23b2735a2b25899322757253f6e",
+  "precision": "four decimal places, matching thesis table display",
+  "caveat": "LEMUR is exploratory and uses all 115 test records; NB201 uses target>=20 primary populations. Intervals differ in construction and are unadjusted.",
+  "outputs": {
+    "plot_data.csv": "0bd9a9235abd6367ea2d45d1809b6de4c0539aefd716cb073a9dab30b3bf6706",
+    "taylor_summary.pdf": "6d4f2af5c74b380dc2a7db17340863c59717f3c87460c264fcebecc82198aa5e",
+    "taylor_summary.png": "5d99eb6d9ecb447b5d06d9f81d257fd4d2a71f443e5bc01b38894e7fd9ab0f84"
+  }
+}

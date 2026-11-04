@@ -50,15 +50,15 @@ Inventory reference: the author's `thesis_full_project-4.pdf`, containing 25 lis
 | 5.1 Extraction-to-prediction workflow | `figures/workflow/implementation_workflow.{tex,pdf,png}` | Original figure body recovered from `implementation.tex` in the local thesis source ZIP; preserved in a standalone wrapper and compiled. Standalone numbering/typography differ from the thesis class. |
 | 5.2 Taylor computation | `figures/methodology_v4/taylor_calculation.{pdf,png}` and generator | Existing local v4 snapshot; final minor refinements are not implied. |
 | 5.3 Storage | `figures/methodology_v4/checkpoint_storage.{pdf,png}` and generator | Existing local v4 snapshot. |
-| 6.1 MAE improvement summary | `figures/archived_20261102/taylor_summary.pdf` | Recovered from the older local thesis source ZIP. Exact generating source and latest-PDF artwork equality remain unverified. |
+| 6.1 MAE improvement summary | Historical PDF in `figures/archived_20261102/`; reconstructed generator and PDF/PNG/CSV in `figures/taylor_summary_reconstructed/` | New plotting source reads published NB201 results and the thesis's displayed LEMUR interval. Explicitly reconstructed, not the lost original generator; no pixel-identical match claimed. |
 | 6.2 Mean dCor | `graphs-expanded/mean_dcor_all_datasets_epochs.png`; plotting source; L dependence CSV/report archive | Numerical provenance preserved; plot labels may be historical. |
 | 6.3 Early heatmaps | `graphs-expanded/layer_dcor_epochs123_heatmaps_with_places365.png`; plotting source; L dependence archive | Both with/without-Places versions exist; choose the version actually used by the thesis. |
 | 6.4 Epoch-50 heatmap | `graphs-expanded/layer_dcor_epoch50_heatmap_with_places365.png`; plotting source; L dependence archive | Same version distinction as Figure 6.3. |
-| 6.5 Cost/RMSE | `figures/archived_20261102/cost_rmse_pareto.pdf`; L timing/prediction evidence | Exact six-seed figure source remains missing. `paper_figures/layer_cost_pareto/plot_pareto.py` is an older three-seed script, not a verified generator for this export. |
+| 6.5 Cost/RMSE | Historical PDF in `figures/archived_20261102/`; recovered original six-seed TikZ block and freshly compiled PDF/PNG in `figures/recovered_pareto/` | Original TikZ recovered from chat message 51764; standalone wrapper added. The older three-seed Python script remains separate. |
 
 ## Remaining work is not another training campaign
 
-- Collect the final summary/cost figure-generating source and verify artwork revisions against the final thesis. The inline workflow LaTeX has now been recovered and exported under `figures/workflow/`.
+- Figure-source recovery is now documented in `figures/README.md`: six-seed cost/RMSE TikZ and inline workflow LaTeX recovered; Taylor-summary plotting code reconstructed from published evidence. The historical Taylor-summary generator was not located, and exact old-PDF layout equality is not claimed.
 - The initialization-proxy common-cohort source/input gap is closed: original code and six input files recovered, hash-verified, and numerically reproduced. This does not establish reproducibility of the earlier neural-network training/extraction stages.
 - Establish complete raw training-stdout coverage separately if required. Current packages contain metric logs, receipts, reports and some training evidence, not a guarantee of every pod's full stdout.
 - The archived predictor package is already inside F; do not list it as wholly missing. A complete pinned framework/environment and storage/database integration release is a separate task.

@@ -1,0 +1,5 @@
+dataset,improvement,low,high,n,interval,source
+LEMUR,0.4026,0.0507,0.7563,115,Unadjusted paired test-record bootstrap,"thesis_full_project-4.pdf, Table 6.5; displayed four-decimal values"
+CIFAR-10-valid,0.6916,0.4177,0.9655,273,Unadjusted record-paired t interval; target >=20%,evidence/nb201-qwen-primary-v1/cifar10/analysis/results.json
+CIFAR-100,0.9926,0.6332,1.352,272,Unadjusted record-paired t interval; target >=20%,evidence/nb201-qwen-primary-v1/cifar100/analysis/results.json
+ImageNet16-120,1.0669,0.6531,1.4806,258,Unadjusted record-paired t interval; target >=20%,evidence/nb201-imagenet16-primary-v1/analysis/results.json
