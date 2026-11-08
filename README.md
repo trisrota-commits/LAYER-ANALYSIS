@@ -33,8 +33,11 @@ python -B run_all.py --point4-report /shared/ssd/home/b-t-bose/lmur/point4-all3-
 Use the local export path instead when running off-cluster. This standard-library
 option requires the original manifest and checksum-verified completed analyses;
 those new numerical outputs are not included in this source-only addition.
-New loss/confidence HistGB and nested-Qwen source/results remain separate
-publication gaps; the older NB201 results are not substitutes for those studies.
+The transferred [loss/confidence HistGB and nested-Qwen scripts](paper_runners/revision_studies/README.md)
+are also published unchanged. Their required contracts, external helpers and
+saved results are not included in that source-only transfer, so these new studies
+are not yet integrated into numerical regeneration. Older NB201 results are not
+substitutes for those studies.
 
 ## Minimal layout
 
@@ -45,6 +48,7 @@ INPUT_MANIFEST.json         Hashes of required frozen inputs/helper source
 analysis/thesis_*.py        Reproduction adapters
 paper_runners/dependence/   Original dCor and MIC analysis runners
 paper_runners/point4/       Recovered acquisition source and optional export report
+paper_runners/revision_studies/  Transferred HistGB and nested-Qwen experiment source
 nb201_v1/                   Preserved statistical helper source
 LayerAnalysis.py            Supplied statistic definitions; not executed by the runner
 data.zip                    Original snapshot and initial-split archive
