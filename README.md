@@ -19,6 +19,26 @@ The output directory must be new. The full command writes tables as CSV/Markdown
 
 [Detailed instructions and scientific boundaries](docs/REPRODUCE_THESIS.md) · [Verification receipt](docs/reproduction-verification.json)
 
+### Revised-thesis acquisition source and optional report
+
+The 25-table/9-figure workflow above covers the earlier thesis snapshot, not all
+later revision experiments. The recovered [Point 4 acquisition source](paper_runners/point4/README.md)
+is now preserved separately. To report its completed exported analyses without
+training or modifying inputs, use:
+
+```bash
+python -B run_all.py --point4-report /shared/ssd/home/b-t-bose/lmur/point4-all3-no-checkpoints-v1
+```
+
+Use the local export path instead when running off-cluster. This standard-library
+option requires the original manifest and checksum-verified completed analyses;
+those new numerical outputs are not included in this source-only addition.
+The transferred [loss/confidence HistGB and nested-Qwen scripts](paper_runners/revision_studies/README.md)
+are also published unchanged. Their required contracts, external helpers and
+saved results are not included in that source-only transfer, so these new studies
+are not yet integrated into numerical regeneration. Older NB201 results are not
+substitutes for those studies.
+
 ## Minimal layout
 
 ```text
@@ -27,6 +47,8 @@ requirements-reproduce.txt  Pinned CPU dependencies
 INPUT_MANIFEST.json         Hashes of required frozen inputs/helper source
 analysis/thesis_*.py        Reproduction adapters
 paper_runners/dependence/   Original dCor and MIC analysis runners
+paper_runners/point4/       Recovered acquisition source and optional export report
+paper_runners/revision_studies/  Transferred HistGB and nested-Qwen experiment source
 nb201_v1/                   Preserved statistical helper source
 LayerAnalysis.py            Supplied statistic definitions; not executed by the runner
 data.zip                    Original snapshot and initial-split archive
@@ -44,7 +66,7 @@ The LEMUR packet is kept intact to preserve its nested manifests, required group
 - Design tables render documented protocol definitions. Outputs reproduce numerical content, not identical thesis page layout.
 - LEMUR feature selection was exploratory. NB201 predictors were fitted separately within each dataset; this is not zero-shot transfer or a claim of universal LLM superiority.
 - The initial two-accuracy/no-layer RMSE computes to `11.4715` at four decimals; the thesis prints `11.4716`. The runner preserves the computed value and reports the discrepancy.
-- Historical training frameworks, duplicate reports, training launchers and pre-rendered figures are intentionally absent from the current tree. The [original paper dCor/MIC runners](paper_runners/dependence/README.md) are retained separately; see their input requirements and verification boundaries. The exported-data `run_all.py` does not automatically rerun those estimators.
+- Historical training frameworks and duplicate reports are intentionally absent. The [original paper dCor/MIC runners](paper_runners/dependence/README.md) and [Point 4 acquisition code](paper_runners/point4/README.md) are retained separately with their input requirements and verification boundaries. The exported-data `run_all.py` does not automatically execute acquisition or rerun those estimators.
 - `nb201_v1/evaluate.py` is retained as source for its original paired-MAE function, extracted by the adapter without executing its training entry point. Use `run_all.py`, not historical helper entry points.
 
 ## Tests
