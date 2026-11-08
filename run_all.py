@@ -5,6 +5,7 @@ from pathlib import Path
 import importlib.util
 import importlib.metadata
 import shutil
+import subprocess
 import sys
 import traceback
 
@@ -121,8 +122,14 @@ def main():
     parser.add_argument('--list', action='store_true', help='Print the thesis table/figure inventory')
     parser.add_argument('--check', action='store_true', help='Check frozen inputs and dependencies without producing results')
     parser.add_argument('--out', type=Path, help='New output directory, never an existing path')
+    parser.add_argument('--point4-report', type=Path, help='Read-only Point 4 report from an exported package; no training')
     args = parser.parse_args()
-    if args.list:
+    if args.point4_report is not None:
+        if args.list or args.check or args.out is not None:
+            parser.error('--point4-report cannot be combined with --list, --check or --out')
+        subprocess.run([sys.executable, '-B', str(ROOT / 'paper_runners/point4/report.py'),
+                        '--root', str(args.point4_report.resolve())], check=True)
+    elif args.list:
         print(json.dumps(dict(tables=TABLES, figures=FIGURES)))
     elif args.check:
         print(json.dumps(preflight(), indent=2))

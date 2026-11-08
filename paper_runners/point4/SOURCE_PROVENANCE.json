@@ -1,0 +1,45 @@
+{
+  "source": "Recovered local point4-source / point4-all3-no-checkpoints-v1 package; not a fresh cluster snapshot",
+  "files": {
+    "prepare.py": {
+      "original_sha256": "6193dfa2bf170ed6382e954626d7fbbfc5771f30223b91318181afb7798a6195",
+      "published_sha256": "6193dfa2bf170ed6382e954626d7fbbfc5771f30223b91318181afb7798a6195",
+      "byte_identical": true
+    },
+    "report.py": {
+      "original_sha256": "ad05890d574fd56de1fb342a2c0152eb0a0b67fdc570c4fa2a91f480464a3844",
+      "published_sha256": "0647b9b65e7b0caa2fec32ddb2cc371c6421ef738602cd9cabfc174d06eaebf4",
+      "byte_identical": false
+    },
+    "build_source/build_package.py": {
+      "original_sha256": "98ee5cd03e67123aa0b7f1214b7115e5e635e93aa4792cd8103bec162a657e18",
+      "published_sha256": "98ee5cd03e67123aa0b7f1214b7115e5e635e93aa4792cd8103bec162a657e18",
+      "byte_identical": true
+    },
+    "build_source/test_package.py": {
+      "original_sha256": "8cd9b4f9989751c9baafb98eb9d93196daa3e5bc4493d91ae14e5cabae789fb1",
+      "published_sha256": "8cd9b4f9989751c9baafb98eb9d93196daa3e5bc4493d91ae14e5cabae789fb1",
+      "byte_identical": true
+    },
+    "build_source/worker.py": {
+      "original_sha256": "390e0874cc449548a14bae6ceb92305e4d9508aaff41085e2fcc9e8d10fd86e4",
+      "published_sha256": "390e0874cc449548a14bae6ceb92305e4d9508aaff41085e2fcc9e8d10fd86e4",
+      "byte_identical": true
+    },
+    "lemur-robustness-all3-v1-cifar10/worker.py": {
+      "original_sha256": "241b8473e0a2d4778b9a5b9ee0cf6ccf22a9f95b9b21ed09ceb634d5ddc03406",
+      "published_sha256": "241b8473e0a2d4778b9a5b9ee0cf6ccf22a9f95b9b21ed09ceb634d5ddc03406",
+      "byte_identical": true
+    },
+    "lemur-robustness-all3-v1-cifar100/worker.py": {
+      "original_sha256": "e9e1a4c5a1d3135fab6ef6bf430b0e9ceecef3c80c998b1efa91a8a502336284",
+      "published_sha256": "e9e1a4c5a1d3135fab6ef6bf430b0e9ceecef3c80c998b1efa91a8a502336284",
+      "byte_identical": true
+    },
+    "lemur-robustness-all3-v1-imagenette/worker.py": {
+      "original_sha256": "9716b7b36a744f3144db753f7b4cfd13da9be73c4a2f47d1542a5d93fd4db36d",
+      "published_sha256": "9716b7b36a744f3144db753f7b4cfd13da9be73c4a2f47d1542a5d93fd4db36d",
+      "byte_identical": true
+    }
+  }
+}
