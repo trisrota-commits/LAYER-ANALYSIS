@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "description": "Source-only byte-preserved copies of original nested experiment launchers; not a standalone runnable experiment or execution receipt.",
+  "scope": [
+    "seed43 original inner template",
+    "seed44 unfinished-inner recovery",
+    "seeds43-47 outer selection locking and launch"
+  ],
+  "historical_boundary": "Seed44-47 inner launch adaptations and diskguard bypass were in-memory operator commands, not edits to the original seed43 template. Those executed command variants are not reconstructed or supplied here.",
+  "usage_notes": [
+    "For historical source inspection. Executing launch entry points can submit Kubernetes GPU jobs and write experiment directories; none were executed during this transfer.",
+    "Original absolute cluster paths, pinned controllers/workers, contracts, settings, environment locks, runtime dependencies and experiment artifacts are required; they are not bundled here.",
+    "Original entry points: seed43 inner and seed44 recovery launch with no arguments; outer launcher requires --seed 43 through 47. These are documentation only, not instructions to launch locally.",
+    "No experiment data or Train.py modifications are included; publishing these files does not submit any jobs."
+  ],
+  "verification": {
+    "byte_equality": "All three copies compared directly with original source bytes.",
+    "syntax": "AST parse and compile without execution for all three files and the seed43 embedded RUNTIME.",
+    "credential_scan": "Static heuristic checks for private keys, common provider tokens, literal credential assignments and credential-bearing URLs; no matches. Not a guarantee of absence.",
+    "runtime_executed": false
+  },
+  "files": [
+    {
+      "filename": "nested-seed43-inner-launch.py",
+      "source_file": "nested-seed43-inner-launch.py",
+      "sha256": "b6ef5c60f32aa2224739db0cd861381ff29fcf29c3634b626044c8622044a99d",
+      "size_bytes": 7501
+    },
+    {
+      "filename": "nested-seed44-recovery-v1.py",
+      "source_file": "nested-seed44-recovery-v1.py",
+      "sha256": "c9105631d1f90d63232fd333085a7df3c7312a8d2fe8b1e6c5d54afd04e200f2",
+      "size_bytes": 10620
+    },
+    {
+      "filename": "nested-seeds43-47-outer-launch.py",
+      "source_file": "nested-seeds43-47-outer-launch.py",
+      "sha256": "6131c0e3a70ad29ad2a9c57499184a77c37cd20d97aec68fb63de2b4526cab86",
+      "size_bytes": 10874
+    }
+  ]
+}

@@ -118,12 +118,58 @@ def reproduce(out, checked):
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description=__doc__, epilog=(
+        'Revision modes are explicit and never submit GPU jobs. '
+        'loss-confidence needs the frozen loss-confidence input tar.gz; '
+        'lemur-paired and classical-no-taylor need the frozen two-experiments ZIP. '
+        'classical-no-taylor performs CPU fitting with requirements-classical-no-taylor.txt. '
+        'report expects --inputs containing loss-confidence-all-metrics-v1, '
+        'nb201-qwen-extra-metrics-v1, lemur-extra-paired-intervals-v1 and classical-no-taylor-v1. '
+        'External inputs are not bundled by the source-only revision release.'))
     parser.add_argument('--list', action='store_true', help='Print the thesis table/figure inventory')
     parser.add_argument('--check', action='store_true', help='Check frozen inputs and dependencies without producing results')
     parser.add_argument('--out', type=Path, help='New output directory, never an existing path')
     parser.add_argument('--point4-report', type=Path, help='Read-only Point 4 report from an exported package; no training')
+    parser.add_argument('--revision', choices=['loss-confidence', 'nb201-qwen', 'lemur-paired', 'classical-no-taylor', 'report'],
+                        help='Run one revision workflow; requires a new --out directory')
+    parser.add_argument('--archive', type=Path, help='External frozen input archive for the selected revision workflow')
+    parser.add_argument('--inputs', type=Path, help='Parent directory of completed analysis outputs for --revision report')
     args = parser.parse_args()
+    if args.revision:
+        if args.list or args.check or args.point4_report is not None:
+            parser.error('--revision cannot be combined with --list, --check or --point4-report')
+        if args.out is None:
+            parser.error('--revision requires --out')
+        if args.out.exists():
+            parser.error('Existing output preserved: ' + str(args.out))
+        needs_archive = args.revision in ['loss-confidence', 'lemur-paired', 'classical-no-taylor']
+        if needs_archive and args.archive is None:
+            parser.error('This revision requires --archive')
+        if args.archive is not None and (not needs_archive or not args.archive.is_file()):
+            parser.error('--archive must be an existing file required by this revision')
+        if args.revision == 'report' and (args.inputs is None or not args.inputs.is_dir()):
+            parser.error('--revision report requires an existing --inputs directory')
+        if args.inputs is not None and args.revision != 'report':
+            parser.error('--inputs is only valid with --revision report')
+        out = args.out.resolve()
+        if args.revision == 'loss-confidence':
+            from analysis.revision_loss_confidence import run
+            run(args.archive.resolve(), out)
+        elif args.revision == 'nb201-qwen':
+            from analysis.revision_nb201 import run
+            run(ROOT, out)
+        elif args.revision == 'lemur-paired':
+            from analysis.revision_lemur import run
+            run(ROOT, out, args.archive.resolve())
+        elif args.revision == 'classical-no-taylor':
+            from analysis.revision_classical import run
+            run(args.archive.resolve(), out)
+        else:
+            from analysis.revision_report import run
+            run(args.inputs.resolve(), out)
+        return
+    if args.archive is not None or args.inputs is not None:
+        parser.error('--archive and --inputs require --revision')
     if args.point4_report is not None:
         if args.list or args.check or args.out is not None:
             parser.error('--point4-report cannot be combined with --list, --check or --out')

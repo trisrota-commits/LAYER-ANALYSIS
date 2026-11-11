@@ -1,0 +1,5 @@
+# Separate CPU environment for the historical no-Taylor classical fitting protocol.
+# Python 3.11; not a replacement for requirements-reproduce.txt.
+numpy==2.2.6
+scipy==1.15.3
+scikit-learn==1.7.2
