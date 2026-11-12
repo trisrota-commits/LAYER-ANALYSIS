@@ -1,0 +1,20 @@
+{
+  "description": "Byte-preserved original six-seed outer postprocessing source. Numerical data and reports are not included in this source-only upload.",
+  "input_archive": "nested-outer-six-seeds-v1.tar.gz",
+  "input_archive_sha256": "c183e6640d634ed61a78b4b96f5ccecf4d1f84dcf5ff45ee0b42d92768ca9e0f",
+  "scope": "Seeds42-47;1139 classification records; all target accuracies. Paired architecture-group bootstrap stratified by outer fold,10000 draws,seed0,Bonferroni5. Fixed models and selections; no model refitting or seed resampling.",
+  "usage_boundary": "These originals retain their historical Windows input/output paths. Inspect and configure paths before executing elsewhere. The renderer executes at import and refuses an existing report. They are not automatically executed by run_all.py. The portable revision modes are documented separately in docs/REVISION_WORKFLOWS.md.",
+  "verification": "Original analysis and rendering were executed on the exported data before publication. Copies byte-compared with those originals and syntax checked. No GPU Jobs or cleanup were performed during publication.",
+  "files": [
+    {
+      "filename": "analyze_nested_outer_six_seeds.py",
+      "sha256": "dedea7854ae995e912f9e60871ee24f890f1db17977fcb89f7f83b3491ac561b",
+      "size_bytes": 12900
+    },
+    {
+      "filename": "render_nested_outer_report.py",
+      "sha256": "979bd595184d9ec5a141bfbce8a2dcda537154cdb8442ef9cee6cf525673859b",
+      "size_bytes": 5243
+    }
+  ]
+}

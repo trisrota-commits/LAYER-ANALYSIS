@@ -1,0 +1,16 @@
+dataset,metric,estimate,low,high,adjusted_low,adjusted_high,population,interval,source
+CIFAR-10-valid,MAE*,0.6915995115995114,0.41773675629239243,0.9654622669066304,,,target_ge20,"Record-paired t interval, unadjusted",evidence/nb201-qwen-primary-v1/cifar10/analysis/results.json
+CIFAR-10-valid,RMSE,1.04432100785177,0.5539959867288357,1.543371486764932,0.341965581453879,1.766198584096231,all275,Operation-family percentile bootstrap; Bonferroni12,nb201-qwen-extra-metrics-v1/intervals.csv
+CIFAR-10-valid,Pearson,0.06413917111037137,0.027248759593692513,0.21499747216846052,0.016380074314572862,0.31540761353537566,all275,Operation-family percentile bootstrap; Bonferroni12,nb201-qwen-extra-metrics-v1/intervals.csv
+CIFAR-10-valid,Spearman,0.21260007026264127,0.1233687385978397,0.2954064875894028,0.08333351721240516,0.33572861652806557,all275,Operation-family percentile bootstrap; Bonferroni12,nb201-qwen-extra-metrics-v1/intervals.csv
+CIFAR-10-valid,R2,0.1235544428302382,0.05401413888274797,0.3806407002538035,0.03277636325531729,0.6029896005159195,all275,Operation-family percentile bootstrap; Bonferroni12,nb201-qwen-extra-metrics-v1/intervals.csv
+CIFAR-100,MAE*,0.9926041666666667,0.6332200789979456,1.3519882543353878,,,target_ge20,"Record-paired t interval, unadjusted",evidence/nb201-qwen-primary-v1/cifar100/analysis/results.json
+CIFAR-100,RMSE,1.5072625751532982,0.9680015783757452,2.0525339393945337,0.7300808163656224,2.2777812297962248,all275,Operation-family percentile bootstrap; Bonferroni12,nb201-qwen-extra-metrics-v1/intervals.csv
+CIFAR-100,Pearson,0.09893277453922944,0.04767618314660625,0.20282014719763014,0.03286316257441161,0.28344083918741536,all275,Operation-family percentile bootstrap; Bonferroni12,nb201-qwen-extra-metrics-v1/intervals.csv
+CIFAR-100,Spearman,0.22183633144813875,0.14002231963970896,0.2877001303366199,0.10226948032285979,0.320048641072583,all275,Operation-family percentile bootstrap; Bonferroni12,nb201-qwen-extra-metrics-v1/intervals.csv
+CIFAR-100,R2,0.18135738886882136,0.0963962670744232,0.3445554017885118,0.0698021121761743,0.4484707888261335,all275,Operation-family percentile bootstrap; Bonferroni12,nb201-qwen-extra-metrics-v1/intervals.csv
+ImageNet16-120,MAE*,1.066860465116279,0.65313542138905,1.4805855088435078,,,target_ge20,"Record-paired t interval, unadjusted",evidence/nb201-imagenet16-primary-v1/analysis/results.json
+ImageNet16-120,RMSE,1.9286352082780924,1.2123490045945922,2.667836271507677,0.926522536391495,3.0460911202139025,all275,Operation-family percentile bootstrap; Bonferroni12,nb201-qwen-extra-metrics-v1/intervals.csv
+ImageNet16-120,Pearson,0.16630754634845446,0.08934928734763409,0.24995251660456,0.06025478521138733,0.2940621220829808,all275,Operation-family percentile bootstrap; Bonferroni12,nb201-qwen-extra-metrics-v1/intervals.csv
+ImageNet16-120,Spearman,0.18521926899404184,0.09906654406222241,0.25852283858418024,0.0621091769315043,0.29746462524252193,all275,Operation-family percentile bootstrap; Bonferroni12,nb201-qwen-extra-metrics-v1/intervals.csv
+ImageNet16-120,R2,0.37881611300736007,0.21625782824367706,0.6224664999665419,0.16234179430020518,0.7785710307481101,all275,Operation-family percentile bootstrap; Bonferroni12,nb201-qwen-extra-metrics-v1/intervals.csv
