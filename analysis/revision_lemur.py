@@ -18,6 +18,7 @@ from analysis.revision_common import METRICS, metrics
 REFERENCES = ['All seven / ZCP-OFF', 'XGBoost / 3 accuracies',
               'Calibrated SynFlow', 'Calibrated NASWOT']
 ARCHIVE_SHA256 = 'e3629395b79631261ea11675a41c46d5ddc6a2b5b76c87015dab955d2249bd1e'
+PUBLIC_ARCHIVE_SHA256 = '3a420140ff64a851bd64fe916c37651ff7016bc93b87fad41ce9309f05448ebd'
 PACKET = 'evidence/overleaf-table-evidence-reproducible-20261019-v2.zip'
 
 
@@ -34,7 +35,7 @@ def load_inputs(repo: Path, archive: Path):
     """Check archive integrity and exact paired identities before computing metrics."""
     manifest = json.loads((repo / 'INPUT_MANIFEST.json').read_text())['files']
     require(digest((repo / PACKET).read_bytes()) == manifest[PACKET], 'Frozen packet SHA256 mismatch')
-    require(digest(archive.read_bytes()) == ARCHIVE_SHA256, 'Archive SHA256 mismatch')
+    require(digest(archive.read_bytes()) in {ARCHIVE_SHA256, PUBLIC_ARCHIVE_SHA256}, 'Archive SHA256 mismatch')
     # The existing pool is cached: clear it so a previous run against this path
     # cannot supply stale bytes after the manifest check above.
     existing.pools.cache_clear()
@@ -93,6 +94,7 @@ def run(repo: Path, out: Path, archive: Path):
     repo, out, archive = Path(repo), Path(out), Path(archive)
     if out.exists():
         raise RuntimeError('Existing output preserved: ' + str(out))
+    archive_hash = digest(archive.read_bytes())
     pred, y, registry, sources, hashes, packet_hash = load_inputs(repo, archive)
     names = METRICS
     labels = REFERENCES
@@ -116,7 +118,7 @@ def run(repo: Path, out: Path, archive: Path):
                                ci95_low=float(ci[0, i, k]), ci95_high=float(ci[1, i, k]),
                                bonferroni20_low=float(adjusted[0, i, k]),
                                bonferroni20_high=float(adjusted[1, i, k]), draws=10000, n=115))
-    require(digest(archive.read_bytes()) == ARCHIVE_SHA256, 'Archive changed during analysis')
+    require(digest(archive.read_bytes()) == archive_hash, 'Archive changed during analysis')
     require(digest((repo / PACKET).read_bytes()) == packet_hash, 'Packet changed during analysis')
     out.mkdir(parents=True)
     with (out / 'intervals.csv').open('x', newline='') as f:
@@ -128,7 +130,7 @@ def run(repo: Path, out: Path, archive: Path):
     (out / 'test_registry.json').write_text(json.dumps(registry, indent=2) + '\n')
     report = dict(status='complete', results=output, methods=['Qwen Taylor / ZCP-OFF', *labels], metrics=names,
                   main_sources={k: sources[k] for k in ['3/off/taylor', '3/off/all-seven']}, baseline_sources_sha256=hashes,
-                  source_archive_sha256=ARCHIVE_SHA256, source_packet_sha256=packet_hash,
+                  source_archive_sha256=archive_hash, source_packet_sha256=packet_hash,
                   metric_helper_sha256=digest(Path(revision_common.__file__).read_bytes()),
                   script_sha256=digest(Path(__file__).read_bytes()),
                   method='10000 paired test-record bootstrap draws; numpy default_rng(0); fixed fitted models; metrics per seed then averaged; no seed resampling; Bonferroni20 across four contrasts x five metrics',

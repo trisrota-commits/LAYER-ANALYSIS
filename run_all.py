@@ -125,14 +125,14 @@ def main():
         'classical-no-taylor performs CPU fitting with requirements-classical-no-taylor.txt. '
         'report expects --inputs containing loss-confidence-all-metrics-v1, '
         'nb201-qwen-extra-metrics-v1, lemur-extra-paired-intervals-v1 and classical-no-taylor-v1. '
-        'External inputs are not bundled by the source-only revision release.'))
+        'Frozen input archives are bundled under evidence/; see docs/EVIDENCE_RELEASE.md.'))
     parser.add_argument('--list', action='store_true', help='Print the thesis table/figure inventory')
     parser.add_argument('--check', action='store_true', help='Check frozen inputs and dependencies without producing results')
     parser.add_argument('--out', type=Path, help='New output directory, never an existing path')
     parser.add_argument('--point4-report', type=Path, help='Read-only Point 4 report from an exported package; no training')
     parser.add_argument('--revision', choices=['loss-confidence', 'nb201-qwen', 'lemur-paired', 'classical-no-taylor', 'report'],
                         help='Run one revision workflow; requires a new --out directory')
-    parser.add_argument('--archive', type=Path, help='External frozen input archive for the selected revision workflow')
+    parser.add_argument('--archive', type=Path, help='Frozen input archive for the selected revision workflow')
     parser.add_argument('--inputs', type=Path, help='Parent directory of completed analysis outputs for --revision report')
     args = parser.parse_args()
     if args.revision:

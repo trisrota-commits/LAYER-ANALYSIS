@@ -11,13 +11,13 @@ For **classical-no-taylor**, use a separate Python 3.11 environment with
 `requirements-classical-no-taylor.txt`: the fitting adapter checks the historical
 NumPy/SciPy/scikit-learn versions and refuses drift.
 
-The source-only release does not add experiment data. Supply these frozen
-exports yourself (the examples assume they are under an `inputs/` directory):
+The approved evidence release now includes these frozen exports under
+`evidence/`. See `docs/EVIDENCE_RELEASE.md` for contents and limitations:
 
 | Input | Required by | SHA-256 |
 | --- | --- | --- |
 | `loss-confidence-all-metrics-inputs-v1.tar.gz` | loss-confidence | `6f852836ce55e57d4eea49d54b484b33d78a9d0f26b7b12d24f4435487007121` |
-| `two-experiments-inputs-v1.zip` | lemur-paired, classical-no-taylor | `e3629395b79631261ea11675a41c46d5ddc6a2b5b76c87015dab955d2249bd1e` |
+| `two-experiments-cpu-inputs-v1.zip` | lemur-paired, classical-no-taylor | `3a420140ff64a851bd64fe916c37651ff7016bc93b87fad41ce9309f05448ebd` |
 
 The NB201 Qwen mode uses the existing repository prediction panels and registry
 files checked against `INPUT_MANIFEST.json`. No external archive is needed.
@@ -30,16 +30,16 @@ or overwritten automatically.
 From the repository root, in the appropriate environment:
 
 ```bash
-python -B run_all.py --revision loss-confidence --archive inputs/loss-confidence-all-metrics-inputs-v1.tar.gz --out recomputed/revision/loss-confidence-all-metrics-v1
+python -B run_all.py --revision loss-confidence --archive evidence/loss-confidence-all-metrics-inputs-v1.tar.gz --out recomputed/revision/loss-confidence-all-metrics-v1
 python -B run_all.py --revision nb201-qwen --out recomputed/revision/nb201-qwen-extra-metrics-v1
-python -B run_all.py --revision lemur-paired --archive inputs/two-experiments-inputs-v1.zip --out recomputed/revision/lemur-extra-paired-intervals-v1
+python -B run_all.py --revision lemur-paired --archive evidence/two-experiments-cpu-inputs-v1.zip --out recomputed/revision/lemur-extra-paired-intervals-v1
 ```
 
 In the separate classical-fitting environment:
 
 ```bash
 python -m pip install -r requirements-classical-no-taylor.txt
-python -B run_all.py --revision classical-no-taylor --archive inputs/two-experiments-inputs-v1.zip --out recomputed/revision/classical-no-taylor-v1
+python -B run_all.py --revision classical-no-taylor --archive evidence/two-experiments-cpu-inputs-v1.zip --out recomputed/revision/classical-no-taylor-v1
 ```
 
 After all four output directories exist, return to the reproduction environment
@@ -100,4 +100,10 @@ that preserved file. Do not treat the source copy as proof of current Job status
   accepts an externally supplied original Figure6.1 PDF, preserves the vector
   plot, and changes the NB201 label to `CIFAR-10-valid`. It requires the Computer
   Modern font from TeX (or an explicit `--font` path) and refuses an existing
-  output directory. The input PDF is not added by this source-only release.
+  output directory. The already corrected PDF is supplied as `images/taylor_summary.pdf`;
+  do not run the relabeler against that corrected file.
+- `python -B figures/nb201_forest/make_nb201_forest_only.py --out recomputed/nb201-forest-only`
+  regenerates the forest-only NB201 figure from the bundled interval CSV and
+  existing primary results. All15 plotted estimates and intervals are preserved;
+  no panel letters, left-hand bars, fitting or bootstrap recomputation. The ready
+  PDF is `images/fig_nb201.pdf`.

@@ -16,6 +16,7 @@ import tempfile
 import zipfile
 
 EXPECTED = 'e3629395b79631261ea11675a41c46d5ddc6a2b5b76c87015dab955d2249bd1e'
+PUBLIC_ARCHIVE = '3a420140ff64a851bd64fe916c37651ff7016bc93b87fad41ce9309f05448ebd'
 FEATURES = ['accuracy_1', 'accuracy_2', 'accuracy_3', 'log_params', 'depth']
 
 
@@ -43,7 +44,8 @@ def check_versions(expected):
 
 
 def load(archive):
-    require(sha(archive.read_bytes()) == EXPECTED, 'Archive checksum mismatch')
+    archive_hash = sha(archive.read_bytes())
+    require(archive_hash in {EXPECTED, PUBLIC_ARCHIVE}, 'Archive checksum mismatch')
     with zipfile.ZipFile(archive) as z:
         prefix = 'files/classical-eight-features-v1/'
         complete = json.loads(z.read(prefix + 'complete.json'))
@@ -90,7 +92,7 @@ def load(archive):
         features=FEATURES, seeds=list(range(42, 48)), splits=splits,
         target_policy=old['target_policy'], preprocessing=old['preprocessing'], selection=old['selection'],
         comparison_note='Saved Qwen+Taylor versus classical predictors without Taylor. Classical inputs retain three accuracies, log_params and depth. Qwen retains its original metadata and Taylor inputs. This compares complete approaches, not Taylor in isolation.',
-        source_archive_sha256=EXPECTED, source_records_sha256=sha(records),
+        source_archive_sha256=archive_hash, source_records_sha256=sha(records),
         qwen_prediction_sha256=reference_hashes, gpu_required=False, qwen_retrained=False,
         adapter_sha256=sha(Path(__file__).read_bytes()),
     )
@@ -113,4 +115,4 @@ def run(archive, out):
         module.FEATURES = FEATURES
         with threadpool_limits(limits=1):
             module.run_fits(data, projected, receipt, reference, out)
-    require(sha(archive.read_bytes()) == EXPECTED, 'Input archive changed during fitting')
+    require(sha(archive.read_bytes()) == receipt['source_archive_sha256'], 'Input archive changed during fitting')
