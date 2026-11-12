@@ -62,7 +62,7 @@ The LEMUR packet is kept intact to preserve its nested manifests, required group
 - Design tables render documented protocol definitions. Outputs reproduce numerical content, not identical manuscript page layout.
 - LEMUR feature selection was exploratory. NB201 predictors were fitted separately within each dataset; this is not zero-shot transfer or a claim of universal LLM superiority.
 - The initial two-accuracy/no-layer RMSE computes to `11.4715` at four decimals; the original manuscript prints `11.4716`. The runner preserves the computed value and reports the discrepancy.
-- Historical training frameworks and duplicate reports are intentionally absent. The [original paper dCor/MIC runners](paper_runners/dependence/README.md) and [Point 4 acquisition code](paper_runners/point4/README.md) are retained separately with their input requirements and verification boundaries. The exported-data `run_all.py` does not automatically execute acquisition or rerun those estimators.
+- The standard reproduction command uses saved data and predictions; it does not repeat model training or layer-statistic collection. Original [dCor/MIC analysis scripts](paper_runners/dependence/README.md) and [Point 4 measurement code](paper_runners/point4/README.md) are provided separately with their required inputs and instructions.
 - `nb201_v1/evaluate.py` is retained as source for its original paired-MAE function, extracted by the adapter without executing its training entry point. Use `run_all.py`, not historical helper entry points.
 
 ## Tests
