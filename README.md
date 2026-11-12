@@ -1,6 +1,6 @@
 # Layer-Wise Training Statistics: Reproduction
 
-Reproduce the numerical content of **25 thesis tables and 9 figures** from frozen exported data and saved predictions. No database, GPU, candidate training, or Qwen fitting is required.
+Reproduce the numerical content of **25 tables and 9 figures** from frozen exported data and saved predictions. The table count includes three protocol/design tables. No database, GPU, candidate training, or Qwen fitting is required.
 
 ## Run
 
@@ -12,16 +12,16 @@ python -m venv .venv
 # Windows PowerShell: .venv\Scripts\Activate.ps1
 python -m pip install -r requirements-reproduce.txt
 python -B run_all.py --check
-python -B run_all.py --out recomputed/thesis
+python -B run_all.py --out recomputed/results
 ```
 
 The output directory must be new. The full command writes tables as CSV/Markdown/LaTeX, figures as PDF/PNG, analysis reports, source/input hashes and `complete.json`. Failed runs preserve their diagnostics and do not claim completion.
 
 [Detailed instructions and scientific boundaries](docs/REPRODUCE_THESIS.md) · [Verification receipt](docs/reproduction-verification.json)
 
-### Revised-thesis acquisition source and optional report
+### Revision acquisition source and optional report
 
-The 25-table/9-figure workflow above covers the earlier thesis snapshot, not all
+The 25-table/9-figure workflow above covers the original evaluation snapshot, not all
 later revision experiments. The recovered [Point 4 acquisition source](paper_runners/point4/README.md)
 is now preserved separately. To report its completed exported analyses without
 training or modifying inputs, use:
@@ -42,7 +42,7 @@ publication gaps; the older NB201 results are not substitutes for those studies.
 run_all.py                  Unified entry point
 requirements-reproduce.txt  Pinned CPU dependencies
 INPUT_MANIFEST.json         Hashes of required frozen inputs/helper source
-analysis/thesis_*.py        Reproduction adapters
+analysis/                  Reproduction and revision adapters
 paper_runners/dependence/   Original dCor and MIC analysis runners
 paper_runners/point4/       Recovered acquisition source and optional export report
 nb201_v1/                   Preserved statistical helper source
@@ -59,9 +59,9 @@ The LEMUR packet is kept intact to preserve its nested manifests, required group
 ## Scope
 
 - Prediction metrics and paired analyses are recalculated from saved predictions. Dependence summaries/heatmaps aggregate exported per-cell estimates; raw-network extraction and dependence-estimator permutations are not repeated.
-- Design tables render documented protocol definitions. Outputs reproduce numerical content, not identical thesis page layout.
+- Design tables render documented protocol definitions. Outputs reproduce numerical content, not identical manuscript page layout.
 - LEMUR feature selection was exploratory. NB201 predictors were fitted separately within each dataset; this is not zero-shot transfer or a claim of universal LLM superiority.
-- The initial two-accuracy/no-layer RMSE computes to `11.4715` at four decimals; the thesis prints `11.4716`. The runner preserves the computed value and reports the discrepancy.
+- The initial two-accuracy/no-layer RMSE computes to `11.4715` at four decimals; the original manuscript prints `11.4716`. The runner preserves the computed value and reports the discrepancy.
 - Historical training frameworks and duplicate reports are intentionally absent. The [original paper dCor/MIC runners](paper_runners/dependence/README.md) and [Point 4 acquisition code](paper_runners/point4/README.md) are retained separately with their input requirements and verification boundaries. The exported-data `run_all.py` does not automatically execute acquisition or rerun those estimators.
 - `nb201_v1/evaluate.py` is retained as source for its original paired-MAE function, extracted by the adapter without executing its training entry point. Use `run_all.py`, not historical helper entry points.
 
