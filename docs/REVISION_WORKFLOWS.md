@@ -18,6 +18,7 @@ The approved evidence release now includes these frozen exports under
 | --- | --- | --- |
 | `loss-confidence-all-metrics-inputs-v1.tar.gz` | loss-confidence | `6f852836ce55e57d4eea49d54b484b33d78a9d0f26b7b12d24f4435487007121` |
 | `two-experiments-cpu-inputs-v1.zip` | lemur-paired, classical-no-taylor | `3a420140ff64a851bd64fe916c37651ff7016bc93b87fad41ce9309f05448ebd` |
+| `nested-outer-six-seeds-v1.tar.gz` | nested-outer | `c183e6640d634ed61a78b4b96f5ccecf4d1f84dcf5ff45ee0b42d92768ca9e0f` |
 
 The NB201 Qwen mode uses the existing repository prediction panels and registry
 files checked against `INPUT_MANIFEST.json`. No external archive is needed.
@@ -54,6 +55,17 @@ checks completion receipts and recalculates the Qwen-versus-no-Taylor-classical
 paired comparisons from their saved predictions. The report contains 167
 metric-level rows; this is not a census of every historical thesis experiment.
 
+The later six-seed nested evaluation has its own complete metric and PDF report:
+
+```bash
+python -B run_all.py --revision nested-outer --archive evidence/nested-outer-six-seeds-v1.tar.gz --out recomputed/nested-outer-six-seed-analysis
+```
+
+This mode relocates only the paths in the checksum-pinned original analysis and
+renderer, preserving their calculations. It writes per-fold, per-seed and mean
+metrics, paired intervals, bootstrap draws and `nested_results.pdf`. It does not
+refit models or submit Jobs, and is separate from the earlier167-row report.
+
 ## Scientific scope
 
 | Mode | Population / comparison | Resampling and correction |
@@ -63,6 +75,7 @@ metric-level rows; this is not a census of every historical thesis experiment.
 | lemur-paired | Qwen Taylor/ZCP-OFF vs all-seven/ZCP-OFF, 3-accuracy XGBoost, calibrated SynFlow and NASWOT; 115 records | 10,000 paired-record draws, seed 0; Bonferroni20 |
 | classical-no-taylor | Ridge/RF/HistGB with three early accuracies plus log_params/depth; reuse saved Qwen+Taylor | CPU fitting with original validation grids and preprocessing; seed summaries are descriptive, not paired tests |
 | report | Combine the preceding analyses and compare Qwen+Taylor with no-Taylor classical models | Classical comparisons use 10,000 paired-record draws, seed 0; Bonferroni15 |
+| nested-outer | Taylor vs no-layer; all1139 classification records and seeds42-47 | 10,000 paired architecture-group draws stratified by outer fold, seed0; metric per seed then average; Bonferroni5; fixed fits/selections, no seed resampling |
 
 The correction families are separate, not a joint correction across all 167
 rows. Predictor/calibrator fitting uncertainty and candidate-acquisition seed

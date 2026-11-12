@@ -32,10 +32,10 @@ nested archives, not a standalone archive of every original training log. Its
 were not available locally and are not reconstructed from prose. Older and newer
 analyses retain their separate provenance and uncertainty methods.
 
-See `REVISION_WORKFLOWS.md` for the five portable `run_all.py --revision` modes.
+See `REVISION_WORKFLOWS.md` for the portable `run_all.py --revision` modes.
 The standalone nested postprocessing originals retain their historical paths;
-their numerical input archive is now provided, but they are not automatically
-invoked by `run_all.py`.
+`--revision nested-outer` supplies portable input/output locations and runs their
+unchanged calculations and renderer. No GPU launcher is invoked.
 
 ## Corrected figures
 

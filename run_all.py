@@ -122,6 +122,7 @@ def main():
         'Revision modes are explicit and never submit GPU jobs. '
         'loss-confidence needs the frozen loss-confidence input tar.gz; '
         'lemur-paired and classical-no-taylor need the frozen two-experiments ZIP. '
+        'nested-outer needs nested-outer-six-seeds-v1.tar.gz and writes metrics, bootstrap intervals and a PDF. '
         'classical-no-taylor performs CPU fitting with requirements-classical-no-taylor.txt. '
         'report expects --inputs containing loss-confidence-all-metrics-v1, '
         'nb201-qwen-extra-metrics-v1, lemur-extra-paired-intervals-v1 and classical-no-taylor-v1. '
@@ -130,7 +131,7 @@ def main():
     parser.add_argument('--check', action='store_true', help='Check frozen inputs and dependencies without producing results')
     parser.add_argument('--out', type=Path, help='New output directory, never an existing path')
     parser.add_argument('--point4-report', type=Path, help='Read-only Point 4 report from an exported package; no training')
-    parser.add_argument('--revision', choices=['loss-confidence', 'nb201-qwen', 'lemur-paired', 'classical-no-taylor', 'report'],
+    parser.add_argument('--revision', choices=['loss-confidence', 'nb201-qwen', 'lemur-paired', 'classical-no-taylor', 'nested-outer', 'report'],
                         help='Run one revision workflow; requires a new --out directory')
     parser.add_argument('--archive', type=Path, help='Frozen input archive for the selected revision workflow')
     parser.add_argument('--inputs', type=Path, help='Parent directory of completed analysis outputs for --revision report')
@@ -142,7 +143,7 @@ def main():
             parser.error('--revision requires --out')
         if args.out.exists():
             parser.error('Existing output preserved: ' + str(args.out))
-        needs_archive = args.revision in ['loss-confidence', 'lemur-paired', 'classical-no-taylor']
+        needs_archive = args.revision in ['loss-confidence', 'lemur-paired', 'classical-no-taylor', 'nested-outer']
         if needs_archive and args.archive is None:
             parser.error('This revision requires --archive')
         if args.archive is not None and (not needs_archive or not args.archive.is_file()):
@@ -164,6 +165,9 @@ def main():
         elif args.revision == 'classical-no-taylor':
             from analysis.revision_classical import run
             run(args.archive.resolve(), out)
+        elif args.revision == 'nested-outer':
+            from analysis.revision_nested import run
+            run(ROOT, args.archive.resolve(), out)
         else:
             from analysis.revision_report import run
             run(args.inputs.resolve(), out)
