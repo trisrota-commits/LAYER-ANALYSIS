@@ -16,7 +16,7 @@ The approved evidence release now includes these frozen exports under
 
 | Input | Required by | SHA-256 |
 | --- | --- | --- |
-| `loss-confidence-all-metrics-inputs-v1.tar.gz` | loss-confidence | `6f852836ce55e57d4eea49d54b484b33d78a9d0f26b7b12d24f4435487007121` |
+| `loss-confidence-all-metrics-inputs-v1.tar.gz` | loss-confidence, loss-confidence-all-pairs | `6f852836ce55e57d4eea49d54b484b33d78a9d0f26b7b12d24f4435487007121` |
 | `two-experiments-cpu-inputs-v1.zip` | lemur-paired, classical-no-taylor | `3a420140ff64a851bd64fe916c37651ff7016bc93b87fad41ce9309f05448ebd` |
 | `nested-outer-six-seeds-v1.tar.gz` | nested-outer | `c183e6640d634ed61a78b4b96f5ccecf4d1f84dcf5ff45ee0b42d92768ca9e0f` |
 
@@ -66,11 +66,37 @@ renderer, preserving their calculations. It writes per-fold, per-seed and mean
 metrics, paired intervals, bootstrap draws and `nested_results.pdf`. It does not
 refit models or submit Jobs, and is separate from the earlier167-row report.
 
+## All-pairs loss/confidence confidence intervals
+
+```bash
+python -B run_all.py --revision loss-confidence-all-pairs --archive evidence/loss-confidence-all-metrics-inputs-v1.tar.gz --out recomputed/loss-confidence-all-pairs
+```
+
+This separate mode compares every pair of A, A+LC, A+T and A+LC+T for
+MAE, RMSE, Pearson, Spearman and R2 on all test records. It writes 90
+metric comparisons to `all_comparisons.csv`, observed scores to
+`descriptive.csv`, a readable `results.md`, full-precision `results.json`,
+`bootstrap_differences.npz` and a checksum completion receipt. A means early
+accuracy, LC loss/confidence, and T Taylor. No Windows paths or external helper
+scripts are needed; the existing verified repository loader and metrics are reused.
+
+The 10,000 paired operation-family draws use NumPy default_rng(0), reset per
+dataset. Both arms receive identical resamples, and nonlinear metrics are
+recomputed for each draw. Positive improvement means lower errors or higher
+correlations/R2. Bonferroni-30 covers six pairs times five metrics **within each
+dataset**, not jointly across datasets. This post-hoc all-record analysis does
+not replace the older two-population Bonferroni-40 mode or the 167-row report.
+The seed-labeled predictions are identical; there is no seed resampling or
+estimate of fitting variability. ImageNet16-120 remains a partial cohort.
+Extreme adjusted percentile tails have limited Monte Carlo precision, and
+zero-crossing intervals are inconclusive rather than evidence of equivalence.
+
 ## Scientific scope
 
 | Mode | Population / comparison | Resampling and correction |
 | --- | --- | --- |
 | loss-confidence | Four HistGB input contrasts, all records and target >=20; three datasets, ImageNet16 partial | 10,000 operation-family draws, seed 0; Bonferroni40 within each dataset |
+| loss-confidence-all-pairs | All six HistGB arm pairs, five metrics, all records only; three datasets, ImageNet16 partial | 10,000 operation-family draws, seed 0; Bonferroni30 within each dataset |
 | nb201-qwen | Qwen no-layer vs Taylor, all 275 test records per dataset, four non-MAE metrics | 10,000 operation-family draws, seed 0; Bonferroni12 across datasets |
 | lemur-paired | Qwen Taylor/ZCP-OFF vs all-seven/ZCP-OFF, 3-accuracy XGBoost, calibrated SynFlow and NASWOT; 115 records | 10,000 paired-record draws, seed 0; Bonferroni20 |
 | classical-no-taylor | Ridge/RF/HistGB with three early accuracies plus log_params/depth; reuse saved Qwen+Taylor | CPU fitting with original validation grids and preprocessing; seed summaries are descriptive, not paired tests |
