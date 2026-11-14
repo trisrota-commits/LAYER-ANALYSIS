@@ -32,6 +32,35 @@ def fixture(root):
 
 
 class Point4RunnerTests(unittest.TestCase):
+    def test_coverage_filter_precedes_duplicate_check(self):
+        for eligible in (False, True):
+            with self.subTest(eligible=eligible), tempfile.TemporaryDirectory() as temp:
+                root = Path(temp); fixture(root)
+                folder = root / 'lemur-robustness-all3-v1-cifar100/results/analysis'
+                path = folder / 'measurement_summary.csv'
+                with path.open(newline='') as f:
+                    rows = list(csv.DictReader(f))
+                extra = dict(rows[0], candidate='37', coverage_id='coverage-a',
+                             coverage_variants_at_checkpoint='1' if eligible else '3',
+                             n_successful_measurements='6' if eligible else '4')
+                rows.extend([extra, dict(extra, coverage_id='coverage-b')])
+                with path.open('w', newline='') as f:
+                    writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+                    writer.writeheader(); writer.writerows(rows)
+                receipt = json.loads((folder / 'complete.json').read_text())
+                receipt['files_sha256'][path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
+                (folder / 'complete.json').write_text(json.dumps(receipt))
+                before = path.read_bytes()
+                result = self.run_report(root)
+                if eligible:
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertIn('Ambiguous coverage', result.stderr)
+                else:
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                    self.assertIn('=== imagenette ===', result.stdout)
+                    self.assertIn('1 32 eval off 1 2 64 64 25', result.stdout)
+                self.assertEqual(path.read_bytes(), before)
+
     def test_rejects_incomplete_changed_or_unsafe_exports_before_reporting(self):
         for failure in ['missing', 'changed', 'unlisted', 'traversal', 'duplicate', 'empty']:
             with self.subTest(failure=failure), tempfile.TemporaryDirectory() as temp:
