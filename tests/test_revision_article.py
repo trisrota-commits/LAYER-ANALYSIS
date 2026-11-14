@@ -10,6 +10,28 @@ from analysis import revision_article as article
 REPO = Path(__file__).resolve().parents[1]
 
 class ArticleTests(unittest.TestCase):
+    def test_complete_selection_and_reference_rows(self):
+        self.assertTrue(hasattr(article, 'selection_exports'))
+        self.assertTrue(hasattr(article, 'reference_exports'))
+        cond, _, keys = article.load_conditions(REPO)
+        with tempfile.TemporaryDirectory() as tmp:
+            selection = article.execute_original(REPO, 'selection.py', cond, Path(tmp))
+            long_rows, wide_rows, short_rows, random_rows = article.selection_exports(selection, cond)
+        self.assertEqual(len(long_rows), 168)
+        self.assertEqual(len(wide_rows), 24)
+        self.assertEqual(len(short_rows), 8)
+        self.assertEqual({r['zcp'] for r in wide_rows if r['feature']=='all-seven'}, {'off','on'})
+        random = next(r for r in short_rows if r['feature']=='random-reference')
+        self.assertAlmostEqual(random['P@10'], 10/88)
+        self.assertEqual(random['tau'], 0)
+        self.assertEqual(len(random_rows), 7)
+        ns=article.functions(REPO,'metrics.py',{'np':np,'stats':__import__('scipy').stats})
+        y=cond[3,'off','taylor'][42][2]
+        rows=article.reference_exports({'DS':np.array([k[1] for k in keys]),'g':y,'five':ns['five']})
+        self.assertEqual(len(rows),2)
+        self.assertAlmostEqual(rows[0]['RMSE'],14.369951734185099,places=10)
+        self.assertAlmostEqual(rows[1]['R2'],.8117939541292938,places=10)
+
     def test_frozen_input_tamper_is_rejected_before_output(self):
         from unittest.mock import patch
         self.assertTrue(hasattr(article, 'verify_inputs'))
@@ -88,7 +110,8 @@ class ArticleTests(unittest.TestCase):
             self.assertTrue(provenance['prediction_archive']['unchanged_after_run'])
             self.assertEqual(len(provenance['prediction_sources']),276)
             self.assertEqual([r['n'] for r in result['stratification'][::2]],[115,9,106,88,80])
-            self.assertEqual(len(result['selection']['rows']),126)
+            self.assertEqual(len(result['selection']['rows']),168)
+            self.assertEqual(len(result['main_table_VI']),6)
             receipt=json.loads((out/'receipt.json').read_text())
             self.assertEqual(receipt['status'],'complete')
             for name,digest in receipt['files_sha256'].items():

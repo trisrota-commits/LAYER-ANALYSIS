@@ -4,7 +4,68 @@ These are explicit additions to `run_all.py`. The existing `--list`, `--check`,
 `--out` and `--point4-report` interfaces retain their previous meaning.
 No revision mode submits Kubernetes Jobs or trains a language model.
 
+## Entire current article and supplement: one command
+
+With Python 3.11 and `requirements-reproduce.txt`, from the repository root:
+
+```bash
+python -B run_all.py --revision paper-tables --out recomputed/paper-complete
+```
+
+This runs the complete numerical table pipeline, not the older 25-table figure
+workflow. It exports CSV and JSON under `tables/` for all 66 numerical tables
+in the audited seven-table article and 61-table supplement. `TABLE_INDEX.json`
+and `TABLE_INDEX.md` account for every table ID; S1 (synthesis) and S46
+(literature comparison) are explicitly contextual, not new computations.
+`complete.json` is written only after every required table, row count and
+critical interval/reference field is present and original input hashes still
+match. Workflows and their original logs/receipts remain under `workflows/`.
+
+The pipeline includes the complete seed intervals, S6 with/without/change
+columns, all selection rows and random reference, both Main VI group-mean
+baselines, joint NB201 Holm-six values, and standalone paired/LODO/LOFO results.
+It uses saved predictor outputs; it never calls the classical fitting mode.
+Actual mismatches/invalid statistical fits are retained in the index flags:
+an exported table is not a claim that every printed manuscript cell is correct.
+The original 25-table/nine-figure `--out` and `--list` contracts are unchanged.
+
+The newly integrated components can also run separately:
+
+```bash
+python -B run_all.py --revision descriptive --out recomputed/descriptive
+python -B run_all.py --revision paired-tables --out recomputed/paired-tables
+python -B run_all.py --revision classical-saved --out recomputed/classical-saved
+python -B run_all.py --revision nb201-tables --out recomputed/nb201-tables
+```
+
+`descriptive` retains six-seed Student-t intervals, three-repetition pilot
+intervals, and the original proxy-bootstrap seed 20261007. `paired-tables`
+executes the existing checksum-pinned standalone scripts without changing
+their RNGs, holdout recovery mappings or finite-draw policies. `classical-saved`
+recalculates S6/S7/Main VII without any refitting. `nb201-tables` exports all
+three primary/robustness reports and computes joint Holm correction across
+the six primary tests explicitly.
+
 ## Inputs and environments
+
+The uploaded `0001-seed-intervals.patch` is superseded by actual source code.
+Do not reapply it after merging this implementation. Its command is supported:
+
+```bash
+python -B run_all.py --revision seed-intervals --out recomputed/seed-intervals
+```
+
+This exports all 44 rows to `seed_intervals.csv`, JSON and Markdown, retaining
+full precision and using the verified prediction-based descriptive implementation.
+It checks frozen inputs, preserves the exact seed membership and refuses an
+existing output. The original uploaded patch remains recoverable in Git history.
+
+Run the complete test suite (both test styles) with:
+
+```bash
+python -m pip install -r requirements-reproduce.txt
+python -B -m pytest tests -q
+```
 
 Use `requirements-reproduce.txt` for saved-prediction analyses and PDF reporting.
 For **classical-no-taylor**, use a separate Python 3.11 environment with
