@@ -1,0 +1,293 @@
+From 0d721d7547c49964bb2dcdcd29f4f78f99132549 Mon Sep 17 00:00:00 2001
+From: trisrota-commits <noreply@github.com>
+Date: Sat, 14 Nov 2026 23:10:53 +0100
+Subject: [PATCH] feat: add seed-intervals mode for S2, S3 and S10-S13
+
+Recomputes the seed-level 95% t-intervals from the bundled evidence packet.
+third-off-* / third-on-* in final_refit_7ep_v2 are the two- and three-accuracy
+arms (ZCPs on, seeds 42-44); six-seed rows join them with seeds 45-47.
+Matches all 600 printed bounds of S3 and S10-S13 and 59/60 of S2.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01CFv8pdaXgoMwjPbRpSqcRv
+---
+ analysis/revision_seed_intervals.py   | 163 ++++++++++++++++++++++++++
+ docs/REVISION_WORKFLOWS.md            |  14 +++
+ run_all.py                            |   6 +-
+ tests/test_revision_seed_intervals.py |  41 +++++++
+ 4 files changed, 223 insertions(+), 1 deletion(-)
+ create mode 100644 analysis/revision_seed_intervals.py
+ create mode 100644 tests/test_revision_seed_intervals.py
+
+diff --git a/analysis/revision_seed_intervals.py b/analysis/revision_seed_intervals.py
+new file mode 100644
+index 0000000..d0a48d5
+--- /dev/null
++++ b/analysis/revision_seed_intervals.py
+@@ -0,0 +1,163 @@
++"""Seed-level 95% t-intervals for the LLM predictor tables (paper S2, S3, S10-S13).
++
++Reads only the bundled evidence packet (evidence/overleaf-table-evidence-reproducible-20261019-v2.zip)
++and its nested archives. No training, no fitting.
++
++Naming used by the original runs:
++  final_refit_7ep_v2/third-off-*  = two accuracies (third accuracy off), ZCPs on, seeds 42-44
++  final_refit_7ep_v2/third-on-*   = three accuracies, ZCPs on, seeds 42-44
++  *-layer = all seven layer features, *-no_layer = no layer features.
++Six-seed arms join seeds 42-44 with seeds 45-47 from the follow-up runs listed in ARMS.
++Interval: mean +/- t(0.975, n-1) * sd / sqrt(n), sd with ddof=1.
++"""
++import csv
++import io
++import json
++import math
++import tarfile
++import zipfile
++from pathlib import Path
++
++from scipy.stats import pearsonr, spearmanr, t as student_t
++
++PACKET = 'evidence/overleaf-table-evidence-reproducible-20261019-v2.zip'
++METRICS = [('RMSE', 'best_accuracy_rmse'), ('MAE', 'best_accuracy_mae'), ('Pearson', 'best_accuracy_pearson_r'),
++           ('Spearman', 'best_accuracy_spearman_r'), ('R2', 'best_accuracy_r2')]
++FEATURES = [('weightwatcher', 'WeightWatcher'), ('cka', 'CKA'), ('effective-rank', 'Effective rank'),
++            ('taylor', 'Taylor importance'), ('gradient-flow', 'Gradient flow'), ('sensitivity', 'Sensitivity'),
++            ('activation', 'Dead-act. fraction')]
++REFIT = 'main_115_record/out/accuracy_predictor_85_5_10/final_refit_7ep_v2/'
++T912 = 'tables9-12-seeds45-47-v1/results/'
++OFF = 'zcp-off-toggle-refit7-v1/results/'
++
++
++def _arms():
++    """(table, row label) -> (seed 42-44 run prefix, seed 45-47 run prefix). Prefix + '-sNN' is the run folder."""
++    arms = {}
++    for acc, third in (('2acc', 'third-off'), ('3acc', 'third-on')):
++        tab_on, tab_off = ('S10', 'S11') if acc == '2acc' else ('S12', 'S13')
++        ablation = ('layer-ablation-2acc-refit7-v1/results/2acc-' if acc == '2acc' else 'layer-ablation-refit7-v1/results/')
++        no_layer_hi = (T912 + '2acc-zcp-on-no-layer' if acc == '2acc'
++                       else 'zcp-on-no-layer-3acc-seeds45-47-v1/results/3acc-no-layer')
++        arms[(tab_on, 'No layer')] = (REFIT + third + '-no_layer', no_layer_hi)
++        arms[(tab_on, 'All seven')] = (REFIT + third + '-layer', T912 + acc + '-zcp-on-all-seven')
++        arms[(tab_off, 'No layer')] = (OFF + acc + '-no-layer', T912 + acc + '-zcp-off-no-layer')
++        arms[(tab_off, 'All seven')] = (OFF + acc + '-all-seven', T912 + acc + '-zcp-off-all-seven')
++        for key, label in FEATURES:
++            arms[(tab_on, label)] = (ablation + key, T912 + acc + '-zcp-on-' + key)
++            hi = ('taylor-3acc-zcp-off-seeds45-47-v1/results/3acc-taylor' if (acc, key) == ('3acc', 'taylor')
++                  else T912 + acc + '-zcp-off-' + key)
++            arms[(tab_off, label)] = (OFF + acc + '-' + key, hi)
++        n = '2 accuracy' if acc == '2acc' else '3 accuracy'
++        arms[('S3', n + ' + all seven')] = arms[(tab_on, 'All seven')]
++        arms[('S3', n + ' + no layer')] = arms[(tab_on, 'No layer')]
++    return arms
++
++
++ARMS = _arms()
++# S2 pilot: three refits per arm on the 22 matched test records; metrics recomputed from test_predictions.csv, t with df=2.
++PILOT = {
++    '2 accuracy + layer': ['historical-2acc-reproduction-v2/results/layer-r%d' % i for i in (1, 2, 3)],
++    '2 accuracy + no layer': ['historical-2acc-reproduction-v2/results/no-layer-r1',
++                              'historical-2acc-reproduction-v2/results/no-layer-r2',
++                              'historical-22test-additions-v1/results/2acc-no-layer-r3'],
++    '3 accuracy + layer': ['historical-22test-additions-v1/results/3acc-layer-r%d' % i for i in (1, 2, 3)],
++    '3 accuracy + no layer': ['historical-22test-additions-v1/results/3acc-no-layer-r%d' % i for i in (1, 2, 3)],
++}
++
++
++def _walk(name, data, out, depth=0):
++    buf = io.BytesIO(data)
++    if zipfile.is_zipfile(buf):
++        z = zipfile.ZipFile(buf)
++        for n in z.namelist():
++            _handle(n, lambda n=n: z.read(n), out, depth)
++        return
++    try:
++        tf = tarfile.open(fileobj=io.BytesIO(data))
++    except tarfile.TarError:
++        return
++    for m in tf.getmembers():
++        if m.isfile():
++            _handle(m.name, lambda m=m: tf.extractfile(m).read(), out, depth)
++
++
++def _handle(name, get, out, depth):
++    if name.endswith(('test_metrics.json', 'test_predictions.csv')):
++        out.setdefault(name, get())
++    elif name.endswith(('.zip', '.tar', '.tar.gz', '.tgz')) and depth < 5:
++        _walk(name, get(), out, depth + 1)
++
++
++def load(root):
++    files = {}
++    _walk(PACKET, (Path(root) / PACKET).read_bytes(), files)
++    return files
++
++
++def _find(files, run, suffix):
++    hits = sorted({v for k, v in files.items() if k.endswith(run + '/' + suffix)})
++    if not hits:
++        raise KeyError('Missing run in evidence packet: ' + run)
++    if len(hits) > 1:
++        raise ValueError('Conflicting copies of run: ' + run)
++    return hits[0]
++
++
++def _interval(values):
++    n = len(values)
++    mean = sum(values) / n
++    sd = math.sqrt(sum((v - mean) ** 2 for v in values) / (n - 1))
++    half = student_t.ppf(0.975, n - 1) * sd / math.sqrt(n)
++    return mean, mean - half, mean + half
++
++
++def _prediction_metrics(data):
++    pairs = [(float(r['pred_best_accuracy']), float(r['gt_best_accuracy']))
++             for r in csv.DictReader(io.StringIO(data.decode()))]
++    pred, gt = zip(*pairs)
++    n = len(gt)
++    mean_gt = sum(gt) / n
++    sse = sum((p - g) ** 2 for p, g in pairs)
++    return dict(RMSE=math.sqrt(sse / n), MAE=sum(abs(p - g) for p, g in pairs) / n,
++                Pearson=float(pearsonr(pred, gt)[0]), Spearman=float(spearmanr(pred, gt)[0]),
++                R2=1 - sse / sum((g - mean_gt) ** 2 for g in gt))
++
++
++def compute(files):
++    rows = []
++    for (table, label), (lo, hi) in ARMS.items():
++        seeds = [json.loads(_find(files, '%s-s%d' % (lo, s), 'test_metrics.json')) for s in (42, 43, 44)]
++        seeds += [json.loads(_find(files, '%s-s%d' % (hi, s), 'test_metrics.json')) for s in (45, 46, 47)]
++        row = dict(table=table, row=label, n=6, seeds_42_44=lo, seeds_45_47=hi)
++        for name, key in METRICS:
++            row[name], row[name + '_lo'], row[name + '_hi'] = _interval([float(d[key]) for d in seeds])
++        rows.append(row)
++    for label, runs in PILOT.items():
++        per_run = [_prediction_metrics(_find(files, r, 'test_predictions.csv')) for r in runs]
++        row = dict(table='S2', row=label, n=3, seeds_42_44=';'.join(runs), seeds_45_47='')
++        for name, _ in METRICS:
++            row[name], row[name + '_lo'], row[name + '_hi'] = _interval([m[name] for m in per_run])
++        rows.append(row)
++    return rows
++
++
++def run(root, out):
++    out.mkdir(parents=True)
++    rows = compute(load(root))
++    fields = ['table', 'row', 'n'] + [x for name, _ in METRICS for x in (name, name + '_lo', name + '_hi')] + ['seeds_42_44', 'seeds_45_47']
++    with open(out / 'seed_intervals.csv', 'w', newline='', encoding='utf-8') as fh:
++        w = csv.DictWriter(fh, fieldnames=fields)
++        w.writeheader()
++        for r in rows:
++            w.writerow({k: (round(v, 6) if isinstance(v, float) else v) for k, v in r.items()})
++    md = ['# Seed-level 95% t-intervals', '']
++    for table in ('S2', 'S3', 'S10', 'S11', 'S12', 'S13'):
++        md += ['## ' + table, '', '| Row | ' + ' | '.join(n for n, _ in METRICS) + ' |', '|---' * 6 + '|']
++        for r in rows:
++            if r['table'] == table:
++                md.append('| %s | ' % r['row'] + ' | '.join('%.4f [%.4f, %.4f]' % (r[n], r[n + '_lo'], r[n + '_hi']) for n, _ in METRICS) + ' |')
++        md.append('')
++    (out / 'seed_intervals.md').write_text('\n'.join(md), encoding='utf-8')
++    print('COMPLETE: %d rows -> %s' % (len(rows), out / 'seed_intervals.csv'), flush=True)
++    return rows
+diff --git a/docs/REVISION_WORKFLOWS.md b/docs/REVISION_WORKFLOWS.md
+index 9a81a35..a377e04 100644
+--- a/docs/REVISION_WORKFLOWS.md
++++ b/docs/REVISION_WORKFLOWS.md
+@@ -206,3 +206,17 @@ that preserved file. Do not treat the source copy as proof of current Job status
+   existing primary results. All15 plotted estimates and intervals are preserved;
+   no panel letters, left-hand bars, fitting or bootstrap recomputation. The ready
+   PDF is `images/fig_nb201.pdf`.
++
++## Seed-level intervals (S2, S3, S10–S13)
++
++```
++python run_all.py --revision seed-intervals --out out/seed-intervals
++```
++
++Reads only `evidence/overleaf-table-evidence-reproducible-20261019-v2.zip`. Writes `seed_intervals.csv` and `seed_intervals.md`:
++95% t-intervals (mean ± t(0.975, n−1)·sd/√n) for the 44 rows of S2, S3 and S10–S13. Run names in the archive:
++`final_refit_7ep_v2/third-off-*` is the two-accuracy arm and `third-on-*` the three-accuracy arm (ZCPs on, seeds 42–44);
++`-layer` means all seven layer features. Six-seed rows join those with seeds 45–47 from `tables9-12-seeds45-47-v1`
++and the other follow-up runs listed in `ARMS` in `analysis/revision_seed_intervals.py`. S2 uses the three pilot refits
++per arm, recomputed from `test_predictions.csv`. Matches all 600 printed bounds of S3 and S10–S13 and 59 of 60 in S2
++(two-accuracy no-layer RMSE: 11.4715 computed, 11.4716 printed).
+diff --git a/run_all.py b/run_all.py
+index 7a8d96c..4330d4b 100644
+--- a/run_all.py
++++ b/run_all.py
+@@ -126,6 +126,7 @@ def main():
+         'point4-tables uses paper-missing-evidence-v1.tar.gz for recovered acquisition and split tables. '
+         'article, collapse and initialization use bundled evidence for additional paper tables without fitting. '
+         'lemur-paired and classical-no-taylor need the frozen two-experiments ZIP. '
++        'seed-intervals uses the bundled evidence packet for the six-seed and pilot t-intervals (S2, S3, S10-S13). '
+         'nested-outer needs nested-outer-six-seeds-v1.tar.gz and writes metrics, bootstrap intervals and a PDF. '
+         'classical-no-taylor performs CPU fitting with requirements-classical-no-taylor.txt. '
+         'report expects --inputs containing loss-confidence-all-metrics-v1, '
+@@ -135,7 +136,7 @@ def main():
+     parser.add_argument('--check', action='store_true', help='Check frozen inputs and dependencies without producing results')
+     parser.add_argument('--out', type=Path, help='New output directory, never an existing path')
+     parser.add_argument('--point4-report', type=Path, help='Read-only Point 4 report from an exported package; no training')
+-    parser.add_argument('--revision', choices=['loss-confidence', 'loss-confidence-bonferroni40', 'loss-confidence-per-arm', 'point4-tables', 'article', 'collapse', 'initialization', 'nb201-qwen', 'lemur-paired', 'classical-no-taylor', 'nested-outer', 'report'],
++    parser.add_argument('--revision', choices=['loss-confidence', 'loss-confidence-bonferroni40', 'loss-confidence-per-arm', 'point4-tables', 'article', 'collapse', 'initialization', 'nb201-qwen', 'lemur-paired', 'classical-no-taylor', 'nested-outer', 'seed-intervals', 'report'],
+                         help='Run one revision workflow; requires a new --out directory')
+     parser.add_argument('--archive', type=Path, help='Frozen input archive for the selected revision workflow')
+     parser.add_argument('--inputs', type=Path, help='Parent directory of completed analysis outputs for --revision report')
+@@ -175,6 +176,9 @@ def main():
+         elif args.revision == 'collapse':
+             from analysis.revision_collapse import run
+             run(ROOT, out)
++        elif args.revision == 'seed-intervals':
++            from analysis.revision_seed_intervals import run
++            run(ROOT, out)
+         elif args.revision == 'nb201-qwen':
+             from analysis.revision_nb201 import run
+             run(ROOT, out)
+diff --git a/tests/test_revision_seed_intervals.py b/tests/test_revision_seed_intervals.py
+new file mode 100644
+index 0000000..3751598
+--- /dev/null
++++ b/tests/test_revision_seed_intervals.py
+@@ -0,0 +1,41 @@
++import unittest
++from pathlib import Path
++
++from analysis import revision_seed_intervals as R
++
++ROOT = Path(__file__).resolve().parents[1]
++
++
++@unittest.skipUnless((ROOT / R.PACKET).is_file(), 'evidence packet not present')
++class SeedIntervalTests(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls):
++        cls.rows = {(r['table'], r['row']): r for r in R.compute(R.load(ROOT))}
++
++    def check(self, table, row, metric, mean, lo, hi):
++        r = self.rows[(table, row)]
++        for got, want in ((r[metric], mean), (r[metric + '_lo'], lo), (r[metric + '_hi'], hi)):
++            self.assertAlmostEqual(got, want, delta=5e-5)
++
++    def test_coverage(self):
++        self.assertEqual(len(self.rows), 44)
++        self.assertEqual({t for t, _ in self.rows}, {'S2', 'S3', 'S10', 'S11', 'S12', 'S13'})
++
++    def test_main_arms(self):
++        self.check('S3', '2 accuracy + all seven', 'RMSE', 11.3987, 10.4335, 12.3639)
++        self.check('S3', '2 accuracy + no layer', 'RMSE', 12.7138, 11.3178, 14.1098)
++        self.check('S3', '3 accuracy + all seven', 'R2', 0.8272, 0.8204, 0.8341)
++        self.check('S3', '3 accuracy + no layer', 'RMSE', 9.1098, 8.7658, 9.4539)
++
++    def test_feature_tables(self):
++        self.check('S10', 'WeightWatcher', 'RMSE', 14.7550, 13.9175, 15.5925)
++        self.check('S12', 'Gradient flow', 'RMSE', 8.7890, 8.4614, 9.1166)
++        self.check('S12', 'Taylor importance', 'RMSE', 8.9553, 8.8224, 9.0881)
++
++    def test_pilot(self):
++        self.check('S2', '3 accuracy + layer', 'RMSE', 6.7903, 5.6441, 7.9366)
++        self.check('S2', '2 accuracy + layer', 'MAE', 8.3071, 4.8684, 11.7459)
++
++
++if __name__ == '__main__':
++    unittest.main()
+-- 
+2.43.0
+
