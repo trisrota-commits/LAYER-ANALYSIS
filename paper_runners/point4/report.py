@@ -49,6 +49,8 @@ for bundle in manifest['bundles']:
     with (a/'measurement_summary.csv').open(newline='') as f: rows=list(csv.DictReader(f))
     pairs=defaultdict(dict)
     for r in rows:
+        # Exclude incomplete/multiple-coverage summaries before forming pairs.
+        if r['candidate_status']!='complete' or int(r['n_successful_measurements'])!=6 or int(r['coverage_variants_at_checkpoint'])!=1: continue
         key=(r['candidate'],int(r['epoch']),int(r['batch_size']),r['mode'],r['augmentation'])
         if r['loss_reduction'] in pairs[key]: raise RuntimeError('Ambiguous coverage '+str(key))
         pairs[key][r['loss_reduction']]=r
@@ -56,7 +58,6 @@ for bundle in manifest['bundles']:
     for key,pair in pairs.items():
         if set(pair)!={'mean','sum'}: continue
         m,s=pair['mean'],pair['sum']
-        if any(r['candidate_status']!='complete' or int(r['n_successful_measurements'])!=6 or int(r['coverage_variants_at_checkpoint'])!=1 for r in (m,s)): continue
         if m['coverage_id']!=s['coverage_id']: continue
         try: values=[float(m['raw_mean']),float(m['rescaled_mean']),float(s['raw_mean']),100*float(m['raw_cv'])]
         except (ValueError,TypeError): continue
