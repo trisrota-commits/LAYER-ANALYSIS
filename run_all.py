@@ -122,6 +122,9 @@ def main():
         'Revision modes are explicit and never submit GPU jobs. '
         'loss-confidence-bonferroni40 (alias: loss-confidence) reproduces the paper paired intervals '
         'from the frozen loss-confidence input tar.gz: four contrasts, two populations, five metrics; '
+        'loss-confidence-per-arm uses that archive for unadjusted per-arm confidence intervals. '
+        'point4-tables uses paper-missing-evidence-v1.tar.gz for recovered acquisition and split tables. '
+        'article, collapse and initialization use bundled evidence for additional paper tables without fitting. '
         'lemur-paired and classical-no-taylor need the frozen two-experiments ZIP. '
         'nested-outer needs nested-outer-six-seeds-v1.tar.gz and writes metrics, bootstrap intervals and a PDF. '
         'classical-no-taylor performs CPU fitting with requirements-classical-no-taylor.txt. '
@@ -132,7 +135,7 @@ def main():
     parser.add_argument('--check', action='store_true', help='Check frozen inputs and dependencies without producing results')
     parser.add_argument('--out', type=Path, help='New output directory, never an existing path')
     parser.add_argument('--point4-report', type=Path, help='Read-only Point 4 report from an exported package; no training')
-    parser.add_argument('--revision', choices=['loss-confidence', 'loss-confidence-bonferroni40', 'nb201-qwen', 'lemur-paired', 'classical-no-taylor', 'nested-outer', 'report'],
+    parser.add_argument('--revision', choices=['loss-confidence', 'loss-confidence-bonferroni40', 'loss-confidence-per-arm', 'point4-tables', 'article', 'collapse', 'initialization', 'nb201-qwen', 'lemur-paired', 'classical-no-taylor', 'nested-outer', 'report'],
                         help='Run one revision workflow; requires a new --out directory')
     parser.add_argument('--archive', type=Path, help='Frozen input archive for the selected revision workflow')
     parser.add_argument('--inputs', type=Path, help='Parent directory of completed analysis outputs for --revision report')
@@ -144,7 +147,7 @@ def main():
             parser.error('--revision requires --out')
         if args.out.exists():
             parser.error('Existing output preserved: ' + str(args.out))
-        needs_archive = args.revision in ['loss-confidence', 'loss-confidence-bonferroni40', 'lemur-paired', 'classical-no-taylor', 'nested-outer']
+        needs_archive = args.revision in ['loss-confidence', 'loss-confidence-bonferroni40', 'loss-confidence-per-arm', 'point4-tables', 'lemur-paired', 'classical-no-taylor', 'nested-outer']
         if needs_archive and args.archive is None:
             parser.error('This revision requires --archive')
         if args.archive is not None and (not needs_archive or not args.archive.is_file()):
@@ -157,6 +160,21 @@ def main():
         if args.revision in ('loss-confidence', 'loss-confidence-bonferroni40'):
             from analysis.revision_loss_confidence import run
             run(args.archive.resolve(), out)
+        elif args.revision == 'loss-confidence-per-arm':
+            from analysis.revision_loss_confidence_per_arm import run
+            run(args.archive.resolve(), out)
+        elif args.revision == 'point4-tables':
+            from analysis.revision_point4_tables import run
+            run(args.archive.resolve(), out)
+        elif args.revision == 'article':
+            from analysis.revision_article import run
+            run(ROOT, out)
+        elif args.revision == 'initialization':
+            from analysis.revision_initialization import run
+            run(ROOT, out)
+        elif args.revision == 'collapse':
+            from analysis.revision_collapse import run
+            run(ROOT, out)
         elif args.revision == 'nb201-qwen':
             from analysis.revision_nb201 import run
             run(ROOT, out)

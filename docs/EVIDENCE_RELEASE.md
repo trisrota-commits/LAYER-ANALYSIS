@@ -76,9 +76,12 @@ repeat-CV and candidate-median timing values. The documented cross-batch formula
 gives CIFAR-100 epoch-2 raw discrepancy 1.9784729676583055 (1.978 at three
 decimals), whereas the inspected supplement prints 1.979; inputs are preserved
 without changing them to fit the printed value. The original later S56/S57
-analysis implementations are not included: data recovery does not itself add
-those exact table exporters, the new per-arm confidence intervals, or the
-remaining article-specific analyses to `run_all.py`.
+analysis implementations are not in the recovered archive. The separate
+`--revision point4-tables` adapter recalculates the documented summaries from
+these measurements; it is not claimed to be the recovered historical script.
+The added `loss-confidence-per-arm`, `article`, `collapse`, and `initialization` modes
+provide the additional paper analyses. See `REVISION_WORKFLOWS.md` for their
+commands, uncertainty scope and preservation rules.
 
 ## Corrected figures
 

@@ -1,0 +1,70 @@
+{
+  "archive": "project_final_4_(1).zip",
+  "archive_sha256": "f6b32bc92d95e634f8cc19c961fc2700fcc61cae12247e3eaaebed8d4cc5608b",
+  "files": {
+    "build_panel.py": {
+      "member": "analysis/build_panel.py",
+      "sha256": "2444a87bf7cd1636cabc9fa941f86742746a0555cd81e7b735f5a04ca6053782"
+    },
+    "primary_endpoint.py": {
+      "member": "analysis/primary_endpoint.py",
+      "sha256": "ec93db019513a06e9fa5a44f3c655f3ec5f7c9b8581895f876ca142d11a943c0"
+    },
+    "within.py": {
+      "member": "analysis/within.py",
+      "sha256": "c00af88e739e9e58fe16251bdd0b586e183cf3fd54a0caf7d294d85e9a304a64"
+    },
+    "substitution_and_budget.py": {
+      "member": "analysis/substitution_and_budget.py",
+      "sha256": "26e8b0944b339152edc081a3f036023e771605d1261f8d4f6c4ffc89c1ad6bb8"
+    },
+    "signtest2.py": {
+      "member": "analysis/signtest2.py",
+      "sha256": "9ce46489dba994273ccbfec1847c9de7c83f061a13870c91cef2a40bc614a5e3"
+    },
+    "selection.py": {
+      "member": "analysis/selection.py",
+      "sha256": "479fcf2e5bfa80b6b0696cb9d9d0f6cf011e3746dd4504f6a70e004be39a814c"
+    },
+    "registry.py": {
+      "member": "analysis/registry.py",
+      "sha256": "16e955690730f5d448af62bf8bf1d6e0dc67ef5e8240008d3bbb8f2804ad5232"
+    },
+    "paths.py": {
+      "member": "analysis/paths.py",
+      "sha256": "dd7455cf4bcd82f0fd2fc05e28fe642e1fa1497800a57bf259ebd826f650e481"
+    },
+    "paired.py": {
+      "member": "analysis/paired.py",
+      "sha256": "f52d02cb6ebcd63d549ad97d84d7abb969d7a143be4ebf1a645e6cdfa259aca2"
+    },
+    "metrics.py": {
+      "member": "analysis/metrics.py",
+      "sha256": "bda84ef444ed090be63220dfbd2d55680457369992b08c9edfe57ed774a523ca"
+    },
+    "figures_panel.py": {
+      "member": "analysis/figures_panel.py",
+      "sha256": "3deb31fc283b970c44a640469a1004450288af015a9fe5aca6381ef730c7e892"
+    },
+    "figures.py": {
+      "member": "analysis/figures.py",
+      "sha256": "fbb1c8b024df6c756e65ffc96870a8dd8ff19d7d4b47fa0a3b2321f105575f29"
+    },
+    "features.py": {
+      "member": "analysis/features.py",
+      "sha256": "3875c3073594aedd24e8b1eb7edfdf88c151d4cdb338e7cd9d709d2b2199492b"
+    },
+    "ensemble.py": {
+      "member": "analysis/ensemble.py",
+      "sha256": "8dec7a4f31a219f013c86740f2c65e36d4dded441b36b5caa4251b09f32ca0f3"
+    },
+    "diagnosis.py": {
+      "member": "analysis/diagnosis.py",
+      "sha256": "8cf658744ce4decfbd95c4ac97f547087d814a003f1d6a2c03d97d5911566e2c"
+    },
+    "baselines.py": {
+      "member": "analysis/baselines.py",
+      "sha256": "8bfddc874437176f2d33f59756488ebbf0be8a719d298f094483f5c0445b325f"
+    }
+  }
+}

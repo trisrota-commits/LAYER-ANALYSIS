@@ -9,6 +9,24 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class RevisionRunnerTests(unittest.TestCase):
+    def test_paper_table_modes_are_explicit_and_preserve_outputs(self):
+        modes = ['loss-confidence-per-arm', 'point4-tables', 'article', 'collapse', 'initialization']
+        result = self.call('--help')
+        self.assertEqual(result.returncode, 0)
+        for mode in modes:
+            self.assertIn(mode, result.stdout)
+        with tempfile.TemporaryDirectory() as temp:
+            marker = Path(temp) / 'keep'; marker.write_text('preserve')
+            for mode in modes:
+                result = self.call('--revision', mode, '--out', temp)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn('Existing output preserved', result.stderr)
+                self.assertEqual(marker.read_text(), 'preserve')
+            for mode in ['loss-confidence-per-arm', 'point4-tables']:
+                result = self.call('--revision', mode, '--out', str(Path(temp) / 'new'))
+                self.assertIn('requires --archive', result.stderr)
+                self.assertFalse((Path(temp) / 'new').exists())
+
     def call(self, *args):
         return subprocess.run([sys.executable, '-B', str(ROOT / 'run_all.py'), *args],
                               capture_output=True, text=True)
