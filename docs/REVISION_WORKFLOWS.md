@@ -66,6 +66,40 @@ renderer, preserving their calculations. It writes per-fold, per-seed and mean
 metrics, paired intervals, bootstrap draws and `nested_results.pdf`. It does not
 refit models or submit Jobs, and is separate from the earlier167-row report.
 
+## Paper-matched Bonferroni-40 paired intervals
+
+Use the explicit paper-matched mode:
+
+```bash
+python -B run_all.py --revision loss-confidence-bonferroni40 --archive evidence/loss-confidence-all-metrics-inputs-v1.tar.gz --out recomputed/loss-confidence-bonferroni40
+```
+
+`loss-confidence` remains an equivalent supported name. Both names call the
+same unchanged, checksum-verified analysis. This is not an all-six-pairs
+Bonferroni-30 analysis with its divisor renamed. The correction family is:
+
+- Four contrasts: A to A+LC; A to A+T; A+LC to A+LC+T; A+T to A+LC+T.
+- Two populations: all records and target accuracy at least 20%.
+- Five metrics: MAE, RMSE, Pearson, Spearman and R2.
+
+A means early accuracy, LC loss/confidence, and T Taylor. Bonferroni-40 is
+applied separately within each dataset, not jointly across the three datasets.
+The 10,000 paired operation-family bootstrap draws use default_rng(0), reset
+for each dataset/population, with identical resamples for both arms. Positive
+improvement means lower MAE/RMSE or higher Pearson/Spearman/R2.
+
+Outputs are `all_comparisons.csv` (120 rows), `primary_all_metrics.csv`
+(A+LC versus A+LC+T, targets at least 20%), `bootstrap_differences.npz`,
+`results.json`, and a checksum-verified `complete.json`. The CSVs contain both
+unadjusted 95% paired intervals and the Bonferroni-40-adjusted intervals.
+These are differences between arms, not per-arm confidence intervals for
+the descriptive four-arm table. The existing report mode remains unchanged.
+
+Predictors and acquisitions are held fixed; seed-labeled predictions are
+identical within each arm and seeds are not resampled. ImageNet16-120 remains
+a partial cohort. Extreme adjusted percentile tails have limited Monte Carlo
+precision; intervals containing zero are inconclusive, not equivalence.
+
 ## Scientific scope
 
 | Mode | Population / comparison | Resampling and correction |
