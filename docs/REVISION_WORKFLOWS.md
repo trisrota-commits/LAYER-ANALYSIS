@@ -19,6 +19,7 @@ The approved evidence release now includes these frozen exports under
 | `loss-confidence-all-metrics-inputs-v1.tar.gz` | loss-confidence | `6f852836ce55e57d4eea49d54b484b33d78a9d0f26b7b12d24f4435487007121` |
 | `two-experiments-cpu-inputs-v1.zip` | lemur-paired, classical-no-taylor | `3a420140ff64a851bd64fe916c37651ff7016bc93b87fad41ce9309f05448ebd` |
 | `nested-outer-six-seeds-v1.tar.gz` | nested-outer | `c183e6640d634ed61a78b4b96f5ccecf4d1f84dcf5ff45ee0b42d92768ca9e0f` |
+| `paper-missing-evidence-v1.tar.gz` | point4-tables | `1b354d5d45e65e287052f14e141169e1f23e11427d0be0f128b028344a105884` |
 
 The NB201 Qwen mode uses the existing repository prediction panels and registry
 files checked against `INPUT_MANIFEST.json`. No external archive is needed.
@@ -99,6 +100,57 @@ Predictors and acquisitions are held fixed; seed-labeled predictions are
 identical within each arm and seeds are not resampled. ImageNet16-120 remains
 a partial cohort. Extreme adjusted percentile tails have limited Monte Carlo
 precision; intervals containing zero are inconclusive, not equivalence.
+
+## Additional paper-table exports
+
+These modes use saved predictions or recovered measurements, never model training.
+Run from the repository root with Python 3.11 and `requirements-reproduce.txt`.
+Each output directory must be new.
+
+```bash
+python -B run_all.py --revision loss-confidence-per-arm --archive evidence/loss-confidence-all-metrics-inputs-v1.tar.gz --out recomputed/paper/per-arm
+python -B run_all.py --revision point4-tables --archive evidence/paper-missing-evidence-v1.tar.gz --out recomputed/paper/point4
+python -B run_all.py --revision article --out recomputed/paper/article
+python -B run_all.py --revision collapse --out recomputed/paper/collapse
+python -B run_all.py --revision initialization --out recomputed/paper/initialization
+```
+
+- **Per-arm:** pointwise unadjusted 95% operation-family bootstrap intervals
+  around each score for all four HistGB arms. All five metrics are retained;
+  S48 displays the MAE/RMSE/Spearman subset. This is not another test family,
+  does not change Bonferroni-40, and does not establish between-arm superiority.
+- **Point 4:** reads the recovered package rather than executing acquisition
+  workers. Exports coverage, ranks, repeat variability, matched batch-rescaling
+  discrepancies and candidate-median timing, with the recovered split counts.
+  Numerical discrepancies from the manuscript are reported, not silently fixed
+  by changing input values or eligibility rules.
+- **Article:** integrates the additional article-specific statistical analyses
+  with the canonical six-seed prediction membership. Original source provenance
+  and any mixed-model convergence/inference limitations remain explicit.
+  Recovered scripts under `paper_runners/article_analysis/` are provenance
+  sources, not standalone entry points: their historical registry and paths
+  must not override the adapter's complete six-seed membership. Use the runner
+  command above rather than executing those preserved scripts directly.
+- **Initialization:** exports S41--S45 descriptive and paired metrics from fixed
+  predictions. S41 retains historical two-decimal targets and averages the six
+  Qwen metrics, not predictions. S42--S45 use matched unrounded targets. The
+  852-record calibrators are not refitted. Paired record intervals use 10,000
+  NumPy default_rng(0) resamples and are unadjusted.
+- **Collapse:** exports S25's three AUROC intervals and paired differences to
+  epoch-3 accuracy from the published matched scores. It preserves the recovered
+  original 10,000-draw, seed-1, 128-draw batching order and verifies every draw
+  against the archived bootstrap arrays. These are fixed-score, class-stratified
+  record intervals, not training-seed uncertainty. Original source is preserved
+  at `paper_runners/collapse_baseline/analyze.py`; use the portable runner.
+
+The article adapter preserves the original 20,000-draw primary robustness
+procedure, including its RNG streams and pooled-cell location summaries.
+It does not substitute the paper's mixed-model p=0.0107 when convergence,
+Hessian or standard-error diagnostics invalidate inference. Consult
+`results.json` and the report's S24 reconciliation before interpreting that row.
+
+These commands augment the existing numerical and standalone holdout workflows;
+they do not redefine the original 25-table inventory returned by `--list`.
 
 ## Scientific scope
 
