@@ -2,6 +2,17 @@
 
 Target: the 25 listed tables and nine figures in `thesis_full_project-4.pdf`. This workflow reads the committed snapshots, predictions, recorded timing measurements and dependence-cell exports. It does **not** require a database, `Train.py`, nn-Dataset, nn-GPT, image datasets, GPU access, candidate training or Qwen refitting.
 
+For the current article and supplement rather than that older layout, use:
+
+```bash
+python -B run_all.py --revision paper-tables --out recomputed/paper-complete
+```
+
+This exports every numerical table through the same entry point, including
+seed intervals, reference rows and standalone paired/holdout calculations.
+See [Revision workflows](REVISION_WORKFLOWS.md) for the complete table index,
+contextual-table exclusions and explicit numerical/mixed-model discrepancy flags.
+
 ## Setup
 
 Use Python 3.11 and a TeX installation with `pdflatex`, the standard article class and fontenc. Python dependencies are pinned to the tested CPU environment in `requirements-reproduce.txt`.

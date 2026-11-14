@@ -120,6 +120,9 @@ def reproduce(out, checked):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, epilog=(
         'Revision modes are explicit and never submit GPU jobs. '
+        'paper-tables executes every numerical paper-table workflow and writes a complete table index. '
+        'descriptive, paired-tables, classical-saved and nb201-tables can also run independently without fitting. '
+        'seed-intervals is the integrated, full-precision version of the uploaded patch (S2, S3, S10-S13). '
         'loss-confidence-bonferroni40 (alias: loss-confidence) reproduces the paper paired intervals '
         'from the frozen loss-confidence input tar.gz: four contrasts, two populations, five metrics; '
         'loss-confidence-per-arm uses that archive for unadjusted per-arm confidence intervals. '
@@ -135,7 +138,7 @@ def main():
     parser.add_argument('--check', action='store_true', help='Check frozen inputs and dependencies without producing results')
     parser.add_argument('--out', type=Path, help='New output directory, never an existing path')
     parser.add_argument('--point4-report', type=Path, help='Read-only Point 4 report from an exported package; no training')
-    parser.add_argument('--revision', choices=['loss-confidence', 'loss-confidence-bonferroni40', 'loss-confidence-per-arm', 'point4-tables', 'article', 'collapse', 'initialization', 'nb201-qwen', 'lemur-paired', 'classical-no-taylor', 'nested-outer', 'report'],
+    parser.add_argument('--revision', choices=['paper-tables', 'seed-intervals', 'descriptive', 'paired-tables', 'classical-saved', 'nb201-tables', 'loss-confidence', 'loss-confidence-bonferroni40', 'loss-confidence-per-arm', 'point4-tables', 'article', 'collapse', 'initialization', 'nb201-qwen', 'lemur-paired', 'classical-no-taylor', 'nested-outer', 'report'],
                         help='Run one revision workflow; requires a new --out directory')
     parser.add_argument('--archive', type=Path, help='Frozen input archive for the selected revision workflow')
     parser.add_argument('--inputs', type=Path, help='Parent directory of completed analysis outputs for --revision report')
@@ -157,7 +160,25 @@ def main():
         if args.inputs is not None and args.revision != 'report':
             parser.error('--inputs is only valid with --revision report')
         out = args.out.resolve()
-        if args.revision in ('loss-confidence', 'loss-confidence-bonferroni40'):
+        if args.revision == 'paper-tables':
+            from analysis.revision_paper_tables import run
+            run(ROOT, out)
+        elif args.revision == 'seed-intervals':
+            from analysis.revision_seed_intervals import run
+            run(ROOT, out)
+        elif args.revision == 'descriptive':
+            from analysis.revision_descriptive import run
+            run(ROOT, out)
+        elif args.revision == 'paired-tables':
+            from analysis.revision_paired_tables import run
+            run(ROOT, out)
+        elif args.revision == 'classical-saved':
+            from analysis.revision_classical_saved import run
+            run(ROOT, out)
+        elif args.revision == 'nb201-tables':
+            from analysis.revision_nb201_tables import run
+            run(ROOT, out)
+        elif args.revision in ('loss-confidence', 'loss-confidence-bonferroni40'):
             from analysis.revision_loss_confidence import run
             run(args.archive.resolve(), out)
         elif args.revision == 'loss-confidence-per-arm':

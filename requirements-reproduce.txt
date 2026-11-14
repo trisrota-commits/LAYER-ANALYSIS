@@ -7,5 +7,7 @@ statsmodels==0.15.0
 matplotlib==3.11.2
 scikit-learn==1.9.0
 pymupdf==1.28.0
+# Repository checks include both unittest and pytest cases.
+pytest==8.4.2
 # A TeX distribution providing pdflatex + standard article/fontenc is required
 # for the recovered workflow diagram. The remaining figures use Matplotlib.

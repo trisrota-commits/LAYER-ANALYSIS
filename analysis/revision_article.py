@@ -226,6 +226,46 @@ def primary(repo,cond,out):
     return R
 
 
+def selection_exports(selection,cond):
+    features=['no-layer','all-seven','weightwatcher','cka','effective-rank','taylor',
+              'gradient-flow','sensitivity','activation','taylor-sensitivity',
+              'taylor-gradient-flow','taylor-activation','taylor-cka','taylor-effective-rank']
+    long_rows,wide_rows=[],[]
+    n=int(selection['mask_c100'].sum())
+    for zcp in ('off','on'):
+        for feature in features:
+            key=(3,zcp,feature)
+            if key not in cond: continue
+            aggregate,seeds=selection['agg'](key,selection['mask_c100'])
+            wide=dict(zcp=zcp,feature=feature,n=n,seeds=len(seeds))
+            for metric,(mean,se) in aggregate.items():
+                wide[metric]=float(mean)
+                long_rows.append(dict(observations=3,zcp=zcp,feature=feature,population='cifar-100',
+                                      seeds=len(seeds),metric=metric,mean=mean,se=se))
+            wide_rows.append(wide)
+    selected={('off',f) for f in ('no-layer','weightwatcher','taylor','sensitivity','taylor-sensitivity')}
+    selected|={('on',f) for f in ('no-layer','taylor')}
+    short=[r for r in wide_rows if (r['zcp'],r['feature']) in selected]
+    random=dict(zcp='not-applicable',feature='random-reference',n=n,seeds=0,
+                tau=0.,rho=0.,**selection['rand'],**{'P@5':5/n,'P@10':10/n})
+    short.append(random)
+    random_rows=[dict(metric=k,estimate=random[k],n=n,
+                      method='20000 uniform without-replacement draws, default_rng(0)' if k.startswith('regret') else 'analytic expectation')
+                 for k in ('tau','rho','P@5','P@10','regret@1','regret@5','regret@10')]
+    require(len(wide_rows)==24 and len(short)==8,'Incomplete paper selection rows')
+    return long_rows,wide_rows,short,random_rows
+
+
+def reference_exports(diagnosis):
+    y,ds=diagnosis['g'],diagnosis['DS']
+    both=np.array([f'{d}|{int(g<20)}' for d,g in zip(ds,y)])
+    rows=[]
+    for label,groups in [('dataset-mean-reference',ds),('dataset-collapse-reference',both)]:
+        pred=np.array([y[groups==group].mean() for group in groups])
+        rows.append(dict(population='all',condition=label,n=len(y),**diagnosis['five'](pred,y)))
+    return rows
+
+
 def write_csv(path,rows):
     if not rows: return
     with path.open('w',newline='',encoding='utf-8') as handle:
@@ -273,15 +313,12 @@ def run(repo,out):
     require(len(rows)==90,'Incomplete multiplicity family')
     write_csv(out/'multiplicity.csv',rows); results['multiplicity']=rows
     selection=execute_original(repo,'selection.py',cond,out)
-    selrows=[]
-    for zcp in ['off','on']:
-        for feature in selection['order']:
-            key=(3,zcp,feature)
-            if key not in cond: continue
-            aggregate,seeds=selection['agg'](key,selection['mask_c100'])
-            for name,(mean,se) in aggregate.items():
-                selrows.append(dict(observations=3,zcp=zcp,feature=feature,population='cifar-100',seeds=len(seeds),metric=name,mean=mean,se=se))
-    results['selection']={'rows':selrows,'random_reference':selection['rand']}; write_csv(out/'selection.csv',selrows)
+    selrows,wide,short,random_rows=selection_exports(selection,cond)
+    results['selection']={'rows':selrows,'random_reference':selection['rand'],
+                          'S35':wide,'S28':short,'random_reference_metrics':random_rows}
+    write_csv(out/'selection.csv',selrows)
+    write_csv(out/'S35.csv',wide); write_csv(out/'S28.csv',short)
+    write_csv(out/'selection_random_reference.csv',random_rows)
     ensemble=execute_original(repo,'ensemble.py',cond,out); results['ensemble']=ensemble['res']
     import itertools
     sweep=[]
@@ -297,6 +334,12 @@ def run(repo,out):
         for arm,p in [('taylor',diagnosis['mu']),('no-layer',diagnosis['mu0'])]:
             strata.append(dict(population=label,condition=arm,n=int(mask.sum()),**diagnosis['five'](p[mask],diagnosis['g'][mask])))
     results['stratification']=strata; write_csv(out/'stratification.csv',strata)
+    references=reference_exports(diagnosis)
+    results['reference_baselines']=references
+    write_csv(out/'reference_baselines.csv',references)
+    main_vi=[r for r in strata if r['condition']=='taylor' and r['population']!='collapsed']+references
+    results['main_table_VI']=main_vi
+    write_csv(out/'main_table_VI.csv',main_vi)
     results['collapse_detection_stratified_bootstrap']=diagnosis['collapse_captures']
     results['variance_decomposition']={key:float(diagnosis[key]/diagnosis['tot']) for key in ['bet','betc','betb']}
     within=execute_original(repo,'within.py',cond,out)

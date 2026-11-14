@@ -10,7 +10,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class RevisionRunnerTests(unittest.TestCase):
     def test_paper_table_modes_are_explicit_and_preserve_outputs(self):
-        modes = ['loss-confidence-per-arm', 'point4-tables', 'article', 'collapse', 'initialization']
+        modes = ['loss-confidence-per-arm', 'point4-tables', 'article', 'collapse', 'initialization',
+                 'descriptive', 'paired-tables', 'classical-saved', 'nb201-tables', 'paper-tables']
         result = self.call('--help')
         self.assertEqual(result.returncode, 0)
         for mode in modes:
