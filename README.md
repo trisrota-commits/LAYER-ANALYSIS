@@ -65,6 +65,12 @@ The LEMUR packet is kept intact to preserve its nested manifests, required group
 - The standard reproduction command uses saved data and predictions; it does not repeat model training or layer-statistic collection. Original [dCor/MIC analysis scripts](paper_runners/dependence/README.md) and [Point 4 measurement code](paper_runners/point4/README.md) are provided separately with their required inputs and instructions.
 - `nb201_v1/evaluate.py` is retained as source for its original paired-MAE function, extracted by the adapter without executing its training entry point. Use `run_all.py`, not historical helper entry points.
 
+## Citation
+
+Please cite the public code and data release accompanying the arXiv version:
+
+> Bose, T., Timofte, R., & Ignatov, D. (2026). *LAYER-ANALYSIS: Code and Data for Paper Reproduction* [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.24243274
+
 ## Tests
 
 ```bash
