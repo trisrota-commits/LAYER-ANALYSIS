@@ -21,9 +21,9 @@ python -B run_images.py --list
 
 ## Coverage and outputs
 
-Seven main-paper figures and twelve supplementary figures are exported as PDF and PNG under `images/`. `FIGURE_INDEX.json` and `FIGURE_INDEX.md` map figure IDs to files. `parts/` contains plotted coordinates and producer provenance. `complete.json` records output hashes. Missing figures fail rather than silently count as reproduced.
+Seven main-paper figures and ten supplementary figures (17 total) are exported as PDF and PNG under `images/`. `FIGURE_INDEX.json` and `FIGURE_INDEX.md` map current figure IDs to files. `parts/` contains plotted coordinates and producer provenance. `complete.json` records output hashes. Missing figures fail rather than silently count as reproduced.
 
-Scope follows the recorded article/supplement snapshots `project_final_4_-20.pdf` and `project_final_4_-21.pdf`, not the older nine-figure thesis inventory.
+Scope follows the retained figures from `project_final_4_-20.pdf` and `project_final_4_-21.pdf`, with the operator-confirmed removal of the two pilot figures. Historical supplement S3–S12 are now S1–S10. Producers retain archival IDs inside `parts/` for traceability; `producer_figure_id` records that mapping in the current figure index. Table IDs are unchanged. The older nine-figure thesis workflow is separate.
 
 ## Figure integration tests
 
@@ -38,7 +38,7 @@ python -B -m pytest tests/test_figures_main_results.py tests/test_figures_supple
 ## Interpretation limits
 
 - Reconstructed figures are not claimed to be pixel-identical to historical PDFs.
-- S1/S2 use explicitly labelled cluster-replay reconstructions, not original workstation runtime measurements.
+- The removed pilot figures are neither rendered nor copied by the current paper/image runners. Existing output directories are preserved, not cleaned or overwritten.
 - Main Figure 7 visualizes manually transcribed qualitative classifications from supplementary Table S1, not newly calculated significance counts.
 - The overview labels its output as target accuracy: LEMUR uses full-run best accuracy, while NB201 uses the dataset-specific benchmark target.
 - Existing table flags, including withheld invalid S24 mixed-model inference and numerical discrepancies, remain visible; rendering is not independent validation of every printed paper value.

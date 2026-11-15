@@ -17,20 +17,23 @@ class PaperFigureDriverTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             out=Path(tmp)/'new'
             with patch('analysis.revision_paper_tables.run',return_value={'numerical_tables':66,'contextual_tables':2}) as tables:
-                with patch('analysis.revision_paper_figures.run',return_value={'figure_count':19}) as figures:
+                with patch('analysis.revision_paper_figures.run',return_value={'figure_count':17}) as figures:
                     report=run(ROOT,out)
                     tables.assert_called_once_with(ROOT.resolve(),out.resolve()/'tables')
                     figures.assert_called_once_with(ROOT.resolve(),out.resolve()/'tables',out.resolve()/'figures')
-                    self.assertEqual(report['figures'],19)
+                    self.assertEqual(report['figures'],17)
             with self.assertRaises(FileExistsError):run(ROOT,out)
 
     def test_inventory_has_all_current_figures(self):
         self.assertTrue((ROOT/'analysis/revision_paper_figures.py').is_file())
-        from analysis.revision_paper_figures import FIGURES
-        self.assertEqual(set(FIGURES),{f'main_{i}' for i in range(1,8)}|{f'S{i}' for i in range(1,13)})
-        self.assertEqual(len(set(FIGURES.values())),19)
+        from analysis.revision_paper_figures import FIGURES, normalized_id
+        self.assertEqual(set(FIGURES),{f'main_{i}' for i in range(1,8)}|{f'S{i}' for i in range(1,11)})
+        self.assertEqual(len(set(FIGURES.values())),17)
         self.assertEqual(FIGURES['main_3'],'fig_nb201_improve')
-        self.assertEqual(FIGURES['S12'],'fig_robust')
+        self.assertEqual(FIGURES['S10'],'fig_robust')
+        for old in range(3,13):self.assertEqual(normalized_id(f'S{old}'),f'S{old-2}')
+        for old in ('S1','S2'):
+            with self.assertRaises(ValueError):normalized_id(old)
 
     def test_existing_output_and_incomplete_tables_refused(self):
         self.assertTrue((ROOT/'analysis/revision_paper_figures.py').is_file())

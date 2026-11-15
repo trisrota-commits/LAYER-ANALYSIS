@@ -91,7 +91,7 @@ def test_real_render_manifest_integrity_and_overwrite(evidence, tmp_path, paper_
     out = tmp_path / 'figures'
     before = m.sha(REPO / m.PACKET)
     result = m.render(REPO, paper_tables, out)
-    assert set(result) == {f'S{i}' for i in range(1,7)}
+    assert set(result) == {f'S{i}' for i in range(3,7)}
     assert all(r['status'] == 'rendered' for r in result.values()), result
     for row in result.values():
         for f in row['files'].values():
@@ -106,10 +106,13 @@ def test_real_render_manifest_integrity_and_overwrite(evidence, tmp_path, paper_
     assert json.loads((out/'manifest.json').read_text())['input_integrity'] == 'unchanged'
 
 
-def test_pilot_blocker_does_not_silently_skip_other_figures(evidence, tmp_path, monkeypatch, paper_tables):
+def test_removed_pilots_are_never_executed(evidence, tmp_path, monkeypatch, paper_tables):
     def missing(*args):
-        raise KeyError('archive/member/full.log missing train_runtime')
+        raise AssertionError('Removed pilot must not execute')
     monkeypatch.setattr(m, 'pilot_data', missing)
+    monkeypatch.setattr(m, 'pilot_figure', missing)
     result = m.render(REPO, paper_tables, tmp_path/'partial')
-    assert all(result[k]['status'] == 'blocked' and 'full.log' in result[k]['blocker'] for k in ['S1','S2'])
+    assert set(result) == {'S3','S4','S5','S6'}
+    assert not (tmp_path/'partial/S1.pdf').exists()
+    assert not (tmp_path/'partial/S2.pdf').exists()
     assert all(result[k]['status'] == 'rendered' for k in ['S3','S4','S5','S6'])
