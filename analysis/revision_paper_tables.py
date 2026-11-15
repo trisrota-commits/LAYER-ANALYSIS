@@ -61,12 +61,28 @@ def validate_table(name, rows):
     required = {'S6':{'model','metric','without_taylor','with_taylor','change'},
                 'S28':{'feature','tau','rho','P@10','regret@1','regret@5','regret@10'},
                 'S35':{'feature','zcp','tau','rho','P@5','P@10','regret@1','regret@10'},
+                'S61':{'metric','no_layer','taylor','selected_procedure','improvement',
+                       'ci95_low','ci95_high','bonferroni5_low','bonferroni5_high'},
                 'main_VI':{'population','condition','n','RMSE','Pearson','Spearman','R2'}}
     for row in rows:
         require(isinstance(row,dict) and required.get(name,set()).issubset(row),'Missing fields in '+name)
     if name in ('S2','S3','S4','S10','S11','S12','S13','S14','S17','S22'):
         require(all({'mean','low','high','metric'}.issubset(r) and r['low'] is not None and r['high'] is not None for r in rows),
                 'Missing intervals in '+name)
+
+
+def _nested_s61(nested):
+    """Join descriptive selected-procedure means without changing paired inference."""
+    metrics = {'RMSE', 'MAE', 'Pearson', 'Spearman', 'R2'}
+    selected = [r for r in nested['mean_metrics'] if r.get('method') == 'selected-procedure']
+    require(len(selected) == 1, 'S61 requires exactly one selected-procedure mean row')
+    selected = selected[0]
+    require(metrics.issubset(selected) and all(np.isfinite(selected[m]) for m in metrics),
+            'S61 selected-procedure metrics missing or nonfinite')
+    paired = nested['paired']
+    require(len(paired) == len(metrics) and {r['metric'] for r in paired} == metrics,
+            'S61 requires each of the five paired metrics exactly once')
+    return [dict(r, selected_procedure=selected[r['metric']]) for r in paired]
 
 
 def _article_tables(article):
@@ -239,7 +255,7 @@ def export_tables(repo,work,out,before,extras):
     nested=_read(work/'nested-outer/results.json')
     tables['S59']=[dict(seed=int(seed),fold=int(fold),**value['trial'],selection_score=value['selection_score'])
                    for seed,folds in nested['selections'].items() for fold,value in folds.items()]
-    tables['S60']=nested['per_seed'];tables['S61']=nested['paired']
+    tables['S60']=nested['per_seed'];tables['S61']=_nested_s61(nested)
     tables=native(tables)
     numerical={k for k,v in plan.items() if v!='context'}
     require(set(EXPECTED_ROWS)==numerical,'Numerical coverage contract missing a table')
