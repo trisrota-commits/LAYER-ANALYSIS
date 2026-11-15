@@ -7,6 +7,29 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class PaperTableTests(unittest.TestCase):
+    def test_s61_selected_procedure_join_and_required_column(self):
+        import copy
+        from analysis import revision_paper_tables as module
+        metrics = ['RMSE', 'MAE', 'Pearson', 'Spearman', 'R2']
+        paired = [dict(metric=m, no_layer=2., taylor=1., improvement=1.,
+                       ci95_low=.1, ci95_high=1.9, bonferroni5_low=0., bonferroni5_high=2.) for m in metrics]
+        selected = dict(method='selected-procedure', **dict(zip(metrics, [3., 4., .5, .6, .7])))
+        report = dict(paired=paired, mean_metrics=[dict(method='taylor'), selected])
+        before = copy.deepcopy(report)
+        rows = module._nested_s61(report)
+        self.assertEqual(report, before)
+        for row, original in zip(rows, paired):
+            self.assertEqual(row['selected_procedure'], selected[row['metric']])
+            self.assertEqual({k:v for k,v in row.items() if k != 'selected_procedure'}, original)
+        module.validate_table('S61', rows)
+        with self.assertRaisesRegex(ValueError, 'Missing fields'):
+            module.validate_table('S61', paired)
+        for bad in [dict(paired=paired, mean_metrics=[]),
+                    dict(paired=paired, mean_metrics=[selected, selected]),
+                    dict(paired=paired[:-1]+[paired[0]], mean_metrics=[selected]),
+                    dict(paired=paired, mean_metrics=[dict(selected, RMSE=float('nan'))])]:
+            with self.assertRaises(ValueError):module._nested_s61(bad)
+
     def test_export_requires_complete_workflows_and_preserves_tables(self):
         from analysis.revision_paper_tables import export_tables
         with tempfile.TemporaryDirectory() as tmp:
