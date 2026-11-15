@@ -9,11 +9,10 @@ from analysis.thesis_common import require, sha
 FIGURES = {
     'main_1':'fig_overview','main_2':'fig_primary','main_3':'fig_nb201_improve',
     'main_4':'fig_cost','main_5':'fig_zcp','main_6':'fig_strata','main_7':'fig_taylor_tally',
-    'S1':'accpred_runtime_accuracy_tradeoff','S2':'accpred_2acc_runtime_accuracy_tradeoff',
-    'S3':'mean_dcor_all_datasets_epochs','S4':'layer_dcor_epochs123_heatmaps_with_places365',
-    'S5':'layer_dcor_epoch50_heatmap_with_places365','S6':'supp_pareto_frontier',
-    'S7':'fig_panels','S8':'fig_ensemble','S9':'fig_lodo','S10':'fig_lc_arms',
-    'S11':'fig_lc_increment','S12':'fig_robust',
+    'S1':'mean_dcor_all_datasets_epochs','S2':'layer_dcor_epochs123_heatmaps_with_places365',
+    'S3':'layer_dcor_epoch50_heatmap_with_places365','S4':'supp_pareto_frontier',
+    'S5':'fig_panels','S6':'fig_ensemble','S7':'fig_lodo','S8':'fig_lc_arms',
+    'S9':'fig_lc_increment','S10':'fig_robust',
 }
 
 
@@ -39,6 +38,13 @@ def validate_tables(repo, root):
 
 
 def normalized_id(identity):
+    # Producers retain archival figure IDs for provenance; the paper index uses
+    # current numbering after removing the two historical pilot figures.
+    supplement=re.fullmatch(r'S(\d+)',identity)
+    if supplement:
+        number=int(supplement[1])
+        require(3<=number<=12,'Removed or unknown producer figure: '+identity)
+        return f'S{number-2}'
     m=re.fullmatch(r'main_?(\d+)',identity)
     return 'main_'+m[1] if m else identity
 
@@ -108,7 +114,8 @@ def run(repo, tables_root, out):
                 if p.suffix=='.json':require(bool(json.loads(p.read_text(encoding='utf-8'))),'Empty plot data')
                 coords.append(dict(path=p.relative_to(out).as_posix(),sha256=sha(p)))
             entries[identity]=dict(stem=FIGURES[identity],files=files,plot_data=coords,
-                                   group=group,producer_manifest=manifests[0].relative_to(out).as_posix(),
+                                   group=group,producer_figure_id=original_id,
+                                   producer_manifest=manifests[0].relative_to(out).as_posix(),
                                    notes=entry.get('notes',entry.get('implementation','See producer manifest/provenance.')))
     if blockers:
         (out/'BLOCKED.json').write_text(json.dumps(blockers,indent=2)+'\n',encoding='utf-8')
@@ -121,9 +128,10 @@ def run(repo, tables_root, out):
                 table_index_sha256=sha(tables_root/'TABLE_INDEX.json'),source_sha256=source_hashes,
                 source_table_flags=table_index.get('flags',[]),
                 reference_documents={'main':'project_final_4_-20.pdf','supplement':'project_final_4_-21.pdf'},
-                notes=['Current seven article and twelve supplement figures; not the older nine-figure inventory.',
+                notes=['Current seven article and ten supplement figures; 17 figures total.',
                        'Original/reconstructed rendering and exact plotted data are recorded per producer. No claim of pixel-identical historic PDFs.',
-                       'S1/S2 are explicitly labelled cluster-replay reconstructions, not original workstation runtime measurements.',
+                       'Historical pilot figures S1/S2 are removed and not executed. Original supplement S3-S12 map to current S1-S10.',
+                       'Producer manifests retain archival IDs for traceability; this index is the current paper numbering. Table numbering is unchanged.',
                        'Main 7 uses the paper Table S1 qualitative classifications, not independent statistical-test counts.',
                        'No training, acquisition, fitting or input modification by this figure command.'])
     (out/'FIGURE_INDEX.json').write_text(json.dumps(report,indent=2,allow_nan=False)+'\n',encoding='utf-8')

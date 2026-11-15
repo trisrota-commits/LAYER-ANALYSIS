@@ -1,4 +1,4 @@
-"""Reconstruct current supplement S1--S6 from frozen evidence, without fitting.
+"""Render retained dependence/Pareto figures (archival S3--S6), without fitting.
 
 Pilot runtimes are archived Trainer.train_runtime (training, including in-training
 validation, excluding held-out generation), NOT original workstation wall times.
@@ -207,7 +207,7 @@ def pareto_figure(data):
 
 
 def render(repo, tables_root, out):
-    """Create a NEW directory; return S1..S6 inventory including exact blockers.
+    """Create a NEW directory; return archival S3..S6 with exact blockers.
 
     Every successful figure has PDF/PNG, full plotted data/provenance JSON, and
     SHA256 receipts. Source bytes are checked again after rendering. Missing or
@@ -216,7 +216,7 @@ def render(repo, tables_root, out):
     repo, tables_root, out = Path(repo), Path(tables_root), Path(out)
     out.mkdir(parents=True, exist_ok=False)
     sources = [repo / PACKET]
-    for name in ('S2', 'S12'):
+    for name in ('S12',):
         try:
             _, path = table(tables_root, name); sources.append(path)
         except (OSError, ValueError):
@@ -229,13 +229,10 @@ def render(repo, tables_root, out):
         if measurements is None:
             measurements = build_tables(repo)
         return measurements
-    for number in range(1,7):
+    for number in range(3,7):
         key = f'S{number}'; fig = None
         try:
-            if number <= 2:
-                data = pilot_data(repo, tables_root, 3 if number == 1 else 2)
-                fig = pilot_figure(data)
-            elif number <= 5:
+            if number <= 5:
                 _, cells = measurement()
                 fig, data = dependence_figure(cells, None if number == 3 else [1,2,3] if number == 4 else [50])
             else:

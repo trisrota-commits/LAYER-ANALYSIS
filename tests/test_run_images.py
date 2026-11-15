@@ -15,7 +15,10 @@ def test_list_actual_cli():
     result = subprocess.run([sys.executable, '-B', str(ROOT / 'run_images.py'), '--list'],
                             capture_output=True, text=True, check=True)
     inventory = json.loads(result.stdout)
-    assert set(inventory) == {f'main_{i}' for i in range(1, 8)} | {f'S{i}' for i in range(1, 13)}
+    assert set(inventory) == {f'main_{i}' for i in range(1, 8)} | {f'S{i}' for i in range(1, 11)}
+    assert inventory['S1'] == 'mean_dcor_all_datasets_epochs'
+    assert inventory['S10'] == 'fig_robust'
+    assert not any('accpred' in stem for stem in inventory.values())
 
 
 def test_separate_renderer_dispatch(tmp_path):
