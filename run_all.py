@@ -1,4 +1,4 @@
-"""Single entry point for the exported-data thesis reproduction workflow."""
+"""Single entry point for paper tables and figures from frozen exported evidence."""
 import argparse
 import json
 from pathlib import Path
@@ -120,6 +120,8 @@ def reproduce(out, checked):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, epilog=(
         'Revision modes are explicit and never submit GPU jobs. '
+        'paper runs all current numerical tables AND figures in one command. '
+        'paper-figures renders the current figures from an existing completed paper-tables --inputs directory. '
         'paper-tables executes every numerical paper-table workflow and writes a complete table index. '
         'descriptive, paired-tables, classical-saved and nb201-tables can also run independently without fitting. '
         'seed-intervals is the integrated, full-precision version of the uploaded patch (S2, S3, S10-S13). '
@@ -138,10 +140,10 @@ def main():
     parser.add_argument('--check', action='store_true', help='Check frozen inputs and dependencies without producing results')
     parser.add_argument('--out', type=Path, help='New output directory, never an existing path')
     parser.add_argument('--point4-report', type=Path, help='Read-only Point 4 report from an exported package; no training')
-    parser.add_argument('--revision', choices=['paper-tables', 'seed-intervals', 'descriptive', 'paired-tables', 'classical-saved', 'nb201-tables', 'loss-confidence', 'loss-confidence-bonferroni40', 'loss-confidence-per-arm', 'point4-tables', 'article', 'collapse', 'initialization', 'nb201-qwen', 'lemur-paired', 'classical-no-taylor', 'nested-outer', 'report'],
+    parser.add_argument('--revision', choices=['paper', 'paper-figures', 'paper-tables', 'seed-intervals', 'descriptive', 'paired-tables', 'classical-saved', 'nb201-tables', 'loss-confidence', 'loss-confidence-bonferroni40', 'loss-confidence-per-arm', 'point4-tables', 'article', 'collapse', 'initialization', 'nb201-qwen', 'lemur-paired', 'classical-no-taylor', 'nested-outer', 'report'],
                         help='Run one revision workflow; requires a new --out directory')
     parser.add_argument('--archive', type=Path, help='Frozen input archive for the selected revision workflow')
-    parser.add_argument('--inputs', type=Path, help='Parent directory of completed analysis outputs for --revision report')
+    parser.add_argument('--inputs', type=Path, help='Completed analysis outputs for report, or completed paper-tables output for paper-figures')
     args = parser.parse_args()
     if args.revision:
         if args.list or args.check or args.point4_report is not None:
@@ -155,12 +157,18 @@ def main():
             parser.error('This revision requires --archive')
         if args.archive is not None and (not needs_archive or not args.archive.is_file()):
             parser.error('--archive must be an existing file required by this revision')
-        if args.revision == 'report' and (args.inputs is None or not args.inputs.is_dir()):
-            parser.error('--revision report requires an existing --inputs directory')
-        if args.inputs is not None and args.revision != 'report':
-            parser.error('--inputs is only valid with --revision report')
+        if args.revision in ('report','paper-figures') and (args.inputs is None or not args.inputs.is_dir()):
+            parser.error('This revision requires an existing --inputs directory')
+        if args.inputs is not None and args.revision not in ('report','paper-figures'):
+            parser.error('--inputs is only valid with report or paper-figures')
         out = args.out.resolve()
-        if args.revision == 'paper-tables':
+        if args.revision == 'paper':
+            from analysis.revision_paper import run
+            run(ROOT, out)
+        elif args.revision == 'paper-figures':
+            from analysis.revision_paper_figures import run
+            run(ROOT, args.inputs.resolve(), out)
+        elif args.revision == 'paper-tables':
             from analysis.revision_paper_tables import run
             run(ROOT, out)
         elif args.revision == 'seed-intervals':
