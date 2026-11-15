@@ -9,12 +9,11 @@ import pytest
 from analysis import figures_supplement_new as sut
 
 REPO = Path(__file__).resolve().parents[1]
-TABLES = REPO / 'recomputed/paper-complete-verification-final/paper'
 
 
 @pytest.fixture(scope='module')
-def prepared():
-    return sut.prepare(REPO, TABLES)
+def prepared(paper_tables):
+    return sut.prepare(REPO, paper_tables)
 
 
 @pytest.fixture(scope='module')
@@ -26,11 +25,11 @@ def figures(prepared):
         plt.close(figure)
 
 
-def test_complete_coordinates_and_source_precision(prepared):
+def test_complete_coordinates_and_source_precision(prepared, paper_tables):
     coords, provenance = prepared
     assert {k: len(v) for k, v in coords.items()} == {'S10': 36, 'S11': 15, 'S12': 54}
     for r in coords['S10']:
-        source = sut._unique(json.loads((TABLES/'tables/S48.json').read_text()),
+        source = sut._unique(json.loads((paper_tables/'tables/S48.json').read_text()),
                              dataset=r['dataset'], arm=r['arm'], metric=r['metric'])
         assert all(r[k] == v for k, v in source.items())
         assert r['y'] == source['estimate']
@@ -118,10 +117,10 @@ def test_figure_shapes_labels_and_bold_best(prepared, figures):
             assert bounds.y0-1 <= box.y0 and box.y1 <= bounds.y1+1
 
 
-def test_real_exports_one_page_and_existing_output_untouched(tmp_path):
+def test_real_exports_one_page_and_existing_output_untouched(tmp_path, paper_tables):
     import fitz
     out = tmp_path/'supplement'
-    inventory = sut.render(REPO,TABLES,out)
+    inventory = sut.render(REPO,paper_tables,out)
     for name, files in inventory['figures'].items():
         with fitz.open(out/files['pdf']) as pdf:
             assert len(pdf) == 1
@@ -133,7 +132,7 @@ def test_real_exports_one_page_and_existing_output_untouched(tmp_path):
             assert len(list(csv.DictReader(f))) == len(data) == files['coordinates']
     before = {p.name:p.read_bytes() for p in out.iterdir()}
     with pytest.raises(FileExistsError):
-        sut.render(REPO,TABLES,out)
+        sut.render(REPO,paper_tables,out)
     assert before == {p.name:p.read_bytes() for p in out.iterdir()}
     provenance = json.loads((out/'provenance.json').read_text())
     for name, digest in provenance['output_sha256'].items():
@@ -144,11 +143,11 @@ def test_real_exports_one_page_and_existing_output_untouched(tmp_path):
     ('S48','n',274), ('S50','ci95_low',9),
     ('S54','spearman',.5), ('S56','raw_median',.5),
 ])
-def test_corrupt_table_inputs_fail_before_creating_output(tmp_path, table, field, value):
+def test_corrupt_table_inputs_fail_before_creating_output(tmp_path, table, field, value, paper_tables):
     root = tmp_path/'tables'
     root.mkdir()
     for name in ('S48','S50','S54','S56'):
-        data = json.loads((TABLES/'tables'/f'{name}.json').read_text())
+        data = json.loads((paper_tables/'tables'/f'{name}.json').read_text())
         if name == table:
             data[0][field] = value
         (root/f'{name}.json').write_text(json.dumps(data))

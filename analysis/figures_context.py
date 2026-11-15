@@ -82,12 +82,12 @@ def render(repo,tables_root,out):
         text(.455,.425,r'Taylor $T_1,T_2,T_3$',fontweight='bold',color='white',fontsize=6.5)
         text(.675,.68,'Predictor',fontweight='bold');text(.675,.53,'Qwen3-8B (QLoRA)',fontsize=6.1,color='.3')
         text(.675,.41,'or HistGB',fontsize=6.3,color='.3')
-        text(.89,.75,'Final accuracy',fontweight='bold',color='white')
+        text(.89,.75,'Target accuracy',fontweight='bold',color='white')
         r=overview['lemur_rmse'];text(.89,.59,rf"LEMUR RMSE {r['no-layer']:.2f} $\to$ {r['taylor']:.2f}",fontsize=6.1,color='white')
         values=overview['nb201_primary_relative_mae_reductions']
         text(.89,.46,f'NB201 MAE {min(values):.0f}% to {max(values):.0f}% lower',fontsize=5.8,color='white')
         text(.89,.33,f"{overview['taylor_seconds_per_checkpoint']:.2f} s per checkpoint",fontsize=6.1,color='#e8a027')
-        text(.5,.13,'matched comparison: the same predictor with and without the Taylor block',fontsize=6.1,fontstyle='italic',color='.35')
+        text(.5,.13,'LEMUR: full-run best accuracy; NB201: dataset-specific benchmark target',fontsize=6.1,fontstyle='italic',color='.35')
         inventory['main_1']=dict(stem='fig_overview',files=_save(fig,out,'fig_overview'),data='overview_data.json',
                                  implementation='New vector reconstruction of the supplied overview; numerical cards calculated from table exports.')
         fig,ax=plt.subplots(figsize=(3.45,2.05));fig.subplots_adjust(left=.36,right=.99,top=.81,bottom=.06)

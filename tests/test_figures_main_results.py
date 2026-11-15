@@ -10,7 +10,6 @@ import pytest
 from analysis import figures_main_results as figures
 
 REPO = Path(__file__).resolve().parents[1]
-TABLES = REPO / 'recomputed/paper-complete-verification-final/paper'
 
 
 def test_ensemble_estimand():
@@ -38,15 +37,13 @@ def test_overwrite_refusal_before_inputs(tmp_path):
 
 
 @pytest.fixture(scope='module')
-def rendered(tmp_path_factory):
-    if not TABLES.exists():
-        pytest.skip('Full verified paper table output is not present')
+def rendered(tmp_path_factory, paper_tables):
     out = Path(os.environ['FIGURE_TEST_OUT']) if 'FIGURE_TEST_OUT' in os.environ else tmp_path_factory.mktemp('figures-parent') / 'results'
-    inventory = figures.render(REPO, TABLES, out)
+    inventory = figures.render(REPO, paper_tables, out)
     return out, inventory
 
 
-def test_inventory_and_receipts(rendered):
+def test_inventory_and_receipts(rendered, paper_tables):
     out, inventory = rendered
     assert set(inventory['figures']) == {'main2', 'main3', 'main4', 'main5', 'main6', 'S7', 'S8', 'S9'}
     for record in inventory['figures'].values():
@@ -59,11 +56,11 @@ def test_inventory_and_receipts(rendered):
         assert hashlib.sha256((out / relative).read_bytes()).hexdigest() == digest
     before = {p.name: p.read_bytes() for p in out.iterdir() if p.is_file()}
     with pytest.raises(FileExistsError):
-        figures.render(REPO, TABLES, out)
+        figures.render(REPO, paper_tables, out)
     assert before == {p.name: p.read_bytes() for p in out.iterdir() if p.is_file()}
 
 
-def test_real_coordinates_and_populations(rendered):
+def test_real_coordinates_and_populations(rendered, paper_tables):
     out, _ = rendered
     load = lambda name: json.loads((out / (name + '.json')).read_text())['points']
     primary = load('fig_primary')
@@ -89,7 +86,7 @@ def test_real_coordinates_and_populations(rendered):
     panels = load('fig_panels')
     assert len([r for r in panels if r['panel'] == 'b']) == 18
     assert len([r for r in panels if r['panel'] == 'c']) == 60
-    costs = json.loads((TABLES / 'tables/S16.json').read_text())
+    costs = json.loads((paper_tables / 'tables/S16.json').read_text())
     expected = next(r['seconds'] for r in costs if r['operation'] == 'taylor_importance')
     assert next(r for r in panels if r['panel'] == 'a' and r['feature'] == 'taylor')['seconds'] == expected
     ensemble = load('fig_ensemble')
@@ -98,7 +95,7 @@ def test_real_coordinates_and_populations(rendered):
     assert taylor[0]['y'] != pytest.approx(taylor[0]['mean_subset_rmse'], abs=1e-6)
     lodo = load('fig_lodo')
     assert len(lodo) == 14
-    source = json.loads((TABLES / 'tables/S37.json').read_text())
+    source = json.loads((paper_tables / 'tables/S37.json').read_text())
     for row in lodo:
         original = next(r for r in source if r['dataset'] == row['dataset'] and r['metric'] == row['metric'])
         assert (row['estimate'], row['low'], row['high']) == (original['improvement'], original['low'], original['high'])

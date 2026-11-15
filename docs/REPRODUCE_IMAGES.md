@@ -25,10 +25,21 @@ Seven main-paper figures and twelve supplementary figures are exported as PDF an
 
 Scope follows the recorded article/supplement snapshots `project_final_4_-20.pdf` and `project_final_4_-21.pdf`, not the older nine-figure thesis inventory.
 
+## Figure integration tests
+
+After generating tables with the command above, run:
+
+```bash
+python -B -m pytest tests/test_figures_main_results.py tests/test_figures_supplement_legacy.py tests/test_figures_supplement_new.py tests/test_figures_context.py --figure-tables recomputed/paper-tables -q
+```
+
+`--figure-tables` defaults to `recomputed/paper-tables`. Relative paths are resolved from the repository root; absolute paths are supported. Set it to your completed table output if you used another location. The shared fixture verifies the table receipt and hashes. If the directory is absent, only tests requiring it are explicitly skipped; data-independent checks still run. An existing incomplete or altered export fails rather than being silently skipped. Tests do not generate tables or fall back to a developer's private output directory.
+
 ## Interpretation limits
 
 - Reconstructed figures are not claimed to be pixel-identical to historical PDFs.
 - S1/S2 use explicitly labelled cluster-replay reconstructions, not original workstation runtime measurements.
 - Main Figure 7 visualizes manually transcribed qualitative classifications from supplementary Table S1, not newly calculated significance counts.
+- The overview labels its output as target accuracy: LEMUR uses full-run best accuracy, while NB201 uses the dataset-specific benchmark target.
 - Existing table flags, including withheld invalid S24 mixed-model inference and numerical discrepancies, remain visible; rendering is not independent validation of every printed paper value.
 - This does not rebuild the manuscript, retrain models, or refresh anonymous/Zenodo releases.

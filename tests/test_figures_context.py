@@ -54,7 +54,9 @@ class ContextFigureTests(unittest.TestCase):
                                 self.assertLessEqual(x1,doc[0].rect.width+.5);self.assertLessEqual(y1,doc[0].rect.height+.5)
             with pymupdf.open(out/'fig_overview.pdf') as doc:
                 text=doc[0].get_text()
-                for label in ['Candidate','Predictor','Final accuracy','0.49','9.09','8.47']:self.assertIn(label,text)
+                for label in ['Candidate','Predictor','Target accuracy','LEMUR: full-run best accuracy',
+                              'NB201: dataset-specific benchmark target','0.49','9.09','8.47']:self.assertIn(label,text)
+                self.assertNotIn('Final accuracy',text)
             before=(out/'manifest.json').read_bytes()
             with self.assertRaises(FileExistsError):context.render(ROOT,base,out)
             self.assertEqual((out/'manifest.json').read_bytes(),before)
