@@ -4,7 +4,12 @@ These are explicit additions to `run_all.py`. The existing `--list`, `--check`,
 `--out` and `--point4-report` interfaces retain their previous meaning.
 No revision mode submits Kubernetes Jobs or trains a language model.
 
-## Entire current article and supplement: one command
+For the later final-paper BCa/Zou additions and the supplied manuscript export's
+build limitations, see [Final-paper reproducibility](FINAL_PAPER_REPRODUCIBILITY.md).
+The numbered inventory below describes the earlier audited snapshot; it does not
+automatically cover subsequently inserted tables or sensitivity paragraphs.
+
+## Earlier audited article and supplement: one command
 
 With Python 3.11 and `requirements-reproduce.txt`, from the repository root:
 

@@ -120,9 +120,11 @@ def reproduce(out, checked):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, epilog=(
         'Revision modes are explicit and never submit GPU jobs. '
-        'paper runs all current numerical tables AND figures in one command. '
+        'paper runs the legacy audited numerical tables AND figures in one command. '
         'paper-figures renders the current figures from an existing completed paper-tables --inputs directory. '
-        'paper-tables executes every numerical paper-table workflow and writes a complete table index. '
+        'paper-tables executes the legacy numerical paper-table workflows and writes their table index. '
+        'xgboost-bca, lc-sensitivity and nested-bca add the final-paper post-hoc analyses; '
+        'see docs/FINAL_PAPER_REPRODUCIBILITY.md for exact manuscript coverage and export limitations. '
         'descriptive, paired-tables, classical-saved and nb201-tables can also run independently without fitting. '
         'seed-intervals is the integrated, full-precision version of the uploaded patch (S2, S3, S10-S13). '
         'loss-confidence-bonferroni40 (alias: loss-confidence) reproduces the paper paired intervals '
@@ -140,7 +142,7 @@ def main():
     parser.add_argument('--check', action='store_true', help='Check frozen inputs and dependencies without producing results')
     parser.add_argument('--out', type=Path, help='New output directory, never an existing path')
     parser.add_argument('--point4-report', type=Path, help='Read-only Point 4 report from an exported package; no training')
-    parser.add_argument('--revision', choices=['paper', 'paper-figures', 'paper-tables', 'seed-intervals', 'descriptive', 'paired-tables', 'classical-saved', 'nb201-tables', 'loss-confidence', 'loss-confidence-bonferroni40', 'loss-confidence-per-arm', 'point4-tables', 'article', 'collapse', 'initialization', 'nb201-qwen', 'lemur-paired', 'classical-no-taylor', 'nested-outer', 'report'],
+    parser.add_argument('--revision', choices=['paper', 'paper-figures', 'paper-tables', 'xgboost-bca', 'lc-sensitivity', 'nested-bca', 'seed-intervals', 'descriptive', 'paired-tables', 'classical-saved', 'nb201-tables', 'loss-confidence', 'loss-confidence-bonferroni40', 'loss-confidence-per-arm', 'point4-tables', 'article', 'collapse', 'initialization', 'nb201-qwen', 'lemur-paired', 'classical-no-taylor', 'nested-outer', 'report'],
                         help='Run one revision workflow; requires a new --out directory')
     parser.add_argument('--archive', type=Path, help='Frozen input archive for the selected revision workflow')
     parser.add_argument('--inputs', type=Path, help='Completed analysis outputs for report, or completed paper-tables output for paper-figures')
@@ -170,6 +172,15 @@ def main():
             run(ROOT, args.inputs.resolve(), out)
         elif args.revision == 'paper-tables':
             from analysis.revision_paper_tables import run
+            run(ROOT, out)
+        elif args.revision == 'xgboost-bca':
+            from analysis.revision_xgboost_bca import run
+            run(ROOT, out)
+        elif args.revision == 'nested-bca':
+            from analysis.revision_nested_bca import run
+            run(ROOT, out)
+        elif args.revision == 'lc-sensitivity':
+            from analysis.revision_lc_sensitivity import run
             run(ROOT, out)
         elif args.revision == 'seed-intervals':
             from analysis.revision_seed_intervals import run
