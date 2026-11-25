@@ -1,5 +1,18 @@
 # Separate current-paper image runner
 
+For `project_final_4_(4).zip`, first run the renderer below, then map its checked
+output to the final TeX filenames/order without recalculating or changing plots:
+
+```bash
+python -B -m analysis.final_paper_images --inputs recomputed/paper-images --out recomputed/final-layout
+```
+
+This exports 16 unique assets for six main and eleven supplement placements
+(`fig_strata` is shared), renames the three dependence assets, swaps the main
+result-figure order, and omits the old tally. See
+[final-paper audit and limitations](FINAL_PAPER_REPRODUCIBILITY.md).
+The 17-figure inventory below remains the earlier renderer contract.
+
 From the repository root, with Python 3.11 and `requirements-reproduce.txt` installed:
 
 ```bash
