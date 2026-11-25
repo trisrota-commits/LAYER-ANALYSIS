@@ -8,10 +8,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class NestedRevisionTests(unittest.TestCase):
-    def test_cli_advertises_nested_mode(self):
-        result = subprocess.run([sys.executable, '-B', str(ROOT/'run_all.py'), '--help'], capture_output=True, text=True)
+    def test_public_table_cli_advertises_complete_analysis(self):
+        result = subprocess.run([sys.executable, '-B', str(ROOT/'run_tables.py'), '--help'], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0)
-        self.assertIn('nested-outer', result.stdout)
+        self.assertIn('BCa', result.stdout)
+        self.assertIn('--out', result.stdout)
+        self.assertNotIn('--revision', result.stdout)
 
     def test_existing_output_is_preserved(self):
         self.assertTrue((ROOT/'analysis/revision_nested.py').is_file())

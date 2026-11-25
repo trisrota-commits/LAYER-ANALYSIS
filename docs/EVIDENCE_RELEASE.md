@@ -1,9 +1,10 @@
 # Approved evidence and figure release
 
-This addition publishes the remaining reviewed numerical evidence and corrected
-figures. It is not anonymized: original experiment identifiers and filesystem
-provenance remain. No model weights, image datasets, private chat summaries,
-README edits or cluster job submissions are included.
+This document describes the preserved numerical evidence. It is not anonymized:
+original experiment identifiers and filesystem provenance remain. No model
+weights, image datasets or private chat summaries are included. Cleanup leaves
+all evidence bytes unchanged. Historical launchers and old figure utilities are
+available in the verified [pre-cleanup snapshot](https://github.com/trisrota-commits/LAYER-ANALYSIS/tree/pre-cleanup-two-runners).
 
 ## Archives under `evidence/`
 
@@ -34,10 +35,11 @@ were not available when that ZIP was created; they are now preserved in the
 separate recovered archive above, not reconstructed from prose. Older and newer
 analyses retain their separate provenance and uncertainty methods.
 
-See `REVISION_WORKFLOWS.md` for the portable `run_all.py --revision` modes.
-The standalone nested postprocessing originals retain their historical paths;
-`--revision nested-outer` supplies portable input/output locations and runs their
-unchanged calculations and renderer. No GPU launcher is invoked.
+Run `python run_tables.py` for the complete numerical workflow, then
+`python run_images.py` for all final images. See
+[reproduction scope and provenance](FINAL_PAPER_REPRODUCIBILITY.md).
+The retained nested postprocessing originals keep their historical source bytes;
+the internal adapter supplies portable paths. No GPU launcher is invoked.
 
 ## Recovered paper evidence
 
@@ -63,41 +65,32 @@ This is named research provenance, **not an anonymous-review archive**.
   snapshot is under `imagenet16-loss-confidence-partial-histgb-v1/results/`,
   not the full acquisition directory.
 
-After checking the archive hash and extracting it into a new directory,
-the existing read-only reporter can consume its Point 4 package:
-
-```bash
-python -B run_all.py --point4-report /absolute/path/to/extracted/point4-all3-no-checkpoints-v1
-```
+The table runner includes `analysis/revision_point4_tables.py`, which verifies
+and consumes the bundled archive without manual extraction. The original
+standalone reporter remains available in the historical snapshot, not as a
+second public entry point.
 
 Recovered summaries and raw timing measurements permit recalculation of the
 Point 4 tables without training. Independent inspection reproduced the displayed
 repeat-CV and candidate-median timing values. The documented cross-batch formula
 gives CIFAR-100 epoch-2 raw discrepancy 1.9784729676583055 (1.978 at three
-decimals), whereas the inspected supplement prints 1.979; inputs are preserved
-without changing them to fit the printed value. The original later S56/S57
+decimals), whereas an earlier supplement printed 1.979. The corrected `(5)`
+export prints 1.978; inputs were not changed to fit the paper. The original later S56/S57
 analysis implementations are not in the recovered archive. The separate
-`--revision point4-tables` adapter recalculates the documented summaries from
+`analysis/revision_point4_tables.py` adapter recalculates the documented summaries from
 these measurements; it is not claimed to be the recovered historical script.
-The added `loss-confidence-per-arm`, `article`, `collapse`, and `initialization` modes
-provide the additional paper analyses. See `REVISION_WORKFLOWS.md` for their
-commands, uncertainty scope and preservation rules.
+The retained loss/confidence, article, collapse and initialization modules
+provide the additional analyses behind `run_tables.py`. Their uncertainty scopes
+and preservation rules are documented in `FINAL_PAPER_REPRODUCIBILITY.md`.
 
-## Corrected figures
+## Figures
 
-- `images/fig_nb201.pdf`: newly regenerated forest-only figure, no bar panel and
-  no orphaned panel label. `figures/nb201_forest/make_nb201_forest_only.py` is the
-  portable generator; its input intervals and full plotted values are included.
-- `images/fig_zcp.pdf`: previously verified figure without the in-plot r/p
-  annotation and with `Dead-act. fraction` as the label.
-- `images/taylor_summary.pdf`: previously verified Figure6.1 with the NB201
-  `CIFAR-10-valid` label, unchanged outside the relabelled region.
-
-Regenerate the forest figure, without fitting or resampling:
-
-```bash
-python -B figures/nb201_forest/make_nb201_forest_only.py --out recomputed/nb201-forest-only
-```
+`run_images.py` reconstructs all 16 final-paper assets from completed table
+evidence, including `fig_nb201_improve.pdf` and `fig_zcp.pdf`, with plotted
+coordinates and provenance retained in its output. It does not recalculate
+the table workflows. The earlier standalone `fig_nb201.pdf`, Figure6.1
+`taylor_summary.pdf`, and their original correction/generation scripts remain
+in the [historical snapshot](https://github.com/trisrota-commits/LAYER-ANALYSIS/tree/pre-cleanup-two-runners/images).
 
 The MAE* column uses the primary target>=20 population and record-paired t
 intervals. The four supporting metrics use all275 test records per dataset and

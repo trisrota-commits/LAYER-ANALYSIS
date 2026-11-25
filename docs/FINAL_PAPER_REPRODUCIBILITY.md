@@ -5,7 +5,15 @@ Only `_supp_tables.tex` differs from the originally audited ZIP. All 55 table
 calls resolve, and expansion has no duplicate labels or unresolved references.
 Its SHA-256 is `b2377ca73b90377d4dde1e0a64c7665f860a27de1e8d0dad781e06fe3e036043`.
 The missing-definition finding below describes the superseded `(4)` export,
-not the corrected `(5)` export. See [corrected supplement audit](CORRECTED_SUPPLEMENT_AUDIT.md).
+not the corrected `(5)` export. See [corrected supplement verification](#corrected-supplement-verification).
+
+Historical launchers, optional refitting/legacy entry points, old figure utilities
+and their original documentation are preserved in the verified
+[pre-cleanup-two-runners snapshot](https://github.com/trisrota-commits/LAYER-ANALYSIS/tree/pre-cleanup-two-runners)
+(commit `cb5372ecb0c2bd79d88174aaea4bb9a43adb7ee9`). The active checkout retains
+the two public runners, their dependencies, tests and all evidence. Archived
+launchers are not required by the saved-evidence reproduction and must not be
+executed casually: some submit GPU jobs or depend on historical cluster paths.
 
 ## Scope
 
@@ -34,8 +42,9 @@ The table runner includes the original calculations, all final BCa/Zou additions
 and stable-label export in one command. It writes CSV/JSON files directly under
 `recomputed/tables/`; the image runner reads that completed output and writes
 PDF/PNG files directly under `recomputed/images/`. Each retains intermediate
-receipts and logs in `workflows/`. Existing calculation modules and `run_all.py`
-remain internal/advanced interfaces; no extra export command is needed.
+receipts and logs in `workflows/`. The retained calculation modules are internal
+dependencies; superseded entry points are in the historical snapshot above.
+No extra export command is needed.
 Internal historical table IDs are **legacy IDs**, not final PDF numbers.
 Existing percentile analyses/correction families are unchanged.
 The image runner checks the completed table evidence and exports the 16
@@ -129,14 +138,89 @@ not refit the common calibration or replay the original extraction.
 
 ## Acquisition and original training boundaries
 
-See [historical acquisition provenance](HISTORICAL_ACQUISITION.md). LEMUR's
-candidate-specific batch and model-loss precedence differ from the fixed 256-image,
-mean-cross-entropy NB201 acquisition implementation. Source/contract checks do
-not reconstruct per-record runtime provenance for every historical run.
-The [preserved NB201 acquisition builders](../paper_runners/nb201_acquisition/README.md)
-now expose the shared caller and dataset-specific preparation transformations.
-They do not recover every original prepared engine, full-run contract or GPU
-execution receipt; the numerical runner does not execute them.
+### LEMUR
+
+The historical training wrapper constructs `train_loader_f(train_dataset, batch, ...)`
+and calls `full_analysis(self.train_loader, self.loss_fn, num_batches=1)`.
+Taylor extraction explicitly enters training mode, measures one minibatch, and
+restores the prior mode. Batch size is candidate-specific, not universally 32/128;
+a short dataset or custom collator can affect the actual tensor size.
+The wrapper prefers a model's `criterion`, then `loss_fn`; classification falls
+back to mean-reduced `CrossEntropyLoss()`. This does not establish one common
+loss/reduction or exact executed extractor revision for every stored record.
+
+Immutable implementation sources:
+[loss selection](https://github.com/trisrota-commits/nn-dataset/blob/d2c75d7122c6a8b14afbfb43ac392c7e294ba7ac/ab/nn/util/Train.py#L236-L249),
+[loader](https://github.com/trisrota-commits/nn-dataset/blob/d2c75d7122c6a8b14afbfb43ac392c7e294ba7ac/ab/nn/util/Util.py#L178-L181),
+[Taylor extraction](https://github.com/trisrota-commits/nn-dataset/blob/d2c75d7122c6a8b14afbfb43ac392c7e294ba7ac/ab/nn/util/LayerAnalysis.py#L209-L259).
+
+### NAS-Bench-201 and controlled acquisition
+
+The [archived NB201 acquisition builders](https://github.com/trisrota-commits/LAYER-ANALYSIS/tree/pre-cleanup-two-runners/paper_runners/nb201_acquisition)
+show a fixed augmented 256-image training batch with real labels per dataset,
+reused at early checkpoints, and mean cross-entropy. The caller deep-copies the
+candidate; the pinned extractor calls `.train()` on that copy. Copying protects
+the original state but does not imply evaluation-mode measurement.
+The extractor hash is `f19dcb88702679de1ada97dde6766bbbdb44019d4b05c04e1557fa1bdde9ad9f`;
+the shared caller hash is `87b2357f87038bd6206243962dbef149a0c55557ffcf2f05b1996c0badf54e5f`.
+The repository-root `LayerAnalysis.py` is a later supplied definition file, not
+that historical extractor. Source/contract checks do not independently recover
+every original prepared engine, full-run contract, candidate checkpoint or runtime
+receipt; candidate data and cluster environment remain external dependencies.
+
+The separate 32/128 controlled study does not retrospectively standardize stored
+LEMUR measurements. Its [original acquisition sources](https://github.com/trisrota-commits/LAYER-ANALYSIS/tree/pre-cleanup-two-runners/paper_runners/point4)
+are archived; current `analysis/revision_point4_tables.py` consumes the unchanged
+measurement evidence. Measured extraction overhead is not end-to-end NAS savings.
+
+## Corrected supplement verification
+
+The corrected `(5)` file has 58 distinct definitions, all 55 calls resolve, and
+expansion has no duplicate labels or unresolved references; bibliography keys
+also resolve. Four NB compatibility commands are intentionally empty because
+their five labels belong to one merged table. `SMCorpusTable`, `SMLCIncrementTable`
+and `SMNestedFoldsTable` are defined but not called. Thus 72 table definitions
+correspond to 70 included tables: 69 numerical plus one contextual related-work
+table. The numerical exporter covers 73 labels, including four NB aliases.
+
+The restored 50 numerical table macros were compared with existing verified
+exports, without rerunning training, acquisition or bootstrap calculations:
+
+| Restored scope | Coverage | Result |
+|---|---|---|
+| Descriptive conditions and holdout means | 14 tables; 1,305 mean/interval fields | Match, allowing the decimal tie below |
+| Paired/primary/collapse/multiplicity/selection/ensemble/granularity | 14 tables, including all 90 multiplicity rows | Displayed values match; near-zero qualification below |
+| NB201, initialization and LC | 10 tables; 406 displayed fields; 72 NB source fields cross-checked | Match at displayed precision |
+| MIC, acquisition and nested results | 12 tables; 532 numeric/identity fields | Four rank-rounding differences below |
+
+These are table-body comparisons, not independent reconstruction of every caption's
+historical protocol assertion. The 19 originally explicit table blocks were
+unchanged; the related-work synthesis was not re-evaluated as an experiment.
+
+In `smtab:acq-sensitivity` (S55 in that export), direct three-decimal rounding gives:
+
+| Dataset | Setting | Epoch | Printed | Correct | Full precision |
+|---|---|---:|---:|---:|---:|
+| CIFAR-100 | Augmentation on | 3 | 1.000 | 0.999 | 0.9994814250556663 |
+| CIFAR-100 | Train, batch 32 | 3 | 0.983 | 0.982 | 0.9824944333763037 |
+| ImageNette | Train, batch 32 | 1 | 0.984 | 0.983 | 0.9834981752789972 |
+| ImageNette | Train, batch 128 | 3 | 0.957 | 0.956 | 0.9564844027106241 |
+
+These presentation differences do not change conclusions. Detector/Taylor-OFF
+MAE `8.99875` legitimately rounds to `8.9988` using decimal rounding; binary-float
+formatting alone is not grounds to change that tie. The readmission Spearman
+upper endpoint `1.785304e-06` correctly displays `0.0000` at four decimals but is
+positive (`0.000002` at six). ZCP/readmission notes claiming six decimal places
+should be aligned with their four-decimal displays. Earlier explicit-table
+rounding findings above remain separate; no data were altered to match prose.
+
+An isolated build of corrected `(5)` loaded official IEEEtran V1.8b from CTAN
+(archive SHA-256 `e0cd4f5afbd42c8076092280e72b3e0a5111efe501d35de9f715cfb8da313cb4`)
+but stopped at missing local `float.sty`, with automatic installation and shell
+execution disabled. No global TeX configuration changed and no PDF was produced.
+This does not certify official compilation, page count or final layout; unchanged
+surrogate previews are not fresh builds. Full original audit details remain in
+the [archived corrected-supplement report](https://github.com/trisrota-commits/LAYER-ANALYSIS/blob/pre-cleanup-two-runners/docs/CORRECTED_SUPPLEMENT_AUDIT.md).
 
 ## Verification
 

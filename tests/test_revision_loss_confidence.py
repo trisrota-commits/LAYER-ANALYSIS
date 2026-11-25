@@ -2,38 +2,21 @@
 from pathlib import Path
 import tempfile
 import unittest
-import subprocess
-import sys
-import importlib.util
-from unittest.mock import patch
+import hashlib
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class RevisionLossConfidenceTests(unittest.TestCase):
-    def test_explicit_bonferroni40_cli_routes_to_original_analysis(self):
-        result = subprocess.run([sys.executable, '-B', str(ROOT / 'run_all.py'), '--help'],
-                                capture_output=True, text=True)
-        self.assertEqual(result.returncode, 0)
-        self.assertIn('loss-confidence-bonferroni40', result.stdout)
-        self.assertNotIn('loss-confidence-all-pairs', result.stdout)
-        spec = importlib.util.spec_from_file_location('runner_bonf40_test', ROOT / 'run_all.py')
-        runner = importlib.util.module_from_spec(spec); spec.loader.exec_module(runner)
-        archive = ROOT / 'evidence/loss-confidence-all-metrics-inputs-v1.tar.gz'
-        with tempfile.TemporaryDirectory() as tmp:
-            out = Path(tmp) / 'new'
-            argv = ['run_all.py', '--revision', 'loss-confidence-bonferroni40',
-                    '--archive', str(archive), '--out', str(out)]
-            with patch.object(sys, 'argv', argv), patch('analysis.revision_loss_confidence.run') as run:
-                runner.main()
-                run.assert_called_once_with(archive.resolve(), out.resolve())
-            result = subprocess.run([sys.executable, '-B', str(ROOT / 'run_all.py'),
-                                     '--revision', 'loss-confidence-bonferroni40', '--out', str(out)],
-                                    capture_output=True, text=True)
-            self.assertNotEqual(result.returncode, 0)
-            self.assertIn('requires --archive', result.stderr)
-            self.assertFalse(out.exists())
+    def test_bonferroni40_contract_retains_pinned_analysis(self):
+        from analysis import revision_loss_confidence as lc
+        from analysis.revision_lc_sensitivity import LOADER_SHA
+        self.assertEqual(hashlib.sha256(Path(lc.__file__).read_bytes()).hexdigest(), LOADER_SHA)
+        self.assertEqual(lc.PAIRS, [(1,3),(0,1),(0,2),(2,3)])
+        self.assertEqual(lc.METRICS, ['MAE','RMSE','Pearson','Spearman','R2'])
+        self.assertEqual(lc.DRAWS, 10000)
+        self.assertEqual(len(lc.PAIRS)*2*len(lc.METRICS), 40)
 
     def test_existing_output_is_preserved_before_reading_inputs(self):
         self.assertTrue((ROOT / 'analysis/revision_loss_confidence.py').is_file())
