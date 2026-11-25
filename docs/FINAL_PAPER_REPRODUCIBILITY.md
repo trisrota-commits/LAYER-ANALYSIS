@@ -1,5 +1,12 @@
 # Final-paper reproducibility audit and post-hoc analyses
 
+**Corrected export:** `project_final_4_(5).zip` restores the table definitions.
+Only `_supp_tables.tex` differs from the originally audited ZIP. All 55 table
+calls resolve, and expansion has no duplicate labels or unresolved references.
+Its SHA-256 is `b2377ca73b90377d4dde1e0a64c7665f860a27de1e8d0dad781e06fe3e036043`.
+The missing-definition finding below describes the superseded `(4)` export,
+not the corrected `(5)` export. See [corrected supplement audit](CORRECTED_SUPPLEMENT_AUDIT.md).
+
 ## Scope
 
 The audit compared GitHub main `311a75aca52b12dd992de23ca5782b590d777ba8`
@@ -38,11 +45,14 @@ unique asset names referenced by the attached TeX, swaps the main result-figure
 order, and omits the old tally. There are 17 placements because `fig_strata` is
 shared by the main paper and supplement. It changes filenames/indexing only,
 not numerical coordinates or the underlying renderers.
-The final-table export maps all **19 explicit table labels** in the supplied
-sources to completed calculations and retains nested BCa prose values separately.
+The final-table export now maps all **69 numerical tables (73 labels)** in the
+corrected sources to completed calculations and retains nested BCa prose values separately.
+The related-work table is explicitly contextual. Four NB labels alias the one
+merged primary table, rather than counting as independent tables or results.
 It includes the target-at-least-20 four-arm projection and verifies that the
 checkpoint comparison retains all three conditions, including no-layer.
-It deliberately does not invent the 55 undefined supplementary table definitions.
+It consumes existing verified calculations only; restoring definitions does not
+require another training run, feature extraction or bootstrap calculation.
 
 | Final-paper content | Portable calculation | Inputs / interpretation |
 |---|---|---|
@@ -69,13 +79,13 @@ replaced by a pooled delete-one-group approximation.
 
 ## Confirmed manuscript/export issues
 
-1. In the supplied ZIP, `_supp_tables.tex` is byte-identical to `supplementary.tex`
+1. **Resolved in corrected `(5)` export.** In the original `(4)` ZIP,
+   `_supp_tables.tex` is byte-identical to `supplementary.tex`
    (SHA-256 `cdb061b9ba3bf8aa00890aef97342660181a4a63349ae5217297d7484fe1cc9b`).
    It contains another document class/preamble and `\\input{_supp_tables}` rather
    than the required `SM...Table` command definitions. The supplement cannot be
-   compiled from this export as supplied. Restore the actual table-definition
-   file from the authoring source; do not replace it with a guessed historical
-   version. This also prevents a complete current table-cell audit from source.
+   compiled from that export as supplied. The author supplied the actual
+   definitions in `(5)`; they were not reconstructed from guessed historical values.
 2. The XGBoost adjusted MAE upper endpoint is `1.4605498211179215`, which rounds
    directly to **1.4605**, not the manuscript's **1.4606**. The latter arose from
    rounding the six-decimal console display again. The code retains full precision;
@@ -100,7 +110,7 @@ The attached source already corrects the earlier HistGB RMSE-change display to
 0.3506 and SynFlow Pearson adjusted upper endpoint to 1.1766; the legacy flags
 about 0.3507/1.1765 are not new errors in this final source.
 
-### Undefined table-command coverage boundary
+### Restored table-command coverage
 
 The existing calculators provide source-intent coverage for all 55 calls:
 initial/grouped/baseline and feature tables (legacy S2-S4, S10-S23), dependence
@@ -111,7 +121,8 @@ and nested partitions/selections/results (S58-S61). Related work (S46) is
 contextual. These historical IDs are not verified current table numbers.
 The five NB primary/Holm/bootstrap/supporting/mixed commands correspond to
 projections of detailed NB reports, not five separately numbered legacy outputs.
-Their exact final cells require the missing definitions.
+The corrected definitions merge those five labels into one displayed table;
+four compatibility commands are intentionally empty. The exporter records aliases.
 
 Nested selection exports read hash-locked selections; the outer archive does not
 contain every inner-trial prediction needed to independently rerun selection.

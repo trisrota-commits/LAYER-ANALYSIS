@@ -1,4 +1,4 @@
-"""Stable-label exports for the final ZIP's explicit tables, not missing TeX macros.
+"""Stable-label exports for the corrected final paper and restored supplement.
 
 Consumes completed calculations only. Values retain full precision and the
 original uncertainty columns; extra columns/metrics are labelled source detail.
@@ -16,7 +16,35 @@ LEGACY_LABELS = {
     'tab:sm-classical-notaylor':'S7','tab:sm-checkpoints':'S15',
     'tab:sm-nb201-supporting':'S32','tab:sm-lc-at':'S49',
     'tab:sm-lc-increment':'S50','tab:sm-lc-summary':'S51',
+    'tab:accpred-metrics-ci':'S2','tab:main-85-5-10-results':'S3',
+    'tab:baseline-proxies-85-5-10':'S4','tab:early-mic':'S8','tab:same-epoch-mic':'S9',
+    'tab:layer-features-2acc-zcp-on':'S10','tab:layer-features-2acc-zcp-off':'S11',
+    'tab:layer-statistic-cost-performance':'S12','tab:layer-features-3acc-zcp-off':'S13',
+    'tab:taylor-zcp-on-off':'S14','tab:layer-extraction-time':'S16',
+    'tab:taylor-round2-pairs':'S17','tab:taylor-sensitivity-zcp-on-off':'S18',
+    'tab:zcp-paired-five-metrics':'S19','tab:taylor-round3-triples':'S20',
+    'tab:taylor-paired-bootstrap-rmse':'S21','tab:taylor-readmission-features':'S22',
+    'tab:readmission-paired-five-metrics':'S23','smtab:robust':'S24',
+    'smtab:collapse-baseline':'S25','tab:multiplicity-families':'S26',
+    'tab:zcp-aggregate':'S27','tab:selection-quality':'S28','smtab:ens':'S29',
+    'smtab:nb201-descriptive':'S30','smtab:nb201-primary':'S31',
+    'smtab:nb201-global-holm':'S31','smtab:nb201-bootstrap':'S31',
+    'smtab:nb201-supporting-tests':'S31','smtab:nb201-mixed':'S31',
+    'smtab:nb201-classical':'S33','tab:supp-multiplicity':'S34','tab:supp-selection':'S35',
+    'tab:lodo-taylor-zcp-off':'S36','tab:lodo-taylor-record-bootstrap':'S37',
+    'tab:lofo-taylor-zcp-off-comparison':'S38','tab:lofo-taylor-grouped-bootstrap':'S39',
+    'tab:per-layer-versus-averaged-taylor':'S40','tab:init-taylor-proxy-comparison':'S41',
+    'tab:init-proxies-matched-86':'S42','tab:init-proxies-paired-86':'S43',
+    'tab:init-proxy-combinations':'S44','tab:init-proxy-combinations-paired':'S45',
+    'tab:matched-cohort-scope':'S47','tab:matched-four-arm':'S48',
+    'smtab:acq-coverage':'S53','smtab:acq-sensitivity':'S54','smtab:acq-cv':'S55',
+    'smtab:acq-rescale':'S56','smtab:acq-timing':'S57','smtab:nested-partitions':'S58',
+    'smtab:nested-selections':'S59','smtab:nested-seeds':'S60','smtab:nested-pooled':'S61',
 }
+ALIASES = {label:'smtab:nb201-primary' for label in
+           ['smtab:nb201-global-holm','smtab:nb201-bootstrap',
+            'smtab:nb201-supporting-tests','smtab:nb201-mixed']}
+CONTEXT_LABEL = 'tab:closest-related'
 
 
 def read(path):
@@ -65,7 +93,7 @@ def export(tables,xgboost,lc,nested,out):
     result['tab:sm-lc-bca']=lc_result['results']
     result['tab:sm-lc-zou']=lc_result['zou']
     result['tab:xgboost-bca']=read(xgboost/'results.json')['results']
-    require(len(result)==19,'Explicit table-label inventory mismatch')
+    require(len(result)==73,'Corrected table-label inventory mismatch')
     require({r['group'] for r in result['tab:sm-checkpoints']}=={'3/off/no-layer','3/off/taylor','epoch1'},
             'Checkpoint reference row missing')
     require(len(result['tab:lc-bca'])==6 and len(result['tab:sm-lc-bca'])==15
@@ -80,11 +108,15 @@ def export(tables,xgboost,lc,nested,out):
         with path.with_suffix('.csv').open('x',newline='',encoding='utf-8') as f:
             writer=csv.DictWriter(f,fieldnames=fields);writer.writeheader()
             writer.writerows({k:json.dumps(v) if isinstance(v,(list,dict)) else v for k,v in r.items()} for r in rows)
-        index.append(dict(label=label,rows=len(rows),legacy_table=LEGACY_LABELS.get(label),path=path.relative_to(out).as_posix()))
+        index.append(dict(label=label,rows=len(rows),legacy_table=LEGACY_LABELS.get(label),
+                          alias_of=ALIASES.get(label),path=path.relative_to(out).as_posix()))
     (out/'nested_bca_prose.json').write_text(json.dumps(read(nested/'results.json')['results'],indent=2)+'\n',encoding='utf-8')
-    report=dict(status='complete',scope='19 explicit tables only; not a certification of undefined supplement macros',
+    report=dict(status='complete',scope='Corrected final paper: numerical table source exports, not exact LaTeX rendering',
+                numerical_tables=len(result)-len(ALIASES),numerical_labels=len(result),
+                contextual_tables=[dict(label=CONTEXT_LABEL,kind='literature comparison; no numerical calculation')],
+                manuscript_archive_sha256='b2377ca73b90377d4dde1e0a64c7665f860a27de1e8d0dad781e06fe3e036043',
                 tables=index,input_receipts=bound,source_script_sha256=sha(Path(__file__)),
-                limitations=['55 SM table commands lack definitions in the supplied manuscript ZIP.',
+                limitations=['Four NB labels are aliases of one merged primary table, not independent results.',
                     'Legacy exports retain additional source rows/columns and historical discrepancy flags; do not infer final numbering.',
                     'Four-arm means are target>=20; BCa and Zou use all available test records.',
                     'No new calculations; uncertainty families preserved. No original model training or selection replay.'])
@@ -94,7 +126,7 @@ def export(tables,xgboost,lc,nested,out):
         verified(p)
     (out/'complete.json').write_text(json.dumps(dict(status='complete',files_sha256={
         p.relative_to(out).as_posix():sha(p) for p in out.rglob('*') if p.is_file()}),indent=2)+'\n',encoding='utf-8')
-    print('FINAL TABLE LABELS: 19 explicit tables plus nested BCa prose; undefined macros not certified.',flush=True)
+    print('FINAL TABLE LABELS: 69 numerical tables / 73 labels; one contextual table; nested BCa prose retained.',flush=True)
     return report
 
 
