@@ -26,21 +26,19 @@ From the repository root, use Python 3.11 and `requirements-reproduce.txt`.
 Every output path must be new. No command below trains a model or contacts a cluster.
 
 ```bash
-python -B run_all.py --revision paper-tables --out recomputed/final-tables
-python -B run_images.py --inputs recomputed/final-tables --out recomputed/final-images
-python -B -m analysis.final_paper_images --inputs recomputed/final-images --out recomputed/final-layout
-python -B run_all.py --revision xgboost-bca --out recomputed/final-xgboost-bca
-python -B run_all.py --revision lc-sensitivity --out recomputed/final-lc-sensitivity
-python -B run_all.py --revision nested-bca --out recomputed/final-nested-bca
-python -B -m analysis.final_paper_tables --tables recomputed/final-tables --xgboost recomputed/final-xgboost-bca --lc recomputed/final-lc-sensitivity --nested recomputed/final-nested-bca --out recomputed/final-labelled-tables
+python run_tables.py
+python run_images.py
 ```
 
-The first two commands retain their previous inventories (66 numerical and two
-contextual tables, 17 reconstructed figures). Table IDs in those outputs are
-**legacy IDs**, not guaranteed final-PDF numbering after inserted tables. The
-additional analyses below are identified by LaTeX labels rather than guessed
-renumbering. Existing percentile analyses/correction families are unchanged.
-The final-layout command checks the completed image receipt, exports the 16
+The table runner includes the original calculations, all final BCa/Zou additions,
+and stable-label export in one command. It writes CSV/JSON files directly under
+`recomputed/tables/`; the image runner reads that completed output and writes
+PDF/PNG files directly under `recomputed/images/`. Each retains intermediate
+receipts and logs in `workflows/`. Existing calculation modules and `run_all.py`
+remain internal/advanced interfaces; no extra export command is needed.
+Internal historical table IDs are **legacy IDs**, not final PDF numbers.
+Existing percentile analyses/correction families are unchanged.
+The image runner checks the completed table evidence and exports the 16
 unique asset names referenced by the attached TeX, swaps the main result-figure
 order, and omits the old tally. There are 17 placements because `fig_strata` is
 shared by the main paper and supplement. It changes filenames/indexing only,
@@ -159,7 +157,7 @@ not replaced by the older within-dataset Bonferroni40 analysis.
 Use both unittest-style and pytest-style tests via:
 
 ```bash
-python -B -m pytest tests --figure-tables recomputed/final-tables -q
+python -B -m pytest tests --figure-tables recomputed/tables/workflows/base -q
 ```
 
 If Matplotlib reports stale cached font paths, run with `MPLCONFIGDIR` pointing to

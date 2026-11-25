@@ -39,6 +39,8 @@ def export(inputs, out):
     require('FIGURE_INDEX.json' in hashes,'Figure index not bound to receipt')
     for name,h in hashes.items():checked(inputs,name,h)
     figures=index['figures'];sources={}
+    from analysis.revision_paper_figures import FIGURES
+    require(set(figures)==set(FIGURES), 'Expected legacy rendered figures; final layout must not be mapped twice')
     for placement,old,stem in PLACEMENTS:
         require(old in figures,'Missing original figure '+old)
         for ext in ('pdf','png'):
@@ -75,6 +77,6 @@ def export(inputs, out):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--inputs',type=Path,required=True,help='Completed run_images.py output, NOT tables')
+    parser.add_argument('--inputs',type=Path,required=True,help='Internal legacy renderer output; public run_images.py already maps the final layout')
     parser.add_argument('--out',type=Path,required=True,help='New final-layout output')
     args=parser.parse_args();export(args.inputs,args.out)

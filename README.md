@@ -1,82 +1,36 @@
 # Layer-Wise Training Statistics: Reproduction
 
-Reproduce the numerical content of **25 tables and 9 figures** from frozen exported data and saved predictions. The table count includes three protocol/design tables. No database, GPU, candidate training, or Qwen fitting is required.
+Run from the repository root with **Python 3.11**. No GPU, database or model training is required.
 
-## Run
-
-Use Python 3.11 and a TeX installation providing `pdflatex`, the standard article class and fontenc. From this repository:
+## Install dependencies
 
 ```bash
-python -m venv .venv
-# Linux/macOS: source .venv/bin/activate
-# Windows PowerShell: .venv\Scripts\Activate.ps1
 python -m pip install -r requirements-reproduce.txt
-python -B run_all.py --check
-python -B run_all.py --out recomputed/results
 ```
 
-The output directory must be new. The full command writes tables as CSV/Markdown/LaTeX, figures as PDF/PNG, analysis reports, source/input hashes and `complete.json`. Failed runs preserve their diagnostics and do not claim completion.
-
-[Detailed instructions and scientific boundaries](docs/REPRODUCE_THESIS.md) · [Verification receipt](docs/reproduction-verification.json)
-
-### Revision acquisition source and optional report
-
-The 25-table/9-figure workflow above covers the original evaluation snapshot, not all
-later revision experiments. The recovered [Point 4 acquisition source](paper_runners/point4/README.md)
-is now preserved separately. To report its completed exported analyses without
-training or modifying inputs, use:
+## All tables
 
 ```bash
-python -B run_all.py --point4-report /shared/ssd/home/b-t-bose/lmur/point4-all3-no-checkpoints-v1
+python run_tables.py
 ```
 
-Use the local export path instead when running off-cluster. This standard-library
-option requires the original manifest and checksum-verified completed analyses;
-those new numerical outputs are not included in this source-only addition.
-New loss/confidence HistGB and nested-Qwen source/results remain separate
-publication gaps; the older NB201 results are not substitutes for those studies.
+Writes CSV/JSON tables to **`recomputed/tables/`**, including all BCa and Zou analyses.
+`TABLE_INDEX.json` maps the 69 numerical tables and their labels; the literature table is contextual.
 
-## Minimal layout
+## All images
 
-```text
-run_all.py                  Unified entry point
-requirements-reproduce.txt  Pinned CPU dependencies
-INPUT_MANIFEST.json         Hashes of required frozen inputs/helper source
-analysis/                  Reproduction and revision adapters
-paper_runners/dependence/   Original dCor and MIC analysis runners
-paper_runners/point4/       Recovered acquisition source and optional export report
-nb201_v1/                   Preserved statistical helper source
-LayerAnalysis.py            Supplied statistic definitions; not executed by the runner
-data.zip                    Original snapshot and initial-split archive
-evidence/                   Required predictions, reference results and numerical packet
-figures/                    Only the schematic sources used by the runner
-tests/                      Focused reproduction tests
-docs/                       Instructions and verification receipt
-```
-
-The LEMUR packet is kept intact to preserve its nested manifests, required grouped-split inputs and reference reports. Do not replace the initial prompt split in `data.zip` with the grouped evaluation: the runner uses the appropriate archived predictions for each experiment.
-
-## Scope
-
-- Prediction metrics and paired analyses are recalculated from saved predictions. Dependence summaries/heatmaps aggregate exported per-cell estimates; raw-network extraction and dependence-estimator permutations are not repeated.
-- Design tables render documented protocol definitions. Outputs reproduce numerical content, not identical manuscript page layout.
-- LEMUR feature selection was exploratory. NB201 predictors were fitted separately within each dataset; this is not zero-shot transfer or a claim of universal LLM superiority.
-- The initial two-accuracy/no-layer RMSE computes to `11.4715` at four decimals; the original manuscript prints `11.4716`. The runner preserves the computed value and reports the discrepancy.
-- The standard reproduction command uses saved data and predictions; it does not repeat model training or layer-statistic collection. Original [dCor/MIC analysis scripts](paper_runners/dependence/README.md) and [Point 4 measurement code](paper_runners/point4/README.md) are provided separately with their required inputs and instructions.
-- `nb201_v1/evaluate.py` is retained as source for its original paired-MAE function, extracted by the adapter without executing its training entry point. Use `run_all.py`, not historical helper entry points.
-
-## Citation
-
-Please cite the public code and data release accompanying the arXiv version:
-
-> Bose, T., Timofte, R., & Ignatov, D. (2026). *LAYER-ANALYSIS: Code and Data for Paper Reproduction* [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.24243274
-
-## Tests
+After the table command finishes:
 
 ```bash
-python -B -m unittest discover -s tests -p "test_*.py" -v
+python run_images.py
 ```
 
-These tests cover the reproduction workflow, not the original model-training suite. A successful full run is recorded separately in its output receipt.
+Writes all 16 final-paper images as PDF/PNG to **`recomputed/images/`**.
+It reads the completed tables without rerunning their calculations.
 
-The study builds on [nn-Dataset](https://github.com/ABrain-One/nn-dataset), [nn-gpt](https://github.com/ABrain-One/nn-gpt), and NAS-Bench-201. No blanket license or relicensing of upstream code/data is asserted.
+Existing output directories are never overwritten. Use `--out NEW_DIRECTORY` for another run;
+give `run_images.py --inputs TABLE_DIRECTORY` if you used a different table output path.
+Detailed logs and provenance are retained under each output's `workflows/` directory.
+
+[Reproduction scope and known paper discrepancies](docs/FINAL_PAPER_REPRODUCIBILITY.md) ·
+[Citation / Zenodo release](https://doi.org/10.5281/zenodo.24243274)
