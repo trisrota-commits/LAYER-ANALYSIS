@@ -34,3 +34,15 @@ def test_final_image_export_names_and_preservation(tmp_path):
     (source/'fig_cost.pdf').write_bytes(b'changed')
     with pytest.raises(ValueError):module.export(source,tmp_path/'bad')
     assert not (tmp_path/'bad').exists()
+
+
+def test_already_final_layout_is_not_remapped(tmp_path):
+    from analysis.final_paper_images import export, PLACEMENTS
+    source=tmp_path/'source';source.mkdir()
+    index=source/'FIGURE_INDEX.json'
+    index.write_text(json.dumps(dict(status='complete',figures={p:{} for p,_,_ in PLACEMENTS})))
+    digest=hashlib.sha256(index.read_bytes()).hexdigest()
+    (source/'complete.json').write_text(json.dumps(dict(status='complete',files_sha256={'FIGURE_INDEX.json':digest})))
+    with pytest.raises(ValueError,match='legacy'):
+        export(source,tmp_path/'out')
+    assert not (tmp_path/'out').exists()

@@ -1,5 +1,10 @@
 # Revision workflows
 
+The public commands are now **`python run_tables.py`** (all tables and sensitivity
+analyses) and **`python run_images.py`** (all final images from completed tables).
+The commands below document internal/historical stages for targeted diagnostics;
+they are not a checklist users must execute to reproduce the final paper.
+
 These are explicit additions to `run_all.py`. The existing `--list`, `--check`,
 `--out` and `--point4-report` interfaces retain their previous meaning.
 No revision mode submits Kubernetes Jobs or trains a language model.
